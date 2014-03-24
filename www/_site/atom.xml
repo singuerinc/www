@@ -4,7 +4,7 @@
  <title>@singuerinc / developer</title>
  <link href="http://www.singuerinc.com/atom.xml" rel="self"/>
  <link href="http://www.singuerinc.com/"/>
- <updated>2014-03-24T03:22:53+01:00</updated>
+ <updated>2014-03-24T04:34:41+01:00</updated>
  <id>http://www.singuerinc.com</id>
  <author>
    <name>Nahuel Scotti</name>
@@ -34,6 +34,14 @@
  </entry>
  
  <entry>
+   <title>Pro Combat</title>
+   <link href="http://www.singuerinc.com/2012/06/20/nike-pro-combat/"/>
+   <updated>2012-06-20T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2012/06/20/nike-pro-combat</id>
+   <content type="html"></content>
+ </entry>
+ 
+ <entry>
    <title>Cuchi-Cuchi</title>
    <link href="http://www.singuerinc.com/2012/06/20/cuchi-cuchi/"/>
    <updated>2012-06-20T00:00:00+02:00</updated>
@@ -43,9 +51,25 @@
  
  <entry>
    <title>A1 "Me gusta"</title>
-   <link href="http://www.singuerinc.com/2011/01/01/audi-a1-me-gusta/"/>
-   <updated>2011-01-01T00:00:00+01:00</updated>
-   <id>http://www.singuerinc.com/2011/01/01/audi-a1-me-gusta</id>
+   <link href="http://www.singuerinc.com/2011/06/01/audi-a1-me-gusta/"/>
+   <updated>2011-06-01T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2011/06/01/audi-a1-me-gusta</id>
+   <content type="html"></content>
+ </entry>
+ 
+ <entry>
+   <title>Som un</title>
+   <link href="http://www.singuerinc.com/2011/04/01/fcb-somos-uno/"/>
+   <updated>2011-04-01T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2011/04/01/fcb-somos-uno</id>
+   <content type="html"></content>
+ </entry>
+ 
+ <entry>
+   <title>Driving Experience</title>
+   <link href="http://www.singuerinc.com/2010/01/01/audi-driving-experience/"/>
+   <updated>2010-01-01T00:00:00+01:00</updated>
+   <id>http://www.singuerinc.com/2010/01/01/audi-driving-experience</id>
    <content type="html"></content>
  </entry>
  

@@ -56,7 +56,7 @@ strong {
 }
 
 .sidebar a:hover {
-	background-color: yellow;
+	background-color: cyan;
 }
 
 .sidebar a:focus, a:active {
@@ -72,4 +72,135 @@ strong {
 .sidebar-sticky {
 	bottom: auto;
 	left: 2rem;
+}
+
+html {
+	font-family: 'Lato';
+}
+
+header div a {
+	background-color: cyan;
+	display: inline;
+	color: black;
+	font-weight: 300;
+}
+
+ul.posts {
+	list-style: none;
+	padding: 0;
+	width: 960px;
+	overflow: hidden;
+}
+
+ul.posts li {
+	float: left;
+	width: 960px;
+	margin: 0 1px 1px 0;
+}
+
+ul.posts li img{
+	width: 960px;
+}
+
+ul.posts li a {
+	position: relative;
+	display: block;
+}
+
+ul.posts li a:hover .w-tags, ul.posts li a:hover .w-title {
+	display: block;
+}
+
+ul.posts li a:hover img {
+	opacity: 1;
+}
+
+ul.posts li a:hover img {
+	opacity: 0.1;
+}
+
+ul.posts li a:hover {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+ul.posts li a:hover {
+	background-color: rgba(0, 0, 0, .9);
+}
+
+ul.posts .w-title {
+	position: absolute;
+	top: 32%;
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	display: none;
+	color: white;
+	font-size: 36px;
+	padding-bottom: 7px;
+	font-weight: 300;
+}
+
+ul.posts .w-tags {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	text-align: center;
+	display: none;
+	color: rgba(255, 255, 255, .2);
+	font-size: 22px;
+	font-weight: 100;
+}
+
+.p .w-tech {
+	padding: 4px 6px;
+	background-color: #eee;
+	font-size: 12px;
+	margin-right: 4px;
+}
+
+.p .w-content {
+	margin: 20px 0;
+	-webkit-columns: 2;
+	   -moz-columns: 2;
+	        columns: 2;
+	width: 960px;
+}
+
+.p .w-agency {
+	font-weight: 300;
+}
+
+.post.p {
+	width: 960px;
+}
+
+h1.post-title {
+	font-size: 32px;
+	font-weight: 300;
+}
+
+h1.post-title .w-www a {
+	font-size: 12px;
+	color: #999;
+}
+
+.p hr {
+	width: 960px;
+}
+
+.p p {
+	font-size: 17px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.pagination: {
+	float: none;
+	clear: both;
 }

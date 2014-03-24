@@ -3,31 +3,14 @@ layout: default
 title: Home
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post w">
-    <a href="{{ post.url }}" class="w-link">
-      <img src="{{ post.image }}" alt="{{ post.title }}">
+<ul class="posts">
+  {% for post in site.posts %}
+  <li class="post w">
+    <a href="{{ post.url }}" class="w-link animated">
+      <img src="{{ post.image }}" alt="{{ post.title }}" class="animated">
       <h1 class="w-title">{{post.title}}</h1>
-      <span class="w-tags">{{ post.tags | join: " #" | prepend: '#'}}</span>
+      <span class="w-tags">{{ post.tech | join: " #" | prepend: '#'}}</span>
     </a>
-  </div>
+  </li>
   {% endfor %}
-</div>
-
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="/page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="/">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="/page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+</ul>
