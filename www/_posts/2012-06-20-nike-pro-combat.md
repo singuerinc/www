@@ -3,7 +3,7 @@ layout: post
 title: Pro Combat
 client: Nike
 agency:
-    - doubleyou
+    - Doubleyou
 tech:
   - flash
   - actionscript-3

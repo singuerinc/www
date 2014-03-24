@@ -3,7 +3,7 @@ layout: post
 title: Estudio de la risa
 client: Evax
 agency:
-    - doubleyou
+    - Doubleyou
 tech:
   - flash
   - actionscript-3
