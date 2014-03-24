@@ -1,0 +1,31 @@
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+
+    <ul>
+<!--
+      <li><a href="#">Medecins du monde</a></li>
+      <li><a href="#">Selfless Selfie</a></li>
+      <li><a href="#">Person of interest</a></li>
+      <li><a href="#">Beats by Dr. Dre</a></li>
+      <li><a href="#">Wonderverse</a></li>
+      <li><a href="#">Ford Transit</a></li>
+      <li><a href="#">Lick and Ride</a></li>
+      <li><a href="#">Cuchi-Cuchi</a></li>
+      <li><a href="#">Roberto Ivan Cano</a></li>
+      <li><a href="#">Nike 'Pro Combat'</a></li>
+      <li><a href="#">Audi 'Driving experience'<a></li>
+      <li><a href="#">Pepe Jeans<a></li>
+      <li><a href="#">Evax 'Estudio risa'<a></li>
+      <li><a href="#">San Miguel<a></li>
+      <li><a href="#">Atr&aacute;palo 'Rev&iacute;velo'<a></li>
+      <li><a href="#">F.C. Barcelona<a></li>
+-->
+
+    {% for post in site.posts %}
+      <li><a href="{{ post.url }}">{{post.title}}</a></li>
+    {% endfor %}
+
+    </ul>
+
+  </div>
+</div>

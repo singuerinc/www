@@ -1,0 +1,24 @@
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            '@singuerinc / developer'
+tagline:          ''
+description:      ''
+url:              http://www.singuerinc.com
+
+author:
+  name:           'Nahuel Scotti'
+  url:            https://twitter.com/singuerinc
+
+paginate:         5
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/singuerinc/

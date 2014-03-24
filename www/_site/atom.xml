@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>@singuerinc / developer</title>
+ <link href="http://www.singuerinc.com/atom.xml" rel="self"/>
+ <link href="http://www.singuerinc.com/"/>
+ <updated>2014-03-24T03:22:53+01:00</updated>
+ <id>http://www.singuerinc.com</id>
+ <author>
+   <name>Nahuel Scotti</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Names not numbers</title>
+   <link href="http://www.singuerinc.com/2014/03/15/names-not-numbers/"/>
+   <updated>2014-03-15T00:00:00+01:00</updated>
+   <id>http://www.singuerinc.com/2014/03/15/names-not-numbers</id>
+   <content type="html">&lt;p&gt;The digital experience is based on a film, documenting the actual machine’s mechanics in a highly delicate manner.&lt;/p&gt;
+
+&lt;p&gt;Every minute a new name is presented on a card, ready to be claimed and sent out into the digital space. By directly targeting those in power through sharing the names in social media, each act doesn’t just reach one person but have the potential och breaking through to thousands.&lt;/p&gt;
+
+&lt;p&gt;With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Roberto Ivan Cano</title>
+   <link href="http://www.singuerinc.com/2012/12/15/roberto-ivan-cano/"/>
+   <updated>2012-12-15T00:00:00+01:00</updated>
+   <id>http://www.singuerinc.com/2012/12/15/roberto-ivan-cano</id>
+   <content type="html"></content>
+ </entry>
+ 
+ <entry>
+   <title>Cuchi-Cuchi</title>
+   <link href="http://www.singuerinc.com/2012/06/20/cuchi-cuchi/"/>
+   <updated>2012-06-20T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2012/06/20/cuchi-cuchi</id>
+   <content type="html"></content>
+ </entry>
+ 
+ <entry>
+   <title>A1 "Me gusta"</title>
+   <link href="http://www.singuerinc.com/2011/01/01/audi-a1-me-gusta/"/>
+   <updated>2011-01-01T00:00:00+01:00</updated>
+   <id>http://www.singuerinc.com/2011/01/01/audi-a1-me-gusta</id>
+   <content type="html"></content>
+ </entry>
+ 
+
+</feed>

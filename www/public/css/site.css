@@ -1,0 +1,75 @@
+html {
+	font-size: 12px;
+	font-family: 'Roboto';
+}
+
+body {
+	color: #777;
+}
+
+header {
+	padding: 2rem 0 2rem 23rem;
+	font-size: 2rem;
+	font-weight: 100;
+	color: #333;
+}
+
+img {
+	border-radius: 0;
+}
+
+h1, h2, h3 {
+	font-weight: 100;
+}
+
+h1 a {
+	font-size: 3rem;
+	color: black;
+}
+
+h2 {
+	font-size: 2.2rem;
+	color: #666;
+}
+
+
+strong {
+	font-weight: 700;
+}
+
+.content .container {
+
+}
+
+.content {
+	padding-top: 0;
+}
+
+.sidebar {
+	background-color: white;
+	color: black;
+	margin-top: 6rem;
+}
+
+.sidebar a {
+	color: black;
+}
+
+.sidebar a:hover {
+	background-color: yellow;
+}
+
+.sidebar a:focus, a:active {
+	color: white;
+	background-color: black !important;
+}
+
+.sidebar ul {
+	list-style: none;
+	padding: 0px;
+}
+
+.sidebar-sticky {
+	bottom: auto;
+	left: 2rem;
+}
