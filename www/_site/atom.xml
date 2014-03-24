@@ -4,7 +4,7 @@
  <title>@singuerinc / developer</title>
  <link href="http://www.singuerinc.com/atom.xml" rel="self"/>
  <link href="http://www.singuerinc.com/"/>
- <updated>2014-03-24T04:34:41+01:00</updated>
+ <updated>2014-03-24T09:15:19+01:00</updated>
  <id>http://www.singuerinc.com</id>
  <author>
    <name>Nahuel Scotti</name>
@@ -70,6 +70,14 @@
    <link href="http://www.singuerinc.com/2010/01/01/audi-driving-experience/"/>
    <updated>2010-01-01T00:00:00+01:00</updated>
    <id>http://www.singuerinc.com/2010/01/01/audi-driving-experience</id>
+   <content type="html"></content>
+ </entry>
+ 
+ <entry>
+   <title>Estudio de la risa</title>
+   <link href="http://www.singuerinc.com/2009/01/01/exax-estudio-risa/"/>
+   <updated>2009-01-01T00:00:00+01:00</updated>
+   <id>http://www.singuerinc.com/2009/01/01/exax-estudio-risa</id>
    <content type="html"></content>
  </entry>
  
