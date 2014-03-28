@@ -3,7 +3,7 @@ layout: post
 title: Driving Experience
 client: Audi
 agency:
-    - doubleyou
+    - Doubleyou
 tech:
   - flash
   - actionscript-3

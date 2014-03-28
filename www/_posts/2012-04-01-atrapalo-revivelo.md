@@ -1,19 +1,19 @@
 ---
 layout: post
-title: Rev&iacute;velo
-client: Atr&accute;palo
+title: Revívelo
+client: Atrápalo
 agency:
-    - doubleyou
+  - doubleyou
 tech:
   - flash
   - actionscript-3
   - facebook-api
-  tags:
+tags:
   - doubleyou
   - flash
   - as3
   - interactive
-image: "/public/img/fcb-somos-uno/fcb-somos-uno-1.jpg"
+image: "/public/img/atrapalo-revivelo/atrapalo-revivelo.jpg"
 ---
 
 <iframe width="960" height="540" src="//www.youtube.com/embed/tJBfbUN1dvY" frameborder="0" allowfullscreen></iframe>

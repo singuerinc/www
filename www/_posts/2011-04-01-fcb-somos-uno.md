@@ -3,7 +3,7 @@ layout: post
 title: Som un
 client: FC Barcelona
 agency:
-    - doubleyou
+    - Doubleyou
 tech:
   - flash
   - actionscript-3

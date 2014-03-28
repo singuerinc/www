@@ -19,7 +19,7 @@ img {
 }
 
 h1, h2, h3 {
-	font-weight: 100;
+	font-weight: 300;
 }
 
 h1 a {
@@ -45,15 +45,24 @@ strong {
 	padding-top: 0;
 }
 
+.page {
+	width: 960px;
+}
+
 .sidebar {
 	background-color: white;
 	color: black;
 	margin-top: 6rem;
 }
 
-.sidebar a {
+.sidebar a, a {
 	color: black;
 }
+
+.sidebar a {
+	text-transform: uppercase;
+}
+
 
 .sidebar a:hover {
 	background-color: cyan;
@@ -177,7 +186,8 @@ ul.posts .w-tags {
 }
 
 .p .w-content {
-	margin: 40px 0;
+	margin: 20px 0;
+	width: 960px;
 }
 
 .p .w-agency {
@@ -207,8 +217,13 @@ h1.post-title .w-www a {
 	width: 960px;
 }
 
-.p p {
-	font-size: 17px;
+p {
+	font-size: 18px;
+	font-weight: 300;
+}
+
+p strong {
+	font-weight: 400;
 }
 
 .animated {
@@ -221,4 +236,8 @@ h1.post-title .w-www a {
 .pagination: {
 	float: none;
 	clear: both;
+}
+
+blockquote p {
+	font-size: 12px;
 }

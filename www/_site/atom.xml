@@ -4,7 +4,7 @@
  <title>@singuerinc / developer</title>
  <link href="http://www.singuerinc.com/atom.xml" rel="self"/>
  <link href="http://www.singuerinc.com/"/>
- <updated>2014-03-28T14:55:44+01:00</updated>
+ <updated>2014-03-28T15:09:36+01:00</updated>
  <id>http://www.singuerinc.com</id>
  <author>
    <name>Nahuel Scotti</name>
@@ -22,6 +22,8 @@
 &lt;p&gt;Every minute a new name is presented on a card, ready to be claimed and sent out into the digital space. By directly targeting those in power through sharing the names in social media, each act doesn’t just reach one person but have the potential och breaking through to thousands.&lt;/p&gt;
 
 &lt;p&gt;With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.&lt;/p&gt;
+
+&lt;iframe src=&quot;//player.vimeo.com/video/89640595?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;960&quot; height=&quot;540&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 </content>
  </entry>
  
@@ -43,6 +45,14 @@
  </entry>
  
  <entry>
+   <title>Pepe Jeans</title>
+   <link href="http://www.singuerinc.com/2012/06/20/pepe-jeans/"/>
+   <updated>2012-06-20T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2012/06/20/pepe-jeans</id>
+   <content type="html"></content>
+ </entry>
+ 
+ <entry>
    <title>Pro Combat</title>
    <link href="http://www.singuerinc.com/2012/06/20/nike-pro-combat/"/>
    <updated>2012-06-20T00:00:00+02:00</updated>
@@ -59,7 +69,7 @@
  </entry>
  
  <entry>
-   <title>Atrapalo Revivelo</title>
+   <title>Revívelo</title>
    <link href="http://www.singuerinc.com/2012/04/01/atrapalo-revivelo/"/>
    <updated>2012-04-01T00:00:00+02:00</updated>
    <id>http://www.singuerinc.com/2012/04/01/atrapalo-revivelo</id>

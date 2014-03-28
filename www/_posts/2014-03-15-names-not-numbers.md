@@ -3,7 +3,7 @@ layout: post
 title: Names not numbers
 client: Médecins du Monde
 agency:
-    - b-reel
+    - B-REEL
 tech:
   - html5
   - javascript
@@ -23,3 +23,5 @@ The digital experience is based on a film, documenting the actual machine’s me
 Every minute a new name is presented on a card, ready to be claimed and sent out into the digital space. By directly targeting those in power through sharing the names in social media, each act doesn’t just reach one person but have the potential och breaking through to thousands.
 
 With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.
+
+<iframe src="//player.vimeo.com/video/89640595?title=0&amp;byline=0&amp;portrait=0" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

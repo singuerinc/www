@@ -3,7 +3,7 @@ layout: post
 title: A1 "Me gusta"
 client: Audi
 agency:
-    - doubleyou
+    - Doubleyou
 tech:
   - flash
   - actionscript-3
