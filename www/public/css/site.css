@@ -111,30 +111,45 @@ ul.posts li a:hover .w-tags, ul.posts li a:hover .w-title {
 	display: block;
 }
 
-ul.posts li a:hover img {
+ul.posts li a img {
 	opacity: 1;
+	-webkit-transition: opacity 2s;
+	transition: opacity 2s;
 }
 
 ul.posts li a:hover img {
 	opacity: 0.1;
 }
 
-ul.posts li a:hover {
-	background-color: rgba(0, 0, 0, 0);
+ul.posts li a {
+	-webkit-transition: background-color 0.1s;
+	transition: background-color 0.1s;
+	background-color: rgba(0, 0, 0, 1);
 }
 
 ul.posts li a:hover {
 	background-color: rgba(0, 0, 0, .9);
 }
 
-ul.posts .w-title {
+ul.posts li a:hover .w-title {
+	opacity: 1;
+}
+
+
+ul.posts li a:hover .w-tags {
+	opacity: 1;
+}
+
+ul.posts li a .w-title {
+	-webkit-transition: opacity 0.6s;
+	transition: opacity 0.6s;
 	position: absolute;
 	top: 32%;
 	border-bottom: 1px solid rgba(255, 255, 255, .1);
 	width: 100%;
 	text-align: center;
 	text-transform: uppercase;
-	display: none;
+	opacity: 0;
 	color: white;
 	font-size: 36px;
 	padding-bottom: 7px;
@@ -142,11 +157,13 @@ ul.posts .w-title {
 }
 
 ul.posts .w-tags {
+	-webkit-transition: opacity 0.8s;
+	transition: opacity 0.8s;
 	position: absolute;
 	top: 50%;
 	width: 100%;
 	text-align: center;
-	display: none;
+	opacity: 0;
 	color: rgba(255, 255, 255, .2);
 	font-size: 22px;
 	font-weight: 100;
@@ -160,8 +177,7 @@ ul.posts .w-tags {
 }
 
 .p .w-content {
-	margin: 20px 0;
-	width: 480px;
+	margin: 40px 0;
 }
 
 .p .w-agency {
@@ -170,6 +186,11 @@ ul.posts .w-tags {
 
 .post.p {
 	width: 960px;
+	font-weight: 300;
+}
+
+.post.p strong {
+	font-weight: 400;
 }
 
 h1.post-title {

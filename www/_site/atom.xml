@@ -4,7 +4,7 @@
  <title>@singuerinc / developer</title>
  <link href="http://www.singuerinc.com/atom.xml" rel="self"/>
  <link href="http://www.singuerinc.com/"/>
- <updated>2014-03-24T11:37:51+01:00</updated>
+ <updated>2014-03-28T14:55:44+01:00</updated>
  <id>http://www.singuerinc.com</id>
  <author>
    <name>Nahuel Scotti</name>
@@ -32,19 +32,13 @@
    <id>http://www.singuerinc.com/2012/12/15/roberto-ivan-cano</id>
    <content type="html">&lt;p&gt;Sus trabajos se publican en las mejores revistas nacionales e internaciones especializadas en viajes y deportes outdoor, tales como &lt;strong&gt;Traveller, National Geographic Viajes, GEO, Altair, Lonely Planet, Oxígeno, De Viajes NOX, DT o Harpers Bazars Singapur&lt;/strong&gt; entre otras.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/public/img/roberto-ivan-cano/roberto-ivan-cano-01.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-
 &lt;p&gt;Roberto quería exponer sus trabajos de un modo claro y sencillo, actualizando la antigua version de Flash a &lt;strong&gt;HTML5&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;El dise&amp;ntilde;o hace incapi&amp;eacute; en las fotos.&lt;/p&gt;
 
 &lt;p&gt;Adem&amp;aacute;s, Roberto tiene tanto material que necesitaba un gestor de contenidos y multi-idioma para gestionarlo.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/public/img/roberto-ivan-cano/roberto-ivan-cano-03.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-
 &lt;p&gt;La soluci&amp;oacute;n ha sido un website en &lt;strong&gt;Ruby on Rails&lt;/strong&gt;, &lt;strong&gt;responsive design&lt;/strong&gt;, integraci&amp;oacute;n con Google&amp;#39;s Maps, la navegaci&amp;oacute;n en el site y sobre todo en la galer&amp;iacute;a es muy simple y accesible.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/public/img/roberto-ivan-cano/roberto-ivan-cano-02.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -62,6 +56,15 @@
    <updated>2012-06-20T00:00:00+02:00</updated>
    <id>http://www.singuerinc.com/2012/06/20/cuchi-cuchi</id>
    <content type="html"></content>
+ </entry>
+ 
+ <entry>
+   <title>Atrapalo Revivelo</title>
+   <link href="http://www.singuerinc.com/2012/04/01/atrapalo-revivelo/"/>
+   <updated>2012-04-01T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2012/04/01/atrapalo-revivelo</id>
+   <content type="html">&lt;iframe width=&quot;960&quot; height=&quot;540&quot; src=&quot;//www.youtube.com/embed/tJBfbUN1dvY&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+</content>
  </entry>
  
  <entry>
