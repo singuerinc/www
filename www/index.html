@@ -5,7 +5,7 @@ title: Home
 
 <ul class="posts">
   {% for post in site.posts %}
-  <li class="post w">
+  <li class="post w {% for award in post.awards %}{{award}}{% endfor %}">
     <a href="{{ post.url }}" class="w-link animated">
       <img src="{{ post.image }}" alt="{{ post.title }}" class="animated">
       <h1 class="w-title">{{post.title}}</h1>

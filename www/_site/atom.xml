@@ -4,7 +4,7 @@
  <title>@singuerinc / developer</title>
  <link href="http://www.singuerinc.com/atom.xml" rel="self"/>
  <link href="http://www.singuerinc.com/"/>
- <updated>2014-03-28T15:09:36+01:00</updated>
+ <updated>2014-04-03T02:47:13+02:00</updated>
  <id>http://www.singuerinc.com</id>
  <author>
    <name>Nahuel Scotti</name>
@@ -17,13 +17,21 @@
    <link href="http://www.singuerinc.com/2014/03/15/names-not-numbers/"/>
    <updated>2014-03-15T00:00:00+01:00</updated>
    <id>http://www.singuerinc.com/2014/03/15/names-not-numbers</id>
-   <content type="html">&lt;p&gt;The digital experience is based on a film, documenting the actual machine’s mechanics in a highly delicate manner.&lt;/p&gt;
-
-&lt;p&gt;Every minute a new name is presented on a card, ready to be claimed and sent out into the digital space. By directly targeting those in power through sharing the names in social media, each act doesn’t just reach one person but have the potential och breaking through to thousands.&lt;/p&gt;
-
-&lt;p&gt;With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.&lt;/p&gt;
+   <content type="html">&lt;p class=&quot;text&quot;&gt;
+The digital experience is based on a film, documenting the actual machine’s mechanics in a highly delicate manner.
+&lt;br/&gt;&lt;br/&gt;
+Every minute a new name is presented on a card, ready to be claimed and sent out into the digital space. By directly targeting those in power through sharing the names in social media, each act doesn’t just reach one person but have the potential och breaking through to thousands.
+&lt;br/&gt;&lt;br/&gt;
+With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.
+&lt;/p&gt;
 
 &lt;iframe src=&quot;//player.vimeo.com/video/89640595?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;960&quot; height=&quot;540&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/img/names-not-numbers/aisha.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;h4&gt;Awards&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.awwwards.com/web-design-awards/names-not-numbers&quot;&gt;Site of the day - www.awwwards.com&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -32,15 +40,15 @@
    <link href="http://www.singuerinc.com/2012/12/15/roberto-ivan-cano/"/>
    <updated>2012-12-15T00:00:00+01:00</updated>
    <id>http://www.singuerinc.com/2012/12/15/roberto-ivan-cano</id>
-   <content type="html">&lt;p&gt;Sus trabajos se publican en las mejores revistas nacionales e internaciones especializadas en viajes y deportes outdoor, tales como &lt;strong&gt;Traveller, National Geographic Viajes, GEO, Altair, Lonely Planet, Oxígeno, De Viajes NOX, DT o Harpers Bazars Singapur&lt;/strong&gt; entre otras.&lt;/p&gt;
+   <content type="html">&lt;p class=&quot;text&quot;&gt;
+&lt;strong&gt;Roberto Iv&amp;aacute;n Cano&lt;/strong&gt;&lt;br/&gt;
+Sus trabajos se publican en las mejores revistas nacionales e internaciones especializadas en viajes y deportes outdoor, tales como &lt;strong&gt;Traveller, National Geographic Viajes, GEO, Altair, Lonely Planet, Oxígeno, De Viajes NOX, DT o Harpers Bazars Singapur&lt;/strong&gt; entre otras.
+&lt;/p&gt;
 
-&lt;p&gt;Roberto quería exponer sus trabajos de un modo claro y sencillo, actualizando la antigua version de Flash a &lt;strong&gt;HTML5&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;El dise&amp;ntilde;o hace incapi&amp;eacute; en las fotos.&lt;/p&gt;
-
-&lt;p&gt;Adem&amp;aacute;s, Roberto tiene tanto material que necesitaba un gestor de contenidos y multi-idioma para gestionarlo.&lt;/p&gt;
-
-&lt;p&gt;La soluci&amp;oacute;n ha sido un website en &lt;strong&gt;Ruby on Rails&lt;/strong&gt;, &lt;strong&gt;responsive design&lt;/strong&gt;, integraci&amp;oacute;n con Google&amp;#39;s Maps, la navegaci&amp;oacute;n en el site y sobre todo en la galer&amp;iacute;a es muy simple y accesible.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/img/roberto-ivan-cano/roberto-ivan-cano-01.jpg&quot; /&gt;
+&lt;img src=&quot;/public/img/roberto-ivan-cano/roberto-ivan-cano-02.jpg&quot; /&gt;
+&lt;img src=&quot;/public/img/roberto-ivan-cano/roberto-ivan-cano-03.jpg&quot; /&gt;
+&lt;img src=&quot;/public/img/roberto-ivan-cano/roberto-ivan-cano-04.jpg&quot; /&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -49,7 +57,21 @@
    <link href="http://www.singuerinc.com/2012/06/20/pepe-jeans/"/>
    <updated>2012-06-20T00:00:00+02:00</updated>
    <id>http://www.singuerinc.com/2012/06/20/pepe-jeans</id>
-   <content type="html"></content>
+   <content type="html">&lt;p class=&quot;text&quot;&gt;
+Sit laboris velit nulla consectetur ea. Enim occaecat consectetur amet veniam fugiat esse et irure amet qui. Fugiat duis aute officia sunt ad proident. Sit et ullamco sunt dolor anim pariatur ea excepteur qui in veniam occaecat reprehenderit. Laboris quis officia esse sint anim dolore nostrud eu esse. Sunt ex qui ex reprehenderit minim culpa enim voluptate irure reprehenderit. Non ad id qui cillum nostrud incididunt culpa.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/img/pepe-jeans/pepe-jeans-02.jpg&quot; /&gt;
+&lt;p class=&quot;text&quot;&gt;
+Laborum fugiat dolore ex elit labore labore est irure velit velit sunt quis dolor proident.
+&lt;/p&gt;
+&lt;img src=&quot;/public/img/pepe-jeans/pepe-jeans-03.jpg&quot; /&gt;
+&lt;img src=&quot;/public/img/pepe-jeans/pepe-jeans-05.jpg&quot; /&gt;
+&lt;p class=&quot;text&quot;&gt;
+Laboris ullamco pariatur consectetur culpa ullamco ad et. Ipsum ipsum velit ad anim irure sint cillum in enim fugiat nulla consequat.
+&lt;/p&gt;
+&lt;img src=&quot;/public/img/pepe-jeans/pepe-jeans-04.jpg&quot; /&gt;&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -61,20 +83,45 @@
  </entry>
  
  <entry>
+   <title>My time is now</title>
+   <link href="http://www.singuerinc.com/2012/06/20/nike-my-time-is-now/"/>
+   <updated>2012-06-20T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2012/06/20/nike-my-time-is-now</id>
+   <content type="html">&lt;p&gt;INSIGHT:
+The updates on NikeFootballSpain social media channels usually have better results when they are related to the player with the best performance on the pitch.&lt;/p&gt;
+
+&lt;p&gt;IDEA:
+During Euro2012, real-time social media monitoring let us know, minute by minute, which player should be the standard bearer of the message &amp;quot;My Time Is Now&amp;quot;.
+At the Spain&amp;#39;s epicentre, static billboards were turned into interactive billboards.&lt;/p&gt;
+
+&lt;p&gt;IMPACT:
+National TV and digital media coverage.
+National team players spontaneus participation via their own social media accounts.
+High social media interaction.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AWARDS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;El Ojo de Iberoamérica 2012
+Innovation, Bronze.&lt;/p&gt;
+
+&lt;p&gt;Inspirational Festival 2012
+Social Media, Bronze.&lt;/p&gt;
+
+&lt;p&gt;Premios Genio 2012
+Best Creative Use of Outdoor, Gold.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Cuchi-Cuchi</title>
    <link href="http://www.singuerinc.com/2012/06/20/cuchi-cuchi/"/>
    <updated>2012-06-20T00:00:00+02:00</updated>
    <id>http://www.singuerinc.com/2012/06/20/cuchi-cuchi</id>
    <content type="html"></content>
- </entry>
- 
- <entry>
-   <title>Revívelo</title>
-   <link href="http://www.singuerinc.com/2012/04/01/atrapalo-revivelo/"/>
-   <updated>2012-04-01T00:00:00+02:00</updated>
-   <id>http://www.singuerinc.com/2012/04/01/atrapalo-revivelo</id>
-   <content type="html">&lt;iframe width=&quot;960&quot; height=&quot;540&quot; src=&quot;//www.youtube.com/embed/tJBfbUN1dvY&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-</content>
  </entry>
  
  <entry>
@@ -90,7 +137,59 @@
    <link href="http://www.singuerinc.com/2011/04/01/fcb-somos-uno/"/>
    <updated>2011-04-01T00:00:00+02:00</updated>
    <id>http://www.singuerinc.com/2011/04/01/fcb-somos-uno</id>
-   <content type="html"></content>
+   <content type="html">&lt;iframe width=&quot;960&quot; height=&quot;720&quot; src=&quot;//www.youtube.com/embed/nKFNOtTUxUk?rel=0&amp;vq=hd1080&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Revívelo</title>
+   <link href="http://www.singuerinc.com/2011/04/01/atrapalo-revivelo/"/>
+   <updated>2011-04-01T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2011/04/01/atrapalo-revivelo</id>
+   <content type="html">&lt;p class=&quot;text&quot;&gt;Atrapalo.com. Online travel, tickets and leisure agency.
+A trip is an unforgettable experience that generates memories forever in our minds. It make sense to explain that sensation using sci-fi imagery.
+The unimaginable can become reality. A fake company, &quot;Revívelo&quot; (re-live-it, live it again), offers unforgettable memory implants. Every ad is a perfect metaphor of Atrapalo&#39;s products.&lt;/p&gt;
+
+&lt;iframe width=&quot;960&quot; height=&quot;540&quot; src=&quot;//www.youtube.com/embed/tJBfbUN1dvY&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p class=&quot;text&quot;&gt;Revivelo.com became the meeting point between those who asked and those who knew the answers:
+835,000 visits, 45% direct traffic from offline campaign, 85,000 new registered users, 32,000 new Facebook likes, 23,000 shares, 6,500 comments.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/img/atrapalo-revivelo/atrapalo-revivelo-01.jpg&quot; /&gt;
+&lt;img src=&quot;/public/img/atrapalo-revivelo/atrapalo-revivelo-02.jpg&quot; /&gt;
+&lt;p class=&quot;text&quot;&gt;&lt;strong&gt;INSIGHT&lt;/strong&gt;&lt;br/&gt;
+A trip is an unforgettable experience so generate memories that remain forever in our minds, becoming valuable treasures.
+It does make sense to explain that using sci-fi codes.&lt;/p&gt;
+&lt;img src=&quot;/public/img/atrapalo-revivelo/atrapalo-revivelo-03.jpg&quot; /&gt;
+&lt;img src=&quot;/public/img/atrapalo-revivelo/atrapalo-revivelo-04.jpg&quot; /&gt;
+&lt;p class=&quot;text&quot;&gt;&lt;strong&gt;IDEA&lt;/strong&gt;&lt;br/&gt;
+The unimaginable can become reality. A fake company, &amp;quot;Revívelo&amp;quot; (re-live-it, live it again), offered unforgettable memory implants.
+Every ad was a perfect metaphor of Atrapalo&amp;#39;s products.&lt;/p&gt;
+&lt;img src=&quot;/public/img/atrapalo-revivelo/atrapalo-revivelo-05.jpg&quot; /&gt;
+&lt;img src=&quot;/public/img/atrapalo-revivelo/atrapalo-revivelo-06.jpg&quot; /&gt;
+&lt;p class=&quot;text&quot;&gt;&lt;strong&gt;IMPACT&lt;/strong&gt;&lt;br/&gt;
+Revivelo.com became the meeting point between those who asked and those who knew the answers:
+835,000 visits, 45% direct traffic from offline campaign, 85.000 new registered users, 32.000 new Facebook likes, 23.000 times shared, 6.500 comments.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/img/atrapalo-revivelo/atrapalo-revivelo-07.jpg&quot; /&gt;
+&lt;img src=&quot;/public/img/atrapalo-revivelo/atrapalo-revivelo-08.jpg&quot; /&gt;
+&lt;img src=&quot;/public/img/atrapalo-revivelo/atrapalo-revivelo-09.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h4&gt;Awards&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://elsolfestival.com/wp-content/uploads/2012/12/Palmar%C3%A9s.pdf&quot;&gt;El Sol: Silver (Digital)&lt;/a&gt;&lt;br/&gt;
+&lt;a href=&quot;http://premioseficacia.com/es/palmares-eficacia-2012/&quot;&gt;EFI: Silver (Integred campaign)&lt;/a&gt;&lt;br/&gt;
+&lt;a href=&quot;http://www.planol.info/documents/Laus2012_Orosplatas.pdf&quot;&gt;LAUS: Silver (Digital)&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Adapt</title>
+   <link href="http://www.singuerinc.com/2010/01/01/exax-adapt/"/>
+   <updated>2010-01-01T00:00:00+01:00</updated>
+   <id>http://www.singuerinc.com/2010/01/01/exax-adapt</id>
+   <content type="html">&lt;iframe width=&quot;960&quot; height=&quot;540&quot; src=&quot;//www.youtube.com/embed/LbIDj8tChgU?rel=0&amp;vq=hd720&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+</content>
  </entry>
  
  <entry>
@@ -98,14 +197,6 @@
    <link href="http://www.singuerinc.com/2010/01/01/audi-driving-experience/"/>
    <updated>2010-01-01T00:00:00+01:00</updated>
    <id>http://www.singuerinc.com/2010/01/01/audi-driving-experience</id>
-   <content type="html"></content>
- </entry>
- 
- <entry>
-   <title>Estudio de la risa</title>
-   <link href="http://www.singuerinc.com/2009/01/01/exax-estudio-risa/"/>
-   <updated>2009-01-01T00:00:00+01:00</updated>
-   <id>http://www.singuerinc.com/2009/01/01/exax-estudio-risa</id>
    <content type="html"></content>
  </entry>
  

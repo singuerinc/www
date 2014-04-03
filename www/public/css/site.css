@@ -1,10 +1,10 @@
 html {
 	font-size: 12px;
-	font-family: 'Roboto';
 }
 
 body {
 	color: #777;
+	font-family: 'Roboto';
 }
 
 header {
@@ -98,10 +98,10 @@ ul.posts {
 	list-style: none;
 	padding: 0;
 	width: 960px;
-	overflow: hidden;
 }
 
 ul.posts li {
+	position: relative;
 	float: left;
 	width: 960px;
 	margin: 0 1px 1px 0;
@@ -186,7 +186,7 @@ ul.posts .w-tags {
 }
 
 .p .w-content {
-	margin: 20px 0;
+	margin: 0;
 	width: 960px;
 }
 
@@ -240,4 +240,53 @@ p strong {
 
 blockquote p {
 	font-size: 12px;
+}
+
+.post.award-awwwards_site_of_the_day:before {
+	content: '';
+	position: absolute;
+	width: 69px;
+	height: 105px;
+	background-color: red;
+	top: 0;
+	left: -1px;
+	z-index: 1;
+	background: url(/public/img/awards/awwwards_site_of_the_day-left.png) 0 0 no-repeat;
+	background-size: 100%;
+}
+
+.post.award-awwwards_site_of_the_day:before {
+	content: '';
+	position: absolute;
+	width: 69px;
+	height: 105px;
+	background-color: red;
+	top: 0;
+	left: -1px;
+	z-index: 1;
+	background: url(/public/img/awards/awwwards_site_of_the_day-left.png) 0 0 no-repeat;
+	background-size: 100%;
+}
+
+.post.award-sol_plata:before, .post.award-sol_bronce:before {
+	content: '';
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	background-color: red;
+	top: 10px;
+	left: 10px;
+	z-index: 1;
+	background: url(/public/img/awards/sol_plata.png) 0 0 no-repeat;
+	background-size: 100%;
+}
+
+.post.award-sol_bronce:before {
+	background: url(/public/img/awards/sol_bronce.png) 0 0 no-repeat;
+}
+
+p.text {
+	font-size: 15px;
+	width: 480px;
+	padding: 60px;
 }
