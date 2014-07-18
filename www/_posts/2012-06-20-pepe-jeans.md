@@ -14,6 +14,8 @@ tags:
   - html5
   - javascript
 image: "/public/img/pepe-jeans/pepe-jeans-01.jpg"
+www: ""
+www: "http://pepejeans.com/"
 ---
 
 <p class="text">

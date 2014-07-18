@@ -9,6 +9,8 @@ tech:
   - sinatra
   - html5
   - jquery
+  - backbone
+  - openshift
 tags:
   - small-machine
   - html5
@@ -16,5 +18,5 @@ tags:
   - ruby
   - sinatra
 image: "/public/img/cuchi-cuchi/cuchi-cuchi.jpg"
-www: http://www.cuchicuchi-guarderia.es/
+www: "http://www.cuchicuchi-guarderia.es/"
 ---

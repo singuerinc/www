@@ -8,8 +8,8 @@ body {
 }
 
 header {
-	padding: 2rem 0 2rem 23rem;
-	font-size: 2rem;
+	padding: 0 0 2rem 0;
+	font-size: 1.8rem;
 	font-weight: 100;
 	color: #333;
 }
@@ -37,29 +37,35 @@ strong {
 	font-weight: 700;
 }
 
-.content .container {
-
+.content.container h3 {
+	letter-spacing: 1px;
+	text-align: center;
 }
 
 .content {
-	padding-top: 0;
+	max-width: 48rem;
+	padding-top: 43px;
+}
+
+@media (max-width: 48rem) {
+	.content {
+		padding-top: 0;
+	}
 }
 
 .page {
-	width: 960px;
 }
 
 .sidebar {
 	background-color: white;
 	color: black;
-	margin-top: 6rem;
 }
 
 .sidebar a, a {
 	color: black;
 }
 
-.sidebar a {
+.sidebar ul a {
 	text-transform: uppercase;
 }
 
@@ -88,7 +94,6 @@ html {
 }
 
 header div a {
-	background-color: cyan;
 	display: inline;
 	color: black;
 	font-weight: 300;
@@ -97,59 +102,68 @@ header div a {
 ul.posts {
 	list-style: none;
 	padding: 0;
-	width: 960px;
+	width: 100%;
 }
 
 ul.posts li {
 	position: relative;
 	float: left;
-	width: 960px;
+	width: 100%;
 	margin: 0 1px 1px 0;
 }
 
-ul.posts li img{
-	width: 960px;
+ul.posts li.archive {
+	width: 50%;
+	margin: 0;
 }
 
-ul.posts li a {
+ul.posts li img{
+	width: 100%;
+}
+
+ul.posts li > a {
 	position: relative;
 	display: block;
 }
 
-ul.posts li a:hover .w-tags, ul.posts li a:hover .w-title {
+ul.posts li.archive a {
+	cursor: default !important;
+}
+
+ul.posts li > a:hover .w-tags, ul.posts li > a:hover .w-title {
 	display: block;
 }
 
-ul.posts li a img {
+ul.posts li > a img {
 	opacity: 1;
-	-webkit-transition: opacity 2s;
-	transition: opacity 2s;
+	-webkit-transition: opacity 1.5s;
+	transition: opacity 1.5s;
 }
 
-ul.posts li a:hover img {
+ul.posts li > a:hover img {
 	opacity: 0.1;
 }
 
-ul.posts li a {
+ul.posts li > a {
 	-webkit-transition: background-color 0.1s;
 	transition: background-color 0.1s;
 	background-color: rgba(0, 0, 0, 1);
 }
 
-ul.posts li a:hover {
+ul.posts li > a:hover {
 	background-color: rgba(0, 0, 0, .9);
 }
 
-ul.posts li a:hover .w-title {
+ul.posts li > a:hover .w-title {
 	opacity: 1;
 }
 
 
-ul.posts li a:hover .w-tags {
+ul.posts li > a:hover .w-tags {
 	opacity: 1;
 }
 
-ul.posts li a .w-title {
+ul.posts li > a .w-title {
 	-webkit-transition: opacity 0.6s;
 	transition: opacity 0.6s;
 	position: absolute;
@@ -165,6 +179,47 @@ ul.posts li a .w-title {
 	font-weight: 300;
 }
 
+ul.posts li.archive > a .w-title {
+	font-size: 20px;
+}
+
+ul.posts li.archive > a .w-tags {
+	font-size: 15px;
+	padding-top: 15px;
+}
+
+ul.posts li > a:hover span.w-www {
+	opacity: 1;
+}
+
+ul.posts li span.w-www {
+	opacity: 0;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: cyan;
+	position: absolute;
+	bottom: 15px;
+	width: 100%;
+	text-align: center;
+	transition: opacity 1.6s;
+}
+
+ul.posts li a span.w-info {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	padding: 0 15px;
+	color: grey;
+	transition: opacity 1.6s;
+	opacity: 0;
+	text-align: center;
+}
+
+ul.posts li > a:hover span.w-info {
+	opacity: 0.8;
+}
+
+
 ul.posts .w-tags {
 	-webkit-transition: opacity 0.8s;
 	transition: opacity 0.8s;
@@ -173,9 +228,10 @@ ul.posts .w-tags {
 	width: 100%;
 	text-align: center;
 	opacity: 0;
-	color: rgba(255, 255, 255, .2);
-	font-size: 22px;
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 16px;
 	font-weight: 100;
+	padding: 10px 20px 0 20px;
 }
 
 .p .w-tech {
@@ -187,7 +243,7 @@ ul.posts .w-tags {
 
 .p .w-content {
 	margin: 0;
-	width: 960px;
+	width: 100%;
 }
 
 .p .w-agency {
@@ -195,8 +251,12 @@ ul.posts .w-tags {
 }
 
 .post.p {
-	width: 960px;
+	width: 100%;
 	font-weight: 300;
+}
+
+.post img {
+	max-width: 100%;
 }
 
 .post.p strong {
@@ -287,6 +347,12 @@ blockquote p {
 
 p.text {
 	font-size: 15px;
-	width: 480px;
-	padding: 60px;
+	width: 100%;
+	padding: 25px 0;
+}
+
+@media (min-width: 48rem) {
+	.content {
+		max-width: 70rem;
+	}
 }

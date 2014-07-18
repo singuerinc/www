@@ -6,7 +6,7 @@ pygments:         true
 permalink:        pretty
 
 # Setup
-title:            '@singuerinc / developer'
+title:            '@singuerinc'
 tagline:          ''
 description:      ''
 url:              http://www.singuerinc.com

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>@singuerinc / developer</title>
+ <title>@singuerinc</title>
  <link href="http://www.singuerinc.com/atom.xml" rel="self"/>
  <link href="http://www.singuerinc.com/"/>
- <updated>2014-04-03T02:47:13+02:00</updated>
+ <updated>2014-07-18T23:57:08+02:00</updated>
  <id>http://www.singuerinc.com</id>
  <author>
    <name>Nahuel Scotti</name>
@@ -13,21 +13,35 @@
 
  
  <entry>
+   <title>Kick with Chrome</title>
+   <link href="http://www.singuerinc.com/2014/06/15/kick-with-chrome/"/>
+   <updated>2014-06-15T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2014/06/15/kick-with-chrome</id>
+   <content type="html"></content>
+ </entry>
+ 
+ <entry>
    <title>Names not numbers</title>
    <link href="http://www.singuerinc.com/2014/03/15/names-not-numbers/"/>
    <updated>2014-03-15T00:00:00+01:00</updated>
    <id>http://www.singuerinc.com/2014/03/15/names-not-numbers</id>
    <content type="html">&lt;p class=&quot;text&quot;&gt;
-The digital experience is based on a film, documenting the actual machine’s mechanics in a highly delicate manner.
+&lt;em&gt;The digital experience is based on a film, documenting the actual machine’s mechanics in a highly delicate manner.
 &lt;br/&gt;&lt;br/&gt;
 Every minute a new name is presented on a card, ready to be claimed and sent out into the digital space. By directly targeting those in power through sharing the names in social media, each act doesn’t just reach one person but have the potential och breaking through to thousands.
 &lt;br/&gt;&lt;br/&gt;
-With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.
+With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.*
+&lt;/em&gt;&lt;br/&gt;&lt;br/&gt;
+&lt;em&gt;&lt;small&gt;* Extracted from &lt;a href=&quot;http://www.b-reel.com/projects/digital/case/577/medecins-du-monde&quot; target=&quot;_blank&quot;&gt;www.b-reel.com&lt;/a&gt;&lt;/small&gt;&lt;/em&gt;
 &lt;/p&gt;
 
 &lt;iframe src=&quot;//player.vimeo.com/video/89640595?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;960&quot; height=&quot;540&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;p&gt;&lt;img src=&quot;/public/img/names-not-numbers/aisha.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p class=&quot;text&quot;&gt;
+I was in charge of create a
+&lt;/p&gt;
 
 &lt;h4&gt;Awards&lt;/h4&gt;
 
@@ -50,6 +64,14 @@ Sus trabajos se publican en las mejores revistas nacionales e internaciones espe
 &lt;img src=&quot;/public/img/roberto-ivan-cano/roberto-ivan-cano-03.jpg&quot; /&gt;
 &lt;img src=&quot;/public/img/roberto-ivan-cano/roberto-ivan-cano-04.jpg&quot; /&gt;&lt;/p&gt;
 </content>
+ </entry>
+ 
+ <entry>
+   <title>Cuchi-Cuchi</title>
+   <link href="http://www.singuerinc.com/2012/07/20/cuchi-cuchi/"/>
+   <updated>2012-07-20T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2012/07/20/cuchi-cuchi</id>
+   <content type="html"></content>
  </entry>
  
  <entry>
@@ -84,9 +106,9 @@ Laboris ullamco pariatur consectetur culpa ullamco ad et. Ipsum ipsum velit ad a
  
  <entry>
    <title>My time is now</title>
-   <link href="http://www.singuerinc.com/2012/06/20/nike-my-time-is-now/"/>
-   <updated>2012-06-20T00:00:00+02:00</updated>
-   <id>http://www.singuerinc.com/2012/06/20/nike-my-time-is-now</id>
+   <link href="http://www.singuerinc.com/2012/06/18/nike-my-time-is-now/"/>
+   <updated>2012-06-18T00:00:00+02:00</updated>
+   <id>http://www.singuerinc.com/2012/06/18/nike-my-time-is-now</id>
    <content type="html">&lt;p&gt;INSIGHT:
 The updates on NikeFootballSpain social media channels usually have better results when they are related to the player with the best performance on the pitch.&lt;/p&gt;
 
@@ -114,14 +136,6 @@ Social Media, Bronze.&lt;/p&gt;
 &lt;p&gt;Premios Genio 2012
 Best Creative Use of Outdoor, Gold.&lt;/p&gt;
 </content>
- </entry>
- 
- <entry>
-   <title>Cuchi-Cuchi</title>
-   <link href="http://www.singuerinc.com/2012/06/20/cuchi-cuchi/"/>
-   <updated>2012-06-20T00:00:00+02:00</updated>
-   <id>http://www.singuerinc.com/2012/06/20/cuchi-cuchi</id>
-   <content type="html"></content>
  </entry>
  
  <entry>

@@ -14,6 +14,8 @@ tags:
   - as3
   - interactive
 image: "/public/img/atrapalo-revivelo/atrapalo-revivelo.jpg"
+archive: 'archive'
+www: ""
 ---
 
 <p class="text">Atrapalo.com. Online travel, tickets and leisure agency.

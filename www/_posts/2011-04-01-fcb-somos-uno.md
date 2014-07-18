@@ -13,6 +13,8 @@ tags:
   - flash
   - as3
 image: "/public/img/fcb-somos-uno/fcb-somos-uno-1.jpg"
+archive: 'archive'
+www: ""
 awards: ['award-sol_bronce']
 ---
 
