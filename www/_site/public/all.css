@@ -1406,16 +1406,16 @@ blockquote p {
   background-size: 100%;
 }
 
-.post.award-awwwards_site_of_the_day:before {
+.post.thefwa_site_of_the_day:after {
   content: '';
   position: absolute;
-  width: 69px;
-  height: 105px;
+  width: 100px;
+  height: 100px;
   background-color: red;
   top: 0;
-  left: -1px;
+  right: 0;
   z-index: 1;
-  background: url("../../../../../../../public/img/awards/awwwards_site_of_the_day-left.png") 0 0 no-repeat;
+  background: url("../../../../../../../public/img/awards/fwa.png") 0 0 no-repeat;
   background-size: 100%;
 }
 

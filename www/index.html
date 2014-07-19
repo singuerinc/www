@@ -6,7 +6,7 @@ title: Home
 <h3>HERE'S WHAT I'VE BEEN WORKING ON</h3>
 <ul class="posts">
   {% for post in site.posts %}
-  <li id="{{post.id}}" class="post w {{post.archive}} {% for award in post.awards %}{{award}}{% endfor %}">
+  <li id="{{post.id}}" class="post w {{post.archive}} {{post.awards | join: ' '}}">
     {% if post.www == ''%}
     <a href="#{{ post.id }}" target="_self" class="w-link animated">
     {% else %}
