@@ -1,0 +1,9 @@
+{
+  "name": "singuerinc",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-concat-css": "^0.1.4"
+  }
+}
