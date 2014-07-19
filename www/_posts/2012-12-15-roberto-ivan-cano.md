@@ -14,7 +14,7 @@ tags:
   - small-machine
   - ruby-on-rails
 image: "/public/img/home/roberto-ivan-cano.jpg"
-www: http://www.robertoivancano.es/
+www: "http://www.robertoivancano.com/"
 ---
 
 <p class="text">
