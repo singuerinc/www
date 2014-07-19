@@ -15,7 +15,7 @@ tech:
 tags:
     - b-reel  
 
-image: "/public/img/kick-with-chrome/kick_01_960px.png"
+image: "/public/img/home/google--kick-with-chrome.jpg"
 www: "http://g.co/kickwithchrome"
 more: "http://www.b-reel.com/projects/digital/case/641/kick-with-chrome/"
 ---

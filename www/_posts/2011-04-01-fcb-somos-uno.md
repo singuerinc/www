@@ -12,7 +12,7 @@ tags:
   - doubleyou
   - flash
   - as3
-image: "/public/img/fcb-somos-uno/fcb-somos-uno-1.jpg"
+image: "/public/img/home/fcb--somos-uno.jpg"
 archive: 'archive'
 www: ""
 awards: ['award-sol_bronce']

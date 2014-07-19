@@ -11,7 +11,7 @@ tags:
   - doubleyou
   - flash
   - as3
-image: "/public/img/evax-adapt/evax-adapt.jpg"
+image: "/public/img/home/evax--adapt.jpg"
 archive: 'archive'
 www: ""
 ---

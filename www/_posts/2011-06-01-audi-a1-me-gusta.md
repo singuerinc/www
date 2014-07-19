@@ -14,7 +14,7 @@ tags:
   - flash
   - as3
   - facebook-api
-image: "/public/img/audi-a1-me-gusta/audi-a1-sportback-10.jpg"
+image: "/public/img/home/audi--a1-me-gusta.jpg"
 www: ""
 archive: 'archive'
 ---

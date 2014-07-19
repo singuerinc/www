@@ -14,7 +14,7 @@ tags:
   - html5
   - javascript
   - video
-image: "/public/img/names-not-numbers/image_1394117933_960px.jpg"
+image: "/public/img/home/medecins-du-monde--names-not-numbers.jpg"
 www: "http://www.names-not-numbers.org/"
 more: "http://www.b-reel.com/projects/digital/case/577/medecins-du-monde"
 awards: ['award-awwwards_site_of_the_day']

@@ -12,7 +12,7 @@ tags:
   - flash
   - actionscript-3
   - facebook-api
-image: "/public/img/nike-my-time-is-now/my-time-is-now.jpg"
+image: "/public/img/home/nike--my-time-is-now.jpg"
 www: ""
 archive: 'archive'
 ---

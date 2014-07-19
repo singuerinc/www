@@ -13,7 +13,7 @@ tech:
 tags:
   - small-machine
   - ruby-on-rails
-image: "/public/img/roberto-ivan-cano/big-island.jpg"
+image: "/public/img/home/roberto-ivan-cano.jpg"
 www: http://www.robertoivancano.es/
 ---
 
