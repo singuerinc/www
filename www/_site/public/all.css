@@ -1260,7 +1260,8 @@ ul.posts li > a .w-title {
   -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   position: absolute;
-  top: 32%;
+  top: 50%;
+  margin: -52px 0 0 0;
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   width: 100%;
   text-align: center;
@@ -1448,6 +1449,56 @@ p.text {
   .content {
     max-width: 70rem;
   }
+}
+
+@-webkit-keyframes fadeIn50 {
+  0% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn50 {
+  0% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn50 {
+  -webkit-animation-name: fadeIn50;
+  animation-name: fadeIn50;
+}
+
+@-webkit-keyframes fadeOut50 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes fadeOut50 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.fadeOut50 {
+  -webkit-animation-name: fadeOut50;
+  animation-name: fadeOut50;
 }
 @charset "UTF-8";
 

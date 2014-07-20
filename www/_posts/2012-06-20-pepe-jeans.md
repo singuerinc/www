@@ -13,7 +13,7 @@ tags:
   - doubleyou
   - html5
   - javascript
-image: "/public/img/home/pepe-jeans.jpg"
+image: "/public/img/home/pepe-jeans_50.jpg"
 www: "http://pepejeans.com/"
 ---
 
