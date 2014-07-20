@@ -1202,6 +1202,7 @@ ul.posts li {
   float: left;
   width: 100%;
   margin: 0 1px 1px 0;
+  opacity: 0;
 }
 
 ul.posts li.archive {
@@ -1384,7 +1385,7 @@ p strong {
   animation-fill-mode: both;
 }
 
-.pagination: {
+.pagination {
   float: none;
   clear: both;
 }
