@@ -73,11 +73,15 @@ Sus trabajos se publican en las mejores revistas nacionales e internaciones espe
         list = document.querySelectorAll('.content ul li');
         h3 = document.querySelector('.content h3');
 
-        for(var i=0; i<4; i++){
+        for(var i=0; i<list.length; i++){
             window.setTimeout((function (idx) {
                 var li = list[idx];
                 li.classList.add('animated');
-                li.classList.add('fadeInUp');
+                if (idx < 4) {
+                    li.classList.add('fadeInUp');
+                } else {
+                    li.classList.add('fadeIn');
+                }
             }).bind(this, i), (200*i)+500);
         }
 
