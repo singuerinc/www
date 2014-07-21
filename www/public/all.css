@@ -71,7 +71,7 @@ blockquote p:last-child {
 }
 
 .page blockquote p {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 @media (min-width: 30rem) {
@@ -100,7 +100,7 @@ img {
 }
 
 .page p {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 html {
@@ -446,7 +446,7 @@ ul.posts .w-tags {
 
 @-webkit-keyframes fadeIn50 {
   0% {
-    opacity: 0.9;
+    opacity: 0.85;
   }
 
   100% {
@@ -456,7 +456,7 @@ ul.posts .w-tags {
 
 @keyframes fadeIn50 {
   0% {
-    opacity: 0.9;
+    opacity: 0.85;
   }
 
   100% {
@@ -475,7 +475,7 @@ ul.posts .w-tags {
   }
 
   100% {
-    opacity: 0.9;
+    opacity: 0.85;
   }
 }
 
@@ -485,7 +485,7 @@ ul.posts .w-tags {
   }
 
   100% {
-    opacity: 0.9;
+    opacity: 0.85;
   }
 }
 
