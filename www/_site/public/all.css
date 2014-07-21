@@ -60,6 +60,27 @@ dl {
   margin-bottom: 1rem;
 }
 
+blockquote {
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.page blockquote p {
+  font-size: 12px;
+}
+
+@media (min-width: 30rem) {
+  blockquote {
+    padding-right: 5rem;
+    padding-left: 1.25rem;
+  }
+}
+
 img {
   display: block;
   margin: 0;
@@ -76,6 +97,10 @@ img {
 .page,
 .post {
   margin-bottom: 4em;
+}
+
+.page p {
+  font-size: 16px;
 }
 
 html {
