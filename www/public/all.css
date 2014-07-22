@@ -273,7 +273,10 @@ ul.posts li {
   float: left;
   width: 100%;
   margin: 0 0 10px 0;
-  opacity: 0;
+}
+
+ul.posts li.animated {
+    opacity: 0;
 }
 
 ul.posts li.archive {
@@ -300,9 +303,15 @@ ul.posts li > a:hover .w-title {
 }
 
 ul.posts li > a img {
-  opacity: 1;
+  opacity: 0;
   -webkit-transition: opacity 1.5s;
+  -moz-transition: opacity 1.5s;
+  -o-transition: opacity 1.5s;
   transition: opacity 1.5s;
+}
+
+ul.posts li > a img.loaded {
+  opacity: 1;
 }
 
 ul.posts li > a:hover img {
