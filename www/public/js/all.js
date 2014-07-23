@@ -45,8 +45,8 @@
     }
 
     echo.init({
-        offset: 250,
-        throttle: 250,
+        offset: 500,
+        throttle: 50,
         callback: function(element, op) {
             if(op === 'load') {
                 element.classList.add('loaded');
