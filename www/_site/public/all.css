@@ -303,15 +303,11 @@ ul.posts li > a:hover .w-title {
 }
 
 ul.posts li > a img {
-  opacity: 0;
+  opacity: 1;
   -webkit-transition: opacity 1.5s;
   -moz-transition: opacity 1.5s;
   -o-transition: opacity 1.5s;
   transition: opacity 1.5s;
-}
-
-ul.posts li > a img.loaded {
-  opacity: 1;
 }
 
 ul.posts li > a:hover img {
