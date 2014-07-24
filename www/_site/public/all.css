@@ -1,8 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box
-  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
 
 html,
@@ -266,6 +265,7 @@ ul.posts {
   list-style: none;
   padding: 0;
   width: 100%;
+  overflow: auto;
 }
 
 ul.posts li {
@@ -281,6 +281,10 @@ ul.posts li.animated {
 
 ul.posts li.archive {
   width: 50%;
+}
+
+ul.posts li.archive > a .w-title {
+    margin: -40px 0 0 0;
 }
 
 ul.posts li img {
@@ -337,7 +341,7 @@ ul.posts li > a .w-title {
   transition: opacity 0.6s;
   position: absolute;
   top: 50%;
-  margin: -52px 0 0 0;
+  margin: -40px 0 0 0;
   border-bottom: 1px solid rgba(255, 255, 255, .1);
   width: 100%;
   text-align: center;
@@ -347,15 +351,16 @@ ul.posts li > a .w-title {
   font-size: 36px;
   padding-bottom: 7px;
   font-weight: 300;
+  line-height: 40px;
 }
 
 ul.posts li.archive > a .w-title {
   font-size: 20px;
+  line-height: 25px;
 }
 
 ul.posts li.archive > a .w-tags {
-  font-size: 15px;
-  padding-top: 15px;
+  padding-top: 5px;
 }
 
 ul.posts li a span.w-info {
@@ -363,7 +368,7 @@ ul.posts li a span.w-info {
   bottom: 10px;
   width: 100%;
   padding: 0 15px;
-  color: grey;
+  color: #7a7a7a;
   transition: opacity 1.6s;
   opacity: 0;
   text-align: center;
@@ -371,7 +376,7 @@ ul.posts li a span.w-info {
 }
 
 ul.posts li > a:hover span.w-info {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 ul.posts .w-tags {
@@ -385,7 +390,7 @@ ul.posts .w-tags {
   color: rgba(255, 255, 255, 0.7);
   font-size: 16px;
   font-weight: 100;
-  padding: 10px 20px 0 20px;
+  padding: 15px 20px 0 20px;
 }
 
 .post img {
@@ -572,4 +577,8 @@ Copyright (c) 2014 Daniel Eden
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
+}
+
+.hide {
+    display: none;
 }

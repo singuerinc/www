@@ -5,7 +5,6 @@ client: Audi
 agency:
     - Doubleyou
 tech:
-  - flash
   - actionscript-3
   - facebook-api
   - FIVe3D

@@ -4,7 +4,7 @@ title: Home
 ---
 
 <h3>HERE'S WHAT I'VE BEEN WORKING ON</h3>
-<ul class="posts">
+<ul class="posts hide">
   {% for post in site.posts %}
   <li id="{{post.id}}" class="post w {{post.archive}} {{post.awards | join: ' '}}">
     {% if post.www == ''%}
@@ -12,7 +12,9 @@ title: Home
     {% else %}
     <a href="{{ post.www }}" target="_blank" class="w-link animated">
     {% endif %}
-      <img src="{{ post.image }}" alt="{{ post.title }}" class="animated" width="100%" height="100%">
+      <noscript>
+          <img src="" alt="{{ post.title }}" class="animated" width="100%">
+      </noscript>
       <h1 class="w-title">{{post.title}}</h1>
       <span class="w-tags">{{ post.tech | join: " · "}}</span>
       <span class="w-info">Client: {{ post.client }} / working at {{post.agency}} {% if post.www != ''%} · online{% else %} · offline{% endif %}</span>
@@ -21,4 +23,17 @@ title: Home
   {% endfor %}
 </ul>
 
+<script>
+    app = {};
+
+    app.posts = [];
+{% for post in site.posts %}
+    app.posts.push({
+        id: '{{post.id}}',
+        title: '{{post.title}}',
+        image: '{{post.image}}',
+        href: '{{post.www}}'
+    });
+{% endfor %}
+</script>
 <script src="public/js/all.js"></script>

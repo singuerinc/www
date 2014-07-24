@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Som un
-client: FC Barcelona
+client: Barcelona
 agency:
     - Doubleyou
 tech:
