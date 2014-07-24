@@ -56,6 +56,7 @@
         h3.classList.add('animated');
         h3.classList.add('fadeInDown');
 
+        document.querySelector('.loading').classList.add('hide');
         ul.classList.remove('hide');
 
         var aElm = document.querySelectorAll('.content ul li a');
