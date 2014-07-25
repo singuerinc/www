@@ -4,7 +4,6 @@
 
         var image = new Image();
         image.onload = (function () {
-            console.log('image loaded:', image.src);
             callback(image);
         }).bind(this);
         image.src = url;
@@ -13,7 +12,7 @@
     var postIdx = 0;
 
     var preload = function(posts, completeCallback){
-        var post = posts[postIdx++];;
+        var post = posts[postIdx++];
         if(typeof(post) !== 'undefined'){
             loadImg(post.image, (function(imgEl){
                 post.img = imgEl;

@@ -14,6 +14,7 @@ html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  min-width: 320px;
 }
 
 @media (min-width: 38rem) {
@@ -48,8 +49,8 @@ h1 {
 }
 
 h3 {
-  margin-top: 1.5rem;
-  font-size: 1.25rem;
+  margin-top: 0;
+  font-size: 1.20rem;
 }
 
 ul,
@@ -157,7 +158,7 @@ html {
 
 .content {
   padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 0;
 }
 
 @media (min-width: 48rem) {
@@ -208,7 +209,7 @@ h3 {
 
 .content {
   max-width: 48rem;
-  padding-top: 43px;
+  padding-top: 31px;
 }
 
 @media (max-width: 48rem) {
@@ -265,7 +266,8 @@ ul.posts {
   list-style: none;
   padding: 0;
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
+  height: 1%;
 }
 
 ul.posts li {
