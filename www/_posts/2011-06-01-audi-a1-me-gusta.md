@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A1 "Me gusta"
+title: "A1 &quot;Me gusta&quot;"
 client: Audi
 agency:
     - Doubleyou

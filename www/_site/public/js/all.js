@@ -37,7 +37,6 @@
 
             image = posts[k].img;
             image.alt = post.title;
-            image.width = '100%';
             image.class = 'animated';
 
             lEl.children[0].appendChild(image);

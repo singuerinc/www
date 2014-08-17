@@ -14,7 +14,7 @@ title: Home
     <a href="{{ post.www }}" target="_blank" class="w-link animated">
     {% endif %}
       <noscript>
-          <img src="" alt="{{ post.title }}" class="animated" width="100%">
+          <img src="{{ post.image }}" alt="{{ post.title }}" class="animated" />
       </noscript>
       <h1 class="w-title">{{post.title}}</h1>
       <span class="w-tags">{{ post.tech | join: " · "}}</span>
