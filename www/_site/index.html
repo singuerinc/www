@@ -50,8 +50,21 @@
 
     <div class="content container">
       <h3>HERE'S WHAT I'VE BEEN WORKING ON</h3>
-<img class="loading" src="public/img/ajax_loading.gif" alt=""/>
+<img class="loading" src="public/img/preloader.gif" alt=""/>
 <ul class="posts hide">
+  
+  <li id="/2014/09/23/skoda-byggd-for-at-tta-skit" class="post w  ">
+    
+    <a href="http://byggdforatttaskit.se" target="_blank" class="w-link animated">
+    
+      <noscript>
+          <img src="/public/img/skoda-skit/skoda--byggd-for-att-ta-skit.jpg" alt="Byggd för att ta skit" class="animated" />
+      </noscript>
+      <h1 class="w-title">Byggd för att ta skit</h1>
+      <span class="w-tags">html5 · js · cms · nodejs · angularjs · socket.io</span>
+      <span class="w-info">Client: Skoda / working at B-REEL  · online</span>
+    </a>
+  </li>
   
   <li id="/2014/06/15/kick-with-chrome" class="post w  ">
     
@@ -215,6 +228,13 @@
     app = {};
 
     app.posts = [];
+
+    app.posts.push({
+        id: '/2014/09/23/skoda-byggd-for-at-tta-skit',
+        title: 'Byggd för att ta skit',
+        image: '/public/img/skoda-skit/skoda--byggd-for-att-ta-skit.jpg',
+        href: 'http://byggdforatttaskit.se'
+    });
 
     app.posts.push({
         id: '/2014/06/15/kick-with-chrome',
