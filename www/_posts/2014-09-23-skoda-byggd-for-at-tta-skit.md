@@ -12,9 +12,9 @@ tech:
     - angularjs
     - socket.io
 tags:
-    - b-reel  
+    - “b-reel”
 
-image: "/public/img/skoda-skit/skoda--byggd-for-att-ta-skit.jpg"
+image: "/public/img/home/skoda-skit/skoda--byggd-for-att-ta-skit.jpg"
 www: "http://byggdforatttaskit.se"
 more: "http://www.b-reel.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda"
 ---
