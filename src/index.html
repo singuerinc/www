@@ -24,7 +24,7 @@ title: Home
 <ul class="posts">
   {% for post in site.posts %}
   <li id="image--{{post.title|split:' '|join:'-'|downcase;}}" class="animated post w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
-    <meta itemprop="name" content="{{post.title}}"/>
+    <meta itemprop="name" content="{{post.client}} - {{post.title}}"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
     {% for award in post.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
     <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
