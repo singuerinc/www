@@ -5,17 +5,17 @@ var minifyCSS = require('gulp-minify-css');
 
 
 gulp.task('min-js', function() {
-   return gulp.src('www/public/js/all.js')
+   return gulp.src('src/all.js')
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
-    .pipe(gulp.dest('www/public/js/'));
+    .pipe(gulp.dest('src/'));
 });
 
 gulp.task('min-css', function() {
-   return gulp.src('www/public/all.css')
+   return gulp.src('src/all.css')
     .pipe(minifyCSS({keepBreaks:true}))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('www/public/'));
+    .pipe(gulp.dest('src/'));
 });
 
 gulp.task('default', ['min-css', 'min-js'], function() {
