@@ -40,6 +40,8 @@ img{display:block;margin:0}
 .page p{font-size:14px}
 @media (min-width:48rem){html{font-size:16px}}
 @media (min-width:58rem){html{font-size:20px}}
+html{font-size:12px}
+body{color:#777;font-family:Roboto,Helvetica,Arial,sans-serif!important}
 .sidebar{text-align:center;padding:2rem 1rem}
 .sidebar ul{display:none}
 .sidebar.mobile ul{display:block}
@@ -49,8 +51,6 @@ img{display:block;margin:0}
 .content{padding-bottom:0}
 @media (min-width:48rem){.content{max-width:38rem;margin-left:20rem;margin-right:2rem}}
 @media (min-width:64rem){.content{margin-left:22rem;margin-right:4rem}}
-html{font-size:12px}
-body{color:#777;font-family:Roboto}
 header{padding:0;font-size:1.8rem;font-weight:100;color:#333}
 img{border-radius:0}
 h1,h2,h3{font-weight:300}
@@ -81,8 +81,8 @@ ul.posts li>a .w-title{-webkit-transition:opacity .6s;transition:opacity .6s;pos
 .priority-0 .post-image,.priority-1 .post-image,.priority-2 .post-image{padding-top:47%}
 ul.posts li.priority-0>a .w-title{font-size:18px;line-height:inherit}
 ul.posts li.priority-0>a .w-tags{padding-top:5px}
-ul.posts li a span.w-info{position:absolute;bottom:10px;height:24px;opacity:0;color:#7a7a7a;width:100%;padding:10px;transition:opacity 1.6s;text-align:center;font-weight:400;display:block}
-ul.posts li>a:hover span.w-info{opacity:1}
+ul.posts li a .w-info{position:absolute;bottom:10px;height:24px;opacity:0;color:#7a7a7a;width:100%;padding:10px;transition:opacity 1.6s;text-align:center;font-weight:400;display:block}
+ul.posts li>a:hover .w-info{opacity:1}
 ul.posts .w-tags{-webkit-transition:opacity .8s;transition:opacity .8s;position:absolute;top:50%;width:100%;text-align:center;opacity:0;color:rgba(255,255,255,.7);font-size:16px;font-weight:100;padding:15px 20px 0}
 .post img{max-width:100%}
 .post.award-awwwards_site_of_the_day:before{content:'';position:absolute;width:69px;height:105px;top:0;left:-1px;z-index:1;background:url(img/awards/awwwards_site_of_the_day-left.png) 0 0/100% no-repeat}

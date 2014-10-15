@@ -180,7 +180,6 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   min-width: 320px;
@@ -273,10 +272,6 @@ img {
   font-size: 14px;
 }
 
-html {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-}
-
 @media (min-width: 48rem) {
   html {
     font-size: 16px;
@@ -287,6 +282,15 @@ html {
   html {
     font-size: 20px;
   }
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  color: #777;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
 }
 
 .sidebar {
@@ -349,15 +353,6 @@ html {
     margin-left: 22rem;
     margin-right: 4rem;
   }
-}
-
-html {
-  font-size: 12px;
-}
-
-body {
-  color: #777;
-  font-family: 'Roboto';
 }
 
 header {
@@ -536,7 +531,7 @@ ul.posts li.priority-0 > a .w-tags {
   padding-top: 5px;
 }
 
-ul.posts li a span.w-info {
+ul.posts li a .w-info {
 
   position: absolute;
   bottom: 10px;
@@ -551,7 +546,7 @@ ul.posts li a span.w-info {
   display: block;
 }
 
-ul.posts li > a:hover span.w-info {
+ul.posts li > a:hover .w-info {
   opacity: 1;
 }
 

@@ -24,7 +24,7 @@
 
   <style type="text/css">
     body {
-      display: none;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
   </style>
 
@@ -51,6 +51,18 @@
 </div>
 
 
+    <script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = '/all.min.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
+
     <div class="content container">
       <div class="page">
   <h1 class="page-title">404: Page not found</h1>
@@ -71,17 +83,6 @@
 </div>
 
 
-    <script>
-      var cb = function() {
-        var l = document.createElement('link'); l.rel = 'stylesheet';
-        l.href = '/all.min.css';
-        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-      };
-      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-          webkitRequestAnimationFrame || msRequestAnimationFrame;
-      if (raf) raf(cb);
-      else window.addEventListener('load', cb);
-    </script>
     <noscript>
       <link rel="stylesheet" type="text/css" href="/all.min.css">
     </noscript>

@@ -24,7 +24,7 @@
 
   <style type="text/css">
     body {
-      display: none;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
   </style>
 
@@ -50,6 +50,18 @@
   </div>
 </div>
 
+
+    <script>
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = '/all.min.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
 
     <div class="content container">
       <style scoped>
@@ -198,8 +210,8 @@
     
       <div class="post-image priority-2 animated"></div>
       <h1 class="w-title">Byggd för att ta skit</h1>
-      <span class="w-tags">html5 · js · cms · nodejs · angularjs · socket.io</span>
-      <span class="w-info">Client: Skoda / working at B-REEL  · online</span>
+      <div class="w-tags">html5 · js · cms · nodejs · angularjs · socket.io</div>
+      <div class="w-info">Client: Skoda / working at B-REEL  · online</div>
     </a>
   </li>
   
@@ -209,8 +221,8 @@
     
       <div class="post-image priority-2 animated"></div>
       <h1 class="w-title">Kick with Chrome</h1>
-      <span class="w-tags">html5 · js · websockets · webrtc · webaudio · accelerometer · vibration api</span>
-      <span class="w-info">Client: Google / working at B-REEL  · online</span>
+      <div class="w-tags">html5 · js · websockets · webrtc · webaudio · accelerometer · vibration api</div>
+      <div class="w-info">Client: Google / working at B-REEL  · online</div>
     </a>
   </li>
   
@@ -220,8 +232,8 @@
     
       <div class="post-image priority-2 animated"></div>
       <h1 class="w-title">Names not numbers</h1>
-      <span class="w-tags">html5 · javascript · php · aws</span>
-      <span class="w-info">Client: Médecins du Monde / working at B-REEL  · online</span>
+      <div class="w-tags">html5 · javascript · php · aws</div>
+      <div class="w-info">Client: Médecins du Monde / working at B-REEL  · online</div>
     </a>
   </li>
   
@@ -231,8 +243,8 @@
     
       <div class="post-image priority-2 animated"></div>
       <h1 class="w-title">Roberto Ivan Cano</h1>
-      <span class="w-tags">ruby-on-rails · cms · openshift · aws · google-maps</span>
-      <span class="w-info">Client: Porfolio / working at small-machine  · online</span>
+      <div class="w-tags">ruby-on-rails · cms · openshift · aws · google-maps</div>
+      <div class="w-info">Client: Porfolio / working at small-machine  · online</div>
     </a>
   </li>
   
@@ -242,8 +254,8 @@
     
       <div class="post-image priority-1 animated"></div>
       <h1 class="w-title">Cuchi-Cuchi</h1>
-      <span class="w-tags">ruby · sinatra · html5 · jquery · backbone · openshift</span>
-      <span class="w-info">Client: Guarder&iacute;a / working at small-machine  · online</span>
+      <div class="w-tags">ruby · sinatra · html5 · jquery · backbone · openshift</div>
+      <div class="w-info">Client: Guarder&iacute;a / working at small-machine  · online</div>
     </a>
   </li>
   
@@ -253,8 +265,8 @@
     
       <div class="post-image priority-1 animated"></div>
       <h1 class="w-title">Pepe Jeans</h1>
-      <span class="w-tags">html5 · javascript · backbone · jquery</span>
-      <span class="w-info">Client: Pepe Jeans / working at Doubleyou  · online</span>
+      <div class="w-tags">html5 · javascript · backbone · jquery</div>
+      <div class="w-info">Client: Pepe Jeans / working at Doubleyou  · online</div>
     </a>
   </li>
   
@@ -264,8 +276,8 @@
     
       <div class="post-image priority-0 animated"></div>
       <h1 class="w-title">Pro Combat</h1>
-      <span class="w-tags">flash · actionscript-3 · facebook-api</span>
-      <span class="w-info">Client: Nike / working at Doubleyou  · offline</span>
+      <div class="w-tags">flash · actionscript-3 · facebook-api</div>
+      <div class="w-info">Client: Nike / working at Doubleyou  · offline</div>
     </a>
   </li>
   
@@ -275,8 +287,8 @@
     
       <div class="post-image priority-0 animated"></div>
       <h1 class="w-title">My time is now</h1>
-      <span class="w-tags">flash · actionscript-3 · facebook-api</span>
-      <span class="w-info">Client: Nike / working at Doubleyou  · offline</span>
+      <div class="w-tags">flash · actionscript-3 · facebook-api</div>
+      <div class="w-info">Client: Nike / working at Doubleyou  · offline</div>
     </a>
   </li>
   
@@ -286,8 +298,8 @@
     
       <div class="post-image priority-0 animated"></div>
       <h1 class="w-title">A1 Me gusta</h1>
-      <span class="w-tags">actionscript-3 · facebook-api · FIVe3D</span>
-      <span class="w-info">Client: Audi / working at Doubleyou  · offline</span>
+      <div class="w-tags">actionscript-3 · facebook-api · FIVe3D</div>
+      <div class="w-info">Client: Audi / working at Doubleyou  · offline</div>
     </a>
   </li>
   
@@ -297,8 +309,8 @@
     
       <div class="post-image priority-0 animated"></div>
       <h1 class="w-title">Som un</h1>
-      <span class="w-tags">flash · actionscript-3 · papervision</span>
-      <span class="w-info">Client: FC Barcelona / working at Doubleyou  · offline</span>
+      <div class="w-tags">flash · actionscript-3 · papervision</div>
+      <div class="w-info">Client: FC Barcelona / working at Doubleyou  · offline</div>
     </a>
   </li>
   
@@ -308,8 +320,8 @@
     
       <div class="post-image priority-0 animated"></div>
       <h1 class="w-title">Revívelo</h1>
-      <span class="w-tags">flash · actionscript-3 · facebook-api</span>
-      <span class="w-info">Client: Atrápalo / working at doubleyou  · offline</span>
+      <div class="w-tags">flash · actionscript-3 · facebook-api</div>
+      <div class="w-info">Client: Atrápalo / working at doubleyou  · offline</div>
     </a>
   </li>
   
@@ -319,8 +331,8 @@
     
       <div class="post-image priority-0 animated"></div>
       <h1 class="w-title">Adapt</h1>
-      <span class="w-tags">flash · actionscript-3</span>
-      <span class="w-info">Client: Evax / working at Doubleyou  · offline</span>
+      <div class="w-tags">flash · actionscript-3</div>
+      <div class="w-info">Client: Evax / working at Doubleyou  · offline</div>
     </a>
   </li>
   
@@ -330,8 +342,8 @@
     
       <div class="post-image priority-0 animated"></div>
       <h1 class="w-title">Driving Experience</h1>
-      <span class="w-tags">flash · actionscript-3</span>
-      <span class="w-info">Client: Audi / working at Doubleyou  · offline</span>
+      <div class="w-tags">flash · actionscript-3</div>
+      <div class="w-info">Client: Audi / working at Doubleyou  · offline</div>
     </a>
   </li>
   
@@ -356,17 +368,6 @@
 </div>
 
 
-    <script>
-      var cb = function() {
-        var l = document.createElement('link'); l.rel = 'stylesheet';
-        l.href = '/all.min.css';
-        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-      };
-      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-          webkitRequestAnimationFrame || msRequestAnimationFrame;
-      if (raf) raf(cb);
-      else window.addEventListener('load', cb);
-    </script>
     <noscript>
       <link rel="stylesheet" type="text/css" href="/all.min.css">
     </noscript>
