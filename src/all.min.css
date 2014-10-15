@@ -24,7 +24,7 @@
 body,html{margin:0;padding:0}
 html{line-height:1.5;min-width:320px}
 @media (min-width:38rem){html{font-size:20px}}
-body{background-color:#fff;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+body{display:block!important;background-color:#fff;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
 a{text-decoration:none}
 a:focus,a:hover{text-decoration:underline}
 h1{font-size:2rem}
