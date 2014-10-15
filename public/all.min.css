@@ -60,7 +60,6 @@ h1,h2,h3{font-weight:300}
 .sidebar{background-color:#fff;color:#000}
 .sidebar a,a{color:#000}
 .sidebar ul a{text-transform:uppercase}
-.sidebar a:hover{background-color:#0ff}
 .sidebar a:focus,a:active{color:#fff;background-color:#000!important}
 .sidebar ul{list-style:none;padding:0}
 .sidebar-sticky{bottom:auto;left:2rem}

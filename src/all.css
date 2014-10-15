@@ -407,10 +407,6 @@ a {
   text-transform: uppercase;
 }
 
-.sidebar a:hover {
-  background-color: cyan;
-}
-
 .sidebar a:focus,
 a:active {
   color: white;
