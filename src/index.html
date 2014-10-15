@@ -23,17 +23,23 @@ title: Home
 <h3>HERE'S WHAT I'VE BEEN WORKING ON</h3>
 <ul class="posts">
   {% for post in site.posts %}
-  <li id="{{post.id}}" class="post w {{post.priority}} {{post.awards | join: ' '}}">
+  <li id="image--{{post.title|split:' '|join:'-'|downcase;}}" class="animated post w {{post.priority}} {{post.awards | join: ' '}}">
     {% if post.www == ''%}
     <a href="#{{ post.id }}" target="_self" class="w-link animated">
     {% else %}
     <a href="{{ post.www }}" target="_blank" class="w-link animated">
     {% endif %}
-      <div class="post-image {{post.title|split:' '|join:'-'|downcase;}} {{post.priority}} animated"></div>
+      <div class="post-image {{post.priority}} animated"></div>
       <h1 class="w-title">{{post.title}}</h1>
       <span class="w-tags">{{ post.tech | join: " · "}}</span>
       <span class="w-info">Client: {{ post.client }} / working at {{post.agency}} {% if post.www != ''%} · online{% else %} · offline{% endif %}</span>
     </a>
   </li>
   {% endfor %}
+
+  <script type="text/javascript">
+    var posts = [];
+    {% for post in site.posts %}posts.push({id: "{{post.title|split:' '|join:'-'|downcase;}}", image: "{{post.image}}"});{% endfor %}  
+  </script>
+  <script type="text/javascript" src="/all.min.js"></script>
 </ul>

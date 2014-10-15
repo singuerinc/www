@@ -4,14 +4,12 @@ var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 
 
-/*
 gulp.task('min-js', function() {
    return gulp.src('src/all.js')
     .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('src/'));
 });
-*/
 
 gulp.task('min-css', function() {
    return gulp.src('src/all.css')
@@ -20,6 +18,6 @@ gulp.task('min-css', function() {
     .pipe(gulp.dest('src/'));
 });
 
-gulp.task('default', ['min-css'], function() {
+gulp.task('default', ['min-css', 'min-js'], function() {
 
 });

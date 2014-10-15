@@ -112,9 +112,9 @@ Copyright (c) 2014 Daniel Eden
 @keyframes fadeIn{0%{opacity:0}
 100%{opacity:1}}
 .fadeIn{-webkit-animation-name:fadeIn;animation-name:fadeIn}
-@-webkit-keyframes fadeInUp{0%{opacity:0;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}
+@-webkit-keyframes fadeInUp{0%{opacity:0;-webkit-transform:translate3d(0,50%,0);transform:translate3d(0,50%,0)}
 100%{opacity:1;-webkit-transform:none;transform:none}}
-@keyframes fadeInUp{0%{opacity:0;-webkit-transform:translate3d(0,100%,0);-ms-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}
+@keyframes fadeInUp{0%{opacity:0;-webkit-transform:translate3d(0,50%,0);-ms-transform:translate3d(0,50%,0);transform:translate3d(0,50%,0)}
 100%{opacity:1;-webkit-transform:none;-ms-transform:none;transform:none}}
 .fadeInUp{-webkit-animation-name:fadeInUp;animation-name:fadeInUp}
 .loading{margin:0 auto}
