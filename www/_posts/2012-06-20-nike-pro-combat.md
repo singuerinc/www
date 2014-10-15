@@ -12,7 +12,7 @@ tags:
   - flash
   - actionscript-3
   - facebook-api
-image: "/public/img/home/nike--pro-combat.jpg"
+image: "/public/img/home/nike--pro-combat"
 www: ""
-archive: 'archive'
+priority: 'priority-0'
 ---

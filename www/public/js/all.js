@@ -1,5 +1,7 @@
 (function (app) {
 
+/*
+
     var loadImg = function (url, callback) {
 
         var image = new Image();
@@ -22,6 +24,10 @@
             completeCallback(posts);
         }
     };
+
+    */
+
+/*
 
     preload(app.posts, (function (posts) {
 
@@ -49,6 +55,10 @@
                 }).bind(this, list[k]), (200 * k) + 500);
             }
         }
+*/
+
+        var ul = document.querySelector('.content ul');
+        var list = document.querySelectorAll('.content ul li');
 
         var h3 = document.querySelector('.content h3');
         h3.classList.add('animated');
@@ -85,6 +95,6 @@
             }).bind(this, j));
         }
 
-    }).bind(this));
+    //}).bind(this));
 
 })(app);

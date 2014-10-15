@@ -7,15 +7,28 @@ title: Home
 <img class="loading" src="public/img/preloader.gif" alt=""/>
 <ul class="posts hide">
   {% for post in site.posts %}
-  <li id="{{post.id}}" class="post w {{post.archive}} {{post.awards | join: ' '}}">
+  <li id="{{post.id}}" class="post w {{post.priority}} {{post.awards | join: ' '}}">
     {% if post.www == ''%}
     <a href="#{{ post.id }}" target="_self" class="w-link animated">
     {% else %}
     <a href="{{ post.www }}" target="_blank" class="w-link animated">
     {% endif %}
-      <noscript>
-          <img src="{{ post.image }}" alt="{{ post.title }}" class="animated" />
-      </noscript>
+      <style>
+        
+        .post-image.{{post.title|split:' '|join:'-'|downcase;}}.{{post.priority}} {
+          background: url({{ post.image }}.jpg) no-repeat;
+          background-size: 100% auto;
+        }
+
+        @media (max-width: 768px) {
+          .post-image.{{post.title|split:' '|join:'-'|downcase;}}.{{post.priority}} {
+            background: url({{ post.image }}-md.jpg) no-repeat;
+            background-size: 100% auto;
+          }
+        }
+
+      </style>
+      <div class="post-image {{post.title|split:' '|join:'-'|downcase;}} {{post.priority}} animated"></div>
       <h1 class="w-title">{{post.title}}</h1>
       <span class="w-tags">{{ post.tech | join: " · "}}</span>
       <span class="w-info">Client: {{ post.client }} / working at {{post.agency}} {% if post.www != ''%} · online{% else %} · offline{% endif %}</span>
@@ -37,4 +50,4 @@ title: Home
     });
 {% endfor %}
 </script>
-<script src="public/js/all.min.js" async></script>
+<script src="public/js/all.js" async></script>

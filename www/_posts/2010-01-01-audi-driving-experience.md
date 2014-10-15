@@ -11,7 +11,7 @@ tags:
   - doubleyou
   - flash
   - as3
-image: "/public/img/home/audi--driving-experience.jpg"
+image: "/public/img/home/audi--driving-experience"
 www: ""
-archive: 'archive'
+priority: 'priority-0'
 ---

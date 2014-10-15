@@ -13,8 +13,8 @@ tags:
   - flash
   - as3
   - interactive
-image: "/public/img/home/atrapalo--revivelo.jpg"
-archive: 'archive'
+image: "/public/img/home/atrapalo--revivelo"
+priority: 'priority-0'
 www: ""
 ---
 

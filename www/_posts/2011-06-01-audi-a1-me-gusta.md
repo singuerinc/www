@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A1 &quot;Me gusta&quot;"
+title: A1 Me gusta
 client: Audi
 agency:
     - Doubleyou
@@ -13,7 +13,7 @@ tags:
   - flash
   - as3
   - facebook-api
-image: "/public/img/home/audi--a1-me-gusta.jpg"
+image: "/public/img/home/audi--a1-me-gusta"
 www: ""
-archive: 'archive'
+priority: 'priority-0'
 ---

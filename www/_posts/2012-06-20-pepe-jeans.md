@@ -13,8 +13,9 @@ tags:
   - doubleyou
   - html5
   - javascript
-image: "/public/img/home/pepe-jeans_50.jpg"
+image: "/public/img/home/pepe-jeans_50"
 www: "http://pepejeans.com/"
+priority: 'priority-1'
 ---
 
 <p class="text">

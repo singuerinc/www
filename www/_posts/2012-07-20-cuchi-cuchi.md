@@ -17,6 +17,7 @@ tags:
   - javascript
   - ruby
   - sinatra
-image: "/public/img/home/cuchi-cuchi_50.jpg"
+image: "/public/img/home/cuchi-cuchi_50"
 www: "http://www.cuchicuchi-guarderia.es/"
+priority: 'priority-1'
 ---

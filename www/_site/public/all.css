@@ -295,21 +295,26 @@ html {
   background-color: #202020;
 }
 
-@media (min-width: 48rem) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 18rem;
-    text-align: left;
-  }
-}
-
 /* Sidebar links */
 
 .sidebar a {
   color: #fff;
+}
+
+.sidebar ul {
+    display: none;
+}
+
+.sidebar.mobile ul {
+    display: block;
+}
+
+.sidebar.mobile ul {
+    display: block;
+}
+
+.sidebar.mobile ul li a {
+  line-height: 40px;
 }
 
 .sidebar ul li a {
@@ -355,7 +360,7 @@ body {
 }
 
 header {
-  padding: 0 0 2rem 0;
+  padding: 0;
   font-size: 1.8rem;
   font-weight: 100;
   color: #333;
@@ -450,25 +455,20 @@ ul.posts li.animated {
     opacity: 0;
 }
 
-ul.posts li.archive {
-  width: 50%;
+ul.posts li.priority-0 {
+  width: 100%;
 }
 
-ul.posts li.archive > a .w-title {
-    margin: -40px 0 0 0;
-}
-
-ul.posts li img {
+ul.posts li .post-image {
   width: 100%;
 }
 
 ul.posts li > a {
   position: relative;
   display: block;
-  border-bottom: 2px solid #ddd;
 }
 
-ul.posts li.archive a {
+ul.posts li.priority-0 a {
   cursor: default !important;
 }
 
@@ -477,7 +477,7 @@ ul.posts li > a:hover .w-title {
   display: block;
 }
 
-ul.posts li > a img {
+ul.posts li > a .post-image {
   opacity: 1;
   -webkit-transition: opacity 1.5s;
   -moz-transition: opacity 1.5s;
@@ -485,7 +485,7 @@ ul.posts li > a img {
   transition: opacity 1.5s;
 }
 
-ul.posts li > a:hover img {
+ul.posts li > a:hover .post-image {
   opacity: 0.1;
 }
 
@@ -510,40 +510,48 @@ ul.posts li > a:hover .w-tags {
 ul.posts li > a .w-title {
   -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
-  position: absolute;
-  top: 50%;
-  margin: -40px 0 0 0;
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  position: relative;
+  top: auto;
+  margin: 0;
+  border-bottom: 0;
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  opacity: 0;
+  opacity: 1;
   color: white;
-  font-size: 36px;
-  padding-bottom: 7px;
+  font-size: 14px;
+  padding: 6px;
   font-weight: 300;
-  line-height: 40px;
+  line-height: inherit;
+  display: inline-block;
 }
 
-ul.posts li.archive > a .w-title {
-  font-size: 20px;
-  line-height: 25px;
+.priority-0 .post-image, .priority-1 .post-image, .priority-2 .post-image {
+    padding-top: 47%;
 }
 
-ul.posts li.archive > a .w-tags {
+ul.posts li.priority-0 > a .w-title {
+  font-size: 18px;
+  line-height: inherit;
+}
+
+ul.posts li.priority-0 > a .w-tags {
   padding-top: 5px;
 }
 
 ul.posts li a span.w-info {
+
   position: absolute;
   bottom: 10px;
-  width: 100%;
-  padding: 0 15px;
-  color: #7a7a7a;
-  transition: opacity 1.6s;
+  height: 24px;
   opacity: 0;
+  color: #7a7a7a; 
+  width: 100%;
+  padding: 10px;
+  transition: opacity 1.6s;
   text-align: center;
   font-weight: 400;
+  display: block;
 }
 
 ul.posts li > a:hover span.w-info {
@@ -756,4 +764,54 @@ Copyright (c) 2014 Daniel Eden
 
 .hide {
     display: none;
+}
+
+@media (min-width: 48rem) {
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18rem;
+    text-align: left;
+  }
+  
+  .sidebar ul {
+    display: block;
+  }
+  
+  header {
+    padding: 0 0 2rem 0;
+  }
+  
+  ul.posts li.priority-0 {
+    width: 50%;
+  }
+  
+  .priority-1 .post-image {
+    padding-top: 23%;
+  }
+
+  ul.posts li > a .w-title {
+    position: absolute;
+    top: 50%;
+    margin: -40px 0 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    opacity: 0;
+    font-size: 36px;
+    padding: 0 0 7px 0;
+    line-height: 40px;
+  }
+
+  ul.posts li.priority-0 > a .w-title {
+    font-size: 20px;
+    line-height: 25px;
+    margin: -40px 0 0 0;
+  }
+
+  .sidebar.mobile {
+    display: none;
+  }
+
 }
