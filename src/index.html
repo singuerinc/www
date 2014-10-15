@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-<style>
+<style scoped>
 {% for post in site.posts %}
   .post-image.{{post.title|split:' '|join:'-'|downcase;}}.{{post.priority}} {
     background: url(/img/home/{{ post.image }}.jpg) no-repeat;
