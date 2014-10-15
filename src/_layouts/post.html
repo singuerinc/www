@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<div class="post p">
+  
+  <h1 class="post-title">{{page.client}} · {{ page.title }} {% if page.www %}<span class="w-www"><a href="{{page.www}}">[Visit the site]</a></span>{% endif %}</h1>
+  <span class="post-date">{{ page.date | date_to_string }}</span>
+
+  <img src="{{ page.image }}" alt="{{ page.title }}">
+  <span class="w-tech">{{ page.tech | join: '</span><span class="w-tech">'}}</span>
+
+
+  <div class="w-content">{{ content }}</div>
+  <hr />
+  <h3 class="w-agency">Agency: {{ page.agency }}</h3>
+
+</div>
