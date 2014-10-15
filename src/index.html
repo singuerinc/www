@@ -27,7 +27,7 @@ title: Home
     <meta itemprop="contributor" content="Nahuel Scotti"/>
     {% for award in post.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
     <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
-    <meta itemprop="image" content="http://www-singuerinc.rhcloud.com/img/home/{{ post.image }}.jpg"/>
+    <meta itemprop="image" content="{{site.url}}/img/home/{{ post.image }}.jpg"/>
     {% if post.www == ''%}
     <a href="#{{ post.id }}" target="_self" class="w-link animated">
     {% else %}
