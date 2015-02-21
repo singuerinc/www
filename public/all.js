@@ -1,62 +1,71 @@
 (function(posts) {
 
-  'use strict';
+	'use strict';
 
-  // preload images based on document dimensions
-  // add some animation effects
+	// preload images based on document dimensions
+	// add some animation effects
 
-  var App = function() {
+	var App = function() {
 
-    var style = this.getComputedStyle(document.querySelector('html')),
-      mobile = parseInt(style.getPropertyValue("width")) < 768,
-      retina = window.devicePixelRatio > 1,
+		var style = this.getComputedStyle(document.querySelector('html')),
+			retina = window.devicePixelRatio > 1,
+			mobile = (parseInt(style.getPropertyValue("width"))) < 768,
 
-      numTotal = posts.length,
-      numLoaded = 0;
+			numTotal = posts.length,
+			numLoaded = 0;
 
 
-    for (var i = 0; i < numTotal; i++) {
+		for (var i = 0; i < numTotal; i++) {
 
-      var img, filename;
+			var img, filename;
 
-      img = new Image();
-      img.onload = (function(e) {
-        numLoaded++;
-        if (numLoaded === numTotal) {
-          this.ready();
-        }
-      }).bind(this);
+			img = new Image();
+			img.onload = (function(e) {
+				numLoaded++;
+				if (numLoaded === numTotal) {
+					this.ready();
+				}
+			}).bind(this);
 
-      filename = (retina ? 'high/' : '') + posts[i].image + (mobile ? '-md' :
-        '') + '.jpg';
-      img.src = '/img/home/' + filename;
-    }
-  };
+			if (retina) {
+				filename = 'high/' + posts[i].image + '.jpg';
+			} else if (mobile) {
+				filename = posts[i].image + '-md.jpg';
+			} else {
+				filename = posts[i].image + '.jpg';
+			}
 
-  App.prototype.ready = function() {
-    for (var i = 0; i < posts.length; i++) {
+			img.src = '/img/home/' + filename;
+		}
+	};
 
-      var pId = posts[i].id,
-        li = document.querySelector('li#image--' + pId),
-        imgCont = li.querySelector('.post-image');
+	App.prototype.ready = function() {
 
-      setTimeout((function(id, lItm, itm) {
-        //itm.classList.add(id);
-        lItm.classList.remove('hide');
-        lItm.classList.add('animated');
-        lItm.classList.add('fadeInUp');
-      }).bind(this, pId, li, imgCont), (200 * i) + 500);
-    }
+		var preloader = document.querySelector('.loading').classList.add('hide');
 
-  };
+		for (var i = 0; i < posts.length; i++) {
 
-  App.prototype.getComputedStyle = function(elem) {
-    if (elem.ownerDocument.defaultView.opener) {
-      return elem.ownerDocument.defaultView.getComputedStyle(elem, null);
-    }
-    return window.getComputedStyle(elem, null);
-  };
+			var pId = posts[i].id,
+				li = document.querySelector('li#image--' + pId),
+				imgCont = li.querySelector('.post-image');
 
-  new App();
+			setTimeout((function(id, lItm, itm) {
+				//itm.classList.add(id);
+				lItm.classList.remove('hide');
+				lItm.classList.add('animated');
+				lItm.classList.add('fadeInUp');
+			}).bind(this, pId, li, imgCont), (200 * i) + 500);
+		}
+
+	};
+
+	App.prototype.getComputedStyle = function(elem) {
+		if (elem.ownerDocument.defaultView.opener) {
+			return elem.ownerDocument.defaultView.getComputedStyle(elem, null);
+		}
+		return window.getComputedStyle(elem, null);
+	};
+
+	new App();
 
 })(posts);

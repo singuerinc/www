@@ -75,6 +75,11 @@
     <div class="content container">
       <style scoped>
 
+  .post-image.overlay.priority-2 {
+    background: url(/img/home/singuerinc--overlay-app.jpg) no-repeat;
+    background-size: 100% auto;
+  }
+
   .post-image.byggd-för-att-ta-skit.priority-2 {
     background: url(/img/home/skoda--byggd-for-att-ta-skit.jpg) no-repeat;
     background-size: 100% auto;
@@ -141,6 +146,11 @@
   }
 
   @media (max-width: 768px) {
+    
+    .post-image.overlay.priority-2 {
+      background: url(/img/home/singuerinc--overlay-app-md.jpg) no-repeat;
+      background-size: 100% auto;
+    }
     
     .post-image.byggd-för-att-ta-skit.priority-2 {
       background: url(/img/home/skoda--byggd-for-att-ta-skit-md.jpg) no-repeat;
@@ -211,7 +221,25 @@
 </style>
 
 <h3>HERE'S WHAT I'VE BEEN WORKING ON</h3>
+<img src="img/preloader.gif" class="loading hide" alt="" width="32" height="32" />
 <ul class="posts">
+  
+  <li id="image--overlay" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
+    <meta itemprop="name" content="open-source - Overlay"/>
+    <meta itemprop="contributor" content="Nahuel Scotti"/>
+    
+    <meta itemprop="keywords" content="open-source, dev-tool, as3, air"/>
+    <meta itemprop="image" content="http://www.singuerinc.com/img/home/singuerinc--overlay-app.jpg"/>
+    
+    <meta itemprop="url" content="https://github.com/singuerinc/OverlayApp"/>
+    <a href="https://github.com/singuerinc/OverlayApp" target="_blank" class="w-link animated">
+    
+      <div class="post-image priority-2 animated overlay"></div>
+      <h1 class="w-title">Overlay</h1>
+      <div class="w-tags">open-source · dev-tool · as3 · air</div>
+      <div class="w-info">Client: open-source / working at singuerinc  · online</div>
+    </a>
+  </li>
   
   <li id="image--byggd-för-att-ta-skit" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Skoda - Byggd för att ta skit"/>
@@ -429,14 +457,15 @@
   
 
   <script type="text/javascript">
+    var preloader = document.querySelector('.loading').classList.remove('hide');
     var list = document.querySelectorAll('ul.posts li');
     for(var i=0; i<list.length; i++){
       list[i].classList.add('hide');
     }
     var posts = [];
-    posts.push({id: "byggd-för-att-ta-skit", image: "skoda--byggd-for-att-ta-skit"});posts.push({id: "kick-with-chrome", image: "google--kick-with-chrome"});posts.push({id: "names-not-numbers", image: "medecins-du-monde--names-not-numbers"});posts.push({id: "roberto-ivan-cano", image: "roberto-ivan-cano"});posts.push({id: "cuchi-cuchi", image: "cuchi-cuchi_50"});posts.push({id: "pepe-jeans", image: "pepe-jeans_50"});posts.push({id: "pro-combat", image: "nike--pro-combat"});posts.push({id: "my-time-is-now", image: "nike--my-time-is-now"});posts.push({id: "a1-me-gusta", image: "audi--a1-me-gusta"});posts.push({id: "som-un", image: "fcb--somos-uno"});posts.push({id: "revívelo", image: "atrapalo--revivelo"});posts.push({id: "adapt", image: "evax--adapt"});posts.push({id: "driving-experience", image: "audi--driving-experience"});
+    posts.push({id: "overlay", image: "singuerinc--overlay-app"});posts.push({id: "byggd-för-att-ta-skit", image: "skoda--byggd-for-att-ta-skit"});posts.push({id: "kick-with-chrome", image: "google--kick-with-chrome"});posts.push({id: "names-not-numbers", image: "medecins-du-monde--names-not-numbers"});posts.push({id: "roberto-ivan-cano", image: "roberto-ivan-cano"});posts.push({id: "cuchi-cuchi", image: "cuchi-cuchi_50"});posts.push({id: "pepe-jeans", image: "pepe-jeans_50"});posts.push({id: "pro-combat", image: "nike--pro-combat"});posts.push({id: "my-time-is-now", image: "nike--my-time-is-now"});posts.push({id: "a1-me-gusta", image: "audi--a1-me-gusta"});posts.push({id: "som-un", image: "fcb--somos-uno"});posts.push({id: "revívelo", image: "atrapalo--revivelo"});posts.push({id: "adapt", image: "evax--adapt"});posts.push({id: "driving-experience", image: "audi--driving-experience"});
   </script>
-  <script type="text/javascript" src="/all.min.js"></script>
+  <script type="text/javascript" src="/all.js"></script>
 </ul>
 
     </div>

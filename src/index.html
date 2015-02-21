@@ -21,6 +21,7 @@ title: Home
 </style>
 
 <h3>HERE'S WHAT I'VE BEEN WORKING ON</h3>
+<img src="img/preloader.gif" class="loading hide" alt="" width="32" height="32" />
 <ul class="posts">
   {% for post in site.posts %}
   <li id="image--{{post.title|split:' '|join:'-'|downcase;}}" class="post w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
@@ -44,6 +45,7 @@ title: Home
   {% endfor %}
 
   <script type="text/javascript">
+    var preloader = document.querySelector('.loading').classList.remove('hide');
     var list = document.querySelectorAll('ul.posts li');
     for(var i=0; i<list.length; i++){
       list[i].classList.add('hide');
@@ -51,5 +53,5 @@ title: Home
     var posts = [];
     {% for post in site.posts %}posts.push({id: "{{post.title|split:' '|join:'-'|downcase;}}", image: "{{post.image}}"});{% endfor %}
   </script>
-  <script type="text/javascript" src="/all.min.js"></script>
+  <script type="text/javascript" src="/all.js"></script>
 </ul>
