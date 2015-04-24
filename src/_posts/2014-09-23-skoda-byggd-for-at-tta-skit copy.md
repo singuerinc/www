@@ -15,7 +15,7 @@ tags:
     - “b-reel”
 
 image: "skoda--byggd-for-att-ta-skit"
-www: "http://byggdforatttaskit.se"
+www: ""
 more: "http://www.b-reel.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda"
 priority: 'priority-2'
 ---
