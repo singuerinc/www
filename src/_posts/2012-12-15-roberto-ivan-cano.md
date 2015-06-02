@@ -15,6 +15,7 @@ tags:
   - ruby-on-rails
 image: "roberto-ivan-cano"
 www: "http://www.robertoivancano.com/"
+more: ""
 priority: 'priority-2'
 ---
 

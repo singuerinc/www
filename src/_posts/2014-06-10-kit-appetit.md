@@ -12,6 +12,6 @@ tags:
 
 image: "kitappetit--kitappetit"
 www: "http://www.kitappetit.com/"
-more: "http://www.kitappetit.com/"
+more: ""
 priority: 'priority-2'
 ---

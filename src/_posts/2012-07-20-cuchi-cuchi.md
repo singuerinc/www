@@ -19,5 +19,6 @@ tags:
   - sinatra
 image: "cuchi-cuchi_50"
 www: "http://www.cuchicuchi-guarderia.es/"
+more: ""
 priority: 'priority-1'
 ---

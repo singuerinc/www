@@ -16,6 +16,7 @@ tags:
 image: "atrapalo--revivelo"
 priority: 'priority-0'
 www: ""
+more: ""
 ---
 
 <p class="text">Atrapalo.com. Online travel, tickets and leisure agency.

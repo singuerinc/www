@@ -15,6 +15,7 @@ tags:
 image: "fcb--somos-uno"
 priority: 'priority-0'
 www: ""
+more: ""
 awards: ['award-sol_bronce']
 ---
 

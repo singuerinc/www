@@ -15,6 +15,6 @@ tags:
 
 image: "singuerinc--overlay-app"
 www: "https://github.com/singuerinc/OverlayApp"
-more: "https://github.com/singuerinc/OverlayApp"
+more: ""
 priority: 'priority-2'
 ---
