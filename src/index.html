@@ -21,7 +21,13 @@ title: Home
 </style>
 
 <h3>HERE'S WHAT I'VE BEEN WORKING ON</h3>
-<img src="img/preloader.gif" class="loading hide" alt="" width="32" height="32" />
+
+<div class="spinner loading hide">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
+
 <ul class="posts">
   {% for post in site.posts %}
   <li id="image--{{post.title|split:' '|join:'-'|downcase;}}" class="post w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
@@ -58,5 +64,5 @@ title: Home
     var posts = [];
     {% for post in site.posts %}posts.push({id: "{{post.title|split:' '|join:'-'|downcase;}}", image: "{{post.image}}"});{% endfor %}
   </script>
-  <script type="text/javascript" src="/all.js"></script>
+  <script type="text/javascript" src="/all.min.js"></script>
 </ul>
