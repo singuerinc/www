@@ -70,7 +70,6 @@ ul.posts li{position:relative;float:left;width:100%;margin:0 0 10px}
 ul.posts li.animated{opacity:0}
 ul.posts li .post-image,ul.posts li.priority-0{width:100%}
 ul.posts li>a{position:relative;display:block}
-ul.posts li.priority-0 a{cursor:default!important}
 ul.posts li>a:hover .w-tags,ul.posts li>a:hover .w-title{display:block}
 ul.posts li>a .post-image{opacity:1;-webkit-transition:opacity 1.5s;-moz-transition:opacity 1.5s;-o-transition:opacity 1.5s;transition:opacity 1.5s}
 ul.posts li>a:hover .post-image{opacity:.1}

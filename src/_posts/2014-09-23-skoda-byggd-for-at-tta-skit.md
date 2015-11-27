@@ -12,7 +12,7 @@ tech:
     - angularjs
     - socket.io
 tags:
-    - “b-reel”
+    - "b-reel"
 
 image: "skoda--byggd-for-att-ta-skit"
 www: ""

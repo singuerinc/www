@@ -15,8 +15,6 @@ author:
   name:           'Nahuel Scotti'
   url:            https://twitter.com/singuerinc
 
-paginate:         25
-
 # Custom vars
 version:          2.0.0
 
