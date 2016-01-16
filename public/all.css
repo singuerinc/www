@@ -492,7 +492,7 @@ ul.posts li > a:hover {
 }
 
 ul.posts li > a:hover .w-title {
-  opacity: 1;
+  opacity: 0;
 }
 
 ul.posts li > a:hover .w-tags {
@@ -839,6 +839,10 @@ Copyright (c) 2014 Daniel Eden
     font-size: 36px;
     padding: 0 0 7px 0;
     line-height: 40px;
+  }
+
+  ul.posts li > a:hover .w-title {
+    opacity: 1;
   }
 
   ul.posts li.priority-0 > a .w-title {

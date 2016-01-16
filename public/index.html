@@ -30,6 +30,7 @@
 
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/all.min.css" />
 
   <style type="text/css">
     body {
@@ -60,20 +61,18 @@
 </div>
 
 
-    <script>
-      var cb = function() {
-        var l = document.createElement('link'); l.rel = 'stylesheet';
-        l.href = '/all.min.css';
-        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-      };
-      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-          webkitRequestAnimationFrame || msRequestAnimationFrame;
-      if (raf) raf(cb);
-      else window.addEventListener('load', cb);
-    </script>
-
     <div class="content container">
       <style scoped>
+
+  .post-image.arawys.priority-2 {
+    background: url(/img/home/arawys--store.jpg) no-repeat;
+    background-size: 100% auto;
+  }
+
+  .post-image.moments.priority-2 {
+    background: url(/img/home/facebook--moments.jpg) no-repeat;
+    background-size: 100% auto;
+  }
 
   .post-image.overlay.priority-2 {
     background: url(/img/home/singuerinc--overlay-app.jpg) no-repeat;
@@ -151,82 +150,92 @@
   }
 
   @media (max-width: 768px) {
-
+    
+    .post-image.arawys.priority-2 {
+      background: url(/img/home/arawys--store-md.jpg) no-repeat;
+      background-size: 100% auto;
+    }
+    
+    .post-image.moments.priority-2 {
+      background: url(/img/home/facebook--moments-md.jpg) no-repeat;
+      background-size: 100% auto;
+    }
+    
     .post-image.overlay.priority-2 {
       background: url(/img/home/singuerinc--overlay-app-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.byggd-för-att-ta-skit.priority-2 {
       background: url(/img/home/skoda--byggd-for-att-ta-skit-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.kick-with-chrome.priority-2 {
       background: url(/img/home/google--kick-with-chrome-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.kit-appetit.priority-2 {
       background: url(/img/home/kitappetit--kitappetit-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.names-not-numbers.priority-2 {
       background: url(/img/home/medecins-du-monde--names-not-numbers-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.roberto-ivan-cano.priority-2 {
       background: url(/img/home/roberto-ivan-cano-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.cuchi-cuchi.priority-1 {
       background: url(/img/home/cuchi-cuchi_50-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.pepe-jeans.priority-1 {
       background: url(/img/home/pepe-jeans_50-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.pro-combat.priority-0 {
       background: url(/img/home/nike--pro-combat-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.my-time-is-now.priority-0 {
       background: url(/img/home/nike--my-time-is-now-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.a1-me-gusta.priority-0 {
       background: url(/img/home/audi--a1-me-gusta-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.som-un.priority-0 {
       background: url(/img/home/fcb--somos-uno-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.revívelo.priority-0 {
       background: url(/img/home/atrapalo--revivelo-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.adapt.priority-0 {
       background: url(/img/home/evax--adapt-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
     .post-image.driving-experience.priority-0 {
       background: url(/img/home/audi--driving-experience-md.jpg) no-repeat;
       background-size: 100% auto;
     }
-
+    
   }
 </style>
 
@@ -239,268 +248,302 @@
 </div>
 
 <ul class="posts">
-
+  
+  <li id="image--arawys" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
+    <meta itemprop="name" content="Arawys - Arawys"/>
+    <meta itemprop="contributor" content="Nahuel Scotti"/>
+    
+    <meta itemprop="keywords" content="prestashop, php, html5, css3, js"/>
+    <meta itemprop="image" content="http://www.singuerinc.com/img/home/arawys--store.jpg"/>
+    
+    <meta itemprop="url" content="https://www.arawys.com"/>
+    <a href="https://www.arawys.com" target="_blank" class="w-link animated">
+    
+      <div class="post-image priority-2 animated arawys"></div>
+      <h1 class="w-title">Arawys</h1>
+      <div class="w-tags">prestashop · php · html5 · css3 · js</div>
+      <div class="w-info">Client: Arawys / working at singuerinc  · online</div>
+    </a>
+  </li>
+  
+  <li id="image--moments" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
+    <meta itemprop="name" content="Facebook - Moments"/>
+    <meta itemprop="contributor" content="Nahuel Scotti"/>
+    
+    <meta itemprop="keywords" content="html5, css3, js"/>
+    <meta itemprop="image" content="http://www.singuerinc.com/img/home/facebook--moments.jpg"/>
+    
+    <meta itemprop="url" content="http://www.momentsapp.com"/>
+    <a href="http://www.momentsapp.com" target="_blank" class="w-link animated">
+    
+      <div class="post-image priority-2 animated moments"></div>
+      <h1 class="w-title">Moments</h1>
+      <div class="w-tags">html5 · css3 · js</div>
+      <div class="w-info">Client: Facebook / working at B-REEL  · online</div>
+    </a>
+  </li>
+  
   <li id="image--overlay" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="open-source - Overlay"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="open-source, dev-tool, as3, air"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/singuerinc--overlay-app.jpg"/>
-
+    
     <meta itemprop="url" content="https://github.com/singuerinc/OverlayApp"/>
     <a href="https://github.com/singuerinc/OverlayApp" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-2 animated overlay"></div>
       <h1 class="w-title">Overlay</h1>
       <div class="w-tags">open-source · dev-tool · as3 · air</div>
       <div class="w-info">Client: open-source / working at singuerinc  · online</div>
     </a>
   </li>
-
+  
   <li id="image--byggd-för-att-ta-skit" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Skoda - Byggd för att ta skit"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="html5, js, cms, nodejs, angularjs, socket.io"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/skoda--byggd-for-att-ta-skit.jpg"/>
-
-
+    
+      
       <meta itemprop="url" content="http://www.b-reel.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda"/>
       <a href="http://www.b-reel.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda" target="_blank" class="w-link animated">
-
-
+      
+    
       <div class="post-image priority-2 animated byggd-för-att-ta-skit"></div>
       <h1 class="w-title">Byggd för att ta skit</h1>
       <div class="w-tags">html5 · js · cms · nodejs · angularjs · socket.io</div>
       <div class="w-info">Client: Skoda / working at B-REEL  · offline</div>
     </a>
   </li>
-
+  
   <li id="image--kick-with-chrome" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Google - Kick with Chrome"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="html5, js, websockets, webrtc, webaudio, accelerometer, vibration api"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/google--kick-with-chrome.jpg"/>
-
+    
     <meta itemprop="url" content="http://g.co/kickwithchrome"/>
     <a href="http://g.co/kickwithchrome" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-2 animated kick-with-chrome"></div>
       <h1 class="w-title">Kick with Chrome</h1>
       <div class="w-tags">html5 · js · websockets · webrtc · webaudio · accelerometer · vibration api</div>
       <div class="w-info">Client: Google / working at B-REEL  · online</div>
     </a>
   </li>
-
+  
   <li id="image--kit-appetit" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Kit Appetit - Kit Appetit"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="html5"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/kitappetit--kitappetit.jpg"/>
-
+    
     <meta itemprop="url" content="http://www.kitappetit.com/"/>
     <a href="http://www.kitappetit.com/" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-2 animated kit-appetit"></div>
       <h1 class="w-title">Kit Appetit</h1>
       <div class="w-tags">html5</div>
       <div class="w-info">Client: Kit Appetit / working at singuerinc  · online</div>
     </a>
   </li>
-
+  
   <li id="image--names-not-numbers" class="post w priority-2 award-awwwards_site_of_the_day thefwa_site_of_the_day" itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Médecins du Monde - Names not numbers"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
     <meta itemprop="award" content="award-awwwards_site_of_the_day"/><meta itemprop="award" content="thefwa_site_of_the_day"/>
     <meta itemprop="keywords" content="html5, javascript, php, aws"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/medecins-du-monde--names-not-numbers.jpg"/>
-
+    
     <meta itemprop="url" content="http://archive.singuerinc.com/msf/namesnotnumbers/"/>
     <a href="http://archive.singuerinc.com/msf/namesnotnumbers/" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-2 animated names-not-numbers"></div>
       <h1 class="w-title">Names not numbers</h1>
       <div class="w-tags">html5 · javascript · php · aws</div>
       <div class="w-info">Client: Médecins du Monde / working at B-REEL  · online</div>
     </a>
   </li>
-
+  
   <li id="image--roberto-ivan-cano" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Porfolio - Roberto Ivan Cano"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="ruby-on-rails, cms, openshift, aws, google-maps"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/roberto-ivan-cano.jpg"/>
-
+    
     <meta itemprop="url" content="http://www.robertoivancano.com/"/>
     <a href="http://www.robertoivancano.com/" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-2 animated roberto-ivan-cano"></div>
       <h1 class="w-title">Roberto Ivan Cano</h1>
       <div class="w-tags">ruby-on-rails · cms · openshift · aws · google-maps</div>
       <div class="w-info">Client: Porfolio / working at small-machine  · online</div>
     </a>
   </li>
-
+  
   <li id="image--cuchi-cuchi" class="post w priority-1 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Guarder&iacute;a - Cuchi-Cuchi"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="ruby, sinatra, html5, jquery, backbone, openshift"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/cuchi-cuchi_50.jpg"/>
-
+    
     <meta itemprop="url" content="http://www.cuchicuchi-guarderia.es/"/>
     <a href="http://www.cuchicuchi-guarderia.es/" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-1 animated cuchi-cuchi"></div>
       <h1 class="w-title">Cuchi-Cuchi</h1>
       <div class="w-tags">ruby · sinatra · html5 · jquery · backbone · openshift</div>
       <div class="w-info">Client: Guarder&iacute;a / working at small-machine  · online</div>
     </a>
   </li>
-
+  
   <li id="image--pepe-jeans" class="post w priority-1 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Pepe Jeans - Pepe Jeans"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="html5, javascript, backbone, jquery"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/pepe-jeans_50.jpg"/>
-
+    
     <meta itemprop="url" content="http://pepejeans.com/"/>
     <a href="http://pepejeans.com/" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-1 animated pepe-jeans"></div>
       <h1 class="w-title">Pepe Jeans</h1>
       <div class="w-tags">html5 · javascript · backbone · jquery</div>
       <div class="w-info">Client: Pepe Jeans / working at Doubleyou  · online</div>
     </a>
   </li>
-
+  
   <li id="image--pro-combat" class="post w priority-0 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Nike - Pro Combat"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="flash, actionscript-3, facebook-api"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/nike--pro-combat.jpg"/>
-
-
+    
+      
       <a href="#" target="_self" class="w-link animated">
-
-
+      
+    
       <div class="post-image priority-0 animated pro-combat"></div>
       <h1 class="w-title">Pro Combat</h1>
       <div class="w-tags">flash · actionscript-3 · facebook-api</div>
       <div class="w-info">Client: Nike / working at Doubleyou  · offline</div>
     </a>
   </li>
-
+  
   <li id="image--my-time-is-now" class="post w priority-0 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Nike - My time is now"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="flash, actionscript-3, facebook-api"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/nike--my-time-is-now.jpg"/>
-
-
+    
+      
       <a href="#" target="_self" class="w-link animated">
-
-
+      
+    
       <div class="post-image priority-0 animated my-time-is-now"></div>
       <h1 class="w-title">My time is now</h1>
       <div class="w-tags">flash · actionscript-3 · facebook-api</div>
       <div class="w-info">Client: Nike / working at Doubleyou  · offline</div>
     </a>
   </li>
-
+  
   <li id="image--a1-me-gusta" class="post w priority-0 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Audi - A1 Me gusta"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="actionscript-3, facebook-api, FIVe3D"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/audi--a1-me-gusta.jpg"/>
-
+    
     <meta itemprop="url" content="http://projects--audi-a1-megusta.singuerinc.com/"/>
     <a href="http://projects--audi-a1-megusta.singuerinc.com/" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-0 animated a1-me-gusta"></div>
       <h1 class="w-title">A1 Me gusta</h1>
       <div class="w-tags">actionscript-3 · facebook-api · FIVe3D</div>
       <div class="w-info">Client: Audi / working at Doubleyou  · online</div>
     </a>
   </li>
-
+  
   <li id="image--som-un" class="post w priority-0 award-sol_bronce" itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="FC Barcelona - Som un"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
     <meta itemprop="award" content="award-sol_bronce"/>
     <meta itemprop="keywords" content="flash, actionscript-3, papervision"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/fcb--somos-uno.jpg"/>
-
+    
     <meta itemprop="url" content="http://archive.singuerinc.com/nike/somun/"/>
     <a href="http://archive.singuerinc.com/nike/somun/" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-0 animated som-un"></div>
       <h1 class="w-title">Som un</h1>
       <div class="w-tags">flash · actionscript-3 · papervision</div>
       <div class="w-info">Client: FC Barcelona / working at Doubleyou  · online</div>
     </a>
   </li>
-
+  
   <li id="image--revívelo" class="post w priority-0 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Atrápalo - Revívelo"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="flash, actionscript-3, facebook-api"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/atrapalo--revivelo.jpg"/>
-
-
+    
+      
       <a href="#" target="_self" class="w-link animated">
-
-
+      
+    
       <div class="post-image priority-0 animated revívelo"></div>
       <h1 class="w-title">Revívelo</h1>
       <div class="w-tags">flash · actionscript-3 · facebook-api</div>
       <div class="w-info">Client: Atrápalo / working at doubleyou  · offline</div>
     </a>
   </li>
-
+  
   <li id="image--adapt" class="post w priority-0 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Evax - Adapt"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="flash, actionscript-3"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/evax--adapt.jpg"/>
-
-
+    
+      
       <a href="#" target="_self" class="w-link animated">
-
-
+      
+    
       <div class="post-image priority-0 animated adapt"></div>
       <h1 class="w-title">Adapt</h1>
       <div class="w-tags">flash · actionscript-3</div>
       <div class="w-info">Client: Evax / working at Doubleyou  · offline</div>
     </a>
   </li>
-
+  
   <li id="image--driving-experience" class="post w priority-0 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Audi - Driving Experience"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
-
+    
     <meta itemprop="keywords" content="flash, actionscript-3"/>
     <meta itemprop="image" content="http://www.singuerinc.com/img/home/audi--driving-experience.jpg"/>
-
+    
     <meta itemprop="url" content="http://archive.singuerinc.com/audi/drivingexperience"/>
     <a href="http://archive.singuerinc.com/audi/drivingexperience" target="_blank" class="w-link animated">
-
+    
       <div class="post-image priority-0 animated driving-experience"></div>
       <h1 class="w-title">Driving Experience</h1>
       <div class="w-tags">flash · actionscript-3</div>
       <div class="w-info">Client: Audi / working at Doubleyou  · online</div>
     </a>
   </li>
-
+  
 
   <script type="text/javascript">
     var preloader = document.querySelector('.loading').classList.remove('hide');
@@ -509,7 +552,7 @@
       list[i].classList.add('hide');
     }
     var posts = [];
-    posts.push({id: "overlay", image: "singuerinc--overlay-app"});posts.push({id: "byggd-för-att-ta-skit", image: "skoda--byggd-for-att-ta-skit"});posts.push({id: "kick-with-chrome", image: "google--kick-with-chrome"});posts.push({id: "kit-appetit", image: "kitappetit--kitappetit"});posts.push({id: "names-not-numbers", image: "medecins-du-monde--names-not-numbers"});posts.push({id: "roberto-ivan-cano", image: "roberto-ivan-cano"});posts.push({id: "cuchi-cuchi", image: "cuchi-cuchi_50"});posts.push({id: "pepe-jeans", image: "pepe-jeans_50"});posts.push({id: "pro-combat", image: "nike--pro-combat"});posts.push({id: "my-time-is-now", image: "nike--my-time-is-now"});posts.push({id: "a1-me-gusta", image: "audi--a1-me-gusta"});posts.push({id: "som-un", image: "fcb--somos-uno"});posts.push({id: "revívelo", image: "atrapalo--revivelo"});posts.push({id: "adapt", image: "evax--adapt"});posts.push({id: "driving-experience", image: "audi--driving-experience"});
+    posts.push({id: "arawys", image: "arawys--store"});posts.push({id: "moments", image: "facebook--moments"});posts.push({id: "overlay", image: "singuerinc--overlay-app"});posts.push({id: "byggd-för-att-ta-skit", image: "skoda--byggd-for-att-ta-skit"});posts.push({id: "kick-with-chrome", image: "google--kick-with-chrome"});posts.push({id: "kit-appetit", image: "kitappetit--kitappetit"});posts.push({id: "names-not-numbers", image: "medecins-du-monde--names-not-numbers"});posts.push({id: "roberto-ivan-cano", image: "roberto-ivan-cano"});posts.push({id: "cuchi-cuchi", image: "cuchi-cuchi_50"});posts.push({id: "pepe-jeans", image: "pepe-jeans_50"});posts.push({id: "pro-combat", image: "nike--pro-combat"});posts.push({id: "my-time-is-now", image: "nike--my-time-is-now"});posts.push({id: "a1-me-gusta", image: "audi--a1-me-gusta"});posts.push({id: "som-un", image: "fcb--somos-uno"});posts.push({id: "revívelo", image: "atrapalo--revivelo"});posts.push({id: "adapt", image: "evax--adapt"});posts.push({id: "driving-experience", image: "audi--driving-experience"});
   </script>
   <script type="text/javascript" src="/all.min.js"></script>
 </ul>
@@ -528,9 +571,6 @@
 </div>
 
 
-    <noscript>
-      <link rel="stylesheet" type="text/css" href="/all.min.css" />
-    </noscript>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
