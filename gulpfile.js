@@ -3,7 +3,6 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 
-
 gulp.task('min-js', function() {
    return gulp.src('src/all.js')
     .pipe(uglify())
