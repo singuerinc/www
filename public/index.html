@@ -64,12 +64,17 @@
     <div class="content container">
       <style scoped>
 
+  .post-image.vive.priority-2 {
+    background: url(/img/home/htc--vive.jpg) no-repeat;
+    background-size: 100% auto;
+  }
+
   .post-image.arawys.priority-2 {
     background: url(/img/home/arawys--store.jpg) no-repeat;
     background-size: 100% auto;
   }
 
-  .post-image.moments.priority-2 {
+  .post-image.facebook-moments.priority-2 {
     background: url(/img/home/facebook--moments.jpg) no-repeat;
     background-size: 100% auto;
   }
@@ -151,12 +156,17 @@
 
   @media (max-width: 768px) {
     
+    .post-image.vive.priority-2 {
+      background: url(/img/home/htc--vive-md.jpg) no-repeat;
+      background-size: 100% auto;
+    }
+    
     .post-image.arawys.priority-2 {
       background: url(/img/home/arawys--store-md.jpg) no-repeat;
       background-size: 100% auto;
     }
     
-    .post-image.moments.priority-2 {
+    .post-image.facebook-moments.priority-2 {
       background: url(/img/home/facebook--moments-md.jpg) no-repeat;
       background-size: 100% auto;
     }
@@ -249,6 +259,23 @@
 
 <ul class="posts">
   
+  <li id="image--vive" class="post w priority-2 award-awwwards_site_of_the_day thefwa_site_of_the_day" itemscope itemtype="http://schema.org/WebSite">
+    <meta itemprop="name" content="HTC, Google - Vive"/>
+    <meta itemprop="contributor" content="Nahuel Scotti"/>
+    <meta itemprop="award" content="award-awwwards_site_of_the_day"/><meta itemprop="award" content="thefwa_site_of_the_day"/>
+    <meta itemprop="keywords" content="docker, google compute engine, websockets"/>
+    <meta itemprop="image" content="http://www.singuerinc.com/img/home/htc--vive.jpg"/>
+    
+    <meta itemprop="url" content="https://viveready.htcvr.com/"/>
+    <a href="https://viveready.htcvr.com/" target="_blank" class="w-link animated">
+    
+      <div class="post-image priority-2 animated vive"></div>
+      <h1 class="w-title">Vive</h1>
+      <div class="w-tags">docker · google compute engine · websockets</div>
+      <div class="w-info">Client: HTC, Google / working at B-REEL  · online</div>
+    </a>
+  </li>
+  
   <li id="image--arawys" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="Arawys - Arawys"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
@@ -266,8 +293,8 @@
     </a>
   </li>
   
-  <li id="image--moments" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
-    <meta itemprop="name" content="Facebook - Moments"/>
+  <li id="image--facebook-moments" class="post w priority-2 " itemscope itemtype="http://schema.org/WebSite">
+    <meta itemprop="name" content="Facebook - Facebook Moments"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
     
     <meta itemprop="keywords" content="html5, css3, js"/>
@@ -276,8 +303,8 @@
     <meta itemprop="url" content="http://www.momentsapp.com"/>
     <a href="http://www.momentsapp.com" target="_blank" class="w-link animated">
     
-      <div class="post-image priority-2 animated moments"></div>
-      <h1 class="w-title">Moments</h1>
+      <div class="post-image priority-2 animated facebook-moments"></div>
+      <h1 class="w-title">Facebook Moments</h1>
       <div class="w-tags">html5 · css3 · js</div>
       <div class="w-info">Client: Facebook / working at B-REEL  · online</div>
     </a>
@@ -552,7 +579,7 @@
       list[i].classList.add('hide');
     }
     var posts = [];
-    posts.push({id: "arawys", image: "arawys--store"});posts.push({id: "moments", image: "facebook--moments"});posts.push({id: "overlay", image: "singuerinc--overlay-app"});posts.push({id: "byggd-för-att-ta-skit", image: "skoda--byggd-for-att-ta-skit"});posts.push({id: "kick-with-chrome", image: "google--kick-with-chrome"});posts.push({id: "kit-appetit", image: "kitappetit--kitappetit"});posts.push({id: "names-not-numbers", image: "medecins-du-monde--names-not-numbers"});posts.push({id: "roberto-ivan-cano", image: "roberto-ivan-cano"});posts.push({id: "cuchi-cuchi", image: "cuchi-cuchi_50"});posts.push({id: "pepe-jeans", image: "pepe-jeans_50"});posts.push({id: "pro-combat", image: "nike--pro-combat"});posts.push({id: "my-time-is-now", image: "nike--my-time-is-now"});posts.push({id: "a1-me-gusta", image: "audi--a1-me-gusta"});posts.push({id: "som-un", image: "fcb--somos-uno"});posts.push({id: "revívelo", image: "atrapalo--revivelo"});posts.push({id: "adapt", image: "evax--adapt"});posts.push({id: "driving-experience", image: "audi--driving-experience"});
+    posts.push({id: "vive", image: "htc--vive"});posts.push({id: "arawys", image: "arawys--store"});posts.push({id: "facebook-moments", image: "facebook--moments"});posts.push({id: "overlay", image: "singuerinc--overlay-app"});posts.push({id: "byggd-för-att-ta-skit", image: "skoda--byggd-for-att-ta-skit"});posts.push({id: "kick-with-chrome", image: "google--kick-with-chrome"});posts.push({id: "kit-appetit", image: "kitappetit--kitappetit"});posts.push({id: "names-not-numbers", image: "medecins-du-monde--names-not-numbers"});posts.push({id: "roberto-ivan-cano", image: "roberto-ivan-cano"});posts.push({id: "cuchi-cuchi", image: "cuchi-cuchi_50"});posts.push({id: "pepe-jeans", image: "pepe-jeans_50"});posts.push({id: "pro-combat", image: "nike--pro-combat"});posts.push({id: "my-time-is-now", image: "nike--my-time-is-now"});posts.push({id: "a1-me-gusta", image: "audi--a1-me-gusta"});posts.push({id: "som-un", image: "fcb--somos-uno"});posts.push({id: "revívelo", image: "atrapalo--revivelo"});posts.push({id: "adapt", image: "evax--adapt"});posts.push({id: "driving-experience", image: "audi--driving-experience"});
   </script>
   <script type="text/javascript" src="/all.min.js"></script>
 </ul>
