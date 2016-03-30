@@ -27,9 +27,7 @@
 				}
 			}).bind(this);
 
-			if (retina) {
-				filename = 'high/' + posts[i].image + '.jpg';
-			} else if (mobile) {
+			if (mobile && !retina) {
 				filename = posts[i].image + '-md.jpg';
 			} else {
 				filename = posts[i].image + '.jpg';
