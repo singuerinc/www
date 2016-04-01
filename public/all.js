@@ -28,9 +28,9 @@
 			}).bind(this);
 
 			if (mobile && !retina) {
-				filename = posts[i].image + '-md.jpg';
+				filename = posts[i].image + '-md_small.jpg';
 			} else {
-				filename = posts[i].image + '.jpg';
+				filename = posts[i].image + '_small.jpg';
 			}
 
 			img.src = '/img/home/' + filename;
