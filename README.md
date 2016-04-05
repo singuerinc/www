@@ -15,3 +15,8 @@
 ## Build
 
     docker run --rm -it -v "$PWD/src:/src" -v "$PWD/public:/public" -p 4000:4000 grahamc/jekyll build
+    docker run --rm -it -v "$PWD:/src" -v "$PWD/public:/public" grahamc/jekyll build
+
+## Serve static
+
+    docker run --rm -it -v $PWD/public:/usr/share/nginx/html:ro -p 8080:80 nginx
