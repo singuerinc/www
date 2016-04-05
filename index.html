@@ -6,14 +6,14 @@ title: Home
 <style scoped>
 {% for post in site.posts %}
   .post-image.{{post.title|split:' '|join:'-'|downcase;}}.{{post.priority}} {
-    background: url(/img/home/{{ post.image }}_small.jpg) no-repeat;
+    background: url(./img/home/{{ post.image }}_small.jpg) no-repeat;
     background-size: 100% auto;
   }
 {% endfor %}
   @media (max-width: 768px) {
     {% for post in site.posts %}
     .post-image.{{post.title|split:' '|join:'-'|downcase;}}.{{post.priority}} {
-      background: url(/img/home/{{ post.image }}-md_small.jpg) no-repeat;
+      background: url(./img/home/{{ post.image }}-md_small.jpg) no-repeat;
       background-size: 100% auto;
     }
     {% endfor %}
@@ -64,5 +64,5 @@ title: Home
     var posts = [];
     {% for post in site.posts %}posts.push({id: "{{post.title|split:' '|join:'-'|downcase;}}", image: "{{post.image}}"});{% endfor %}
   </script>
-  <script type="text/javascript" src="/all.min.js"></script>
+  <script type="text/javascript" src="./all.min.js"></script>
 </ul>
