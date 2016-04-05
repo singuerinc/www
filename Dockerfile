@@ -2,7 +2,7 @@ FROM iron/node:dev
 VOLUME /usr/src/app
 
 RUN mkdir -p /usr/src
-ADD package.json /usr/src
+COPY package.json /usr/src
 
 WORKDIR /usr/src
 RUN npm install -g gulp
