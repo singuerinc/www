@@ -33,7 +33,7 @@
 				filename = posts[i].image + '_small.jpg';
 			}
 
-			img.src = '/img/home/' + filename;
+			img.src = './img/home/' + filename;
 		}
 	};
 
