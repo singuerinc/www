@@ -14,7 +14,7 @@ tags:
   - as3
   - facebook-api
 image: "audi--a1-me-gusta"
-www: "http://projects--audi-a1-megusta.singuerinc.com/"
+www: "http://audia1megusta-p1singuerinc.rhcloud.com/"
 more: ""
 priority: 'priority-0'
 ---
