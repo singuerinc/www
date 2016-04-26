@@ -64,5 +64,5 @@ title: Home
     var posts = [];
     {% for post in site.posts %}posts.push({id: "{{post.title|split:' '|join:'-'|downcase;}}", image: "{{post.image}}"});{% endfor %}
   </script>
-  <script type="text/javascript" src="./all.min.js"></script>
+  <script type="text/javascript" src="/all.min.js"></script>
 </ul>
