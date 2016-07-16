@@ -18,3 +18,7 @@ github:
   repo:           https://github.com/singuerinc/
 
 destination:      public
+
+markdown:     kramdown
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
