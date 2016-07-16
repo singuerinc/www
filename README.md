@@ -1,4 +1,6 @@
-# singuerinc / www
+# www
+
+[![build status](https://gitlab.com/singuerinc/www.singuerinc.com/badges/master/build.svg)](https://gitlab.com/singuerinc/www.singuerinc.com/commits/master)
 
 ## Build docker image
 
