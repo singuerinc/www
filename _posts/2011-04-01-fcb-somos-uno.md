@@ -14,7 +14,7 @@ tags:
   - as3
 image: "fcb--somos-uno"
 priority: 'priority-0'
-www: "http://archive.singuerinc.com/nike/somun/"
+www: "https://archive.singuerinc.com/nike/somun/"
 more: ""
 awards: ['award-sol_bronce']
 ---
