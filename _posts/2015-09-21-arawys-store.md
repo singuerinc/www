@@ -20,4 +20,4 @@ more: ""
 priority: 'priority-2'
 ---
 
-Arawys was my first project in Prestashop. It was a good experience to understand how this open-source e-commerce works and how can you change entirely based on your needs.<br/>I was in charge of doing all the front and backend stuff for this website. It was a nice challenge to deal with all those payments methods! I have also setup all environments, servers, databases, backups.
+Arawys was my first project in Prestashop. It was a good experience to understand how this open-source e-commerce works and how could you change it entirely based on your needs.<br/>I was in charge of doing all the front and backend stuff for this website. It was a nice challenge to deal with all those payments methods! I have also setup all environments, servers, databases, backups.

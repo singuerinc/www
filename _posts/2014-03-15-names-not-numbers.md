@@ -15,8 +15,8 @@ tags:
   - javascript
   - video
 image: "medecins-du-monde--names-not-numbers"
-www: "http://archive.singuerinc.com/msf/namesnotnumbers/"
-more: "http://www.b-reel.com/projects/digital/case/577/medecins-du-monde"
+www: "https://archive.singuerinc.com/msf/namesnotnumbers/"
+more: "http://films.b-reel.com/projects/digital/case/577/medecins-du-monde"
 awards: ['award-awwwards_site_of_the_day', 'thefwa_site_of_the_day']
 priority: 'priority-2'
 ---
@@ -28,7 +28,7 @@ Every minute a new name is presented on a card, ready to be claimed and sent out
 <br/><br/>
 With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.*
 </em><br/><br/>
-<em><small>* Extracted from <a href="http://www.b-reel.com/projects/digital/case/577/medecins-du-monde" target="_blank">www.b-reel.com</a></small></em>
+<em><small>* Extracted from <a href="http://films.b-reel.com/projects/digital/case/577/medecins-du-monde" target="_blank">www.b-reel.com</a></small></em>
 </p>
 
 <iframe src="//player.vimeo.com/video/89640595?title=0&amp;byline=0&amp;portrait=0" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

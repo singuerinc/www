@@ -16,6 +16,6 @@ tags:
 
 image: "skoda--byggd-for-att-ta-skit"
 www: ""
-more: "http://www.b-reel.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda"
+more: "http://films.b-reel.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda"
 priority: 'priority-2'
 ---
