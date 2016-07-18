@@ -13,8 +13,8 @@ pages:
 
 staging:
   script:
+  - gem install redcarpet jekyll dpl
   - jekyll build -d public
-  - gem install dpl
   - dpl --provider=firebase --token=1/2GJtCAQ8E88zQHgZl5cysXC3YqaIKsVVpOlpkM0U2Lg --project=test-www
   artifacts:
     paths:
