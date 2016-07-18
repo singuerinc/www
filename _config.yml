@@ -6,7 +6,7 @@ permalink:        pretty
 title:            '@singuerinc'
 tagline:          ''
 description:      ''
-url:              http://www.singuerinc.com/
+url:              https://www.singuerinc.com/
 
 author:
   name:           'Nahuel Scotti'
@@ -18,3 +18,7 @@ github:
   repo:           https://github.com/singuerinc/
 
 destination:      public
+
+markdown:     kramdown
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']

@@ -12,7 +12,7 @@ tags:
     - "responsive"
 
 image: "b-reel--b-reel"
-www: "http://www.b-reel.com/"
+www: "https://www.b-reel.com/"
 more: ""
 priority: 'priority-2'
 ---

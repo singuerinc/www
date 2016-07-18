@@ -2,7 +2,7 @@
 
 [![build status](https://gitlab.com/singuerinc/www.singuerinc.com/badges/master/build.svg)](https://gitlab.com/singuerinc/www.singuerinc.com/commits/master)
 
-## Build docker image
+## Build docker image (to compile css and js)
 
     docker build -t singuerinc/www .
 
@@ -10,15 +10,25 @@
 
     docker run --rm -it -v $PWD:/usr/src/app --name singuerinc_www singuerinc/www gulp
 
-## Server
+## Serve inside a Docker container
 
-    docker run --rm -it -v "$PWD/src:/src" -p 4000:4000 grahamc/jekyll serve -H 0.0.0.0
+```sh
+docker run --rm --label=jekyll --volume=$(pwd):/srv/jekyll -it -p 127.0.0.1:4000:4000 jekyll/jekyll jekyll s
+open 'http://localhost:4000'
+```
 
-## Build
+## SSL Certificate
 
-    docker run --rm -it -v "$PWD/src:/src" -v "$PWD/public:/public" -p 4000:4000 grahamc/jekyll build
-    docker run --rm -it -v "$PWD:/src" -v "$PWD/public:/public" grahamc/jekyll build
+- Run the letsencrypt Docker container
 
-## Serve static
+Read before: [https://about.gitlab.com/2016/04/11/tutorial-securing-your-gitlab-pages-with-tls-and-letsencrypt/](https://about.gitlab.com/2016/04/11/tutorial-securing-your-gitlab-pages-with-tls-and-letsencrypt/)
 
-    docker run --rm -it -v $PWD/public:/usr/share/nginx/html:ro -p 8080:80 nginx
+```sh
+docker run -it --rm -p 443:443 -p 80:80 --name certbot -v ~/letsencrypt/etc/letsencrypt:/etc/letsencrypt -v ~/letsencrypt/var/lib/letsencrypt:/var/lib/letsencrypt quay.io/letsencrypt/letsencrypt:latest certonly -a manual --email nahuel.scotti@gmail.com -d www.singuerinc.com
+```
+
+- Follow the instructions
+- Upload the verification file
+- Continue with the verification
+- Upload Certificate to GitLab
+- Verificate: [https://www.ssllabs.com/ssltest/analyze.html?d=blog.singuerinc.com&latest](https://www.ssllabs.com/ssltest/analyze.html?d=www.singuerinc.com&latest)
