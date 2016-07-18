@@ -15,7 +15,7 @@ staging:
   script:
   - gem install redcarpet jekyll dpl
   - jekyll build -d public
-  - dpl --provider=firebase --token=1/2GJtCAQ8E88zQHgZl5cysXC3YqaIKsVVpOlpkM0U2Lg --project=test-www
+  - dpl --provider=firebase --token=1/2GJtCAQ8E88zQHgZl5cysXC3YqaIKsVVpOlpkM0U2Lg --project=test-www-a3401
   artifacts:
     paths:
     - public
