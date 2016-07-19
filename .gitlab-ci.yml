@@ -16,7 +16,7 @@ staging:
   - gem install redcarpet jekyll dpl
   - jekyll build -d public
   - npm install -g firebase-tools@^2.1
-  - dpl --provider=firebase --token=1/2GJtCAQ8E88zQHgZl5cysXC3YqaIKsVVpOlpkM0U2Lg
+  - dpl --provider=firebase --token=1/2GJtCAQ8E88zQHgZl5cysXC3YqaIKsVVpOlpkM0U2Lg --project=test-www
   artifacts:
     paths:
     - public
