@@ -1,4 +1,4 @@
-image: mwallasch/docker-ruby-node
+image: ruby:alpine
 
 pages:
   script:
@@ -13,7 +13,7 @@ pages:
 
 staging:
   script:
-  - gem install redcarpet jekyll
+  - gem install redcarpet jekyll dpl
   - jekyll build -d public
   - dpl --provider=heroku --api-key="c382ae05-0aec-4e7c-9958-5f9f2cde7043" --app="www-singuerinc"
   artifacts:
