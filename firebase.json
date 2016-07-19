@@ -1,8 +1,0 @@
-{
-  "firebase": "test-www",
-  "public": "public",
-  "ignore": [
-    "firebase.json",
-    "_*"
-  ]
-}
