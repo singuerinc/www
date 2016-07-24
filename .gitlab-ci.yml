@@ -1,6 +1,8 @@
 image: ruby:2.1
 
 pages:
+  stage: deploy
+  environment: production
   script:
   - gem install redcarpet
   - gem install jekyll
