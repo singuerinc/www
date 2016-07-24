@@ -10,14 +10,3 @@ pages:
     - public
   only:
   - master
-
-staging:
-  script:
-  - gem install redcarpet jekyll dpl
-  - jekyll build -d public
-  - dpl --provider=heroku --api-key="c382ae05-0aec-4e7c-9958-5f9f2cde7043" --app="www-singuerinc"
-  artifacts:
-    paths:
-    - public
-  only:
-  - develop
