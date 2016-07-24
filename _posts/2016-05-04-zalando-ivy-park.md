@@ -13,7 +13,7 @@ tags:
     - "websockets"
 
 image: "zalando--ivy-park"
-www: "https://archive.singuerinc.com/zalando/ivypark/en_gb/"
+www: "https://singuerinc.gitlab.io/breel_zalando_ivypark/en_gb/"
 more: "https://www.b-reel.com/projects/ivy-park"
 priority: 'priority-2'
 ---

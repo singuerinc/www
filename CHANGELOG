@@ -1,5 +1,17 @@
 # www
 
 ## [1.3.0] -  2016-07-18
-### Added
 - Added Zalando "Ivy park project"
+
+## [1.2.0] -  2013-07-17
+- Change urls to https
+
+## [1.1.0] -  2013-07-18
+- Added "netent" to keywords
+- WIP: Changed URLs to HTTPS
+- Added Redirect to https script
+- Removed profile:username tag
+- Updated profile info
+- Added SSL to domain, https://www.singuerinc.com is now available
+
+
