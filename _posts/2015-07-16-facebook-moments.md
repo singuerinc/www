@@ -15,7 +15,7 @@ tags:
 
 image: "facebook--moments"
 www: "http://www.momentsapp.com"
-more: ""
+more: "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/"
 priority: 'priority-2'
 ---
 
