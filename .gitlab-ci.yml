@@ -7,19 +7,17 @@ pages:
   - gem install redcarpet
   - gem install jekyll
   - jekyll build -d public
-  - dpl --provider=surge --project=public --domain=<domain-name>
   artifacts:
     paths:
     - public
   only:
   - master
 
-pages:
+develop:
   stage: deploy
   environment: develop
   script:
-  - gem install redcarpet
-  - gem install jekyll
+  - gem install redcarpet jekyll dpl
   - jekyll build -d public
   - dpl --provider=surge --project=public --domain=www-singuerinc-com--develop.surge.sh
   artifacts:
