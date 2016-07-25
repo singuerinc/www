@@ -19,7 +19,7 @@ develop:
   script:
   - gem install redcarpet jekyll dpl
   - jekyll build -d public
-  - cd public && dpl --provider=surge --domain=www-singuerinc-com--develop.surge.sh
+  - dpl --provider=surge --domain=www-singuerinc-com--develop.surge.sh
   artifacts:
     paths:
     - public
