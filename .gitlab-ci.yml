@@ -1,4 +1,4 @@
-image: ruby:2.1
+image: mwallasch/docker-ruby-node
 
 pages:
   stage: deploy
@@ -17,10 +17,11 @@ develop:
   stage: deploy
   environment: develop
   script:
-  - gem install redcarpet jekyll dpl
+  - gem install redcarpet jekyll
   - jekyll build -d $TRAVIS_BUILD_DIR
   - echo $TRAVIS_BUILD_DIR
-  - dpl --skip_cleanup --provider=surge --domain=develop-www-singuerinc-com.surge.sh
+  - npm install -g surge
+  - surge -p $TRAVIS_BUILD_DIR -d develop.www.singuerinc.com.surge.sh
   artifacts:
     paths:
     - public
