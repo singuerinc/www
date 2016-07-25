@@ -20,9 +20,7 @@ develop:
   - gem install redcarpet jekyll dpl
   - jekyll build -d public
   - echo $CI_PROJECT_DIR
-  - dpl --provider=surge --project=/builds/singuerinc-works/com.singuerinc.www/public --domain=develop.www.singuerinc.com.surge.sh
-  artifacts:
-    paths:
-    - public
+  - echo $TRAVIS_BUILD_DIR
+  - dpl --provider=surge --project=public --domain=develop.www.singuerinc.com.surge.sh
   only:
   - develop
