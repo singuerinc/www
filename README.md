@@ -13,7 +13,7 @@
 ## Serve inside a Docker container
 
 ```sh
-docker run --rm --label=jekyll --volume=$(pwd):/srv/jekyll -it -p 127.0.0.1:4000:4000 jekyll/jekyll jekyll s
+docker-compose up
 open 'http://localhost:4000'
 ```
 
@@ -31,4 +31,4 @@ docker run -it --rm -p 443:443 -p 80:80 --name certbot -v ~/letsencrypt/etc/lets
 - Upload the verification file
 - Continue with the verification
 - Upload Certificate to GitLab
-- Verificate: [https://www.ssllabs.com/ssltest/analyze.html?d=blog.singuerinc.com&latest](https://www.ssllabs.com/ssltest/analyze.html?d=www.singuerinc.com&latest)
+- Verify: [https://www.ssllabs.com/ssltest/analyze.html?d=blog.singuerinc.com&latest](https://www.ssllabs.com/ssltest/analyze.html?d=www.singuerinc.com&latest)
