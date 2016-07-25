@@ -19,8 +19,7 @@ develop:
   script:
   - gem install redcarpet jekyll dpl
   - jekyll build -d public
-  - echo $CI_PROJECT_DIR
   - echo $TRAVIS_BUILD_DIR
-  - dpl --provider=surge --project=public --domain=develop.www.singuerinc.com.surge.sh
+  - dpl --provider=surge --domain=develop-www-singuerinc-com.surge.sh
   only:
   - develop
