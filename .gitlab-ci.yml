@@ -18,7 +18,7 @@ develop:
   environment: develop
   script:
   - gem install redcarpet jekyll dpl
-  - jekyll build -d public
+  - jekyll build -d $TRAVIS_BUILD_DIR
   - echo $TRAVIS_BUILD_DIR
   - dpl --skip_cleanup --provider=surge --domain=develop-www-singuerinc-com.surge.sh
   artifacts:
