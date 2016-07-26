@@ -20,13 +20,7 @@ title: Home
   }
 </style>
 
-<h3>HERE'S WHAT I'VE BEEN WORKING ON</h3>
-
-<div class="spinner loading hide">
-  <div class="bounce1"></div>
-  <div class="bounce2"></div>
-  <div class="bounce3"></div>
-</div>
+<h3 class="pre hide">HERE'S WHAT I'VE BEEN WORKING ON</h3>
 
 <ul class="posts">
   {% for post in site.posts %}
@@ -56,7 +50,6 @@ title: Home
   {% endfor %}
 
   <script type="text/javascript">
-    var preloader = document.querySelector('.loading').classList.remove('hide');
     var list = document.querySelectorAll('ul.posts li');
     for(var i=0; i<list.length; i++){
       list[i].classList.add('hide');
@@ -64,5 +57,5 @@ title: Home
     var posts = [];
     {% for post in site.posts %}posts.push({id: "{{post.title|split:' '|join:'-'|downcase;}}", image: "{{post.image}}"});{% endfor %}
   </script>
-  <script type="text/javascript" src="/all.min.js"></script>
+  <script type="text/javascript" src="/assets/bundle.js"></script>
 </ul>

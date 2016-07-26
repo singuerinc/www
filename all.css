@@ -173,6 +173,11 @@
   box-sizing: border-box;
 }
 
+* {
+  color: #777;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+}
+
 html,
 body {
   margin: 0;
@@ -375,6 +380,7 @@ h3 {
 .content.container h3 {
   letter-spacing: 1px;
   text-align: center;
+  margin-bottom: 33px;
 }
 
 .content {
@@ -484,7 +490,7 @@ ul.posts li > a:hover .post-image {
 ul.posts li > a {
   -webkit-transition: background-color 0.1s;
   transition: background-color 0.1s;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: black;
 }
 
 ul.posts li > a:hover {
