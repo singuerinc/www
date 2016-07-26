@@ -1,5 +1,10 @@
 # www
 
+## [2.0.0] - 2016-07-27
+- Add ES6 syntax
+- Move to  Webpack
+- Add anime.js
+
 ## [1.5.0] - 2016-07-24
 - Added profile photo
 - Updated "about" text
