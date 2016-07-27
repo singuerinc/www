@@ -14,7 +14,7 @@ tags:
   - html5
   - javascript
 image: "pepe-jeans_50"
-www: "http://pepejeans.com/"
+www: ""
 more: ""
 priority: 'priority-1'
 ---
