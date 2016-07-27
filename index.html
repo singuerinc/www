@@ -20,7 +20,7 @@ title: Home
   }
 </style>
 
-<h3 class="pre hide">HERE'S WHAT I'VE BEEN WORKING ON</h3>
+<h3 class="noselect pre hide">HERE'S WHAT I'VE BEEN WORKING ON</h3>
 
 <ul class="posts">
   {% for post in site.posts %}
@@ -31,7 +31,7 @@ title: Home
     <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
     <meta itemprop="image" content="{{site.url}}img/home/{{ post.image }}.jpg"/>
     {% if post.www == '' and post.more == '' %}
-    <div class="w-link animated">
+    <div class="noselect w-link animated">
     {% elsif post.more != ''%}
       <meta itemprop="url" content="{{ post.more }}"/>
       <a href="{{ post.more }}" target="_blank" class="w-link animated">
