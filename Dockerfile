@@ -1,4 +1,4 @@
-FROM iron/node:dev
+FROM mhart/alpine-node:6
 VOLUME /usr/src/app
 
 RUN mkdir -p /usr/src
@@ -10,4 +10,4 @@ RUN npm install
 
 WORKDIR /usr/src/app
 
-CMD ["node", "bin/www"]
+CMD ["webpack", "--progress", "--watch"]
