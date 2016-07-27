@@ -461,21 +461,21 @@ ul.posts li .post-image {
   width: 100%;
 }
 
-ul.posts li > a {
+ul.posts li > .w-link {
   position: relative;
   display: block;
 }
 
-ul.posts li.priority-0 a {
+ul.posts li.priority-0 .w-link {
   /*cursor: default !important;*/
 }
 
-ul.posts li > a:hover .w-tags,
-ul.posts li > a:hover .w-title {
+ul.posts li > .w-link:hover .w-tags,
+ul.posts li > .w-link:hover .w-title {
   display: block;
 }
 
-ul.posts li > a .post-image {
+ul.posts li > .w-link .post-image {
   opacity: 1;
   -webkit-transition: opacity 1.5s;
   -moz-transition: opacity 1.5s;
@@ -483,29 +483,29 @@ ul.posts li > a .post-image {
   transition: opacity 1.5s;
 }
 
-ul.posts li > a:hover .post-image {
+ul.posts li > .w-link:hover .post-image {
   opacity: 0.1;
 }
 
-ul.posts li > a {
+ul.posts li > .w-link {
   -webkit-transition: background-color 0.1s;
   transition: background-color 0.1s;
   background-color: black;
 }
 
-ul.posts li > a:hover {
+ul.posts li > .w-link:hover {
   background-color: rgba(0, 0, 0, .9);
 }
 
-ul.posts li > a:hover .w-title {
+ul.posts li > .w-link:hover .w-title {
   opacity: 0;
 }
 
-ul.posts li > a:hover .w-tags {
+ul.posts li > .w-link:hover .w-tags {
   opacity: 1;
 }
 
-ul.posts li > a .w-title {
+ul.posts li > .w-link .w-title {
   -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   position: relative;
@@ -528,16 +528,16 @@ ul.posts li > a .w-title {
     padding-top: 47%;
 }
 
-ul.posts li.priority-0 > a .w-title {
+ul.posts li.priority-0 > .w-link .w-title {
   font-size: 18px;
   line-height: inherit;
 }
 
-ul.posts li.priority-0 > a .w-tags {
+ul.posts li.priority-0 > .w-link .w-tags {
   padding-top: 5px;
 }
 
-ul.posts li a .w-info {
+ul.posts li .w-link .w-info {
 
   position: absolute;
   bottom: 10px;
@@ -552,7 +552,7 @@ ul.posts li a .w-info {
   display: block;
 }
 
-ul.posts li > a:hover .w-info {
+ul.posts li > .w-link:hover .w-info {
   opacity: 1;
 }
 
@@ -836,7 +836,7 @@ Copyright (c) 2014 Daniel Eden
     padding-top: 23%;
   }
 
-  ul.posts li > a .w-title {
+  ul.posts li > .w-link .w-title {
     position: absolute;
     top: 50%;
     margin: -40px 0 0 0;
@@ -847,11 +847,11 @@ Copyright (c) 2014 Daniel Eden
     line-height: 40px;
   }
 
-  ul.posts li > a:hover .w-title {
+  ul.posts li > .w-link:hover .w-title {
     opacity: 1;
   }
 
-  ul.posts li.priority-0 > a .w-title {
+  ul.posts li.priority-0 > .w-link .w-title {
     font-size: 20px;
     line-height: 25px;
     margin: -40px 0 0 0;

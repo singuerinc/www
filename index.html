@@ -30,13 +30,11 @@ title: Home
     {% for award in post.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
     <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
     <meta itemprop="image" content="{{site.url}}img/home/{{ post.image }}.jpg"/>
-    {% if post.www == ''%}
-      {% if post.more == ''%}
-      <a href="#" target="_self" class="w-link animated">
-      {% else %}
+    {% if post.www == '' and post.more == '' %}
+    <div class="w-link animated">
+    {% elsif post.more != ''%}
       <meta itemprop="url" content="{{ post.more }}"/>
       <a href="{{ post.more }}" target="_blank" class="w-link animated">
-      {% endif %}
     {% else %}
     <meta itemprop="url" content="{{ post.www }}"/>
     <a href="{{ post.www }}" target="_blank" class="w-link animated">
@@ -45,7 +43,11 @@ title: Home
       <h1 class="w-title">{{post.title}}</h1>
       <div class="w-tags">{{ post.tech | join: " · "}}</div>
       <div class="w-info">Client: {{ post.client }} / working at {{post.agency}} {% if post.www != ''%} · online{% else %} · offline{% endif %}</div>
+    {% if post.www == '' and post.more == '' %}
+    </div>
+    {% else %}
     </a>
+    {% endif %}
   </li>
   {% endfor %}
 
