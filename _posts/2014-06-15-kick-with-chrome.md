@@ -17,6 +17,6 @@ tags:
 
 image: "google--kick-with-chrome"
 www: "https://www.chromeexperiments.com/experiment/kick-with-chrome"
-more: "http://films.b-reel.com/projects/digital/case/641/kick-with-chrome/"
+more: ""
 priority: 'priority-2'
 ---
