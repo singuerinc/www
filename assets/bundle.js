@@ -189,7 +189,11 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	/*
 	 * Anime v1.1.0
 	 * http://anime-js.com
 	 * JavaScript animation engine
@@ -202,7 +206,7 @@
 	  if (true) {
 	    // AMD. Register as an anonymous module.
 	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  } else if (typeof module === 'object' && module.exports) {
+	  } else if ((typeof module === 'undefined' ? 'undefined' : _typeof(module)) === 'object' && module.exports) {
 	    // Node. Does not work with strict CommonJS, but
 	    // only CommonJS-like environments that support module.exports,
 	    // like Node.
@@ -211,7 +215,7 @@
 	    // Browser globals (root is window)
 	    root.anime = factory();
 	  }
-	})(this, function () {
+	})(undefined, function () {
 
 	  var version = '1.1.0';
 
@@ -241,50 +245,50 @@
 
 	  var is = function () {
 	    return {
-	      array: function (a) {
+	      array: function array(a) {
 	        return Array.isArray(a);
 	      },
-	      object: function (a) {
+	      object: function object(a) {
 	        return Object.prototype.toString.call(a).indexOf('Object') > -1;
 	      },
-	      svg: function (a) {
+	      svg: function svg(a) {
 	        return a instanceof SVGElement;
 	      },
-	      dom: function (a) {
+	      dom: function dom(a) {
 	        return a.nodeType || is.svg(a);
 	      },
-	      number: function (a) {
+	      number: function number(a) {
 	        return !isNaN(parseInt(a));
 	      },
-	      string: function (a) {
+	      string: function string(a) {
 	        return typeof a === 'string';
 	      },
-	      func: function (a) {
+	      func: function func(a) {
 	        return typeof a === 'function';
 	      },
-	      undef: function (a) {
+	      undef: function undef(a) {
 	        return typeof a === 'undefined';
 	      },
-	      null: function (a) {
+	      null: function _null(a) {
 	        return typeof a === 'null';
 	      },
-	      hex: function (a) {
+	      hex: function hex(a) {
 	        return (/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(a)
 	        );
 	      },
-	      rgb: function (a) {
+	      rgb: function rgb(a) {
 	        return (/^rgb/.test(a)
 	        );
 	      },
-	      rgba: function (a) {
+	      rgba: function rgba(a) {
 	        return (/^rgba/.test(a)
 	        );
 	      },
-	      hsl: function (a) {
+	      hsl: function hsl(a) {
 	        return (/^hsl/.test(a)
 	        );
 	      },
-	      color: function (a) {
+	      color: function color(a) {
 	        return is.hex(a) || is.rgb(a) || is.rgba(a) || is.hsl(a);
 	      }
 	    };
@@ -296,13 +300,13 @@
 	    var eases = {};
 	    var names = ['Quad', 'Cubic', 'Quart', 'Quint', 'Expo'];
 	    var functions = {
-	      Sine: function (t) {
+	      Sine: function Sine(t) {
 	        return 1 - Math.cos(t * Math.PI / 2);
 	      },
-	      Circ: function (t) {
+	      Circ: function Circ(t) {
 	        return 1 - Math.sqrt(1 - t * t);
 	      },
-	      Elastic: function (t, m) {
+	      Elastic: function Elastic(t, m) {
 	        if (t === 0 || t === 1) return t;
 	        var p = 1 - Math.min(m, 998) / 1000,
 	            st = t / 1,
@@ -310,10 +314,10 @@
 	            s = p / (2 * Math.PI) * Math.asin(1);
 	        return -(Math.pow(2, 10 * st1) * Math.sin((st1 - s) * (2 * Math.PI) / p));
 	      },
-	      Back: function (t) {
+	      Back: function Back(t) {
 	        return t * t * (3 * t - 2);
 	      },
-	      Bounce: function (t) {
+	      Bounce: function Bounce(t) {
 	        var pow2,
 	            bounce = 4;
 	        while (t < ((pow2 = Math.pow(2, --bounce)) - 1) / 11) {}
@@ -343,15 +347,15 @@
 
 	  // Strings
 
-	  var numberToString = function (val) {
+	  var numberToString = function numberToString(val) {
 	    return is.string(val) ? val : val + '';
 	  };
 
-	  var stringToHyphens = function (str) {
+	  var stringToHyphens = function stringToHyphens(str) {
 	    return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 	  };
 
-	  var selectString = function (str) {
+	  var selectString = function selectString(str) {
 	    if (is.color(str)) return false;
 	    try {
 	      var nodes = document.querySelectorAll(str);
@@ -363,32 +367,32 @@
 
 	  // Numbers
 
-	  var random = function (min, max) {
+	  var random = function random(min, max) {
 	    return Math.floor(Math.random() * (max - min + 1)) + min;
 	  };
 
 	  // Arrays
 
-	  var flattenArray = function (arr) {
+	  var flattenArray = function flattenArray(arr) {
 	    return arr.reduce(function (a, b) {
 	      return a.concat(is.array(b) ? flattenArray(b) : b);
 	    }, []);
 	  };
 
-	  var toArray = function (o) {
+	  var toArray = function toArray(o) {
 	    if (is.array(o)) return o;
 	    if (is.string(o)) o = selectString(o) || o;
 	    if (o instanceof NodeList || o instanceof HTMLCollection) return [].slice.call(o);
 	    return [o];
 	  };
 
-	  var arrayContains = function (arr, val) {
+	  var arrayContains = function arrayContains(arr, val) {
 	    return arr.some(function (a) {
 	      return a === val;
 	    });
 	  };
 
-	  var groupArrayByProps = function (arr, propsArr) {
+	  var groupArrayByProps = function groupArrayByProps(arr, propsArr) {
 	    var groups = {};
 	    arr.forEach(function (o) {
 	      var group = JSON.stringify(propsArr.map(function (p) {
@@ -402,7 +406,7 @@
 	    });
 	  };
 
-	  var removeArrayDuplicates = function (arr) {
+	  var removeArrayDuplicates = function removeArrayDuplicates(arr) {
 	    return arr.filter(function (item, pos, self) {
 	      return self.indexOf(item) === pos;
 	    });
@@ -410,20 +414,22 @@
 
 	  // Objects
 
-	  var cloneObject = function (o) {
+	  var cloneObject = function cloneObject(o) {
 	    var newObject = {};
-	    for (var p in o) newObject[p] = o[p];
-	    return newObject;
+	    for (var p in o) {
+	      newObject[p] = o[p];
+	    }return newObject;
 	  };
 
-	  var mergeObjects = function (o1, o2) {
-	    for (var p in o2) o1[p] = !is.undef(o1[p]) ? o1[p] : o2[p];
-	    return o1;
+	  var mergeObjects = function mergeObjects(o1, o2) {
+	    for (var p in o2) {
+	      o1[p] = !is.undef(o1[p]) ? o1[p] : o2[p];
+	    }return o1;
 	  };
 
 	  // Colors
 
-	  var hexToRgb = function (hex) {
+	  var hexToRgb = function hexToRgb(hex) {
 	    var rgx = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
 	    var hex = hex.replace(rgx, function (m, r, g, b) {
 	      return r + r + g + g + b + b;
@@ -435,12 +441,12 @@
 	    return 'rgb(' + r + ',' + g + ',' + b + ')';
 	  };
 
-	  var hslToRgb = function (hsl) {
+	  var hslToRgb = function hslToRgb(hsl) {
 	    var hsl = /hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g.exec(hsl);
 	    var h = parseInt(hsl[1]) / 360;
 	    var s = parseInt(hsl[2]) / 100;
 	    var l = parseInt(hsl[3]) / 100;
-	    var hue2rgb = function (p, q, t) {
+	    var hue2rgb = function hue2rgb(p, q, t) {
 	      if (t < 0) t += 1;
 	      if (t > 1) t -= 1;
 	      if (t < 1 / 6) return p + (q - p) * 6 * t;
@@ -461,7 +467,7 @@
 	    return 'rgb(' + r * 255 + ',' + g * 255 + ',' + b * 255 + ')';
 	  };
 
-	  var colorToRgb = function (val) {
+	  var colorToRgb = function colorToRgb(val) {
 	    if (is.rgb(val) || is.rgba(val)) return val;
 	    if (is.hex(val)) return hexToRgb(val);
 	    if (is.hsl(val)) return hslToRgb(val);
@@ -469,12 +475,12 @@
 
 	  // Units
 
-	  var getUnit = function (val) {
+	  var getUnit = function getUnit(val) {
 	    return (/([\+\-]?[0-9|auto\.]+)(%|px|pt|em|rem|in|cm|mm|ex|pc|vw|vh|deg)?/.exec(val)[2]
 	    );
 	  };
 
-	  var addDefaultTransformUnit = function (prop, val, intialVal) {
+	  var addDefaultTransformUnit = function addDefaultTransformUnit(prop, val, intialVal) {
 	    if (getUnit(val)) return val;
 	    if (prop.indexOf('translate') > -1) return getUnit(intialVal) ? val + getUnit(intialVal) : val + 'px';
 	    if (prop.indexOf('rotate') > -1 || prop.indexOf('skew') > -1) return val + 'deg';
@@ -483,7 +489,7 @@
 
 	  // Values
 
-	  var getCSSValue = function (el, prop) {
+	  var getCSSValue = function getCSSValue(el, prop) {
 	    // First check if prop is a valid CSS property
 	    if (prop in el.style) {
 	      // Then return the property value or fallback to '0' when getPropertyValue fails
@@ -491,7 +497,7 @@
 	    }
 	  };
 
-	  var getTransformValue = function (el, prop) {
+	  var getTransformValue = function getTransformValue(el, prop) {
 	    var defaultVal = prop.indexOf('scale') > -1 ? 1 : 0;
 	    var str = el.style.transform;
 	    if (!str) return defaultVal;
@@ -509,14 +515,14 @@
 	    return val.length ? val[0] : defaultVal;
 	  };
 
-	  var getAnimationType = function (el, prop) {
+	  var getAnimationType = function getAnimationType(el, prop) {
 	    if (is.dom(el) && arrayContains(validTransforms, prop)) return 'transform';
 	    if (is.dom(el) && prop !== 'transform' && getCSSValue(el, prop)) return 'css';
 	    if (is.dom(el) && (el.getAttribute(prop) || is.svg(el) && el[prop])) return 'attribute';
 	    if (!is.null(el[prop]) && !is.undef(el[prop])) return 'object';
 	  };
 
-	  var getInitialTargetValue = function (target, prop) {
+	  var getInitialTargetValue = function getInitialTargetValue(target, prop) {
 	    switch (getAnimationType(target, prop)) {
 	      case 'transform':
 	        return getTransformValue(target, prop);
@@ -528,7 +534,7 @@
 	    return target[prop] || 0;
 	  };
 
-	  var getValidValue = function (values, val, originalCSS) {
+	  var getValidValue = function getValidValue(values, val, originalCSS) {
 	    if (is.color(val)) return colorToRgb(val);
 	    if (getUnit(val)) return val;
 	    var unit = getUnit(values.to) ? getUnit(values.to) : getUnit(values.from);
@@ -536,7 +542,7 @@
 	    return unit ? val + unit : val;
 	  };
 
-	  var decomposeValue = function (val) {
+	  var decomposeValue = function decomposeValue(val) {
 	    var rgx = /-?\d*\.?\d+/g;
 	    return {
 	      original: val,
@@ -545,7 +551,7 @@
 	    };
 	  };
 
-	  var recomposeValue = function (numbers, strings, initialStrings) {
+	  var recomposeValue = function recomposeValue(numbers, strings, initialStrings) {
 	    return strings.reduce(function (a, b, i) {
 	      var b = b ? b : initialStrings[i - 1];
 	      return a + numbers[i - 1] + b;
@@ -554,7 +560,7 @@
 
 	  // Animatables
 
-	  var getAnimatables = function (targets) {
+	  var getAnimatables = function getAnimatables(targets) {
 	    var targets = targets ? flattenArray(is.array(targets) ? targets.map(toArray) : toArray(targets)) : [];
 	    return targets.map(function (t, i) {
 	      return { target: t, id: i };
@@ -563,7 +569,7 @@
 
 	  // Properties
 
-	  var getProperties = function (params, settings) {
+	  var getProperties = function getProperties(params, settings) {
 	    var props = [];
 	    for (var p in params) {
 	      if (!defaultSettings.hasOwnProperty(p) && p !== 'targets') {
@@ -575,7 +581,7 @@
 	    return props;
 	  };
 
-	  var getPropertiesValues = function (target, prop, value, i) {
+	  var getPropertiesValues = function getPropertiesValues(target, prop, value, i) {
 	    var values = toArray(is.func(value) ? value(target, i) : value);
 	    return {
 	      from: values.length > 1 ? values[0] : getInitialTargetValue(target, prop),
@@ -585,7 +591,7 @@
 
 	  // Tweens
 
-	  var getTweenValues = function (prop, values, type, target) {
+	  var getTweenValues = function getTweenValues(prop, values, type, target) {
 	    var valid = {};
 	    if (type === 'transform') {
 	      valid.from = prop + '(' + addDefaultTransformUnit(prop, values.from, values.to) + ')';
@@ -598,7 +604,7 @@
 	    return { from: decomposeValue(valid.from), to: decomposeValue(valid.to) };
 	  };
 
-	  var getTweensProps = function (animatables, props) {
+	  var getTweensProps = function getTweensProps(animatables, props) {
 	    var tweensProps = [];
 	    animatables.forEach(function (animatable, i) {
 	      var target = animatable.target;
@@ -621,7 +627,7 @@
 	    return tweensProps;
 	  };
 
-	  var getTweens = function (animatables, props) {
+	  var getTweens = function getTweens(animatables, props) {
 	    var tweensProps = getTweensProps(animatables, props);
 	    var splittedProps = groupArrayByProps(tweensProps, ['name', 'from', 'to', 'delay', 'duration']);
 	    return splittedProps.map(function (tweenProps) {
@@ -634,7 +640,7 @@
 	    });
 	  };
 
-	  var reverseTweens = function (anim, delays) {
+	  var reverseTweens = function reverseTweens(anim, delays) {
 	    anim.tweens.forEach(function (tween) {
 	      var toVal = tween.to;
 	      var fromVal = tween.from;
@@ -646,7 +652,7 @@
 	    anim.reversed = anim.reversed ? false : true;
 	  };
 
-	  var getTweensDuration = function (tweens) {
+	  var getTweensDuration = function getTweensDuration(tweens) {
 	    if (tweens.length) return Math.max.apply(Math, tweens.map(function (tween) {
 	      return tween.totalDuration;
 	    }));
@@ -654,7 +660,7 @@
 
 	  // will-change
 
-	  var getWillChange = function (anim) {
+	  var getWillChange = function getWillChange(anim) {
 	    var props = [];
 	    var els = [];
 	    anim.tweens.forEach(function (tween) {
@@ -671,14 +677,14 @@
 	    };
 	  };
 
-	  var setWillChange = function (anim) {
+	  var setWillChange = function setWillChange(anim) {
 	    var willChange = getWillChange(anim);
 	    willChange.elements.forEach(function (element) {
 	      element.style.willChange = willChange.properties;
 	    });
 	  };
 
-	  var removeWillChange = function (anim) {
+	  var removeWillChange = function removeWillChange(anim) {
 	    var willChange = getWillChange(anim);
 	    willChange.elements.forEach(function (element) {
 	      element.style.removeProperty('will-change');
@@ -687,7 +693,7 @@
 
 	  /* Svg path */
 
-	  var getPathProps = function (path) {
+	  var getPathProps = function getPathProps(path) {
 	    var el = is.string(path) ? selectString(path)[0] : path;
 	    return {
 	      path: el,
@@ -695,10 +701,10 @@
 	    };
 	  };
 
-	  var snapProgressToPath = function (tween, progress) {
+	  var snapProgressToPath = function snapProgressToPath(tween, progress) {
 	    var pathEl = tween.path;
 	    var pathProgress = tween.value * progress;
-	    var point = function (offset) {
+	    var point = function point(offset) {
 	      var o = offset || 0;
 	      var p = progress > 1 ? tween.value + o : pathProgress + o;
 	      return pathEl.getPointAtLength(p);
@@ -718,7 +724,7 @@
 
 	  // Progress
 
-	  var getTweenProgress = function (tween, time) {
+	  var getTweenProgress = function getTweenProgress(tween, time) {
 	    var elapsed = Math.min(Math.max(time - tween.delay, 0), tween.duration);
 	    var percent = elapsed / tween.duration;
 	    var progress = tween.to.numbers.map(function (number, p) {
@@ -731,7 +737,7 @@
 	    return recomposeValue(progress, tween.to.strings, tween.from.strings);
 	  };
 
-	  var setAnimationProgress = function (anim, time) {
+	  var setAnimationProgress = function setAnimationProgress(anim, time) {
 	    var transforms;
 	    anim.currentTime = time;
 	    anim.progress = time / anim.duration * 100;
@@ -770,7 +776,7 @@
 
 	  // Animation
 
-	  var createAnimation = function (params) {
+	  var createAnimation = function createAnimation(params) {
 	    var anim = {};
 	    anim.animatables = getAnimatables(params.targets);
 	    anim.settings = mergeObjects(params, defaultSettings);
@@ -789,13 +795,14 @@
 	  var raf = 0;
 
 	  var engine = function () {
-	    var play = function () {
+	    var play = function play() {
 	      raf = requestAnimationFrame(step);
 	    };
-	    var step = function (t) {
+	    var step = function step(t) {
 	      if (animations.length) {
-	        for (var i = 0; i < animations.length; i++) animations[i].tick(t);
-	        play();
+	        for (var i = 0; i < animations.length; i++) {
+	          animations[i].tick(t);
+	        }play();
 	      } else {
 	        cancelAnimationFrame(raf);
 	        raf = 0;
@@ -804,7 +811,7 @@
 	    return play;
 	  }();
 
-	  var animation = function (params) {
+	  var animation = function animation(params) {
 
 	    var anim = createAnimation(params);
 	    var time = {};
@@ -869,7 +876,7 @@
 
 	  // Remove one or multiple targets from all active animations.
 
-	  var remove = function (elements) {
+	  var remove = function remove(elements) {
 	    var targets = flattenArray(is.array(elements) ? elements.map(toArray) : toArray(elements));
 	    for (var i = animations.length - 1; i >= 0; i--) {
 	      var animation = animations[i];
@@ -915,8 +922,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./all.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./all.css");
+			module.hot.accept("!!./node_modules/css-loader/index.js!./all.css", function() {
+				var newContent = require("!!./node_modules/css-loader/index.js!./all.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -934,7 +941,7 @@
 
 
 	// module
-	exports.push([module.id, "/* cyrillic-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/ty9dfvLAziwdqQ2dHoyjphkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/frNV30OaYdlFRtH2VnZZdhkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* greek-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/gwVJDERN2Amz39wrSoZ7FxkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+1F00-1FFF;\n}\n/* greek */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/aZMswpodYeVhtRvuABJWvBkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0370-03FF;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/VvXUGKZXbHtX_S_VCTLpGhkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/e7MeVAyvogMqFwwl61PKhBkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/2tsd397wLxj96qwHyNIkxBkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;\n}\n/* cyrillic-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/0eC6fl06luXEYWpBSJvXCIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/Fl4y0QdOxyyTHEGMXX8kcYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* greek-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/-L14Jk06m6pUHB-5mXQQnYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+1F00-1FFF;\n}\n/* greek */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/I3S1wsgSg9YCurV6PUkTOYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0370-03FF;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/NYDWBdD4gIq26G5XYbHsFIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/Pru33qjShpZSmG3z6VYwnYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/Hgo13k-tfSpn0qi1SFdUfYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;\n}\n/* cyrillic-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/sTdaA6j0Psb920Vjv-mrzH-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/uYECMKoHcO9x1wdmbyHIm3-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* greek-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/tnj4SB6DNbdaQnsM8CFqBX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+1F00-1FFF;\n}\n/* greek */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/_VYFx-s824kXq_Ul2BHqYH-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0370-03FF;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/NJ4vxlgWwWbEsv18dAhqnn-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/Ks_cVxiCiwUWVsFWFA3Bjn-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/oMMgfZMQthOryQo9n22dcn-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;\n}\n\n* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n}\n\n* {\n  color: #777;\n  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;\n}\n\n.noselect {\n  cursor: default;\n  -webkit-touch-callout: none; /* iOS Safari */\n  -webkit-user-select: none;   /* Chrome/Safari/Opera */\n  -khtml-user-select: none;    /* Konqueror */\n  -moz-user-select: none;      /* Firefox */\n  -ms-user-select: none;       /* Internet Explorer/Edge */\n  user-select: none;           /* Non-prefixed version, currently\n                                  not supported by any browser */\n}\n\nhtml,\nbody {\n  margin: 0;\n  padding: 0;\n}\n\nhtml {\n  font-size: 16px;\n  line-height: 1.5;\n  min-width: 320px;\n}\n\n@media (min-width: 38rem) {\n  html {\n    font-size: 20px;\n  }\n}\n\nbody {\n  display: block !important;\n  color: #515151;\n  background-color: #fff;\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%;\n}\n\n/* No `:visited` state is required by default (browsers will use `a`) */\n\na {\n  color: #268bd2;\n  text-decoration: none;\n}\n\n/* `:focus` is linked to `:hover` for basic accessibility */\n\na:hover,\na:focus {\n  text-decoration: underline;\n}\n\nh1 {\n  font-size: 2rem;\n}\n\nh3 {\n  margin-top: 0;\n  font-size: 1.20rem;\n}\n\nul,\nol,\ndl {\n  margin-top: 0;\n  margin-bottom: 1rem;\n}\n\nblockquote {\n  margin: .8rem 0;\n  color: #7a7a7a;\n  border-left: .25rem solid #e5e5e5;\n}\n\nblockquote p:last-child {\n  margin-bottom: 0;\n}\n\n.page blockquote p {\n  font-size: 10px;\n}\n\n@media (min-width: 30rem) {\n  blockquote {\n    padding-right: 5rem;\n    padding-left: 1.25rem;\n  }\n}\n\nimg {\n  display: block;\n  margin: 0;\n}\n\n.container {\n  max-width: 38rem;\n  padding-left: 1rem;\n  padding-right: 1rem;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.page,\n.post {\n  margin-bottom: 4em;\n}\n\n.page p {\n  font-size: 14px;\n}\n\n@media (min-width: 48rem) {\n  html {\n    font-size: 16px;\n  }\n}\n\n@media (min-width: 58rem) {\n  html {\n    font-size: 20px;\n  }\n}\n\nhtml {\n  font-size: 12px;\n}\n\nbody {\n  color: #777;\n  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;\n}\n\n.sidebar {\n  text-align: center;\n  padding: 2rem 1rem;\n  color: rgba(255,255,255,.5);\n  background-color: #202020;\n}\n\n/* Sidebar links */\n\n.sidebar a {\n  color: #fff;\n}\n\n.sidebar ul {\n    display: none;\n}\n\n.sidebar.mobile ul {\n    display: block;\n}\n\n.sidebar.mobile ul {\n    display: block;\n}\n\n.sidebar.mobile ul li a {\n  line-height: 40px;\n}\n\n.sidebar ul li a {\n  font-weight: 400;\n}\n\n@media (min-width: 48rem) {\n  .sidebar-sticky {\n    position: absolute;\n    right: 1rem;\n    bottom: 1rem;\n    left: 1rem;\n  }\n}\n\n.content {\n  padding-top: 4rem;\n  padding-bottom: 0;\n}\n\n@media (min-width: 48rem) {\n  .content {\n    max-width: 38rem;\n    margin-left: 20rem;\n    margin-right: 2rem;\n  }\n}\n\n@media (min-width: 64rem) {\n  .content {\n    margin-left: 22rem;\n    margin-right: 4rem;\n  }\n}\n\nheader {\n  padding: 0;\n  font-size: 1.8rem;\n  font-weight: 100;\n  color: #333;\n}\n\nimg {\n  border-radius: 0;\n}\n\nh1,\nh2,\nh3 {\n  font-weight: 300;\n}\n\n.content.container h3 {\n  letter-spacing: 1px;\n  text-align: center;\n  margin-bottom: 33px;\n}\n\n.content {\n  max-width: 48rem;\n  padding-top: 31px;\n}\n\n@media (max-width: 48rem) {\n  .content {\n    padding-top: 0;\n  }\n}\n\n.sidebar {\n  background-color: white;\n  color: black;\n}\n\n.sidebar a,\na {\n  color: black;\n}\n\n.sidebar ul a {\n  text-transform: uppercase;\n}\n\n.sidebar a:focus,\na:active {\n  color: white;\n  background-color: black !important;\n}\n\n.sidebar ul {\n  list-style: none;\n  padding: 0px;\n}\n\n.sidebar-sticky {\n  bottom: auto;\n  left: 2rem;\n}\n\nhtml {\n  font-family: 'Lato';\n}\n\nheader div a {\n  display: inline;\n  color: black;\n  font-weight: 300;\n}\n\nul.posts {\n  list-style: none;\n  padding: 0;\n  width: 100%;\n  overflow: hidden;\n  height: 1%;\n}\n\nul.posts li {\n  position: relative;\n  float: left;\n  width: 100%;\n  margin: 0 0 10px 0;\n}\n\nul.posts li.animated {\n    opacity: 0;\n}\n\nul.posts li.priority-0 {\n  width: 100%;\n}\n\nul.posts li .post-image {\n  width: 100%;\n}\n\nul.posts li > .w-link {\n  position: relative;\n  display: block;\n}\n\nul.posts li.priority-0 .w-link {\n  /*cursor: default !important;*/\n}\n\nul.posts li > .w-link:hover .w-tags,\nul.posts li > .w-link:hover .w-title {\n  display: block;\n}\n\nul.posts li > .w-link .post-image {\n  opacity: 1;\n  -webkit-transition: opacity 1.5s;\n  -moz-transition: opacity 1.5s;\n  -o-transition: opacity 1.5s;\n  transition: opacity 1.5s;\n}\n\nul.posts li > .w-link:hover .post-image {\n  opacity: 0.1;\n}\n\nul.posts li > .w-link {\n  -webkit-transition: background-color 0.1s;\n  transition: background-color 0.1s;\n  background-color: black;\n}\n\nul.posts li > .w-link:hover {\n  background-color: rgba(0, 0, 0, .9);\n}\n\nul.posts li > .w-link:hover .w-title {\n  opacity: 0;\n}\n\nul.posts li > .w-link:hover .w-tags {\n  opacity: 1;\n}\n\nul.posts li > .w-link .w-title {\n  -webkit-transition: opacity 0.6s;\n  transition: opacity 0.6s;\n  position: relative;\n  top: auto;\n  margin: 0;\n  border-bottom: 0;\n  width: 100%;\n  text-align: center;\n  text-transform: uppercase;\n  opacity: 1;\n  color: white;\n  font-size: 14px;\n  padding: 6px;\n  font-weight: 300;\n  line-height: inherit;\n  display: inline-block;\n}\n\n.priority-0 .post-image, .priority-1 .post-image, .priority-2 .post-image {\n    padding-top: 47%;\n}\n\nul.posts li.priority-0 > .w-link .w-title {\n  font-size: 18px;\n  line-height: inherit;\n}\n\nul.posts li.priority-0 > .w-link .w-tags {\n  padding-top: 5px;\n}\n\nul.posts li .w-link .w-info {\n\n  position: absolute;\n  bottom: 10px;\n  height: 24px;\n  opacity: 0;\n  color: #7a7a7a;\n  width: 100%;\n  padding: 10px;\n  transition: opacity 1.6s;\n  text-align: center;\n  font-weight: 400;\n  display: block;\n}\n\nul.posts li > .w-link:hover .w-info {\n  opacity: 1;\n}\n\nul.posts .w-tags {\n  -webkit-transition: opacity 0.8s;\n  transition: opacity 0.8s;\n  position: absolute;\n  top: 50%;\n  width: 100%;\n  text-align: center;\n  opacity: 0;\n  color: rgba(255, 255, 255, 0.7);\n  font-size: 16px;\n  font-weight: 100;\n  padding: 15px 20px 0 20px;\n}\n\n.post img {\n  max-width: 100%;\n}\n\n.animated {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n.post.award-awwwards_site_of_the_day:before {\n  content: '';\n  position: absolute;\n  width: 69px;\n  height: 105px;\n  background-color: red;\n  top: 0;\n  left: -1px;\n  z-index: 1;\n  background: url(" + __webpack_require__(6) + ") 0 0 no-repeat;\n  background-size: 100%;\n}\n\n.post.thefwa_site_of_the_day:after {\n  content: '';\n  position: absolute;\n  width: 100px;\n  height: 100px;\n  background-color: red;\n  top: 0;\n  right: 0;\n  z-index: 1;\n  background: url(" + __webpack_require__(7) + ") 0 0 no-repeat;\n  background-size: 100%;\n}\n\n.post.award-sol_plata:before,\n.post.award-sol_bronce:before {\n  content: '';\n  position: absolute;\n  width: 45px;\n  height: 45px;\n  background-color: red;\n  top: 10px;\n  left: 10px;\n  z-index: 1;\n  background: url(" + __webpack_require__(8) + ") 0 0 no-repeat;\n  background-size: 100%;\n}\n\n.post.award-sol_bronce:before {\n  background: url(" + __webpack_require__(9) + ") 0 0 no-repeat;\n}\n\n@media (min-width: 48rem) {\n  .content {\n    max-width: 70rem;\n  }\n}\n\n@-webkit-keyframes fadeIn50 {\n  0% {\n    opacity: 0.85;\n  }\n\n  100% {\n    opacity: 1;\n  }\n}\n\n@keyframes fadeIn50 {\n  0% {\n    opacity: 0.85;\n  }\n\n  100% {\n    opacity: 1;\n  }\n}\n\n.fadeIn50 {\n  -webkit-animation-name: fadeIn50;\n  animation-name: fadeIn50;\n}\n\n@-webkit-keyframes fadeOut50 {\n  0% {\n    opacity: 1;\n  }\n\n  100% {\n    opacity: 0.85;\n  }\n}\n\n@keyframes fadeOut50 {\n  0% {\n    opacity: 1;\n  }\n\n  100% {\n    opacity: 0.85;\n  }\n}\n\n.fadeOut50 {\n  -webkit-animation-name: fadeOut50;\n  animation-name: fadeOut50;\n}\n@charset \"UTF-8\";\n\n/*!\nAnimate.css - http://daneden.me/animate\nLicensed under the MIT license - http://opensource.org/licenses/MIT\n\nCopyright (c) 2014 Daniel Eden\n*/\n\n.animated {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n@-webkit-keyframes fadeIn {\n  0% {\n    opacity: 0;\n  }\n\n  100% {\n    opacity: 1;\n  }\n}\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0;\n  }\n\n  100% {\n    opacity: 1;\n  }\n}\n\n.fadeIn {\n  -webkit-animation-name: fadeIn;\n  animation-name: fadeIn;\n}\n\n@-webkit-keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 50%, 0);\n    transform: translate3d(0, 50%, 0);\n  }\n\n  100% {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 50%, 0);\n    -ms-transform: translate3d(0, 50%, 0);\n    transform: translate3d(0, 50%, 0);\n  }\n\n  100% {\n    opacity: 1;\n    -webkit-transform: none;\n    -ms-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInUp {\n  -webkit-animation-name: fadeInUp;\n  animation-name: fadeInUp;\n}\n\n.loading {\n    margin: 0 auto;\n}\n\n.spinner {\n  margin: 20px auto;\n  width: 70px;\n  text-align: center;\n}\n\n.spinner > div {\n  width: 18px;\n  height: 18px;\n  background-color: #EEE;\n\n  border-radius: 100%;\n  display: inline-block;\n  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;\n  animation: bouncedelay 1.4s infinite ease-in-out;\n  /* Prevent first frame from flickering when animation starts */\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n.spinner .bounce1 {\n  -webkit-animation-delay: -0.32s;\n  animation-delay: -0.32s;\n}\n\n.spinner .bounce2 {\n  -webkit-animation-delay: -0.16s;\n  animation-delay: -0.16s;\n}\n\n@-webkit-keyframes bouncedelay {\n  0%, 80%, 100% { -webkit-transform: scale(0.0) }\n  40% { -webkit-transform: scale(1.0) }\n}\n\n@keyframes bouncedelay {\n  0%, 80%, 100% {\n    transform: scale(0.0);\n    -webkit-transform: scale(0.0);\n  } 40% {\n    transform: scale(1.0);\n    -webkit-transform: scale(1.0);\n  }\n}\n\n.hide {\n    display: none;\n}\n\n@media (min-width: 48rem) {\n\n  .sidebar {\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    width: 18rem;\n    text-align: left;\n  }\n\n  .sidebar ul {\n    display: block;\n  }\n\n  header {\n    padding: 0 0 2rem 0;\n  }\n\n  ul.posts li.priority-0 {\n    width: 50%;\n  }\n\n  .priority-1 .post-image {\n    padding-top: 23%;\n  }\n\n  ul.posts li > .w-link .w-title {\n    position: absolute;\n    top: 50%;\n    margin: -40px 0 0 0;\n    border-bottom: 1px solid rgba(255, 255, 255, .1);\n    opacity: 0;\n    font-size: 36px;\n    padding: 0 0 7px 0;\n    line-height: 40px;\n  }\n\n  ul.posts li > .w-link:hover .w-title {\n    opacity: 1;\n  }\n\n  ul.posts li.priority-0 > .w-link .w-title {\n    font-size: 20px;\n    line-height: 25px;\n    margin: -40px 0 0 0;\n  }\n\n  .sidebar.mobile {\n    display: none;\n  }\n\n}\n", ""]);
+	exports.push([module.id, "/* cyrillic-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/ty9dfvLAziwdqQ2dHoyjphkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/frNV30OaYdlFRtH2VnZZdhkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* greek-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/gwVJDERN2Amz39wrSoZ7FxkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+1F00-1FFF;\n}\n/* greek */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/aZMswpodYeVhtRvuABJWvBkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0370-03FF;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/VvXUGKZXbHtX_S_VCTLpGhkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/e7MeVAyvogMqFwwl61PKhBkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 100;\n  src: local('Roboto Thin'), local('Roboto-Thin'), url(//fonts.gstatic.com/s/roboto/v14/2tsd397wLxj96qwHyNIkxBkAz4rYn47Zy2rvigWQf6w.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;\n}\n/* cyrillic-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/0eC6fl06luXEYWpBSJvXCIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/Fl4y0QdOxyyTHEGMXX8kcYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* greek-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/-L14Jk06m6pUHB-5mXQQnYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+1F00-1FFF;\n}\n/* greek */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/I3S1wsgSg9YCurV6PUkTOYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0370-03FF;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/NYDWBdD4gIq26G5XYbHsFIX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/Pru33qjShpZSmG3z6VYwnYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 300;\n  src: local('Roboto Light'), local('Roboto-Light'), url(//fonts.gstatic.com/s/roboto/v14/Hgo13k-tfSpn0qi1SFdUfYX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;\n}\n/* cyrillic-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/sTdaA6j0Psb920Vjv-mrzH-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;\n}\n/* cyrillic */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/uYECMKoHcO9x1wdmbyHIm3-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;\n}\n/* greek-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/tnj4SB6DNbdaQnsM8CFqBX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+1F00-1FFF;\n}\n/* greek */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/_VYFx-s824kXq_Ul2BHqYH-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0370-03FF;\n}\n/* vietnamese */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/NJ4vxlgWwWbEsv18dAhqnn-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/Ks_cVxiCiwUWVsFWFA3Bjn-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Roboto';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v14/oMMgfZMQthOryQo9n22dcn-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;\n}\n\n* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n}\n\n* {\n  color: #777;\n  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;\n}\n\n.noselect {\n  cursor: default;\n  -webkit-touch-callout: none; /* iOS Safari */\n  -webkit-user-select: none;   /* Chrome/Safari/Opera */\n  -khtml-user-select: none;    /* Konqueror */\n  -moz-user-select: none;      /* Firefox */\n  -ms-user-select: none;       /* Internet Explorer/Edge */\n  user-select: none;           /* Non-prefixed version, currently\n                                  not supported by any browser */\n}\n\nhtml,\nbody {\n  margin: 0;\n  padding: 0;\n}\n\nhtml {\n  font-size: 16px;\n  line-height: 1.5;\n  min-width: 320px;\n}\n\n@media (min-width: 38rem) {\n  html {\n    font-size: 20px;\n  }\n}\n\nbody {\n  display: block !important;\n  color: #515151;\n  background-color: #fff;\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%;\n}\n\n/* No `:visited` state is required by default (browsers will use `a`) */\n\na {\n  color: #268bd2;\n  text-decoration: none;\n}\n\n/* `:focus` is linked to `:hover` for basic accessibility */\n\na:hover,\na:focus {\n  text-decoration: underline;\n}\n\nh1 {\n  font-size: 2rem;\n}\n\nh3 {\n  margin-top: 0;\n  font-size: 1.20rem;\n}\n\nul,\nol,\ndl {\n  margin-top: 0;\n  margin-bottom: 1rem;\n}\n\nblockquote {\n  margin: .8rem 0;\n  color: #7a7a7a;\n  border-left: .25rem solid #e5e5e5;\n}\n\nblockquote p:last-child {\n  margin-bottom: 0;\n}\n\n.page blockquote p {\n  font-size: 10px;\n}\n\n@media (min-width: 30rem) {\n  blockquote {\n    padding-right: 5rem;\n    padding-left: 1.25rem;\n  }\n}\n\nimg {\n  display: block;\n  margin: 0;\n}\n\n.container {\n  max-width: 38rem;\n  padding-left: 1rem;\n  padding-right: 1rem;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.page,\n.post {\n  margin-bottom: 4em;\n}\n\n.page p {\n  font-size: 14px;\n}\n\n@media (min-width: 48rem) {\n  html {\n    font-size: 16px;\n  }\n}\n\n@media (min-width: 58rem) {\n  html {\n    font-size: 20px;\n  }\n}\n\nhtml {\n  font-size: 12px;\n}\n\nbody {\n  color: #777;\n  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;\n}\n\n.sidebar {\n  text-align: center;\n  padding: 2rem 1rem;\n  color: rgba(255,255,255,.5);\n  background-color: #202020;\n}\n\n/* Sidebar links */\n\n.sidebar a {\n  color: #fff;\n}\n\n.sidebar ul {\n    display: none;\n}\n\n.sidebar.mobile ul {\n    display: block;\n}\n\n.sidebar.mobile ul {\n    display: block;\n}\n\n.sidebar.mobile ul li a {\n  line-height: 40px;\n}\n\n.sidebar ul li a {\n  font-weight: 400;\n}\n\n@media (min-width: 48rem) {\n  .sidebar-sticky {\n    position: absolute;\n    right: 1rem;\n    bottom: 1rem;\n    left: 1rem;\n  }\n}\n\n.content {\n  padding-top: 4rem;\n  padding-bottom: 0;\n}\n\n@media (min-width: 48rem) {\n  .content {\n    max-width: 38rem;\n    margin-left: 20rem;\n    margin-right: 2rem;\n  }\n}\n\n@media (min-width: 64rem) {\n  .content {\n    margin-left: 22rem;\n    margin-right: 4rem;\n  }\n}\n\nheader {\n  padding: 0;\n  font-size: 1.8rem;\n  font-weight: 100;\n  color: #333;\n}\n\nimg {\n  border-radius: 0;\n}\n\nh1,\nh2,\nh3 {\n  font-weight: 300;\n  margin: 0;\n  padding: 0;\n}\n\n.content.container h3 {\n  letter-spacing: 1px;\n  text-align: center;\n  margin-bottom: 33px;\n}\n\n.content {\n  max-width: 48rem;\n  padding-top: 31px;\n}\n\n@media (max-width: 48rem) {\n  .content {\n    padding-top: 0;\n  }\n}\n\n.sidebar {\n  background-color: white;\n  color: black;\n}\n\n.sidebar a,\na {\n  color: black;\n}\n\n.sidebar ul a {\n  text-transform: uppercase;\n}\n\n.sidebar a:focus,\na:active {\n  color: white;\n  background-color: black !important;\n}\n\n.sidebar ul {\n  list-style: none;\n  padding: 0px;\n}\n\n.sidebar-sticky {\n  bottom: auto;\n  left: 2rem;\n}\n\nhtml {\n  font-family: 'Lato';\n}\n\nheader div a {\n  display: inline;\n  color: black;\n  font-weight: 300;\n}\n\nul.posts {\n  list-style: none;\n  padding: 0;\n  width: 100%;\n  overflow: hidden;\n  height: 1%;\n}\n\nul.posts li {\n  position: relative;\n  float: left;\n  width: 100%;\n  margin: 0 0 10px 0;\n}\n\nul.posts li.animated {\n    opacity: 0;\n}\n\nul.posts li.priority-0 {\n  width: 100%;\n}\n\nul.posts li .post-image {\n  width: 100%;\n}\n\nul.posts li > .w-link {\n  position: relative;\n  display: block;\n}\n\nul.posts li.priority-0 .w-link {\n  /*cursor: default !important;*/\n}\n\nul.posts li > .w-link:hover .w-tags,\nul.posts li > .w-link:hover .w-title {\n  display: block;\n}\n\nul.posts li > .w-link .post-image {\n  opacity: 1;\n  -webkit-transition: opacity 1.5s;\n  -moz-transition: opacity 1.5s;\n  -o-transition: opacity 1.5s;\n  transition: opacity 1.5s;\n}\n\nul.posts li > .w-link:hover .post-image {\n  opacity: 0.1;\n}\n\nul.posts li > .w-link {\n  -webkit-transition: background-color 0.1s;\n  transition: background-color 0.1s;\n  background-color: black;\n}\n\nul.posts li > .w-link:hover {\n  background-color: rgba(0, 0, 0, .9);\n}\n\nul.posts li > .w-link:hover .w-title {\n  opacity: 0;\n}\n\nul.posts li > .w-link:hover .w-tags {\n  opacity: 1;\n}\n\nul.posts li > .w-link .w-title {\n  -webkit-transition: opacity 0.6s;\n  transition: opacity 0.6s;\n  position: relative;\n  top: auto;\n  margin: 0;\n  border-bottom: 0;\n  width: 100%;\n  text-align: center;\n  text-transform: uppercase;\n  opacity: 1;\n  color: white;\n  font-size: 14px;\n  padding: 6px;\n  font-weight: 300;\n  line-height: inherit;\n  display: inline-block;\n}\n\n.priority-0 .post-image, .priority-1 .post-image, .priority-2 .post-image {\n    padding-top: 47%;\n}\n\nul.posts li.priority-0 > .w-link .w-title {\n  font-size: 18px;\n  line-height: inherit;\n}\n\nul.posts li.priority-0 > .w-link .w-tags {\n  padding-top: 5px;\n}\n\nul.posts li .w-link .w-info {\n\n  position: absolute;\n  bottom: 10px;\n  height: 24px;\n  opacity: 0;\n  color: #7a7a7a;\n  width: 100%;\n  padding: 10px;\n  transition: opacity 1.6s;\n  text-align: center;\n  font-weight: 400;\n  display: block;\n}\n\nul.posts li > .w-link:hover .w-info {\n  opacity: 1;\n}\n\nul.posts .w-tags {\n  -webkit-transition: opacity 0.8s;\n  transition: opacity 0.8s;\n  position: absolute;\n  top: 50%;\n  width: 100%;\n  text-align: center;\n  opacity: 0;\n  color: rgba(255, 255, 255, 0.7);\n  font-size: 16px;\n  font-weight: 100;\n  padding: 15px 20px 0 20px;\n}\n\n.post img {\n  max-width: 100%;\n}\n\n.animated {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n.post.award-awwwards_site_of_the_day:before {\n  content: '';\n  position: absolute;\n  width: 69px;\n  height: 105px;\n  background-color: red;\n  top: 0;\n  left: -1px;\n  z-index: 1;\n  background: url(" + __webpack_require__(6) + ") 0 0 no-repeat;\n  background-size: 100%;\n}\n\n.post.thefwa_site_of_the_day:after {\n  content: '';\n  position: absolute;\n  width: 100px;\n  height: 100px;\n  background-color: red;\n  top: 0;\n  right: 0;\n  z-index: 1;\n  background: url(" + __webpack_require__(7) + ") 0 0 no-repeat;\n  background-size: 100%;\n}\n\n.post.award-sol_plata:before,\n.post.award-sol_bronce:before {\n  content: '';\n  position: absolute;\n  width: 45px;\n  height: 45px;\n  background-color: red;\n  top: 10px;\n  left: 10px;\n  z-index: 1;\n  background: url(" + __webpack_require__(8) + ") 0 0 no-repeat;\n  background-size: 100%;\n}\n\n.post.award-sol_bronce:before {\n  background: url(" + __webpack_require__(9) + ") 0 0 no-repeat;\n}\n\n@media (min-width: 48rem) {\n  .content {\n    max-width: 70rem;\n  }\n}\n\n@-webkit-keyframes fadeIn50 {\n  0% {\n    opacity: 0.85;\n  }\n\n  100% {\n    opacity: 1;\n  }\n}\n\n@keyframes fadeIn50 {\n  0% {\n    opacity: 0.85;\n  }\n\n  100% {\n    opacity: 1;\n  }\n}\n\n.fadeIn50 {\n  -webkit-animation-name: fadeIn50;\n  animation-name: fadeIn50;\n}\n\n@-webkit-keyframes fadeOut50 {\n  0% {\n    opacity: 1;\n  }\n\n  100% {\n    opacity: 0.85;\n  }\n}\n\n@keyframes fadeOut50 {\n  0% {\n    opacity: 1;\n  }\n\n  100% {\n    opacity: 0.85;\n  }\n}\n\n.fadeOut50 {\n  -webkit-animation-name: fadeOut50;\n  animation-name: fadeOut50;\n}\n@charset \"UTF-8\";\n\n/*!\nAnimate.css - http://daneden.me/animate\nLicensed under the MIT license - http://opensource.org/licenses/MIT\n\nCopyright (c) 2014 Daniel Eden\n*/\n\n.animated {\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n@-webkit-keyframes fadeIn {\n  0% {\n    opacity: 0;\n  }\n\n  100% {\n    opacity: 1;\n  }\n}\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0;\n  }\n\n  100% {\n    opacity: 1;\n  }\n}\n\n.fadeIn {\n  -webkit-animation-name: fadeIn;\n  animation-name: fadeIn;\n}\n\n@-webkit-keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 50%, 0);\n    transform: translate3d(0, 50%, 0);\n  }\n\n  100% {\n    opacity: 1;\n    -webkit-transform: none;\n    transform: none;\n  }\n}\n\n@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, 50%, 0);\n    -ms-transform: translate3d(0, 50%, 0);\n    transform: translate3d(0, 50%, 0);\n  }\n\n  100% {\n    opacity: 1;\n    -webkit-transform: none;\n    -ms-transform: none;\n    transform: none;\n  }\n}\n\n.fadeInUp {\n  -webkit-animation-name: fadeInUp;\n  animation-name: fadeInUp;\n}\n\n.loading {\n    margin: 0 auto;\n}\n\n.spinner {\n  margin: 20px auto;\n  width: 70px;\n  text-align: center;\n}\n\n.spinner > div {\n  width: 18px;\n  height: 18px;\n  background-color: #EEE;\n\n  border-radius: 100%;\n  display: inline-block;\n  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;\n  animation: bouncedelay 1.4s infinite ease-in-out;\n  /* Prevent first frame from flickering when animation starts */\n  -webkit-animation-fill-mode: both;\n  animation-fill-mode: both;\n}\n\n.spinner .bounce1 {\n  -webkit-animation-delay: -0.32s;\n  animation-delay: -0.32s;\n}\n\n.spinner .bounce2 {\n  -webkit-animation-delay: -0.16s;\n  animation-delay: -0.16s;\n}\n\n@-webkit-keyframes bouncedelay {\n  0%, 80%, 100% { -webkit-transform: scale(0.0) }\n  40% { -webkit-transform: scale(1.0) }\n}\n\n@keyframes bouncedelay {\n  0%, 80%, 100% {\n    transform: scale(0.0);\n    -webkit-transform: scale(0.0);\n  } 40% {\n    transform: scale(1.0);\n    -webkit-transform: scale(1.0);\n  }\n}\n\n.hide {\n    display: none;\n}\n\n@media (min-width: 48rem) {\n\n  .sidebar {\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    width: 18rem;\n    text-align: left;\n  }\n\n  .sidebar ul {\n    display: block;\n  }\n\n  header {\n    padding: 0 0 2rem 0;\n  }\n\n  ul.posts li.priority-0 {\n    width: 50%;\n  }\n\n  .priority-1 .post-image {\n    padding-top: 23%;\n  }\n\n  ul.posts li > .w-link .w-title {\n    position: absolute;\n    top: 50%;\n    margin: -40px 0 0 0;\n    border-bottom: 1px solid rgba(255, 255, 255, .1);\n    opacity: 0;\n    font-size: 36px;\n    padding: 0 0 7px 0;\n    line-height: 40px;\n  }\n\n  ul.posts li > .w-link:hover .w-title {\n    opacity: 1;\n  }\n\n  ul.posts li.priority-0 > .w-link .w-title {\n    font-size: 20px;\n    line-height: 25px;\n    margin: -40px 0 0 0;\n  }\n\n  .sidebar.mobile {\n    display: none;\n  }\n\n}\n\n.project-page .content {\n  padding-top: 23px;\n}\n\n.project-page .project-title {\n  color: black;\n}\n\n.project-page .image {\n  margin: 28px 0;\n}\n\n.project-page p {\n  font-size: 1.3rem;\n  margin: 0;\n  padding: 0;\n}\n\n.project-page .info {\n  border-collapse: collapse;\n  margin: 20px 0;\n}\n\n.project-page .info tr td {\n  min-width: 100px;\n  margin: 0;\n  padding: 3px 0;\n}\n\n.project-page .info tr td.info-title {\n  color: black;\n}\n\n.project-page hr {\n  border: 0;\n  border-bottom: 1px solid #444;\n}\n\n.project-page .related-title {\n  margin: 20px 0 5px;\n  color: #BBB;\n}\n\n.project-page .posts li {\n  margin: 0 0 5px;\n}\n\n.project-page .posts a {\n  color: #BBB;\n}\n", ""]);
 
 	// exports
 
@@ -942,6 +949,8 @@
 /***/ },
 /* 5 */
 /***/ function(module, exports) {
+
+	"use strict";
 
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
