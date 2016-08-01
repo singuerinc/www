@@ -386,6 +386,8 @@ h1,
 h2,
 h3 {
   font-weight: 300;
+  margin: 0;
+  padding: 0;
 }
 
 .content.container h3 {
@@ -872,4 +874,55 @@ Copyright (c) 2014 Daniel Eden
     display: none;
   }
 
+}
+
+.project-page .content {
+  padding-top: 23px;
+}
+
+.project-page .project-title {
+  color: black;
+}
+
+.project-page .image {
+  margin: 28px 0;
+}
+
+.project-page p {
+  font-size: 1.3rem;
+  margin: 0;
+  padding: 0;
+}
+
+.project-page .info {
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.project-page .info tr td {
+  min-width: 100px;
+  margin: 0;
+  padding: 3px 0;
+}
+
+.project-page .info tr td.info-title {
+  color: black;
+}
+
+.project-page hr {
+  border: 0;
+  border-bottom: 1px solid #444;
+}
+
+.project-page .related-title {
+  margin: 20px 0 5px;
+  color: #BBB;
+}
+
+.project-page .posts li {
+  margin: 0 0 5px;
+}
+
+.project-page .posts a {
+  color: #BBB;
 }

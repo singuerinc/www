@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Roberto Ivan Cano
+category: "singuerinc"
 client: Porfolio
 agency:
   - small-machine
@@ -23,8 +24,3 @@ priority: 'priority-2'
 <strong>Roberto Iv&aacute;n Cano</strong><br/>
 Sus trabajos se publican en las mejores revistas nacionales e internaciones especializadas en viajes y deportes outdoor, tales como <strong>Traveller, National Geographic Viajes, GEO, Altair, Lonely Planet, Oxígeno, De Viajes NOX, DT o Harpers Bazars Singapur</strong> entre otras.
 </p>
-
-<img src="/public/img/roberto-ivan-cano/roberto-ivan-cano-01.jpg" />
-<img src="/public/img/roberto-ivan-cano/roberto-ivan-cano-02.jpg" />
-<img src="/public/img/roberto-ivan-cano/roberto-ivan-cano-03.jpg" />
-<img src="/public/img/roberto-ivan-cano/roberto-ivan-cano-04.jpg" />

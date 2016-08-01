@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Arawys"
+category: "singuerinc"
 client: "Arawys"
 agency:
     - singuerinc

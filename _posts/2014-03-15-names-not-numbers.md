@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Names not numbers
+category: "b-reel"
 client: Médecins du Monde
 agency:
     - B-REEL
@@ -32,12 +33,6 @@ With a delicately designed digital experience in HTML5, adapting to the served p
 </p>
 
 <iframe src="//player.vimeo.com/video/89640595?title=0&amp;byline=0&amp;portrait=0" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-![](/public/img/names-not-numbers/aisha.jpg)
-
-<p class="text">
-I was in charge of create a
-</p>
 
 #### Awards ####
 [Site of the day - www.awwwards.com](http://www.awwwards.com/web-design-awards/names-not-numbers)

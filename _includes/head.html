@@ -1,9 +1,12 @@
 <head>
 
-  <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  {% if page %}
+  <link rel="canonical" href="{{site.url}}{{page.id}}" />
+  {% endif %}
 
   <meta name="author" content="Nahuel Scotti" />
   <meta name="description" content="Nahuel Scotti - Developer. Currently working at NetEnt, Stockholm - Sweden." />
@@ -14,7 +17,7 @@
   <meta property="og:description" content="Developer. Currently working at NetEnt, Stockholm - Sweden.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{site.url}}">
-  <meta property="og:image" content="{{site.url}}img/home/skoda--byggd-for-att-ta-skit.jpg">
+  <meta property="og:image" content="{{site.url}}/img/home/skoda--byggd-for-att-ta-skit.jpg">
   <meta property="og:locale" content="en_US" />
   <meta property="og:image:type" content="image/jpg" />
   <meta property="og:image:width" content="816" />

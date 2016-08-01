@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Kit Appetit"
+category: "singuerinc"
 client: "Kit Appetit"
 agency:
     - singuerinc

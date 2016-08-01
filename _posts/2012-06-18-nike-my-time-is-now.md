@@ -1,6 +1,7 @@
 ---
 layout: post
 title: My time is now
+category: "doubleyou"
 client: Nike
 agency:
     - Doubleyou

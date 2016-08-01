@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Kick with Chrome
+category: "b-reel"
 client: Google
 agency:
     - B-REEL

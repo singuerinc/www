@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Ivy Park"
+category: "b-reel"
 client: "Zalando"
 agency:
     - "B-REEL"
@@ -11,7 +12,6 @@ tech:
 tags:
     - "docker"
     - "websockets"
-
 image: "zalando--ivy-park"
 www: "https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/"
 more: "https://www.b-reel.com/projects/ivy-park"

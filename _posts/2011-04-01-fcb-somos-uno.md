@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Som un
+category: "doubleyou"
 client: FC Barcelona
 agency:
     - Doubleyou

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Revívelo
+category: "doubleyou"
 client: Atrápalo
 agency:
   - doubleyou

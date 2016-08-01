@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Pepe Jeans
+category: "doubleyou"
 client: Pepe Jeans
 agency:
     - Doubleyou
