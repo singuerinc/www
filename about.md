@@ -1,5 +1,6 @@
 ---
 layout: page
+title: About
 ---
 
 <img src="../img/yo.png" alt="singuerinc" width="150" height="150"/>
