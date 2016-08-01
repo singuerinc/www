@@ -22,3 +22,5 @@ I make apps in HTML5, Javascript, Node.js, Ruby on Rails among others technologi
 <br />
 
 > Disclaimer<br/>This website contains thoughts, ideas, and opinions that are my own and they don't necessarily reflect those of my current or past employers.
+
+<link rel="stylesheet" type="text/css" href="all.css" />
