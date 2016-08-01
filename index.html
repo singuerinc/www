@@ -5,14 +5,14 @@ title: Home
 
 <style scoped>
 {% for post in site.posts %}
-  .post-image.{{post.title|split:' '|join:'-'|downcase;}}.{{post.priority}} {
+  .post-image.{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
     background: url(./img/home/{{ post.image }}_small.jpg) no-repeat;
     background-size: 100% auto;
   }
 {% endfor %}
   @media (max-width: 768px) {
     {% for post in site.posts %}
-    .post-image.{{post.title|split:' '|join:'-'|downcase;}}.{{post.priority}} {
+    .post-image.{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
       background: url(./img/home/{{ post.image }}-md_small.jpg) no-repeat;
       background-size: 100% auto;
     }
@@ -24,7 +24,7 @@ title: Home
 
 <ul class="posts">
   {% for post in site.posts %}
-  <li id="image--{{post.title|split:' '|join:'-'|downcase;}}" class="post w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
+  <li id="image--{{post.title|split:' '|join:'-'|downcase}}" class="post w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="{{post.client}} - {{post.title}}"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
     {% for award in post.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
@@ -39,7 +39,7 @@ title: Home
       <meta itemprop="url" content="{{ post.more }}"/>
       <a href="{{ post.more }}" target="_blank" class="w-link animated">
     {% endif %}
-      <div class="post-image {{post.priority}} animated {{post.title|split:' '|join:'-'|downcase;}}"></div>
+      <div class="post-image {{post.priority}} animated {{post.title|split:' '|join:'-'|downcase}}"></div>
       <h1 class="w-title">{{post.title}}</h1>
       <div class="w-tags">{{ post.tech | join: " · "}}</div>
       <div class="w-info">Client: {{ post.client }} / working at {{post.agency}} {% if post.www != ''%} · online{% else %} · offline{% endif %}</div>
@@ -57,7 +57,7 @@ title: Home
       list[i].classList.add('hide');
     }
     var posts = [];
-    {% for post in site.posts %}posts.push({id: "{{post.title|split:' '|join:'-'|downcase;}}", image: "{{post.image}}"});{% endfor %}
+    {% for post in site.posts %}posts.push({id: "{{post.title|split:' '|join:'-'|downcase}}", image: "{{post.image}}"});{% endfor %}
   </script>
   <script type="text/javascript" src="/assets/bundle.js"></script>
 </ul>
