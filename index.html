@@ -32,12 +32,12 @@ title: Home
     <meta itemprop="image" content="{{site.url}}img/home/{{ post.image }}.jpg"/>
     {% if post.www == '' and post.more == '' %}
     <div class="noselect w-link animated">
+    {% elsif post.www != ''%}
+    <meta itemprop="url" content="{{ post.www }}"/>
+    <a href="{{ post.www }}" target="_blank" class="w-link animated">
     {% elsif post.more != ''%}
       <meta itemprop="url" content="{{ post.more }}"/>
       <a href="{{ post.more }}" target="_blank" class="w-link animated">
-    {% else %}
-    <meta itemprop="url" content="{{ post.www }}"/>
-    <a href="{{ post.www }}" target="_blank" class="w-link animated">
     {% endif %}
       <div class="post-image {{post.priority}} animated {{post.title|split:' '|join:'-'|downcase;}}"></div>
       <h1 class="w-title">{{post.title}}</h1>
