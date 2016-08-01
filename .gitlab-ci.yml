@@ -1,6 +1,7 @@
 image: mwallasch/docker-ruby-node
 
 staging:
+  environment: staging
   stage: deploy
   script:
   - gem install redcarpet jekyll jekyll-sitemap
@@ -12,6 +13,7 @@ staging:
   - master
 
 pages:
+  environment: production
   stage: deploy
   script:
   - gem install redcarpet jekyll jekyll-sitemap
