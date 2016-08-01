@@ -17,5 +17,8 @@ pages:
   - gem install redcarpet
   - gem install jekyll
   - jekyll build -d public
+  artifacts:
+    paths:
+    - public
   only:
   - tags

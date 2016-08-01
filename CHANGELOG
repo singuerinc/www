@@ -3,7 +3,6 @@
 ## [2.2.0] - 2016-08-01
 - Change Overlay image
 - Add robots.txt
-- Remove "artifacts" from .gitlab-ci.yml
 
 ## [2.1.0] - 2016-07-28
 - Fix Minor style changes
