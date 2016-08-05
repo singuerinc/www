@@ -1,7 +1,7 @@
 image: mwallasch/docker-ruby-node
 
 test:
-  environment: staging
+  environment: test
   stage: deploy
   script:
   - gem install redcarpet jekyll jekyll-sitemap
