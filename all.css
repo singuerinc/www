@@ -477,6 +477,7 @@ ul.posts li .post-image {
 ul.posts li > .w-link {
   position: relative;
   display: block;
+  text-decoration: none;
 }
 
 ul.posts li.priority-0 .w-link {
