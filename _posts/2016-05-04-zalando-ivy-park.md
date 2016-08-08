@@ -30,4 +30,4 @@ _The IVY PARK collection section features looks from Beyoncé’s new TV commerc
 <br/><br/>
 _The entire campaign activates a community that eagerly awaited the launch of this exciting new label. As a result, IVY PARK content and stories are flooding social media." \*_
 <br/><br/>
-<small>* Texts extracted from B-Reel.com</small>
+<small>* Text extracted from B-Reel.com</small>
