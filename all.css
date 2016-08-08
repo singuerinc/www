@@ -273,8 +273,8 @@ img {
 
 .container {
   max-width: 38rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -361,6 +361,11 @@ body {
     max-width: 38rem;
     margin-left: 20rem;
     margin-right: 2rem;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -794,6 +799,83 @@ Copyright (c) 2014 Daniel Eden
     display: none;
 }
 
+.project-page .content {
+  padding-top: 23px;
+}
+
+.project-page .project-title {
+  color: black;
+  text-align: center;
+}
+
+.project-page .image {
+  margin: 28px 0;
+}
+
+.project-page p {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+.project-page p em {
+  color: black;
+}
+
+.project-page .info {
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.project-page small {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.project-page .project-content {
+}
+
+.project-page .info tr td {
+  min-width: 100px;
+  margin: 0;
+  padding: 3px 0;
+}
+
+.project-page .info * {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.project-page .info a {
+  text-decoration: underline;
+}
+
+.project-page hr {
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.project-page .related-title {
+  margin: 20px 0 5px;
+  color: #BBB;
+  float: none;
+  min-width: 100%;
+  text-align: center;
+}
+
+.project-page .related-post {
+  float: none;
+  margin: 20px 0;
+  width: auto;
+  text-align: center;
+}
+
+.project-page .posts li {
+  margin: 0 0 5px;
+}
+
+.project-page .posts a {
+  color: #BBB;
+}
+
 @media (min-width: 48rem) {
 
   .sidebar {
@@ -880,55 +962,26 @@ Copyright (c) 2014 Daniel Eden
     display: none;
   }
 
-}
+  .project-page .project-content {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+  }
 
-.project-page .content {
-  padding-top: 23px;
-}
+  .project-page .related-title {
+    float: left;
+    min-width: 100px;
+    text-align: left;
+  }
 
-.project-page .project-title {
-  color: black;
-}
+  .project-page .related-post {
+    float: left;
+    margin: 20px 0;
+    width: auto;
+    text-align: left;
+  }
 
-.project-page .image {
-  margin: 28px 0;
-}
-
-.project-page p {
-  font-size: 1.3rem;
-  margin: 0;
-  padding: 0;
-}
-
-.project-page .info {
-  border-collapse: collapse;
-  margin: 20px 0;
-}
-
-.project-page .info tr td {
-  min-width: 100px;
-  margin: 0;
-  padding: 3px 0;
-}
-
-.project-page .info tr td.info-title {
-  color: black;
-}
-
-.project-page hr {
-  border: 0;
-  border-bottom: 1px solid #BBB;
-}
-
-.project-page .related-title {
-  margin: 20px 0 5px;
-  color: #BBB;
-}
-
-.project-page .posts li {
-  margin: 0 0 5px;
-}
-
-.project-page .posts a {
-  color: #BBB;
+  .project-page .project-title {
+    text-align: left;
+  }
 }
