@@ -21,7 +21,7 @@
   <img class="image" src="/img/home/{{ page.image }}.jpg" alt="{{ page.title }}" width="100%">
   <meta itemprop="url" content="{{site.url}}{{ page.id }}"/>
 
-  <div class="project-content">{{ content }}</div>
+  <div class="project-content {{page.css|join:' '}}">{{ content }}</div>
 
   <table class="info">
     <tr>
