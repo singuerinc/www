@@ -20,7 +20,7 @@ more: ""
 priority: 'priority-2'
 ---
 
-Overlay is a open source application I developed some time ago. It functionality is quiet basic, but powerful: overlay an image over other application, like an onion paper.
+Overlay is an open source application I developed some time ago. It functionality is quiet basic, but powerful: overlay an image over other application, like an onion paper.
 <br/><br/>
 It main purpose is to help the developer with a guide, making easy to achieve a pixel perfect app.
 <br/><br/>

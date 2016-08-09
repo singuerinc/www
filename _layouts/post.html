@@ -56,6 +56,16 @@
       <td class="info-title">Tech</td>
       <td>{{ page.tech | join: " · "}}</td>
     </tr>
+    {% if page.awards %}
+    <tr>
+      <td class="info-awards">Awards</td>
+      <td>
+        {% for award in page.awards %}
+        <div class="award {{award}}"></div>
+        {% endfor %}
+      </td>
+    </tr>
+    {% endif %}
   </table>
 
 </div>

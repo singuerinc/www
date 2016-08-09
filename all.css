@@ -576,7 +576,6 @@ ul.posts .w-tags {
   position: absolute;
   width: 69px;
   height: 105px;
-  background-color: red;
   top: 0;
   left: -1px;
   z-index: 1;
@@ -589,7 +588,6 @@ ul.posts .w-tags {
   position: absolute;
   width: 100px;
   height: 100px;
-  background-color: red;
   top: 0;
   right: 0;
   z-index: 1;
@@ -603,7 +601,6 @@ ul.posts .w-tags {
   position: absolute;
   width: 45px;
   height: 45px;
-  background-color: red;
   top: 10px;
   left: 10px;
   z-index: 1;
@@ -892,6 +889,36 @@ Copyright (c) 2014 Daniel Eden
 
 .project-page .posts a {
   color: #BBB;
+}
+
+.project-page .award {
+  float: left;
+}
+
+.project-page .award-awwwards_site_of_the_day {
+  width: 69px;
+  height: 105px;
+  background: url("img/awards/awwwards_site_of_the_day-left.png") 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.project-page .thefwa_site_of_the_day {
+  width: 100px;
+  height: 100px;
+  background: url("img/awards/fwa.png") 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.project-page .award-sol_plata,
+.project-page .award-sol_bronce {
+  width: 45px;
+  height: 45px;
+  background: url("img/awards/sol_plata.png") 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.project-page .award-sol_bronce {
+  background: url("img/awards/sol_bronce.png") 0 0 no-repeat;
 }
 
 @media (min-width: 48rem) {
