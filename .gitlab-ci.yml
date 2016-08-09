@@ -22,7 +22,7 @@ test_test:
   environment: test
   stage: test
   script:
-  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  - $TRAVIS_BUILD_DIR --disable-external
   only:
   - branches
   except:
