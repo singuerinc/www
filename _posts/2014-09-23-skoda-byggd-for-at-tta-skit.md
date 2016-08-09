@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Byggd för att ta skit"
+title: "Byggd f&ouml;r att ta skit"
 category: "b-reel"
 client: Skoda
 agency:
