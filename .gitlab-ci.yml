@@ -18,11 +18,10 @@ test_build:
   - master
 
 test_test:
-  image: ruby:2.3
+  image: 18fgsa/html-proofer
   environment: test
   stage: test
   script:
-  - gem install html-proofer
   - htmlproofer $TRAVIS_BUILD_DIR --disable-external
   only:
   - branches
