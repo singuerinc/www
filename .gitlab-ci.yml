@@ -19,6 +19,7 @@ test_test:
   environment: test
   stage: test
   script:
+  - gem install html-proofer
   - jekyll build -d $TRAVIS_BUILD_DIR
   - htmlproofer $TRAVIS_BUILD_DIR --disable-external
   only:
