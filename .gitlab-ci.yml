@@ -21,6 +21,9 @@ test_test:
   image: ruby:2.3
   environment: test
   stage: test
+  artifacts:
+    paths:
+      - $TRAVIS_BUILD_DIR
   script:
   - gem install html-proofer
   - htmlproofer $TRAVIS_BUILD_DIR --disable-external
@@ -33,6 +36,9 @@ test_deploy:
   image: mhart/alpine-node:6
   environment: test
   stage: deploy
+  artifacts:
+    paths:
+      - $TRAVIS_BUILD_DIR
   script:
   - npm install -g surge
   - surge -p $TRAVIS_BUILD_DIR -d test.www.singuerinc.com.surge.sh
