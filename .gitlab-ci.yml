@@ -4,26 +4,21 @@ stages:
 - deploy
 
 test_build:
-  image: ruby:2.1
+  image: jekyll/jekyll
   environment: test
   stage: build
   script:
-  - gem install redcarpet jekyll jekyll-sitemap
   - jekyll build -d $TRAVIS_BUILD_DIR
-  cache:
-    paths:
-      - $TRAVIS_BUILD_DIR
   only:
   - branches
   except:
   - master
 
 test_test:
-  image: ruby:2.1
+  image: jekyll/jekyll
   environment: test
   stage: test
   script:
-  - gem install redcarpet jekyll jekyll-sitemap html-proofer
   - jekyll build -d $TRAVIS_BUILD_DIR
   - htmlproofer $TRAVIS_BUILD_DIR --disable-external
   only:

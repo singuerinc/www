@@ -28,4 +28,5 @@ exclude: [Dockerfile, docker-compose.yml, README.md, CHANGELOG, gulpfile.js, nod
 encoding: utf8
 
 gems:
+  - html-proofer
   - jekyll-sitemap
