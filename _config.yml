@@ -25,7 +25,5 @@ redcarpet:
 
 exclude: [Dockerfile, docker-compose.yml, README.md, CHANGELOG, gulpfile.js, node_modules, webpack.config.js, package.json, app.js]
 
-encoding: utf8
-
 gems:
   - jekyll-sitemap
