@@ -7,6 +7,8 @@ test_build:
   image: jekyll/jekyll
   environment: test
   stage: build
+  artifacts:
+    untracked: true
   script:
   - jekyll build -d $TRAVIS_BUILD_DIR
   only:
@@ -19,7 +21,6 @@ test_test:
   environment: test
   stage: test
   script:
-  - jekyll build -d $TRAVIS_BUILD_DIR
   - gem install html-proofer
   - htmlproofer $TRAVIS_BUILD_DIR --disable-external
   only:
