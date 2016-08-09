@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rev&iacute;velo"
+title: "Revívelo"
 category: "doubleyou"
 client: "Atr&aacute;palo"
 agency:

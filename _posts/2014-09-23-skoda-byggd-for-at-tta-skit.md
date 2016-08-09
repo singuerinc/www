@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Byggd f&ouml;r att ta skit"
+title: "Byggd för att ta skit"
 category: "b-reel"
 client: Skoda
 agency:
@@ -14,13 +14,12 @@ tech:
     - socket.io
 tags:
     - "b-reel"
-
 image: "skoda--byggd-for-att-ta-skit"
 www: ""
 more: "http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/"
 priority: 'priority-2'
 css:
- - no-columns
+  - no-columns
 ---
 
 <div class="video-wrapper">
