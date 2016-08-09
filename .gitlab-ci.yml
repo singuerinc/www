@@ -17,10 +17,11 @@ test_build:
   - master
 
 test_test:
-  image: ruby:2.3
+  image: jekyll/jekyll
   environment: test
   stage: test
   script:
+  - jekyll build -d $TRAVIS_BUILD_DIR
   - gem install html-proofer
   - htmlproofer $TRAVIS_BUILD_DIR --disable-external
   only:
