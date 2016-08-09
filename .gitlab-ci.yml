@@ -19,10 +19,12 @@ test_build:
   - master
 
 test_test:
-  image: 18fgsa/html-proofer
+  image: ruby:2.1
   environment: test
   stage: test
   script:
+  - gem install redcarpet jekyll jekyll-sitemap html-proofer
+  - jekyll build -d $TRAVIS_BUILD_DIR
   - htmlproofer $TRAVIS_BUILD_DIR --disable-external
   only:
   - branches
@@ -34,6 +36,8 @@ test:
   environment: test
   stage: deploy
   script:
+  - gem install redcarpet jekyll jekyll-sitemap
+  - jekyll build -d $TRAVIS_BUILD_DIR
   - npm install -g surge
   - surge -p $TRAVIS_BUILD_DIR -d test.www.singuerinc.com.surge.sh
   only:
