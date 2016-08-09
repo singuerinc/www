@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Revívelo
+title: "Rev&iacute;velo"
 category: "doubleyou"
-client: Atrápalo
+client: "Atr&aacute;palo"
 agency:
   - doubleyou
 tech:
@@ -27,7 +27,7 @@ _Atrapalo.com. Online travel, tickets and leisure agency._
 <br/>
 _A trip is an unforgettable experience that generates memories forever in our minds. It make sense to explain that sensation using sci-fi imagery._
 <br/>
-_The unimaginable can become reality. A fake company, "Revívelo" (re-live-it, live it again), offers unforgettable memory implants. Every ad is a perfect metaphor of Atrapalo's products._
+_The unimaginable can become reality. A fake company, "Rev&iacute;velo" (re-live-it, live it again), offers unforgettable memory implants. Every ad is a perfect metaphor of Atrapalo's products._
 
 <br/><br/>
 
@@ -46,7 +46,7 @@ It does make sense to explain that using sci-fi codes.
 <br/><br/>
 **IDEA**
 <br/>
-The unimaginable can become reality. A fake company, "Revívelo" (re-live-it, live it again), offered unforgettable memory implants.
+The unimaginable can become reality. A fake company, "Rev&iacute;velo" (re-live-it, live it again), offered unforgettable memory implants.
 Every ad was a perfect metaphor of Atrapalo's products.
 <br/><br/>
 **IMPACT**

@@ -21,7 +21,7 @@ more: ""
 priority: 'priority-2'
 ---
 
-_Arawys is a new way of selling clothes for the woman in Perú. It combines the latest tendencies from Europe with the fresh and energy from South America._
+_Arawys is a new way of selling clothes for the woman in Per&uacute;. It combines the latest tendencies from Europe with the fresh and energy from South America._
 <br/><br/><br/><br/><br/><br/><br/>
 Arawys was my first project in Prestashop. It was a really nice experience to learn how this (open source) e-commerce works and how could you change it entirely based on your needs.
 <br/><br/>

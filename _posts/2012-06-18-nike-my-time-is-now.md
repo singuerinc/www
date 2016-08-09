@@ -36,7 +36,7 @@ _________________________________
 
 - AWARDS
 
-El Ojo de Iberoamérica 2012
+El Ojo de Iberoam&eacute;rica 2012
 Innovation, Bronze.
 
 Inspirational Festival 2012
