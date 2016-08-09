@@ -35,6 +35,3 @@ With a delicately designed digital experience in HTML5, adapting to the served p
 <div class="video-wrapper">
 <iframe src="//player.vimeo.com/video/89640595?title=0&amp;byline=0&amp;portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
-
-#### Awards ####
-[Site of the day - www.awwwards.com](http://www.awwwards.com/web-design-awards/names-not-numbers)
