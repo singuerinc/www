@@ -7,11 +7,9 @@ test_build:
   image: jekyll/jekyll
   environment: test
   stage: build
-  cache:
+  artifacts:
     paths:
       - $TRAVIS_BUILD_DIR
-    key: "$CI_BUILD_NAME"
-    untracked: true
   script:
   - jekyll build -d $TRAVIS_BUILD_DIR
   only:
