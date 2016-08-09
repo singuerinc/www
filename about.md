@@ -3,7 +3,7 @@ layout: default
 title: About
 ---
 
-<img src="../img/yo.png" alt="singuerinc" width="150" height="150"/>
+<img src="/img/yo.png" alt="singuerinc" width="150" height="150"/>
 
 
 # I'm Nahuel Scotti. This is my personal website.

@@ -30,8 +30,8 @@ title: Home
     {% for award in post.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
     <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
     <meta itemprop="image" content="{{site.url}}/img/home/{{ post.image }}.jpg"/>
-    <meta itemprop="url" content="{{site.url}}{{ post.id }}"/>
-    <a href="{{ post.id }}" target="_self" class="w-link animated">
+    <meta itemprop="url" content="{{site.url}}{{ post.id }}.html"/>
+    <a href="{{ post.id }}.html" target="_self" class="w-link animated">
       <div class="post-image {{post.priority}} animated {{post.title|split:' '|join:'-'|downcase}}"></div>
       <h1 class="w-title">{{post.title}}</h1>
       <div class="w-tags">{{ post.tech | join: " · "}}</div>
