@@ -8,6 +8,7 @@ test_build:
   environment: test
   stage: build
   artifacts:
+    expire_in: 20 minutes
     untracked: true
   script:
   - jekyll build -d $TRAVIS_BUILD_DIR
@@ -46,6 +47,7 @@ staging_build:
   environment: staging
   stage: build
   artifacts:
+    expire_in: 20 minutes
     untracked: true
   script:
   - jekyll build -d $TRAVIS_BUILD_DIR
@@ -78,6 +80,7 @@ pages_build:
   environment: production
   stage: build
   artifacts:
+    expire_in: 20 minutes
     untracked: true
   script:
   - jekyll build -d $TRAVIS_BUILD_DIR
