@@ -1,12 +1,39 @@
-image: mwallasch/docker-ruby-node
+stages:
+- build
+- test
+- deploy
 
-test:
+test_build:
+  image: ruby:2.1
   environment: test
-  stage: deploy
+  stage: build
   script:
   - gem install redcarpet jekyll jekyll-sitemap
   - jekyll build -d $TRAVIS_BUILD_DIR
-  - echo $TRAVIS_BUILD_DIR
+  cache:
+    paths:
+      - $TRAVIS_BUILD_DIR
+  only:
+  - branches
+  except:
+  - master
+
+test_test:
+  image: 18fgsa/html-proofer
+  environment: test
+  stage: test
+  script:
+  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  only:
+  - branches
+  except:
+  - master
+
+test:
+  image: mwallasch/docker-ruby-node
+  environment: test
+  stage: deploy
+  script:
   - npm install -g surge
   - surge -p $TRAVIS_BUILD_DIR -d test.www.singuerinc.com.surge.sh
   only:
@@ -15,6 +42,7 @@ test:
   - master
 
 staging:
+  image: mwallasch/docker-ruby-node
   environment: staging
   stage: deploy
   script:
@@ -27,6 +55,7 @@ staging:
   - master
 
 pages:
+  image: ruby:2.1
   environment: production
   stage: deploy
   script:
