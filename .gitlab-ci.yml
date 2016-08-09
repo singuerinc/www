@@ -40,18 +40,59 @@ test_deploy:
   except:
   - master
 
-staging:
-  image: mwallasch/docker-ruby-node
+
+staging_build:
+  image: jekyll/jekyll
+  environment: staging
+  stage: build
+  artifacts:
+    untracked: true
+  script:
+  - jekyll build -d $TRAVIS_BUILD_DIR
+  only:
+  - master
+
+staging_test:
+  image: jekyll/jekyll
+  environment: staging
+  stage: test
+  script:
+  - gem install html-proofer
+  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  only:
+  - branches
+
+staging_deploy:
+  image: mhart/alpine-node:6
   environment: staging
   stage: deploy
   script:
-  - gem install redcarpet jekyll jekyll-sitemap
-  - jekyll build -d $TRAVIS_BUILD_DIR
-  - echo $TRAVIS_BUILD_DIR
   - npm install -g surge
   - surge -p $TRAVIS_BUILD_DIR -d staging.www.singuerinc.com.surge.sh
   only:
   - master
+
+
+pages_build:
+  image: jekyll/jekyll
+  environment: production
+  stage: build
+  artifacts:
+    untracked: true
+  script:
+  - jekyll build -d $TRAVIS_BUILD_DIR
+  only:
+  - tags
+
+pages_test:
+  image: jekyll/jekyll
+  environment: production
+  stage: test
+  script:
+  - gem install html-proofer
+  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  only:
+  - tags
 
 pages:
   image: ruby:2.1
