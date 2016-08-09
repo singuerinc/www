@@ -60,7 +60,7 @@ staging_test:
   - gem install html-proofer
   - htmlproofer $TRAVIS_BUILD_DIR --disable-external
   only:
-  - branches
+  - master
 
 staging_deploy:
   image: mhart/alpine-node:6
