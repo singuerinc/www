@@ -1,5 +1,17 @@
 # www
 
+## [3.0.0] - 2016-08-10
+- Projects pages
+- Projects descriptions updated
+- CI now build, test and deploy
+- Test with html-proofer
+- Add Google Analytics "enhanced link attribution"
+- Styles updated
+- About has sidebar
+- Canonical URLs
+- No longer "hover" on mobile
+- Expire artifacts after 20 min
+
 ## [2.2.0] - 2016-08-01
 - Change Overlay image
 - Add robots.txt
