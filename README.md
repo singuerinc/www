@@ -17,6 +17,12 @@ docker-compose up
 open 'http://localhost:4000'
 ```
 
+## Test
+
+```sh
+docker run -v $PWD/public:/site 18fgsa/html-proofer /site --disable-external
+```
+
 ## SSL Certificate
 
 - Run the letsencrypt Docker container
