@@ -2,14 +2,6 @@
 
 [![build status](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/build.svg)](https://gitlab.com/singuerinc-works/com.singuerinc.www/commits/master)
 
-## Build docker image (to compile css and js)
-
-    docker build -t singuerinc/www .
-
-## Compile css + js
-
-    docker run --rm -it -v $PWD:/usr/src/app --name singuerinc_www singuerinc/www gulp
-
 ## Serve inside a Docker container
 
 ```sh
