@@ -8,7 +8,9 @@ services:
     volumes:
       - ./:/srv/jekyll
   webpack:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-webpack
     command: webpack --progress --watch
     volumes:
       - ./:/usr/src/app

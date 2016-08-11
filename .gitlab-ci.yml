@@ -1,9 +1,15 @@
 stages:
 - build
+- build-docker
 - test
 - deploy
+- push-docker
 
-test_build:
+variables:
+  CONTAINER_TEST_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:$CI_BUILD_TAG
+  CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
+
+test-build:
   image: jekyll/jekyll
   environment: test
   stage: build
@@ -21,7 +27,7 @@ test_build:
   except:
   - master
 
-test_test:
+test-test:
   image: jekyll/jekyll
   environment: test
   stage: test
@@ -33,7 +39,8 @@ test_test:
   except:
   - master
 
-test_deploy:
+
+test-deploy:
   image: mhart/alpine-node:6
   environment: test
   stage: deploy
@@ -46,7 +53,7 @@ test_deploy:
   - master
 
 
-staging_build:
+staging-build:
   image: jekyll/jekyll
   environment: staging
   stage: build
@@ -62,7 +69,7 @@ staging_build:
   only:
   - master
 
-staging_test:
+staging-test:
   image: jekyll/jekyll
   environment: staging
   stage: test
@@ -72,7 +79,7 @@ staging_test:
   only:
   - master
 
-staging_deploy:
+staging-deploy:
   image: mhart/alpine-node:6
   environment: staging
   stage: deploy
@@ -83,7 +90,7 @@ staging_deploy:
   - master
 
 
-pages_build:
+pages-build:
   image: jekyll/jekyll
   environment: production
   stage: build
@@ -99,7 +106,20 @@ pages_build:
   only:
   - tags
 
-pages_test:
+pages-build-docker-image:
+  image: docker:git
+  services:
+  - docker:dind
+  environment: production
+  stage: build-docker
+  script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  - docker build -t $CONTAINER_TEST_IMAGE .
+  - docker push $CONTAINER_TEST_IMAGE
+  only:
+  - tags
+
+pages-test:
   image: jekyll/jekyll
   environment: production
   stage: test
@@ -119,5 +139,18 @@ pages:
   artifacts:
     paths:
     - public
+  only:
+  - tags
+
+pages-build-docker-image:
+  image: docker:git
+  services:
+  - docker:dind
+  environment: production
+  stage: push-docker
+  script:
+  - docker pull $CONTAINER_TEST_IMAGE
+  - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+  - docker push $CONTAINER_RELEASE_IMAGE
   only:
   - tags
