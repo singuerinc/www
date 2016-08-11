@@ -1,10 +1,10 @@
 {
   "name": "app",
-  "version": "1.0.0",
+  "version": "3.1.0",
   "description": "[![build status](https://gitlab.com/singuerinc/www.singuerinc.com/badges/master/build.svg)](https://gitlab.com/singuerinc/www.singuerinc.com/commits/master)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
