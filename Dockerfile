@@ -1,13 +1,2 @@
-FROM mhart/alpine-node:6
-VOLUME /usr/src/app
-
-RUN mkdir -p /usr/src
-COPY package.json /usr/src
-
-WORKDIR /usr/src
-RUN npm install -g webpack
-RUN npm install
-
-WORKDIR /usr/src/app
-
-CMD ["webpack", "--progress", "--watch"]
+FROM nginx:1.10-alpine
+COPY ./public /usr/share/nginx/html

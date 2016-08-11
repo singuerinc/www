@@ -3,6 +3,13 @@ stages:
 - test
 - deploy
 
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+
+variables:
+  CONTAINER_TEST_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:$CI_BUILD_REF_NAME
+  CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
+
 test_build:
   image: jekyll/jekyll
   environment: test
@@ -16,6 +23,8 @@ test_build:
   - npm install
   - npm run build
   - jekyll build -d $TRAVIS_BUILD_DIR
+  - docker build -t $CONTAINER_TEST_IMAGE $TRAVIS_BUILD_DIR
+  - docker push $CONTAINER_TEST_IMAGE
   only:
   - branches
   except:
@@ -33,6 +42,7 @@ test_test:
   except:
   - master
 
+
 test_deploy:
   image: mhart/alpine-node:6
   environment: test
@@ -40,6 +50,9 @@ test_deploy:
   script:
   - npm install -g surge
   - surge -p $TRAVIS_BUILD_DIR -d test.www.singuerinc.com.surge.sh
+  - docker pull $CONTAINER_TEST_IMAGE
+  - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+  - docker push $CONTAINER_RELEASE_IMAGE
   only:
   - branches
   except:
