@@ -1,5 +1,15 @@
 # www
 
+## [3.1.0] - 2016-08-12
+- Remove Gulp stuff - not needed since Webpack
+- Compile "bundle.js" + assets during the build process in CI
+- Make a Docker image on each release
+- Minify JS
+- Add Medium link to the Sidebar
+
+## [3.0.1] - 2016-08-12
+- Update "About" image
+
 ## [3.0.0] - 2016-08-10
 - Projects pages
 - Projects descriptions updated
@@ -22,7 +32,7 @@
 
 ## [2.0.0] - 2016-07-27
 - Add ES6 syntax
-- Move to  Webpack
+- Move to Webpack
 - Add anime.js
 
 ## [1.5.0] - 2016-07-24
