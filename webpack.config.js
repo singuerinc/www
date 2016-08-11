@@ -1,3 +1,5 @@
+var webpack = require("webpack");
+
 module.exports = {
   entry: './index.js',
   output: {
@@ -5,6 +7,9 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: "/assets/",
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin()
+  ],
   module: {
     loaders: [
       {
