@@ -11,6 +11,10 @@ test_build:
     expire_in: 20 minutes
     untracked: true
   script:
+  - apk add --update nodejs
+  - npm install -g webpack
+  - npm install
+  - npm run build
   - jekyll build -d $TRAVIS_BUILD_DIR
   only:
   - branches
@@ -50,6 +54,10 @@ staging_build:
     expire_in: 20 minutes
     untracked: true
   script:
+  - apk add --update nodejs
+  - npm install -g webpack
+  - npm install
+  - npm run build
   - jekyll build -d $TRAVIS_BUILD_DIR
   only:
   - master
@@ -83,6 +91,10 @@ pages_build:
     expire_in: 20 minutes
     untracked: true
   script:
+  - apk add --update nodejs
+  - npm install -g webpack
+  - npm install
+  - npm run build
   - jekyll build -d $TRAVIS_BUILD_DIR
   only:
   - tags
