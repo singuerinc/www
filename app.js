@@ -3,24 +3,25 @@ import anime from 'animejs';
 class WebApp {
 
   constructor() {
-    const style = WebApp.getComputedStyle(document.querySelector('html'));
-    const retina = window.devicePixelRatio > 1;
-    const mobile = (parseInt(style.getPropertyValue('width'), 10)) < 768;
+
     this.posts = window.posts;
 
-    const numTotal = window.posts.length;
-    let numLoaded = 0;
+    let style = WebApp.getComputedStyle(document.querySelector('html')),
+      retina = window.devicePixelRatio > 1,
+      mobile = (parseInt(style.getPropertyValue('width'), 10)) < 768,
+      NUM_TOTAL = window.posts.length,
+      numLoaded = 0;
 
-    const onLoad = () => {
+    let onLoad = () => {
       numLoaded++;
-      if (numLoaded === numTotal) {
+      if (numLoaded === NUM_TOTAL) {
         setTimeout(this.ready, 200);
       }
     };
 
-    for (let i = 0; i < numTotal; i++) {
-      const img = new Image();
-      let filename;
+    for (let i = 0; i < NUM_TOTAL; i++) {
+      let img = new Image(),
+        filename;
 
       img.onload = onLoad;
 
