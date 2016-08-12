@@ -142,7 +142,7 @@ pages:
   only:
   - tags
 
-pages-build-docker-image:
+pages-push-docker-image:
   image: docker:git
   services:
   - docker:dind
