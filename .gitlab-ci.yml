@@ -1,7 +1,7 @@
 stages:
 - build
-- build-docker
 - test
+- build-docker
 - deploy
 - push-docker
 
@@ -106,6 +106,16 @@ pages-build:
   only:
   - tags
 
+pages-test:
+  image: jekyll/jekyll
+  environment: production
+  stage: test
+  script:
+  - gem install html-proofer
+  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  only:
+  - tags
+
 pages-build-docker-image:
   image: docker:git
   services:
@@ -116,16 +126,6 @@ pages-build-docker-image:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
   - docker build -t $CONTAINER_TEST_IMAGE .
   - docker push $CONTAINER_TEST_IMAGE
-  only:
-  - tags
-
-pages-test:
-  image: jekyll/jekyll
-  environment: production
-  stage: test
-  script:
-  - gem install html-proofer
-  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
   only:
   - tags
 
