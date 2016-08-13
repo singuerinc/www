@@ -55,7 +55,7 @@ class WebApp {
 
     for (let i = 0; i < this.posts.length; i++) {
       const pId = this.posts[i].id;
-      const li = document.querySelector(`li#image--${pId}`);
+      const li = document.querySelector(`li#${pId}`);
       li.classList.remove('hide');
     }
 
