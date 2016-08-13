@@ -307,6 +307,8 @@ html {
 body {
   color: #777;
   font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .sidebar {
@@ -895,30 +897,59 @@ Copyright (c) 2014 Daniel Eden
   float: left;
 }
 
-.project-page .award-awwwards_site_of_the_day {
-  width: 69px;
-  height: 105px;
-  background: url("img/awards/awwwards_site_of_the_day-left.png") 0 0 no-repeat;
-  background-size: 100%;
+.project-page .award:after {
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #868686;
+  color: #868686;
+  line-height: 45px;
+  text-align: center;
+  align-content: center;
+  margin: 0 10px 10px 0;
+  padding: 0 20px;
+  opacity: 0.6;
+  content: '';
 }
 
-.project-page .thefwa_site_of_the_day {
-  width: 100px;
-  height: 100px;
-  background: url("img/awards/fwa.png") 0 0 no-repeat;
-  background-size: 100%;
+.project-page .award-sol_plata:after {
+  content: 'SOL';
 }
 
-.project-page .award-sol_plata,
-.project-page .award-sol_bronce {
-  width: 45px;
-  height: 45px;
-  background: url("img/awards/sol_plata.png") 0 0 no-repeat;
-  background-size: 100%;
+.project-page .award-sol_bronce:after {
+  content: 'SOL';
+  border-color: #cd7f32;
+  color: #cd7f32;
 }
 
-.project-page .award-sol_bronce {
-  background: url("img/awards/sol_bronce.png") 0 0 no-repeat;
+.project-page .award-laus:after {
+  content: 'LAUS';
+}
+
+.project-page .award-efi:after {
+  content: 'EFI';
+}
+
+.project-page .award-awwwards_site_of_the_day:after {
+  content: 'AWWWARDS';
+}
+
+.project-page .thefwa_site_of_the_day:after {
+  content: 'THE FWA';
+}
+
+.project-page .award-premio-el-ojo-iberoamerica:after {
+  content: 'EL OJO DE IBEROAMERICA';
+}
+
+.project-page .award-inspirational-festival:after {
+  content: 'INSPIRATIONAL FESTIVAL';
+}
+
+.project-page .award-premios-genio:after {
+  content: 'PREMIOS GENIO';
 }
 
 @media (min-width: 48rem) {

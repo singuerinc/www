@@ -17,6 +17,7 @@ image: "nike--my-time-is-now"
 www: ""
 more: ""
 priority: 'priority-0'
+awards: ['award-premio-el-ojo-iberoamerica', 'award-inspirational-festival', 'award-premios-genio']
 ---
 
 
@@ -34,11 +35,3 @@ At the Spain's epicentre, static billboards were turned into interactive billboa
 National TV and digital media coverage.
 National team players spontaneus participation via their own social media accounts.
 High social media interaction.
-<br/><br/>
-**AWARDS**
-
-El Ojo de Iberoam&eacute;rica 2012: Innovation, Bronze.
-
-Inspirational Festival 2012: Social Media, Bronze.
-
-Premios Genio 2012: Best Creative Use of Outdoor, Gold.
