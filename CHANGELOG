@@ -1,5 +1,10 @@
 # www
 
+## [3.2.0] - 2016-08-14
+- Change Metadata id
+- Awards bagde
+- Awards layout
+
 ## [3.1.0] - 2016-08-12
 - Remove Gulp stuff - not needed since Webpack
 - Compile "bundle.js" + assets during the build process in CI
