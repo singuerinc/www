@@ -8,7 +8,11 @@ module.exports = {
     publicPath: "/assets/",
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+    compress: {
+        warnings: false
+      }
+    })
   ],
   module: {
     loaders: [

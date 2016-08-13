@@ -18,7 +18,7 @@ image: "atrapalo--revivelo"
 priority: 'priority-0'
 www: ""
 more: ""
-awards: ['award-sol_plata']
+awards: ['award-sol_plata', 'award-laus', 'award-efi']
 css:
   - no-columns
 ---
@@ -53,11 +53,3 @@ Every ad was a perfect metaphor of Atrapalo's products.
 <br/>
 Revivelo.com became the meeting point between those who asked and those who knew the answers:
 835,000 visits, 45% direct traffic from offline campaign, 85.000 new registered users, 32.000 new Facebook likes, 23.000 times shared, 6.500 comments.
-<br/><br/>
-**AWARDS**
-
-[El Sol: Silver (Digital)](http://elsolfestival.com/wp-content/uploads/2012/12/Palmar%C3%A9s.pdf)
-
-[EFI: Silver (Integred campaign)](http://premioseficacia.com/es/palmares-eficacia-2012/)
-
-[LAUS: Silver (Digital)](http://www.planol.info/documents/Laus2012_Orosplatas.pdf)
