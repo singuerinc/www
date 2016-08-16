@@ -6,14 +6,14 @@ title: Home
 <style scoped>
 {% for post in site.posts %}
   .post-image.{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
-    background: url(./img/home/{{ post.image }}_small.jpg) no-repeat;
+    background: url(./img/home/{{ post.image }}.jpg) no-repeat;
     background-size: 100% auto;
   }
 {% endfor %}
   @media (max-width: 768px) {
     {% for post in site.posts %}
     .post-image.{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
-      background: url(./img/home/{{ post.image }}-md_small.jpg) no-repeat;
+      background: url(./img/home/{{ post.image }}-md.jpg) no-repeat;
       background-size: 100% auto;
     }
     {% endfor %}

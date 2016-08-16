@@ -26,9 +26,9 @@ class WebApp {
       img.onload = onLoad;
 
       if (mobile && !retina) {
-        filename = `${this.posts[i].image}-md_small.jpg`;
+        filename = `${this.posts[i].image}-md.jpg`;
       } else {
-        filename = `${this.posts[i].image}_small.jpg`;
+        filename = `${this.posts[i].image}.jpg`;
       }
 
       img.src = `./img/home/${filename}`;
