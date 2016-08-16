@@ -809,6 +809,7 @@ Copyright (c) 2014 Daniel Eden
 
 .project-page .image {
   margin: 28px 0;
+  max-width: 100%;
 }
 
 .project-page p {
