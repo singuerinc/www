@@ -1,5 +1,15 @@
 # www
 
+## [3.3.0] - 2016-08-16
+- Remove unused images
+- Max width for project images
+- Audi Driving Experience: Hi-res image
+- FCB Som Un: Hi-res image
+- Audi A1 Me Gusta: Hi-res image
+
+## [3.2.1] - 2016-08-15
+- Add Skoda project url
+
 ## [3.2.0] - 2016-08-14
 - Change Metadata id
 - Awards bagde
