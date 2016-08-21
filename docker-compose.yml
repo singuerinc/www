@@ -17,9 +17,7 @@ services:
     volumes:
       - ./:/usr/src/app
   test:
-    build:
-      context: .
-      dockerfile: Dockerfile-test
-    command: bash
+    image: zopanix/casperjs
+    command: test index.js
     volumes:
-      - ./:/usr/src/app
+      - ./_tests:/data

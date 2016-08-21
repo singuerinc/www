@@ -39,6 +39,17 @@ test-test:
   except:
   - master
 
+test-test:functional:
+  image: zopanix/casperjs
+  environment: test
+  stage: test
+  script:
+  - test ./_tests/index.js
+  only:
+  - branches
+  except:
+  - master
+
 
 test-deploy:
   image: mhart/alpine-node:6
