@@ -40,11 +40,11 @@ test-test:
   - master
 
 test-test:functional:
-  image: zopanix/casperjs
+  image: singuerinc/docker_casperjs
   environment: test
   stage: test
   script:
-  - test ./_tests/index.js
+  - casperjs test ./_tests/index.js
   only:
   - branches
   except:
