@@ -1,20 +1,18 @@
 # www
 
-[![build status](https://gitlab.com/singuerinc/www.singuerinc.com/badges/master/build.svg)](https://gitlab.com/singuerinc/www.singuerinc.com/commits/master)
-
-## Build docker image (to compile css and js)
-
-    docker build -t singuerinc/www .
-
-## Compile css + js
-
-    docker run --rm -it -v $PWD:/usr/src/app --name singuerinc_www singuerinc/www gulp
+[![build status](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/build.svg)](https://gitlab.com/singuerinc-works/com.singuerinc.www/commits/master)
 
 ## Serve inside a Docker container
 
 ```sh
 docker-compose up
 open 'http://localhost:4000'
+```
+
+## Test
+
+```sh
+docker run -v $PWD/public:/site 18fgsa/html-proofer /site --disable-external
 ```
 
 ## SSL Certificate

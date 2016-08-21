@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A1 Me gusta
+category: "doubleyou"
 client: Audi
 agency:
     - Doubleyou
@@ -17,4 +18,5 @@ image: "audi--a1-me-gusta"
 www: "https://audia1megusta-p1singuerinc.rhcloud.com/"
 more: ""
 priority: 'priority-0'
+sitemap: false
 ---

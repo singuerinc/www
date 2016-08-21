@@ -1,5 +1,66 @@
 # www
 
+## [4.0.0] - 2016-08-21
+- Add Facebook App ID
+- Add Facebook Admin ID
+- Fix absolute paths (bundle.js, analytics.js)
+- Remove unused images
+- Max width for project images
+- Audi Driving Experience: Hi-res image
+- FCB Som Un: Hi-res image
+- Audi A1 Me Gusta: Hi-res image
+
+## [3.3.0] - 2016-08-19
+- Change og:image to Ivy Park
+
+## [3.2.2] - 2016-08-18
+- Change Audi "Driving Experience" url
+- Change FCB "Som Un" url
+- Change MDM "Names not numbers" url
+
+## [3.2.1] - 2016-08-15
+- Add Skoda website url
+
+## [3.2.0] - 2016-08-14
+- Change Metadata id
+- Awards bagde
+- Awards layout
+
+## [3.1.0] - 2016-08-12
+- Remove Gulp stuff - not needed since Webpack
+- Compile "bundle.js" + assets during the build process in CI
+- Make a Docker image on each release
+- Minify JS
+- Add Medium link to the Sidebar
+
+## [3.0.1] - 2016-08-12
+- Update "About" image
+
+## [3.0.0] - 2016-08-10
+- Projects pages
+- Projects descriptions updated
+- CI now build, test and deploy
+- Test with html-proofer
+- Add Google Analytics "enhanced link attribution"
+- Styles updated
+- About has sidebar
+- Canonical URLs
+- No longer "hover" on mobile
+- Expire artifacts after 20 min
+
+## [2.2.0] - 2016-08-01
+- Change Overlay image
+- Add robots.txt
+
+## [2.1.0] - 2016-07-28
+- Fix Minor style changes
+- Remove project urls and fix a.w-links without url
+
+## [2.0.0] - 2016-07-27
+- Add ES6 syntax
+- Move to Webpack
+- Add anime.js
+
 ## [1.5.0] - 2016-07-24
 - Added profile photo
 - Updated "about" text

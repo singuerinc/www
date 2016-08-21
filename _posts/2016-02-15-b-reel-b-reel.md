@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "B-REEL"
+category: "b-reel"
 client: "B-REEL"
 agency:
     - "B-REEL"

@@ -1,12 +1,12 @@
 markdown:         redcarpet
 highlighter:      pygments
 
-permalink:        pretty
+permalink:        none
 
 title:            '@singuerinc'
 tagline:          ''
 description:      ''
-url:              https://www.singuerinc.com/
+url:              https://www.singuerinc.com
 
 author:
   name:           'Nahuel Scotti'
@@ -23,4 +23,7 @@ markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 
-exclude: [Dockerfile, docker-compose.yml, README.md, CHANGELOG, gulpfile.js, all.js, all.css]
+exclude: [Dockerfile, Dockerfile_webpack, docker-compose.yml, README.md, CHANGELOG, node_modules, webpack.config.js, package.json, app.js]
+
+gems:
+  - jekyll-sitemap

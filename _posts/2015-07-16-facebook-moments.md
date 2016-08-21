@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Facebook Moments"
+category: "b-reel"
 client: "Facebook"
 agency:
     - "B-REEL"
@@ -19,4 +20,4 @@ more: "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/"
 priority: 'priority-2'
 ---
 
-Facebook asked to B-Reel to create a landing page for they new mobile application. I have been in charge of create the front-end page and making things move.<br/><br/>It was funny to create a responsive single-page site with kind of paralax. Was a great challenge to create the video open animation that works across different devices, in fact some time after I was so proud of see Codedrops creating a tutorial based on that effect: <a href='http://tympanus.net/codrops/2015/09/17/how-to-create-a-fullscreen-video-opening-animation/' target='_blank'>http://tympanus.net/codrops/2015/09/17/how-to-create-a-fullscreen-video-opening-animation/</a>
+Facebook asked to B-Reel to create a landing page for they new mobile application. I was in charge of create a this website and making things move.<br/><br/>It was funny to create a fully responsive single-page site with a kind of parallax effect. Actually, it was a great challenge to create the video open animation working across different devices. In fact some time after the release I was surprised seeing Codedrops creating a tutorial based on this effect: <br/><br/><a href='http://tympanus.net/codrops/2015/09/17/how-to-create-a-fullscreen-video-opening-animation/' target='\_blank'>http://tympanus.net/codrops/2015/09/17/how-to-create-a-fullscreen-video-opening-animation/</a>

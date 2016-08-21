@@ -1,29 +1,157 @@
-image: mwallasch/docker-ruby-node
+stages:
+- build
+- test
+- build-docker
+- deploy
+- push-docker
+
+variables:
+  CONTAINER_TEST_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:$CI_BUILD_TAG
+  CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
+
+test-build:
+  image: jekyll/jekyll
+  environment: test
+  stage: build
+  artifacts:
+    expire_in: 20 minutes
+    untracked: true
+  script:
+  - apk add --update nodejs
+  - npm install -g webpack
+  - npm install
+  - npm run build
+  - jekyll build -d $TRAVIS_BUILD_DIR
+  only:
+  - branches
+  except:
+  - master
+
+test-test:
+  image: jekyll/jekyll
+  environment: test
+  stage: test
+  script:
+  - gem install html-proofer
+  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  only:
+  - branches
+  except:
+  - master
+
+
+test-deploy:
+  image: mhart/alpine-node:6
+  environment: test
+  stage: deploy
+  script:
+  - npm install -g surge
+  - surge -p $TRAVIS_BUILD_DIR -d test.www.singuerinc.com.surge.sh
+  only:
+  - branches
+  except:
+  - master
+
+
+staging-build:
+  image: jekyll/jekyll
+  environment: staging
+  stage: build
+  artifacts:
+    expire_in: 20 minutes
+    untracked: true
+  script:
+  - apk add --update nodejs
+  - npm install -g webpack
+  - npm install
+  - npm run build
+  - jekyll build -d $TRAVIS_BUILD_DIR
+  only:
+  - master
+
+staging-test:
+  image: jekyll/jekyll
+  environment: staging
+  stage: test
+  script:
+  - gem install html-proofer
+  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  only:
+  - master
+
+staging-deploy:
+  image: mhart/alpine-node:6
+  environment: staging
+  stage: deploy
+  script:
+  - npm install -g surge
+  - surge -p $TRAVIS_BUILD_DIR -d staging.www.singuerinc.com.surge.sh
+  only:
+  - master
+
+
+pages-build:
+  image: jekyll/jekyll
+  environment: production
+  stage: build
+  artifacts:
+    expire_in: 20 minutes
+    untracked: true
+  script:
+  - apk add --update nodejs
+  - npm install -g webpack
+  - npm install
+  - npm run build
+  - jekyll build -d $TRAVIS_BUILD_DIR
+  only:
+  - tags
+
+pages-test:
+  image: jekyll/jekyll
+  environment: production
+  stage: test
+  script:
+  - gem install html-proofer
+  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  only:
+  - tags
+
+pages-build-docker-image:
+  image: docker:git
+  services:
+  - docker:dind
+  environment: production
+  stage: build-docker
+  script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  - docker build -t $CONTAINER_TEST_IMAGE .
+  - docker push $CONTAINER_TEST_IMAGE
+  only:
+  - tags
 
 pages:
-  stage: deploy
+  image: ruby:2.1
   environment: production
+  stage: deploy
   script:
-  - gem install redcarpet
-  - gem install jekyll
+  - gem install redcarpet jekyll jekyll-sitemap
   - jekyll build -d public
   artifacts:
     paths:
     - public
   only:
-  - master
+  - tags
 
-develop:
-  stage: deploy
-  environment: develop
+pages-push-docker-image:
+  image: docker:git
+  services:
+  - docker:dind
+  environment: production
+  stage: push-docker
   script:
-  - gem install redcarpet jekyll
-  - jekyll build -d $TRAVIS_BUILD_DIR
-  - echo $TRAVIS_BUILD_DIR
-  - npm install -g surge
-  - surge -p $TRAVIS_BUILD_DIR -d develop.www.singuerinc.com.surge.sh
-  artifacts:
-    paths:
-    - public
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  - docker pull $CONTAINER_TEST_IMAGE
+  - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+  - docker push $CONTAINER_RELEASE_IMAGE
   only:
-  - develop
+  - tags

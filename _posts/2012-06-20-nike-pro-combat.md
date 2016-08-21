@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Pro Combat
+category: "doubleyou"
 client: Nike
 agency:
     - Doubleyou

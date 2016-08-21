@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Names not numbers
-client: Médecins du Monde
+category: "b-reel"
+client: "M&eacute;decins du Monde"
 agency:
     - B-REEL
 tech:
@@ -15,29 +16,22 @@ tags:
   - javascript
   - video
 image: "medecins-du-monde--names-not-numbers"
-www: "https://archive.singuerinc.com/msf/namesnotnumbers/"
-more: "http://films.b-reel.com/projects/digital/case/577/medecins-du-monde"
+www: "https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/"
+more: "http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/"
 awards: ['award-awwwards_site_of_the_day', 'thefwa_site_of_the_day']
 priority: 'priority-2'
+css:
+  - no-columns
 ---
 
-<p class="text">
-<em>The digital experience is based on a film, documenting the actual machine’s mechanics in a highly delicate manner.
+_The digital experience is based on a film, documenting the actual machine’s mechanics in a highly delicate manner._
 <br/><br/>
-Every minute a new name is presented on a card, ready to be claimed and sent out into the digital space. By directly targeting those in power through sharing the names in social media, each act doesn’t just reach one person but have the potential och breaking through to thousands.
+_Every minute a new name is presented on a card, ready to be claimed and sent out into the digital space. By directly targeting those in power through sharing the names in social media, each act doesn’t just reach one person but have the potential och breaking through to thousands._
 <br/><br/>
-With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.*
-</em><br/><br/>
-<em><small>* Extracted from <a href="http://films.b-reel.com/projects/digital/case/577/medecins-du-monde" target="_blank">www.b-reel.com</a></small></em>
-</p>
-
-<iframe src="//player.vimeo.com/video/89640595?title=0&amp;byline=0&amp;portrait=0" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-![](/public/img/names-not-numbers/aisha.jpg)
-
-<p class="text">
-I was in charge of create a
-</p>
-
-#### Awards ####
-[Site of the day - www.awwwards.com](http://www.awwwards.com/web-design-awards/names-not-numbers)
+_With a delicately designed digital experience in HTML5, adapting to the served platforms, we can target all devices, from mobile to tablet and desktop.\*_
+<br/><br/>
+<small>* Extracted from <a href="http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/" target="\_blank">www.b-reel.com</a></small>
+<br/><br/>
+<div class="video-wrapper">
+<iframe src="//player.vimeo.com/video/89640595?title=0&amp;byline=0&amp;portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>

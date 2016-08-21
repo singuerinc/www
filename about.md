@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: default
+title: About
 ---
 
-<img src="../img/yo.png" alt="singuerinc" width="150" height="150"/>
+<img src="/img/yo.png" alt="singuerinc" width="150" height="150"/>
 
 
 # I'm Nahuel Scotti. This is my personal website.
@@ -22,3 +23,11 @@ I make apps in HTML5, Javascript, Node.js, Ruby on Rails among others technologi
 <br />
 
 > Disclaimer<br/>This website contains thoughts, ideas, and opinions that are my own and they don't necessarily reflect those of my current or past employers.
+
+<link rel="stylesheet" type="text/css" href="/all.css" />
+
+<style type="text/css">
+  .hide {
+    display: block;
+  }
+</style>

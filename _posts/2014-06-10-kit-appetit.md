@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Kit Appetit"
+category: "singuerinc"
 client: "Kit Appetit"
 agency:
     - singuerinc
@@ -15,3 +16,4 @@ www: "http://www.kitappetit.com/"
 more: ""
 priority: 'priority-2'
 ---
+

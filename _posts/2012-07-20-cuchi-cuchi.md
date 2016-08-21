@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Cuchi-Cuchi
+category: "singuerinc"
 client: Guarder&iacute;a
 agency:
     - small-machine
