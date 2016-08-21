@@ -17,7 +17,7 @@ services:
     volumes:
       - ./:/usr/src/app
   test:
-    image: zopanix/casperjs
-    command: test index.js
+    image: singuerinc/docker_casperjs
+    command: casperjs test index.js
     volumes:
       - ./_tests:/data

@@ -4,7 +4,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("https://www.singuerinc.com/", function() {
 
     // google analytics id
-    // test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // canonical
     test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/']");
