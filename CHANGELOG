@@ -1,6 +1,9 @@
 # www
 
-## [3.4.0] - 2016-08-16
+## [3.4.0] - 2016-08-21
+- Add Facebook App ID
+- Add Facebook Admin ID
+- Fix absolute paths (bundle.js, analytics.js)
 - Remove unused images
 - Max width for project images
 - Audi Driving Experience: Hi-res image
