@@ -1,5 +1,12 @@
 # www
 
+## [3.4.0] - 2016-08-16
+- Remove unused images
+- Max width for project images
+- Audi Driving Experience: Hi-res image
+- FCB Som Un: Hi-res image
+- Audi A1 Me Gusta: Hi-res image
+
 ## [3.3.0] - 2016-08-19
 - Change og:image to Ivy Park
 
