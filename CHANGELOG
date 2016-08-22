@@ -1,5 +1,9 @@
 # www
 
+## [5.0.0] - 2016-08-22
+- Add Functional tests
+- Change About title
+
 ## [4.0.0] - 2016-08-21
 - Add Facebook App ID
 - Add Facebook Admin ID

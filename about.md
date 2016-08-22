@@ -6,7 +6,7 @@ title: About
 <img src="/img/yo.png" alt="singuerinc" width="150" height="150"/>
 
 
-# I'm Nahuel Scotti. This is my personal website.
+# I'm Nahuel Scotti. This is my portfolio.
 
 I started my training early in the world of creativity, at age 20, combining Graphic Design studies with endless hours to an agency in Argentina, getting to know the hardest advertising.
 
