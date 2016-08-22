@@ -45,7 +45,7 @@ test-test:functional:
   stage: test
   script:
   - python -m SimpleHTTPServer 4000 &
-  - casperjs test $TRAVIS_BUILD_DIR/_tests/index.js
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
   - branches
   except:
