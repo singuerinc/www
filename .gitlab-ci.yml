@@ -39,6 +39,18 @@ test-test:
   except:
   - master
 
+test:test:functional:
+  image: singuerinc/docker_casperjs
+  environment: test
+  stage: test
+  script:
+  - python -m SimpleHTTPServer 4000 &
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
+  only:
+  - branches
+  except:
+  - master
+
 
 test-deploy:
   image: mhart/alpine-node:6
@@ -79,6 +91,16 @@ staging-test:
   only:
   - master
 
+pages:test:functional:
+  image: singuerinc/docker_casperjs
+  environment: staging
+  stage: test
+  script:
+  - python -m SimpleHTTPServer 4000 &
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
+  only:
+  - master
+
 staging-deploy:
   image: mhart/alpine-node:6
   environment: staging
@@ -113,6 +135,16 @@ pages-test:
   script:
   - gem install html-proofer
   - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  only:
+  - tags
+
+pages:test:functional:
+  image: singuerinc/docker_casperjs
+  environment: production
+  stage: test
+  script:
+  - python -m SimpleHTTPServer 4000 &
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
   - tags
 

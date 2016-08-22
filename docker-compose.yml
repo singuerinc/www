@@ -16,3 +16,11 @@ services:
     command: webpack --progress --watch
     volumes:
       - ./:/usr/src/app
+  tests:
+    image: singuerinc/docker_casperjs
+    command: bash
+    working_dir: /data
+    volumes:
+      - ./_tests:/data
+    links:
+    - jekyll:jekyll
