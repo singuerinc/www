@@ -1,7 +1,7 @@
 const TOTAL_TESTS = 66;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
-  casper.start("https://www.singuerinc.com/", function() {
+  casper.start("http://127.0.0.1:4000/", function() {
 
     // google analytics id
     test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");

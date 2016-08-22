@@ -44,6 +44,9 @@ test-test:functional:
   environment: test
   stage: test
   script:
+  - apt-get install -y nodejs npm
+  - npm install -g node-static
+  - /usr/local/bin/static -p 4000 ./public &
   - casperjs test ./_tests/index.js
   only:
   - branches

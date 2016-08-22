@@ -5,7 +5,7 @@
 ## Serve inside a Docker container
 
 ```sh
-docker-compose up
+docker-compose up -d
 open 'http://localhost:4000'
 ```
 
