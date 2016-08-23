@@ -49,7 +49,6 @@ test:test:functional:
   except:
   - master
 
-
 test-deploy:
   image: mhart/alpine-node:6
   environment: test
@@ -61,7 +60,6 @@ test-deploy:
   - branches
   except:
   - master
-
 
 staging-build:
   image: jekyll/jekyll:3.2.1
@@ -87,7 +85,7 @@ staging-test:
   only:
   - master
 
-pages:test:functional:
+staging:test:functional:
   image: singuerinc/docker_casperjs
   environment: staging
   stage: test
@@ -108,7 +106,6 @@ staging-deploy:
   - surge -p $TRAVIS_BUILD_DIR -d staging.www.singuerinc.com.surge.sh
   only:
   - master
-
 
 pages-build:
   image: jekyll/jekyll:3.2.1
