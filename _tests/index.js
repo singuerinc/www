@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 166;
+var TOTAL_TESTS = 173;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -277,6 +277,20 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Porfolio");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.robertoivancano.com/']");
+
+  })
+  .thenOpen("http://jekyll:4000/singuerinc/cuchi-cuchi.html", function(){
+
+    // projects - cuchi cuchi
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Guardería · Cuchi-Cuchi");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Guardería");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.cuchicuchi-guarderia.es/']");
 
   })
   .run(function() {
