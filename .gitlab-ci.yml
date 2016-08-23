@@ -10,7 +10,7 @@ variables:
   CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
 
 test-build:
-  image: jekyll/jekyll
+  image: jekyll/jekyll:stable
   environment: test
   stage: build
   artifacts:
