@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 117;
+var TOTAL_TESTS = 126;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -180,7 +180,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function(){
 
-    // projects - facebook moments
+    // projects - overlay
 
     test.assertExists("body.project-page");
     test.assertExists("body.project-page .content h1");
@@ -191,6 +191,22 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "open-source");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://github.com/singuerinc/OverlayApp']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function(){
+
+    // projects - skoda
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+
+    test.assertSelectorHasText(".content h1", "Skoda · Byggd för att ta skit");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Skoda");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/']");
 
   })
   .run(function() {
