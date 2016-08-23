@@ -4,7 +4,7 @@ title: "Revívelo"
 category: "doubleyou"
 client: "Atr&aacute;palo"
 agency:
-  - doubleyou
+  - Doubleyou
 tech:
   - flash
   - actionscript-3

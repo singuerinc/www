@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 202;
+var TOTAL_TESTS = 214;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -363,6 +363,26 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/com.nike.somun/']");
 
     test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_bronce");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function(){
+
+    // projects - atrapalo revivelo
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content p");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertSelectorHasText(".content h1", "Atrápalo · Revívelo");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Atrápalo");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-sol_plata");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-laus");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-efi");
 
   })
   .run(function() {
