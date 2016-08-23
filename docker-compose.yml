@@ -17,8 +17,12 @@ services:
     volumes:
       - ./:/usr/src/app
   tests:
-    image: singuerinc/docker_casperjs
-    command: bash
+    build:
+      context: .
+      dockerfile: Dockerfile-tests
+    command: casperjs test ./_tests/index.js
     working_dir: /data
     volumes:
       - ./:/data
+    links:
+      - jekyll:jekyll

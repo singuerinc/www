@@ -44,6 +44,8 @@ test:test:functional:
   environment: test
   stage: test
   script:
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
@@ -96,6 +98,8 @@ pages:test:functional:
   environment: staging
   stage: test
   script:
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
@@ -143,6 +147,8 @@ pages:test:functional:
   environment: production
   stage: test
   script:
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:

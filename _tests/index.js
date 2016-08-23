@@ -1,7 +1,7 @@
 const TOTAL_TESTS = 67;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
-  casper.start("http://0.0.0.0:4000/public/index.html", function() {
+  casper.start("http://jekyll:4000/index.html", function() {
 
     // google analytics id
     test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
@@ -95,7 +95,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertElementCount("body .content ul.posts li#driving-experience", 1);
 
   })
-  .thenOpen("http://0.0.0.0:4000/public/about.html", function(){
+  .thenOpen("http://jekyll:4000/about.html", function(){
     test.assertTextExists("I’m Nahuel Scotti. This is my portfolio.");
   })
   .run(function() {
