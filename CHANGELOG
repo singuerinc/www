@@ -1,6 +1,6 @@
 # www
 
-## [5.0.0] - 2016-08-22
+## [5.0.0] - 2016-08-24
 - Add Functional tests
 - Change About title
 - htmlproofer now checks external links
