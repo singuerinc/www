@@ -130,6 +130,20 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/']");
 
   })
+  .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function(){
+
+    // projects - arawys store
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page img.image");
+
+    test.assertSelectorHasText(".content h1", "B-REEL · B-REEL");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "B-REEL");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/']");
+
+  })
   .run(function() {
     test.done();
   });
