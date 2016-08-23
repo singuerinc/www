@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 195;
+var TOTAL_TESTS = 192;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -113,6 +113,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Zalando · Ivy Park");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Zalando");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/']");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://www.b-reel.com/projects/ivy-park']");
 
@@ -129,6 +130,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "B-REEL · B-REEL");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "B-REEL");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/']");
 
   })
@@ -144,6 +146,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Arawys · Arawys");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Arawys");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.arawys.com']");
 
   })
@@ -159,6 +162,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "HTC, Google · Vive");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "HTC, Google");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/projects/htc-vive']");
 
     test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-awwwards_site_of_the_day");
@@ -177,6 +181,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Facebook · Facebook Moments");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Facebook");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.momentsapp.com']");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.facebook.moments/']");
 
@@ -193,6 +198,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "open-source · Overlay");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "open-source");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://github.com/singuerinc/OverlayApp']");
 
   })
@@ -209,6 +215,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Skoda · Byggd för att ta skit");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Skoda");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/']");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/']");
 
@@ -226,6 +233,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Google · Kick with Chrome");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Google");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.chromeexperiments.com/experiment/kick-with-chrome']");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/']");
 
@@ -241,6 +249,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Kit Appetit · Kit Appetit");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Kit Appetit");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.kitappetit.com/']");
 
   })
@@ -258,6 +267,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Médecins du Monde · Names not numbers");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Médecins du Monde");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/']");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/']");
 
@@ -276,6 +286,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Porfolio · Roberto Ivan Cano");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Porfolio");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.robertoivancano.com/']");
 
   })
@@ -290,6 +301,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Guardería · Cuchi-Cuchi");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Guardería");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.cuchicuchi-guarderia.es/']");
 
   })
@@ -319,23 +331,19 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
 
   })
-  .thenOpen("http://jekyll:4000/doubleyou/nike-my-time-is-now.html", function(){
+  .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function(){
 
-    // projects - nike my time is now
+    // projects - audi a1 me gusta
 
     test.assertExists("body.project-page");
     test.assertExists("body.project-page .content h1");
     test.assertExists("body.project-page .content img.image");
-    test.assertExists("body.project-page .content .project-content p");
 
-    test.assertSelectorHasText(".content h1", "Nike · My time is now");
-    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Nike");
+    test.assertSelectorHasText(".content h1", "Audi · A1 Me gusta");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Audi");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
 
-    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-premio-el-ojo-iberoamerica");
-    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-inspirational-festival");
-    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-premios-genio");
-
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://audia1megusta-p1singuerinc.rhcloud.com/']");
 
   })
   .run(function() {
