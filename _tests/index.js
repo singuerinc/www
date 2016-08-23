@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 82;
+var TOTAL_TESTS = 100;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -107,7 +107,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     test.assertExists("body.project-page");
     test.assertExists("body.project-page .content h1");
-    test.assertExists("body.project-page img.image");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
 
     test.assertSelectorHasText(".content h1", "Zalando · Ivy Park");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Zalando");
@@ -122,7 +123,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     test.assertExists("body.project-page");
     test.assertExists("body.project-page .content h1");
-    test.assertExists("body.project-page img.image");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
 
     test.assertSelectorHasText(".content h1", "B-REEL · B-REEL");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "B-REEL");
@@ -136,12 +138,28 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     test.assertExists("body.project-page");
     test.assertExists("body.project-page .content h1");
-    test.assertExists("body.project-page img.image");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
 
     test.assertSelectorHasText(".content h1", "Arawys · Arawys");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Arawys");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.arawys.com']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function(){
+
+    // projects - arawys store
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
+
+    test.assertSelectorHasText(".content h1", "HTC, Google · Vive");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "HTC, Google");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/projects/htc-vive']");
 
   })
   .run(function() {
