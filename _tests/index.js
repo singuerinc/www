@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 185;
+var TOTAL_TESTS = 195;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -317,6 +317,25 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Nike · Pro Combat");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Nike");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/nike-my-time-is-now.html", function(){
+
+    // projects - nike my time is now
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
+
+    test.assertSelectorHasText(".content h1", "Nike · My time is now");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Nike");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-premio-el-ojo-iberoamerica");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-inspirational-festival");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-premios-genio");
+
 
   })
   .run(function() {
