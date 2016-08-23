@@ -1,6 +1,4 @@
-var TOTAL_TESTS = 222;
-
-casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
+casper.test.begin("Test", 233, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
 
     // google analytics id
@@ -99,7 +97,12 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     // about page
 
-    test.assertTextExists("I’m Nahuel Scotti. This is my portfolio.");
+    test.assertExists("body .content.container");
+    test.assertExists("body .content.container p img");
+    test.assertSelectorHasText("body .content.container h1", "I’m Nahuel Scotti. This is my portfolio.");
+    test.assertExists("body .content.container blockquote");
+    test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
+
   })
   .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function(){
 
@@ -398,6 +401,21 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Evax · Adapt");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Evax");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function(){
+
+    // projects - audi driving experience
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Audi · Driving Experience");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Audi");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/es.audi.drivingexperience/']");
 
   })
   .run(function() {
