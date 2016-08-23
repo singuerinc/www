@@ -13,14 +13,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-webpack
-    command: webpack --progress --watch
+    working_dir: /usr/src/app
+    command: ../node_modules/webpack/bin/webpack.js --progress --watch
     volumes:
       - ./:/usr/src/app
   tests:
-    image: singuerinc/docker_casperjs
-    command: bash
+    build:
+      context: .
+      dockerfile: Dockerfile-tests
+    command: casperjs test ./_tests/index.js
     working_dir: /data
     volumes:
-      - ./_tests:/data
+      - ./:/data
     links:
-    - jekyll:jekyll
+      - jekyll:jekyll

@@ -10,7 +10,7 @@ variables:
   CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
 
 test-build:
-  image: jekyll/jekyll
+  image: jekyll/jekyll:3.2.1
   environment: test
   stage: build
   artifacts:
@@ -18,7 +18,6 @@ test-build:
     untracked: true
   script:
   - apk add --update nodejs
-  - npm install -g webpack
   - npm install
   - npm run build
   - jekyll build -d $TRAVIS_BUILD_DIR
@@ -44,6 +43,8 @@ test:test:functional:
   environment: test
   stage: test
   script:
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
@@ -74,7 +75,6 @@ staging-build:
     untracked: true
   script:
   - apk add --update nodejs
-  - npm install -g webpack
   - npm install
   - npm run build
   - jekyll build -d $TRAVIS_BUILD_DIR
@@ -96,6 +96,8 @@ pages:test:functional:
   environment: staging
   stage: test
   script:
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
@@ -121,7 +123,6 @@ pages-build:
     untracked: true
   script:
   - apk add --update nodejs
-  - npm install -g webpack
   - npm install
   - npm run build
   - jekyll build -d $TRAVIS_BUILD_DIR
@@ -143,6 +144,8 @@ pages:test:functional:
   environment: production
   stage: test
   script:
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:

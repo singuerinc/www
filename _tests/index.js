@@ -1,7 +1,7 @@
-const TOTAL_TESTS = 66;
+var TOTAL_TESTS = 109;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
-  casper.start("http://0.0.0.0:4000/public/index.html", function() {
+  casper.start("http://jekyll:4000/index.html", function() {
 
     // google analytics id
     test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
@@ -36,38 +36,38 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertExists("body .sidebar header");
     test.assertElementCount("body .sidebar header", 1);
     test.assertExists("body .sidebar header a");
-    test.assertSelectorHasText('body .sidebar header a', '@singuerinc');
-    test.assertExists('body .sidebar header a[href="/"]', '@singuerinc');
+    test.assertSelectorHasText("body .sidebar header a", "@singuerinc");
+    test.assertExists("body .sidebar header a[href='/']", "@singuerinc");
 
     // sidebar - desktop - links
     test.assertExists("body .sidebar ul");
     test.assertElementCount("body .sidebar ul:first-child li", 5); // about, github, twitter, blog, medium
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(1) a', 'About');
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(2) a', 'GitHub');
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(3) a', 'Twitter');
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(4) a', 'Blog');
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(5) a', 'Medium');
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(1) a", "About");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(2) a", "GitHub");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(3) a", "Twitter");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(4) a", "Blog");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(5) a", "Medium");
 
-    test.assertExists('body .sidebar ul:first-child li:nth-child(1) a[href="/about.html"]');
-    test.assertExists('body .sidebar ul:first-child li:nth-child(2) a[href="https://github.com/singuerinc"]');
-    test.assertExists('body .sidebar ul:first-child li:nth-child(3) a[href="https://twitter.com/singuerinc"]');
-    test.assertExists('body .sidebar ul:first-child li:nth-child(4) a[href="https://blog.singuerinc.com"]');
-    test.assertExists('body .sidebar ul:first-child li:nth-child(5) a[href="https://medium.com/@singuerinc"]');
+    test.assertExists("body .sidebar ul:first-child li:nth-child(1) a[href='/about.html']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(2) a[href='https://github.com/singuerinc']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(3) a[href='https://twitter.com/singuerinc']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(4) a[href='https://blog.singuerinc.com']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(5) a[href='https://medium.com/@singuerinc']");
 
     // sidebar - mobile - links
     test.assertExists("body .sidebar.mobile ul");
     test.assertElementCount("body .sidebar.mobile ul li", 5); // about, github, twitter, blog, medium
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(1) a', 'About');
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(2) a', 'GitHub');
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(3) a', 'Twitter');
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(4) a', 'Blog');
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(5) a', 'Medium');
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(1) a", "About");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(2) a", "GitHub");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(3) a", "Twitter");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(4) a", "Blog");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(5) a", "Medium");
 
-    test.assertExists('body .sidebar.mobile ul li:nth-child(1) a[href="/about.html"]');
-    test.assertExists('body .sidebar.mobile ul li:nth-child(2) a[href="https://github.com/singuerinc"]');
-    test.assertExists('body .sidebar.mobile ul li:nth-child(3) a[href="https://twitter.com/singuerinc"]');
-    test.assertExists('body .sidebar.mobile ul li:nth-child(4) a[href="https://blog.singuerinc.com"]');
-    test.assertExists('body .sidebar.mobile ul li:nth-child(5) a[href="https://medium.com/@singuerinc"]');
+    test.assertExists("body .sidebar.mobile ul li:nth-child(1) a[href='/about.html']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(2) a[href='https://github.com/singuerinc']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(3) a[href='https://twitter.com/singuerinc']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(4) a[href='https://blog.singuerinc.com']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(5) a[href='https://medium.com/@singuerinc']");
 
     // posts
     test.assertExists("body .content ul.posts");
@@ -94,7 +94,91 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertElementCount("body .content ul.posts li#adapt", 1);
     test.assertElementCount("body .content ul.posts li#driving-experience", 1);
 
-  }).run(function() {
+  })
+  .thenOpen("http://jekyll:4000/about.html", function(){
+
+    // about page
+
+    test.assertTextExists("I’m Nahuel Scotti. This is my portfolio.");
+  })
+  .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function(){
+
+    // projects - zalando ivy park
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
+
+    test.assertSelectorHasText(".content h1", "Zalando · Ivy Park");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Zalando");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://www.b-reel.com/projects/ivy-park']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function(){
+
+    // projects - b-reel
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
+
+    test.assertSelectorHasText(".content h1", "B-REEL · B-REEL");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "B-REEL");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/']");
+
+  })
+  .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function(){
+
+    // projects - arawys store
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
+
+    test.assertSelectorHasText(".content h1", "Arawys · Arawys");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Arawys");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.arawys.com']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function(){
+
+    // projects - htc vive
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
+
+    test.assertSelectorHasText(".content h1", "HTC, Google · Vive");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "HTC, Google");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/projects/htc-vive']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function(){
+
+    // projects - facebook moments
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
+
+    test.assertSelectorHasText(".content h1", "Facebook · Facebook Moments");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Facebook");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.momentsapp.com']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.facebook.moments/']");
+
+  })
+  .run(function() {
     test.done();
   });
 });
