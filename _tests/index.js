@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 192;
+var TOTAL_TESTS = 202;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -344,6 +344,25 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
 
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://audia1megusta-p1singuerinc.rhcloud.com/']");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function(){
+
+    // projects - fcb som un
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "FC Barcelona · Som un");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "FC Barcelona");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/com.nike.somun/']");
+
+    test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_bronce");
 
   })
   .run(function() {
