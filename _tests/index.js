@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 100;
+var TOTAL_TESTS = 109;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -149,7 +149,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function(){
 
-    // projects - arawys store
+    // projects - htc vive
 
     test.assertExists("body.project-page");
     test.assertExists("body.project-page .content h1");
@@ -160,6 +160,22 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "HTC, Google");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/projects/htc-vive']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function(){
+
+    // projects - facebook moments
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
+
+    test.assertSelectorHasText(".content h1", "Facebook · Facebook Moments");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Facebook");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.momentsapp.com']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.facebook.moments/']");
 
   })
   .run(function() {
