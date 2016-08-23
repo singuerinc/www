@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 66;
+const TOTAL_TESTS = 67;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://0.0.0.0:4000/public/index.html", function() {
@@ -94,7 +94,11 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertElementCount("body .content ul.posts li#adapt", 1);
     test.assertElementCount("body .content ul.posts li#driving-experience", 1);
 
-  }).run(function() {
+  })
+  .thenOpen("http://0.0.0.0:4000/public/about.html", function(){
+    test.assertTextExists("I’m Nahuel Scotti. This is my portfolio.");
+  })
+  .run(function() {
     test.done();
   });
 });

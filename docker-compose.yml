@@ -21,6 +21,4 @@ services:
     command: bash
     working_dir: /data
     volumes:
-      - ./_tests:/data
-    links:
-    - jekyll:jekyll
+      - ./:/data
