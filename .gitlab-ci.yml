@@ -1,9 +1,7 @@
 stages:
 - build
 - test
-- build-docker
 - deploy
-- push-docker
 
 variables:
   CONTAINER_TEST_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:$CI_BUILD_TAG
@@ -27,12 +25,11 @@ test-build:
   - master
 
 test-test:
-  image: jekyll/jekyll
+  image: jekyll/jekyll:3.2.1
   environment: test
   stage: test
   script:
-  - gem install html-proofer
-  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  - htmlproofer $TRAVIS_BUILD_DIR --log-level debug
   only:
   - branches
   except:
@@ -67,7 +64,7 @@ test-deploy:
 
 
 staging-build:
-  image: jekyll/jekyll
+  image: jekyll/jekyll:3.2.1
   environment: staging
   stage: build
   artifacts:
@@ -82,12 +79,11 @@ staging-build:
   - master
 
 staging-test:
-  image: jekyll/jekyll
+  image: jekyll/jekyll:3.2.1
   environment: staging
   stage: test
   script:
-  - gem install html-proofer
-  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  - htmlproofer $TRAVIS_BUILD_DIR --log-level debug
   only:
   - master
 
@@ -115,7 +111,7 @@ staging-deploy:
 
 
 pages-build:
-  image: jekyll/jekyll
+  image: jekyll/jekyll:3.2.1
   environment: production
   stage: build
   artifacts:
@@ -130,12 +126,11 @@ pages-build:
   - tags
 
 pages-test:
-  image: jekyll/jekyll
+  image: jekyll/jekyll:3.2.1
   environment: production
   stage: test
   script:
-  - gem install html-proofer
-  - htmlproofer $TRAVIS_BUILD_DIR --disable-external
+  - htmlproofer $TRAVIS_BUILD_DIR --log-level debug
   only:
   - tags
 
@@ -148,19 +143,6 @@ pages:test:functional:
   - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
-  only:
-  - tags
-
-pages-build-docker-image:
-  image: docker:git
-  services:
-  - docker:dind
-  environment: production
-  stage: build-docker
-  script:
-  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-  - docker build -t $CONTAINER_TEST_IMAGE .
-  - docker push $CONTAINER_TEST_IMAGE
   only:
   - tags
 
@@ -182,11 +164,10 @@ pages-push-docker-image:
   services:
   - docker:dind
   environment: production
-  stage: push-docker
+  stage: deploy
   script:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-  - docker pull $CONTAINER_TEST_IMAGE
-  - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+  - docker build -t $CONTAINER_RELEASE_IMAGE .
   - docker push $CONTAINER_RELEASE_IMAGE
   only:
   - tags

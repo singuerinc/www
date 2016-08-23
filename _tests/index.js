@@ -1,6 +1,4 @@
-var TOTAL_TESTS = 109;
-
-casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
+casper.test.begin("Test", 233, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
 
     // google analytics id
@@ -99,7 +97,12 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     // about page
 
-    test.assertTextExists("I’m Nahuel Scotti. This is my portfolio.");
+    test.assertExists("body .content.container");
+    test.assertExists("body .content.container p img");
+    test.assertSelectorHasText("body .content.container h1", "I’m Nahuel Scotti. This is my portfolio.");
+    test.assertExists("body .content.container blockquote");
+    test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
+
   })
   .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function(){
 
@@ -113,6 +116,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Zalando · Ivy Park");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Zalando");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/']");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://www.b-reel.com/projects/ivy-park']");
 
@@ -129,6 +133,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "B-REEL · B-REEL");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "B-REEL");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/']");
 
   })
@@ -144,6 +149,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Arawys · Arawys");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Arawys");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.arawys.com']");
 
   })
@@ -159,7 +165,11 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "HTC, Google · Vive");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "HTC, Google");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/projects/htc-vive']");
+
+    test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-awwwards_site_of_the_day");
+    test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.thefwa_site_of_the_day");
 
   })
   .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function(){
@@ -174,8 +184,238 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".content h1", "Facebook · Facebook Moments");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Facebook");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.momentsapp.com']");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.facebook.moments/']");
+
+  })
+  .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function(){
+
+    // projects - overlay
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content p");
+
+    test.assertSelectorHasText(".content h1", "open-source · Overlay");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "open-source");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://github.com/singuerinc/OverlayApp']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function(){
+
+    // projects - skoda
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertSelectorHasText(".content h1", "Skoda · Byggd för att ta skit");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Skoda");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function(){
+
+    // projects - kick with chrome
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertSelectorHasText(".content h1", "Google · Kick with Chrome");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Google");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.chromeexperiments.com/experiment/kick-with-chrome']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/']");
+
+  })
+  .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function(){
+
+    // projects - kit appetit
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Kit Appetit · Kit Appetit");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Kit Appetit");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.kitappetit.com/']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function(){
+
+    // projects - names not numbers
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content p");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertSelectorHasText(".content h1", "Médecins du Monde · Names not numbers");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Médecins du Monde");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/']");
+
+    test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-awwwards_site_of_the_day");
+    test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.thefwa_site_of_the_day");
+
+  })
+  .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function(){
+
+    // projects - roberto ivan cano
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Porfolio · Roberto Ivan Cano");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Porfolio");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.robertoivancano.com/']");
+
+  })
+  .thenOpen("http://jekyll:4000/singuerinc/cuchi-cuchi.html", function(){
+
+    // projects - cuchi cuchi
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Guardería · Cuchi-Cuchi");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Guardería");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.cuchicuchi-guarderia.es/']");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/pepe-jeans.html", function(){
+
+    // projects - pepe jeans
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Pepe Jeans · Pepe Jeans");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Pepe Jeans");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function(){
+
+    // projects - nike pro combat
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Nike · Pro Combat");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Nike");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function(){
+
+    // projects - audi a1 me gusta
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Audi · A1 Me gusta");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Audi");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://audia1megusta-p1singuerinc.rhcloud.com/']");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function(){
+
+    // projects - fcb som un
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "FC Barcelona · Som un");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "FC Barcelona");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/com.nike.somun/']");
+
+    test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_bronce");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function(){
+
+    // projects - atrapalo revivelo
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content p");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertSelectorHasText(".content h1", "Atrápalo · Revívelo");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Atrápalo");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-sol_plata");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-laus");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-efi");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function(){
+
+    // projects - evax adapt
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertSelectorHasText(".content h1", "Evax · Adapt");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Evax");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function(){
+
+    // projects - audi driving experience
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Audi · Driving Experience");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Audi");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/es.audi.drivingexperience/']");
 
   })
   .run(function() {

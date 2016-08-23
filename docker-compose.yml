@@ -1,7 +1,7 @@
 version: "2"
 services:
   jekyll:
-    image: jekyll/jekyll
+    image: jekyll/jekyll:3.2.1
     command: jekyll s
     ports:
       - 127.0.0.1:4000:4000
@@ -9,6 +9,7 @@ services:
       - ./:/srv/jekyll
     depends_on:
       - webpack
+
   webpack:
     build:
       context: .
@@ -17,6 +18,7 @@ services:
     command: ../node_modules/webpack/bin/webpack.js --progress --watch
     volumes:
       - ./:/usr/src/app
+
   tests:
     build:
       context: .
@@ -27,3 +29,13 @@ services:
       - ./:/data
     links:
       - jekyll:jekyll
+    depends_on:
+      - jekyll
+
+  tests-links:
+    image: jekyll/jekyll:3.2.1
+    command: htmlproofer /srv/jekyll/public --log-level debug
+    volumes_from:
+      - jekyll
+    depends_on:
+      - jekyll

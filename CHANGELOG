@@ -3,6 +3,8 @@
 ## [5.0.0] - 2016-08-22
 - Add Functional tests
 - Change About title
+- htmlproofer now checks external links
+- look jekyll image to 3.2.1 tag
 
 ## [4.0.0] - 2016-08-21
 - Add Facebook App ID
