@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 179;
+var TOTAL_TESTS = 185;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -303,6 +303,19 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     test.assertSelectorHasText(".content h1", "Pepe Jeans · Pepe Jeans");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Pepe Jeans");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function(){
+
+    // projects - nike pro combat
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Nike · Pro Combat");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Nike");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
 
   })
