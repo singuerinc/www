@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 67;
+const TOTAL_TESTS = 82;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -36,38 +36,38 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertExists("body .sidebar header");
     test.assertElementCount("body .sidebar header", 1);
     test.assertExists("body .sidebar header a");
-    test.assertSelectorHasText('body .sidebar header a', '@singuerinc');
-    test.assertExists('body .sidebar header a[href="/"]', '@singuerinc');
+    test.assertSelectorHasText("body .sidebar header a", "@singuerinc");
+    test.assertExists("body .sidebar header a[href='/']", "@singuerinc");
 
     // sidebar - desktop - links
     test.assertExists("body .sidebar ul");
     test.assertElementCount("body .sidebar ul:first-child li", 5); // about, github, twitter, blog, medium
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(1) a', 'About');
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(2) a', 'GitHub');
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(3) a', 'Twitter');
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(4) a', 'Blog');
-    test.assertSelectorHasText('body .sidebar ul:first-child li:nth-child(5) a', 'Medium');
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(1) a", "About");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(2) a", "GitHub");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(3) a", "Twitter");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(4) a", "Blog");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(5) a", "Medium");
 
-    test.assertExists('body .sidebar ul:first-child li:nth-child(1) a[href="/about.html"]');
-    test.assertExists('body .sidebar ul:first-child li:nth-child(2) a[href="https://github.com/singuerinc"]');
-    test.assertExists('body .sidebar ul:first-child li:nth-child(3) a[href="https://twitter.com/singuerinc"]');
-    test.assertExists('body .sidebar ul:first-child li:nth-child(4) a[href="https://blog.singuerinc.com"]');
-    test.assertExists('body .sidebar ul:first-child li:nth-child(5) a[href="https://medium.com/@singuerinc"]');
+    test.assertExists("body .sidebar ul:first-child li:nth-child(1) a[href='/about.html']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(2) a[href='https://github.com/singuerinc']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(3) a[href='https://twitter.com/singuerinc']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(4) a[href='https://blog.singuerinc.com']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(5) a[href='https://medium.com/@singuerinc']");
 
     // sidebar - mobile - links
     test.assertExists("body .sidebar.mobile ul");
     test.assertElementCount("body .sidebar.mobile ul li", 5); // about, github, twitter, blog, medium
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(1) a', 'About');
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(2) a', 'GitHub');
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(3) a', 'Twitter');
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(4) a', 'Blog');
-    test.assertSelectorHasText('body .sidebar.mobile ul li:nth-child(5) a', 'Medium');
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(1) a", "About");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(2) a", "GitHub");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(3) a", "Twitter");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(4) a", "Blog");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(5) a", "Medium");
 
-    test.assertExists('body .sidebar.mobile ul li:nth-child(1) a[href="/about.html"]');
-    test.assertExists('body .sidebar.mobile ul li:nth-child(2) a[href="https://github.com/singuerinc"]');
-    test.assertExists('body .sidebar.mobile ul li:nth-child(3) a[href="https://twitter.com/singuerinc"]');
-    test.assertExists('body .sidebar.mobile ul li:nth-child(4) a[href="https://blog.singuerinc.com"]');
-    test.assertExists('body .sidebar.mobile ul li:nth-child(5) a[href="https://medium.com/@singuerinc"]');
+    test.assertExists("body .sidebar.mobile ul li:nth-child(1) a[href='/about.html']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(2) a[href='https://github.com/singuerinc']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(3) a[href='https://twitter.com/singuerinc']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(4) a[href='https://blog.singuerinc.com']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(5) a[href='https://medium.com/@singuerinc']");
 
     // posts
     test.assertExists("body .content ul.posts");
@@ -96,7 +96,39 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/about.html", function(){
+
+    // about page
+
     test.assertTextExists("I’m Nahuel Scotti. This is my portfolio.");
+  })
+  .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function(){
+
+    // projects - zalando ivy park
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page img.image");
+
+    test.assertSelectorHasText(".content h1", "Zalando · Ivy Park");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Zalando");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://www.b-reel.com/projects/ivy-park']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function(){
+
+    // projects - b-reel
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page img.image");
+
+    test.assertSelectorHasText(".content h1", "B-REEL · B-REEL");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "B-REEL");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/']");
+
   })
   .run(function() {
     test.done();
