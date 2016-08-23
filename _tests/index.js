@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 126;
+var TOTAL_TESTS = 142;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -207,6 +207,36 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/']");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function(){
+
+    // projects - kick with chrome
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+
+    test.assertSelectorHasText(".content h1", "Google · Kick with Chrome");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Google");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.chromeexperiments.com/experiment/kick-with-chrome']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/']");
+
+  })
+  .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function(){
+
+    // projects - kit appetit
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Kit Appetit · Kit Appetit");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Kit Appetit");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.kitappetit.com/']");
 
   })
   .run(function() {
