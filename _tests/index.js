@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 214;
+var TOTAL_TESTS = 222;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -383,6 +383,21 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-sol_plata");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-laus");
     test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-efi");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function(){
+
+    // projects - evax adapt
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertSelectorHasText(".content h1", "Evax · Adapt");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Evax");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
 
   })
   .run(function() {
