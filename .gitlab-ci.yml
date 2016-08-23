@@ -10,14 +10,15 @@ variables:
   CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
 
 test-build:
-  image: jekyll/jekyll:stable
+  image: jekyll/jekyll:3.2.1
   environment: test
   stage: build
   artifacts:
     expire_in: 20 minutes
     untracked: true
   script:
-  - apk add --update --no-cache nodejs
+  - echo "http://dl-5.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+  - apk add --no-cache nodejs
   - npm install -g webpack
   - npm install
   - npm run build
