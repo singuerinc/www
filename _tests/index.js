@@ -1,4 +1,4 @@
-var TOTAL_TESTS = 142;
+var TOTAL_TESTS = 166;
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
@@ -161,6 +161,9 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/projects/htc-vive']");
 
+    test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-awwwards_site_of_the_day");
+    test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.thefwa_site_of_the_day");
+
   })
   .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function(){
 
@@ -201,6 +204,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertExists("body.project-page .content h1");
     test.assertExists("body.project-page .content img.image");
     test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
 
     test.assertSelectorHasText(".content h1", "Skoda · Byggd för att ta skit");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Skoda");
@@ -217,6 +221,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertExists("body.project-page .content h1");
     test.assertExists("body.project-page .content img.image");
     test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
 
     test.assertSelectorHasText(".content h1", "Google · Kick with Chrome");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Google");
@@ -237,6 +242,41 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Kit Appetit");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.kitappetit.com/']");
+
+  })
+  .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function(){
+
+    // projects - names not numbers
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+    test.assertExists("body.project-page .content .project-content.no-columns");
+    test.assertExists("body.project-page .content .project-content p");
+    test.assertExists("body.project-page .content .project-content .video-wrapper");
+
+    test.assertSelectorHasText(".content h1", "Médecins du Monde · Names not numbers");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Médecins du Monde");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/']");
+
+    test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-awwwards_site_of_the_day");
+    test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.thefwa_site_of_the_day");
+
+  })
+  .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function(){
+
+    // projects - roberto ivan cano
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Porfolio · Roberto Ivan Cano");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Porfolio");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.robertoivancano.com/']");
 
   })
   .run(function() {
