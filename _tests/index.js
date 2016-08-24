@@ -1,7 +1,8 @@
-casper.test.begin("Test", 233, function suite(test) {
+casper.test.begin("Test", 274, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
 
-    // google analytics id
+    test.assertHttpStatus(200);
+
     test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // canonical
@@ -95,6 +96,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/about.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // about page
 
     test.assertExists("body .content.container");
@@ -105,6 +110,10 @@ casper.test.begin("Test", 233, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // projects - zalando ivy park
 
@@ -123,6 +132,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - b-reel
 
     test.assertExists("body.project-page");
@@ -139,6 +152,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - arawys store
 
     test.assertExists("body.project-page");
@@ -154,6 +171,10 @@ casper.test.begin("Test", 233, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // projects - htc vive
 
@@ -174,6 +195,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - facebook moments
 
     test.assertExists("body.project-page");
@@ -191,6 +216,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - overlay
 
     test.assertExists("body.project-page");
@@ -206,6 +235,10 @@ casper.test.begin("Test", 233, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // projects - skoda
 
@@ -225,6 +258,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - kick with chrome
 
     test.assertExists("body.project-page");
@@ -243,6 +280,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - kit appetit
 
     test.assertExists("body.project-page");
@@ -257,6 +298,10 @@ casper.test.begin("Test", 233, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // projects - names not numbers
 
@@ -280,6 +325,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - roberto ivan cano
 
     test.assertExists("body.project-page");
@@ -294,6 +343,10 @@ casper.test.begin("Test", 233, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/singuerinc/cuchi-cuchi.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // projects - cuchi cuchi
 
@@ -310,6 +363,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/doubleyou/pepe-jeans.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - pepe jeans
 
     test.assertExists("body.project-page");
@@ -323,6 +380,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - nike pro combat
 
     test.assertExists("body.project-page");
@@ -335,6 +396,10 @@ casper.test.begin("Test", 233, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // projects - audi a1 me gusta
 
@@ -350,6 +415,10 @@ casper.test.begin("Test", 233, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // projects - fcb som un
 
@@ -369,6 +438,10 @@ casper.test.begin("Test", 233, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // projects - atrapalo revivelo
 
@@ -390,6 +463,10 @@ casper.test.begin("Test", 233, function suite(test) {
   })
   .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function(){
 
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+
     // projects - evax adapt
 
     test.assertExists("body.project-page");
@@ -404,6 +481,10 @@ casper.test.begin("Test", 233, function suite(test) {
 
   })
   .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
     // projects - audi driving experience
 
