@@ -1,5 +1,10 @@
 # www
 
+## [5.1.0] - 2016-08-24
+- Add 200 status test
+- Add Google Analytics test on all pages
+- Update Google Analytics script
+
 ## [5.0.0] - 2016-08-24
 - Add Functional tests
 - Change About title
