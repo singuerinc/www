@@ -1,5 +1,13 @@
 # www
 
+## [5.2.0] - 2016-08-25
+- Fix "Google Bot doen't see anything"
+- Optimize assets after PageSpeed Insights report
+- Exclude index.js from compiled public folder
+- Test before each commit (via git hook)
+- Fix 404 white text and styles
+- Test 404 case
+
 ## [5.1.0] - 2016-08-24
 - Add 200 status test
 - Add Google Analytics test on all pages
