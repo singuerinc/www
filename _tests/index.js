@@ -1,4 +1,4 @@
-casper.test.begin("Test", 274, function suite(test) {
+casper.test.begin("Test", 279, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
 
     test.assertHttpStatus(200);
@@ -92,6 +92,17 @@ casper.test.begin("Test", 274, function suite(test) {
     test.assertElementCount("body .content ul.posts li#revívelo", 1);
     test.assertElementCount("body .content ul.posts li#adapt", 1);
     test.assertElementCount("body .content ul.posts li#driving-experience", 1);
+
+  })
+  .thenOpen("http://jekyll:4000/random-no-existing-page.html", function(){
+    test.assertHttpStatus(404);
+  })
+  .thenOpen("http://jekyll:4000/404.html", function(){
+
+    test.assertHttpStatus(200);
+    test.assertExists("body .content.container");
+    test.assertExists("body .content.container h1");
+    test.assertSelectorHasText("body .content.container h1", "404: Page not found");
 
   })
   .thenOpen("http://jekyll:4000/about.html", function(){
