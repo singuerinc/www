@@ -23,7 +23,7 @@ markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 
-exclude: [Dockerfile, Dockerfile_webpack, docker-compose.yml, README.md, CHANGELOG, node_modules, webpack.config.js, package.json, app.js]
+exclude: [Dockerfile, Dockerfile_webpack, docker-compose.yml, README.md, CHANGELOG, node_modules, webpack.config.js, package.json, app.js, index.js]
 
 gems:
   - jekyll-sitemap
