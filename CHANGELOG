@@ -1,5 +1,8 @@
 # www
 
+## [5.2.1] - 2016-08-26
+- Fix fix only latest docker image is created !40
+
 ## [5.2.0] - 2016-08-25
 - Fix "Google Bot doen't see anything"
 - Optimize assets after PageSpeed Insights report
