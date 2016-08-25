@@ -2,7 +2,6 @@ casper.test.begin("Test", 279, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
 
     test.assertHttpStatus(200);
-    test.assertHttpStatus(200);
 
     test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
 
