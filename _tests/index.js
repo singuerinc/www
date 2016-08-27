@@ -3,7 +3,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // canonical
     test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/']");
@@ -109,7 +109,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // about page
 
@@ -124,7 +124,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - zalando ivy park
 
@@ -145,7 +145,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - b-reel
 
@@ -165,7 +165,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - arawys store
 
@@ -185,7 +185,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - htc vive
 
@@ -208,7 +208,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - facebook moments
 
@@ -229,7 +229,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - overlay
 
@@ -249,7 +249,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - skoda
 
@@ -271,7 +271,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - kick with chrome
 
@@ -293,7 +293,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - kit appetit
 
@@ -312,7 +312,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - names not numbers
 
@@ -338,7 +338,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - roberto ivan cano
 
@@ -357,7 +357,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - cuchi cuchi
 
@@ -376,7 +376,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - pepe jeans
 
@@ -393,7 +393,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - nike pro combat
 
@@ -410,7 +410,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - audi a1 me gusta
 
@@ -429,7 +429,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - fcb som un
 
@@ -452,7 +452,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - atrapalo revivelo
 
@@ -476,7 +476,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - evax adapt
 
@@ -495,7 +495,7 @@ casper.test.begin("Test", 279, function suite(test) {
 
     test.assertHttpStatus(200);
 
-    test.assertTextExists("ga('create', 'UA-881783-8', 'auto');");
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
     // projects - audi driving experience
 
