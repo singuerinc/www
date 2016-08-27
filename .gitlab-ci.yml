@@ -17,7 +17,7 @@ variables:
   - apk add --update nodejs
   - npm install
   - npm run build
-  - jekyll build -d $CI_PROJECT_DIR/public
+  - JEKYLL_ENV=test jekyll build -d $CI_PROJECT_DIR/public
 
 .test-urls: &test-urls-definition
   image: jekyll/jekyll:3.2.1
