@@ -1,7 +1,31 @@
-casper.test.begin("Test", 279, function suite(test) {
+casper.test.begin("Test", 281, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
 
     test.assertHttpStatus(200);
+
+    test.assertResourceExists('assets/bundle.js');
+    test.assertResourceExists('https://www.google-analytics.com/analytics.js');
+
+    //test.assertResourceExists('img/home/zalando--ivy-park.jpg');
+    //test.assertResourceExists('img/home/b-reel--b-reel.jpg');
+    //test.assertResourceExists('img/home/arawys--store.jpg');
+    //test.assertResourceExists('img/home/htc--vive.jpg');
+    //test.assertResourceExists('img/home/facebook--moments.jpg');
+    //test.assertResourceExists('img/home/singuerinc--overlay-app.jpg');
+    //test.assertResourceExists('img/home/skoda--byggd-for-att-ta-skit.jpg');
+    //test.assertResourceExists('img/home/google--kick-with-chrome.jpg');
+    //test.assertResourceExists('img/home/kitappetit--kitappetit.jpg');
+    //test.assertResourceExists('img/home/medecins-du-monde--names-not-numbers.jpg');
+    //test.assertResourceExists('img/home/roberto-ivan-cano.jpg');
+    //test.assertResourceExists('img/home/cuchi-cuchi_50.jpg');
+    //test.assertResourceExists('img/home/pepe-jeans_50.jpg');
+    //test.assertResourceExists('img/home/nike--pro-combat.jpg');
+    //test.assertResourceExists('img/home/nike--my-time-is-now.jpg');
+    //test.assertResourceExists('img/home/audi--a1-me-gusta.jpg');
+    //test.assertResourceExists('img/home/fcb--somos-uno.jpg');
+    //test.assertResourceExists('img/home/atrapalo--revivelo.jpg');
+    //test.assertResourceExists('img/home/evax--adapt.jpg');
+    //test.assertResourceExists('img/home/audi--driving-experience.jpg');
 
     test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
 
