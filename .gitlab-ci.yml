@@ -7,9 +7,8 @@ variables:
   CONTAINER_TEST_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:$CI_BUILD_TAG
   CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
 
-test:build:
+.test-build: &test-build-definition
   image: jekyll/jekyll:3.2.1
-  environment: test
   stage: build
   artifacts:
     expire_in: 20 minutes
@@ -19,127 +18,107 @@ test:build:
   - npm install
   - npm run build
   - jekyll build -d $TRAVIS_BUILD_DIR
+
+.test-urls: &test-urls-definition
+  image: jekyll/jekyll:3.2.1
+  stage: test
+  script:
+  - htmlproofer $TRAVIS_BUILD_DIR --log-level debug
+
+.test-functional: &test-functional-definition
+  image: singuerinc/docker_casperjs
+  stage: test
+  script:
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
+  - python -m SimpleHTTPServer 4000 &
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
+
+.test-deploy: &test-deploy-definition:
+  image: mhart/alpine-node:6
+  stage: deploy
+  script:
+  - npm install -g surge
+  - surge -p $TRAVIS_BUILD_DIR -d $DEST_DOMAIN
+
+
+
+
+test:build:
+  <<: *test-build-definition
+  environment: test
   only:
   - branches
   except:
   - master
 
 test:test:urls:
-  image: jekyll/jekyll:3.2.1
+  <<: *test-urls-definition
   environment: test
-  stage: test
-  script:
-  - htmlproofer $TRAVIS_BUILD_DIR --log-level debug
   only:
   - branches
   except:
   - master
 
 test:test:functional:
-  image: singuerinc/docker_casperjs
+  <<: *test-functional-definition
   environment: test
-  stage: test
-  script:
-  - echo "0.0.0.0 jekyll" >> /etc/hosts
-  - cd $CI_PROJECT_DIR/public
-  - python -m SimpleHTTPServer 4000 &
-  - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
   - branches
   except:
   - master
 
 test:deploy:
-  image: mhart/alpine-node:6
+  <<: *test-deploy-definition
   environment: test
-  stage: deploy
-  script:
-  - npm install -g surge
-  - surge -p $TRAVIS_BUILD_DIR -d test.www.singuerinc.com.surge.sh
+  variables:
+    DEST_DOMAIN: $TEST_DOMAIN
   only:
   - branches
   except:
   - master
 
 staging:build:
-  image: jekyll/jekyll:3.2.1
+  <<: *test-build-definition
   environment: staging
-  stage: build
-  artifacts:
-    expire_in: 20 minutes
-    untracked: true
-  script:
-  - apk add --update nodejs
-  - npm install
-  - npm run build
-  - jekyll build -d $TRAVIS_BUILD_DIR
   only:
   - master
 
 staging:test:urls:
-  image: jekyll/jekyll:3.2.1
+  <<: *test-urls-definition
   environment: staging
-  stage: test
-  script:
-  - htmlproofer $TRAVIS_BUILD_DIR --log-level debug
   only:
   - master
 
 staging:test:functional:
-  image: singuerinc/docker_casperjs
+  <<: *test-functional-definition
   environment: staging
-  stage: test
-  script:
-  - echo "0.0.0.0 jekyll" >> /etc/hosts
-  - cd $CI_PROJECT_DIR/public
-  - python -m SimpleHTTPServer 4000 &
-  - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
   - master
 
 staging:deploy:
-  image: mhart/alpine-node:6
+  <<: *test-deploy-definition
   environment: staging
-  stage: deploy
-  script:
-  - npm install -g surge
-  - surge -p $TRAVIS_BUILD_DIR -d staging.www.singuerinc.com.surge.sh
+  variables:
+    DEST_DOMAIN: $STAGING_DOMAIN
   only:
   - master
 
 pages:build:
-  image: jekyll/jekyll:3.2.1
+  <<: *test-build-definition
   environment: production
-  stage: build
-  artifacts:
-    expire_in: 20 minutes
-    untracked: true
-  script:
-  - apk add --update nodejs
-  - npm install
-  - npm run build
-  - jekyll build -d $TRAVIS_BUILD_DIR
   only:
   - tags
 
 pages:test:urls:
-  image: jekyll/jekyll:3.2.1
+  <<: *test-urls-definition
   environment: production
-  stage: test
-  script:
-  - htmlproofer $TRAVIS_BUILD_DIR --log-level debug
   only:
   - tags
 
 pages:test:functional:
-  image: singuerinc/docker_casperjs
+  <<: *test-functional-definition
   environment: production
-  stage: test
-  script:
-  - echo "0.0.0.0 jekyll" >> /etc/hosts
-  - cd $CI_PROJECT_DIR/public
-  - python -m SimpleHTTPServer 4000 &
-  - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
   - tags
 
