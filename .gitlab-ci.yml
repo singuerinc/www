@@ -18,6 +18,7 @@ variables:
   - npm install
   - npm run build
   - JEKYLL_ENV=test jekyll build -d $CI_PROJECT_DIR/public
+  - sed -i ".bak" "s/Disallow:/Disallow: \//" robots.txt
 
 .test-urls: &test-urls-definition
   image: jekyll/jekyll:3.2.1
