@@ -37,10 +37,6 @@ variables:
 .test-deploy: &test-deploy-definition
   image: mhart/alpine-node:6
   stage: deploy
-  script:
-  - npm install -g surge
-  - surge -p $TRAVIS_BUILD_DIR -d $DEST_DOMAIN
-
 
 
 
@@ -71,8 +67,9 @@ test:test:functional:
 test:deploy:
   <<: *test-deploy-definition
   environment: test
-  variables:
-    DEST_DOMAIN: $TEST_DOMAIN
+  script:
+  - npm install -g surge
+  - surge -p $TRAVIS_BUILD_DIR -d $TEST_DOMAIN
   only:
   - branches
   except:
@@ -99,8 +96,9 @@ staging:test:functional:
 staging:deploy:
   <<: *test-deploy-definition
   environment: staging
-  variables:
-    DEST_DOMAIN: $STAGING_DOMAIN
+  script:
+  - npm install -g surge
+  - surge -p $TRAVIS_BUILD_DIR -d $STAGING_DOMAIN
   only:
   - master
 
