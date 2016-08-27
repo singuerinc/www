@@ -34,7 +34,7 @@ variables:
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
 
-.test-deploy: &test-deploy-definition:
+.test-deploy: &test-deploy-definition
   image: mhart/alpine-node:6
   stage: deploy
   script:
