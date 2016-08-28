@@ -71,7 +71,9 @@ test:deploy:
   environment: test
   script:
   - npm install -g surge
-  - surge -p $CI_PROJECT_DIR/public -d $TEST_DOMAIN
+  - rm $CI_PROJECT_DIR/public/CNAME
+  - printf "$TEST_DOMAIN" > $CI_PROJECT_DIR/public/CNAME
+  - surge -p $CI_PROJECT_DIR/public
   only:
   - branches
   except:
@@ -100,7 +102,9 @@ staging:deploy:
   environment: staging
   script:
   - npm install -g surge
-  - surge -p $CI_PROJECT_DIR/public -d $STAGING_DOMAIN
+  - rm $CI_PROJECT_DIR/public/CNAME
+  - printf "$STAGING_DOMAIN" > $CI_PROJECT_DIR/public/CNAME
+  - surge -p $CI_PROJECT_DIR/public
   only:
   - master
 
