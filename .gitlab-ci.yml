@@ -18,6 +18,8 @@ variables:
   - npm install
   - npm run build
   - JEKYLL_ENV=test jekyll build -d $CI_PROJECT_DIR/public
+  - rm $CI_PROJECT_DIR/public/robots.txt
+  - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
 
 .test-urls: &test-urls-definition
   image: jekyll/jekyll:3.2.1
