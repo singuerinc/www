@@ -1,5 +1,16 @@
 # www
 
+## [6.0.0] - 2016-08-28
+- Fix Google Analytics is sending statistics during the tests
+- Use anchors in gitlab-ci.yml
+- Exclude robots from test and staging environment
+- Add CNAME for each environment
+- Test files loaded
+- Change $TRAVIS_BUILD_DIR variable to $CI_PROJECT_DIR in .gitlab-ci.yml
+
+## [5.2.2] - 2016-08-26
+- Fix Docker tag
+
 ## [5.2.1] - 2016-08-26
 - Fix fix only latest docker image is created !40
 
