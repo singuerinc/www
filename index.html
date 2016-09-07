@@ -12,7 +12,7 @@ title: Home
 {% endfor %}
   @media (max-width: 768px) {
     {% for post in site.posts %}
-    .post-image.{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
+    .post-image.{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
       background: url(./img/home/{{ post.image }}-md.jpg) no-repeat;
       background-size: 100% auto;
     }
@@ -24,7 +24,7 @@ title: Home
 
 <ul class="posts">
   {% for post in site.posts %}
-  <li id="{{post.title|split:' '|join:'-'|downcase}}" class="post w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
+  <li id="{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}" class="post w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
     <meta itemprop="name" content="{{post.client}} - {{post.title}}"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
     {% for award in post.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
@@ -47,7 +47,7 @@ title: Home
       list[i].classList.add('hide');
     }
     var posts = [];
-    {% for post in site.posts %}posts.push({id: "{{post.title|split:' '|join:'-'|downcase}}", image: "{{post.image}}"});{% endfor %}
+    {% for post in site.posts %}posts.push({id: "{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}", image: "{{post.image}}"});{% endfor %}
   </script>
   <script type="text/javascript" src="./assets/bundle.js"></script>
 </ul>

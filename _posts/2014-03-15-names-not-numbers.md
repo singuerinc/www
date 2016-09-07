@@ -2,7 +2,7 @@
 layout: post
 title: Names not numbers
 category: "b-reel"
-client: "M&eacute;decins du Monde"
+client: "Médecins du Monde"
 agency:
     - B-REEL
 tech:

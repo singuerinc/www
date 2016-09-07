@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Cuchi-Cuchi
+title: "Guardería"
 category: "singuerinc"
-client: Guarder&iacute;a
+client: Cuchi-Cuchi
 agency:
     - small-machine
 tech:

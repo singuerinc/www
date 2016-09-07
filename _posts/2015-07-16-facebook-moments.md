@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Facebook Moments"
+title: "Moments"
 category: "b-reel"
 client: "Facebook"
 agency:

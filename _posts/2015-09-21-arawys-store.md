@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Arawys"
+title: Store
 category: "singuerinc"
-client: "Arawys"
+client: Arawys
 agency:
     - singuerinc
 tech:
