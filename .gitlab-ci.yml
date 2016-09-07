@@ -21,12 +21,6 @@ variables:
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
 
-.test-urls: &test-urls-definition
-  image: jekyll/jekyll:3.2.1
-  stage: test
-  script:
-  - htmlproofer $CI_PROJECT_DIR/public --log-level debug
-
 .test-functional: &test-functional-definition
   image: singuerinc/docker_casperjs
   stage: test
@@ -44,14 +38,6 @@ variables:
 
 test:build:
   <<: *test-build-definition
-  environment: test
-  only:
-  - branches
-  except:
-  - master
-
-test:test:urls:
-  <<: *test-urls-definition
   environment: test
   only:
   - branches
@@ -85,12 +71,6 @@ staging:build:
   only:
   - master
 
-staging:test:urls:
-  <<: *test-urls-definition
-  environment: staging
-  only:
-  - master
-
 staging:test:functional:
   <<: *test-functional-definition
   environment: staging
@@ -110,12 +90,6 @@ staging:deploy:
 
 pages:build:
   <<: *test-build-definition
-  environment: production
-  only:
-  - tags
-
-pages:test:urls:
-  <<: *test-urls-definition
   environment: production
   only:
   - tags
