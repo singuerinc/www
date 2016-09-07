@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pepe Jeans
+title: Store
 category: "doubleyou"
 client: Pepe Jeans
 agency:

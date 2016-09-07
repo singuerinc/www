@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Roberto Ivan Cano
+title: Portfolio
 category: "singuerinc"
-client: Porfolio
+client: Roberto Ivan Cano
 agency:
   - small-machine
 tech:

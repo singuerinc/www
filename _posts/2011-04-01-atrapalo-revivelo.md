@@ -2,7 +2,7 @@
 layout: post
 title: "Revívelo"
 category: "doubleyou"
-client: "Atr&aacute;palo"
+client: "Atrápalo"
 agency:
   - Doubleyou
 tech:

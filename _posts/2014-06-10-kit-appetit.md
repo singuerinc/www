@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Kit Appetit"
+title: Store
 category: "singuerinc"
-client: "Kit Appetit"
+client: "Kit Appétit"
 agency:
     - singuerinc
 tech:
@@ -16,4 +16,3 @@ www: "http://www.kitappetit.com/"
 more: ""
 priority: 'priority-2'
 ---
-
