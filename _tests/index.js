@@ -1,4 +1,4 @@
-casper.test.begin("Test", 281, function suite(test) {
+casper.test.begin("Test", 291, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
 
     test.assertHttpStatus(200);
@@ -95,7 +95,7 @@ casper.test.begin("Test", 281, function suite(test) {
     // posts
     test.assertExists("body .content ul.posts");
 
-    test.assertElementCount("body .content ul.posts li", 20);
+    test.assertElementCount("body .content ul.posts li", 21);
     test.assertElementCount("body .content ul.posts li#zalando_ivy-park", 1);
     test.assertElementCount("body .content ul.posts li#b-reel_b-reel", 1);
     test.assertElementCount("body .content ul.posts li#arawys_store", 1);
@@ -116,6 +116,7 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertElementCount("body .content ul.posts li#atrápalo_revívelo", 1);
     test.assertElementCount("body .content ul.posts li#evax_adapt", 1);
     test.assertElementCount("body .content ul.posts li#audi_driving-experience", 1);
+    test.assertElementCount("body .content ul.posts li#evax_estudio-risa", 1);
 
   })
   .thenOpen("http://jekyll:4000/random-no-existing-page.html", function(){
@@ -532,6 +533,25 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
 
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/es.audi.drivingexperience/']");
+
+  })
+  .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function(){
+
+    test.assertHttpStatus(200);
+
+    test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
+
+    // projects - evax - estudio risa
+
+    test.assertExists("body.project-page");
+    test.assertExists("body.project-page .content h1");
+    test.assertExists("body.project-page .content img.image");
+
+    test.assertSelectorHasText(".content h1", "Evax · Estudio Risa");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Evax");
+    test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/es.evax.estudios/']");
 
   })
   .run(function() {
