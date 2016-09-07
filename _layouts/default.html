@@ -12,21 +12,6 @@
     </div>
 
     {% include sidebar-mobile.html %}
-
-    {% unless page.id == "404" %}
-    <noscript>
-    {% endunless %}
-      <link rel="stylesheet" href="/all.css">
-
-      <style type="text/css">
-        .hide {
-          display: block;
-        }
-      </style>
-    {% unless page.id == "404" %}
-    </noscript>
-    {% endunless %}
-
     {% include footer.html %}
 
   </body>
