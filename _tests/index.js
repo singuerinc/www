@@ -96,26 +96,26 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body .content ul.posts");
 
     test.assertElementCount("body .content ul.posts li", 20);
-    test.assertElementCount("body .content ul.posts li#ivy-park", 1);
-    test.assertElementCount("body .content ul.posts li#b-reel", 1);
-    test.assertElementCount("body .content ul.posts li#arawys", 1);
-    test.assertElementCount("body .content ul.posts li#vive", 1);
-    test.assertElementCount("body .content ul.posts li#facebook-moments", 1);
-    test.assertElementCount("body .content ul.posts li#overlay", 1);
-    test.assertElementCount("body .content ul.posts li#byggd-för-att-ta-skit", 1);
-    test.assertElementCount("body .content ul.posts li#kick-with-chrome", 1);
-    test.assertElementCount("body .content ul.posts li#kit-appetit", 1);
-    test.assertElementCount("body .content ul.posts li#names-not-numbers", 1);
-    test.assertElementCount("body .content ul.posts li#roberto-ivan-cano", 1);
-    test.assertElementCount("body .content ul.posts li#cuchi-cuchi", 1);
-    test.assertElementCount("body .content ul.posts li#pepe-jeans", 1);
-    test.assertElementCount("body .content ul.posts li#pro-combat", 1);
-    test.assertElementCount("body .content ul.posts li#my-time-is-now", 1);
-    test.assertElementCount("body .content ul.posts li#a1-me-gusta", 1);
-    test.assertElementCount("body .content ul.posts li#som-un", 1);
-    test.assertElementCount("body .content ul.posts li#revívelo", 1);
-    test.assertElementCount("body .content ul.posts li#adapt", 1);
-    test.assertElementCount("body .content ul.posts li#driving-experience", 1);
+    test.assertElementCount("body .content ul.posts li#zalando_ivy-park", 1);
+    test.assertElementCount("body .content ul.posts li#b-reel_b-reel", 1);
+    test.assertElementCount("body .content ul.posts li#arawys_store", 1);
+    test.assertElementCount("body .content ul.posts li#htc-google_vive", 1);
+    test.assertElementCount("body .content ul.posts li#facebook_moments", 1);
+    test.assertElementCount("body .content ul.posts li#singuerinc_overlay", 1);
+    test.assertElementCount("body .content ul.posts li#skoda_byggd-för-att-ta-skit", 1);
+    test.assertElementCount("body .content ul.posts li#google_kick-with-chrome", 1);
+    test.assertElementCount("body .content ul.posts li#kit-appétit_store", 1);
+    test.assertElementCount("body .content ul.posts li#médecins-du-monde_names-not-numbers", 1);
+    test.assertElementCount("body .content ul.posts li#roberto-ivan-cano_portfolio", 1);
+    test.assertElementCount("body .content ul.posts li#cuchi-cuchi_guardería", 1);
+    test.assertElementCount("body .content ul.posts li#pepe-jeans_store", 1);
+    test.assertElementCount("body .content ul.posts li#nike_pro-combat", 1);
+    test.assertElementCount("body .content ul.posts li#nike_my-time-is-now", 1);
+    test.assertElementCount("body .content ul.posts li#audi_a1-me-gusta", 1);
+    test.assertElementCount("body .content ul.posts li#fc-barcelona_som-un", 1);
+    test.assertElementCount("body .content ul.posts li#atrápalo_revívelo", 1);
+    test.assertElementCount("body .content ul.posts li#evax_adapt", 1);
+    test.assertElementCount("body .content ul.posts li#audi_driving-experience", 1);
 
   })
   .thenOpen("http://jekyll:4000/random-no-existing-page.html", function(){
@@ -178,7 +178,7 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body.project-page .content img.image");
     test.assertExists("body.project-page .content .project-content p");
 
-    test.assertSelectorHasText(".content h1", "B-REEL · B-REEL");
+    test.assertSelectorHasText(".content h1", "B-REEL");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "B-REEL");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
 
@@ -198,7 +198,7 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body.project-page .content img.image");
     test.assertExists("body.project-page .content .project-content p");
 
-    test.assertSelectorHasText(".content h1", "Arawys · Arawys");
+    test.assertSelectorHasText(".content h1", "Arawys · Store");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Arawys");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
 
@@ -218,8 +218,8 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body.project-page .content img.image");
     test.assertExists("body.project-page .content .project-content p");
 
-    test.assertSelectorHasText(".content h1", "HTC, Google · Vive");
-    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "HTC, Google");
+    test.assertSelectorHasText(".content h1", "HTC Google · Vive");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "HTC Google");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
 
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/projects/htc-vive']");
@@ -241,7 +241,7 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body.project-page .content img.image");
     test.assertExists("body.project-page .content .project-content p");
 
-    test.assertSelectorHasText(".content h1", "Facebook · Facebook Moments");
+    test.assertSelectorHasText(".content h1", "Facebook · Moments");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Facebook");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
 
@@ -262,8 +262,8 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body.project-page .content img.image");
     test.assertExists("body.project-page .content .project-content p");
 
-    test.assertSelectorHasText(".content h1", "open-source · Overlay");
-    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "open-source");
+    test.assertSelectorHasText(".content h1", "singuerinc · Overlay");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "singuerinc");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
 
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://github.com/singuerinc/OverlayApp']");
@@ -325,8 +325,8 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body.project-page .content h1");
     test.assertExists("body.project-page .content img.image");
 
-    test.assertSelectorHasText(".content h1", "Kit Appetit · Kit Appetit");
-    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Kit Appetit");
+    test.assertSelectorHasText(".content h1", "Kit Appétit");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Kit Appétit");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
 
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.kitappetit.com/']");
@@ -370,8 +370,8 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body.project-page .content h1");
     test.assertExists("body.project-page .content img.image");
 
-    test.assertSelectorHasText(".content h1", "Porfolio · Roberto Ivan Cano");
-    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Porfolio");
+    test.assertSelectorHasText(".content h1", "Roberto Ivan Cano · Portfolio");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Roberto Ivan Cano");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
 
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.robertoivancano.com/']");
@@ -389,8 +389,8 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body.project-page .content h1");
     test.assertExists("body.project-page .content img.image");
 
-    test.assertSelectorHasText(".content h1", "Guardería · Cuchi-Cuchi");
-    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Guardería");
+    test.assertSelectorHasText(".content h1", "Cuchi-Cuchi · Guardería");
+    test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Cuchi-Cuchi");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
 
     test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.cuchicuchi-guarderia.es/']");
@@ -408,7 +408,7 @@ casper.test.begin("Test", 281, function suite(test) {
     test.assertExists("body.project-page .content h1");
     test.assertExists("body.project-page .content img.image");
 
-    test.assertSelectorHasText(".content h1", "Pepe Jeans · Pepe Jeans");
+    test.assertSelectorHasText(".content h1", "Pepe Jeans · Store");
     test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Pepe Jeans");
     test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
 
