@@ -6,14 +6,15 @@
 ## Serve inside a Docker container
 
 ```sh
-docker-compose up -d
+docker-compose up jekyll
 open 'http://localhost:4000'
 ```
 
 ## Test
 
 ```sh
-docker run -v $PWD/public:/site 18fgsa/html-proofer /site --disable-external
+docker-compose up tests
+docker-compose up tests-links
 ```
 
 ## SSL Certificate
