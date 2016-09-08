@@ -1,5 +1,13 @@
 # www
 
+## [7.0.0] - 2016-09-08
+- Add Evax "Estudio Risa" project
+- Update Readme file with test command
+- Remove "scoped" from <style> tag
+- Fix Docker test command
+- Fix Project title should not be duplicated
+- Remove header variable "host"
+
 ## [6.0.0] - 2016-08-28
 - Fix Google Analytics is sending statistics during the tests
 - Use anchors in gitlab-ci.yml
