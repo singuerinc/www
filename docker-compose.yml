@@ -23,14 +23,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-tests
-    command: casperjs test ./_tests/index.js
+    command: /bin/bash -c "echo '127.0.0.1 jekyll' >> /etc/hosts; cd /data/public; python -m SimpleHTTPServer 4000 & casperjs test /data/_tests/index.js"
     working_dir: /data
     volumes:
       - ./:/data
-    links:
-      - jekyll:jekyll
-    depends_on:
-      - jekyll
+    stdin_open: true
+    tty: true
 
   tests-links:
     image: jekyll/jekyll:3.2.1
