@@ -1,4 +1,4 @@
-casper.test.begin("Test", 291, function suite(test) {
+casper.test.begin("Test", 295, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function() {
 
     test.assertHttpStatus(200);
@@ -64,33 +64,37 @@ casper.test.begin("Test", 291, function suite(test) {
 
     // sidebar - desktop - links
     test.assertExists("body .sidebar ul");
-    test.assertElementCount("body .sidebar ul:first-child li", 5); // about, github, twitter, blog, medium
-    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(1) a", "About");
-    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(2) a", "GitHub");
-    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(3) a", "Twitter");
-    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(4) a", "Blog");
-    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(5) a", "Medium");
+    test.assertElementCount("body .sidebar ul:first-child li", 6); // about, github, twitter, blog, medium
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(1) a", "Home");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(2) a", "About");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(3) a", "GitHub");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(4) a", "Twitter");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(5) a", "Blog");
+    test.assertSelectorHasText("body .sidebar ul:first-child li:nth-child(6) a", "Medium");
 
-    test.assertExists("body .sidebar ul:first-child li:nth-child(1) a[href='/about.html']");
-    test.assertExists("body .sidebar ul:first-child li:nth-child(2) a[href='https://github.com/singuerinc']");
-    test.assertExists("body .sidebar ul:first-child li:nth-child(3) a[href='https://twitter.com/singuerinc']");
-    test.assertExists("body .sidebar ul:first-child li:nth-child(4) a[href='https://blog.singuerinc.com']");
-    test.assertExists("body .sidebar ul:first-child li:nth-child(5) a[href='https://medium.com/@singuerinc']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(1) a[href='/']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(2) a[href='/about.html']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(3) a[href='https://github.com/singuerinc']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(4) a[href='https://twitter.com/singuerinc']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(5) a[href='https://blog.singuerinc.com']");
+    test.assertExists("body .sidebar ul:first-child li:nth-child(6) a[href='https://medium.com/@singuerinc']");
 
     // sidebar - mobile - links
     test.assertExists("body .sidebar.mobile ul");
-    test.assertElementCount("body .sidebar.mobile ul li", 5); // about, github, twitter, blog, medium
-    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(1) a", "About");
-    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(2) a", "GitHub");
-    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(3) a", "Twitter");
-    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(4) a", "Blog");
-    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(5) a", "Medium");
+    test.assertElementCount("body .sidebar.mobile ul li", 6); // home, about, github, twitter, blog, medium
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(1) a", "Home");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(2) a", "About");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(3) a", "GitHub");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(4) a", "Twitter");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(5) a", "Blog");
+    test.assertSelectorHasText("body .sidebar.mobile ul li:nth-child(6) a", "Medium");
 
-    test.assertExists("body .sidebar.mobile ul li:nth-child(1) a[href='/about.html']");
-    test.assertExists("body .sidebar.mobile ul li:nth-child(2) a[href='https://github.com/singuerinc']");
-    test.assertExists("body .sidebar.mobile ul li:nth-child(3) a[href='https://twitter.com/singuerinc']");
-    test.assertExists("body .sidebar.mobile ul li:nth-child(4) a[href='https://blog.singuerinc.com']");
-    test.assertExists("body .sidebar.mobile ul li:nth-child(5) a[href='https://medium.com/@singuerinc']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(1) a[href='/']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(2) a[href='/about.html']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(3) a[href='https://github.com/singuerinc']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(4) a[href='https://twitter.com/singuerinc']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(5) a[href='https://blog.singuerinc.com']");
+    test.assertExists("body .sidebar.mobile ul li:nth-child(6) a[href='https://medium.com/@singuerinc']");
 
     // posts
     test.assertExists("body .content ul.posts");
