@@ -41,11 +41,8 @@ class Portfolio {
     };
 
     for (let i = 0; i < this[_posts].length; i++) {
-      const image = new Image();
-
-      let filename;
-
-      image.onload = () => onLoad(this[_posts][i], image.src);
+      let filename,
+        src;
 
       if (this[_isMobile] && !this[_isRetina]) {
         filename = `${this[_posts][i].image}-md.jpg`;
@@ -54,7 +51,17 @@ class Portfolio {
         filename = `${this[_posts][i].image}.jpg`;
       }
 
-      image.src = `./img/home/${filename}`;
+      src = `./img/home/${filename}`;
+
+      if (i < 4) {
+        const image = new Image();
+
+        image.onload = () => onLoad(this[_posts][i], image.src);
+        image.src = src;
+      }
+      else {
+        onLoad(this[_posts][i], src);
+      }
     }
   }
 
