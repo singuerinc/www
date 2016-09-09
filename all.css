@@ -479,6 +479,7 @@ ul.posts li.priority-0 {
 
 ul.posts li .post-image {
   width: 100%;
+  background-size: 100% auto;
 }
 
 ul.posts li > .w-link {

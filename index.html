@@ -3,22 +3,24 @@ layout: default
 title: Home
 ---
 
-<style>
-{% for post in site.posts %}
-  .post-image.{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
-    background: url(./img/home/{{ post.image }}.jpg) no-repeat;
-    background-size: 100% auto;
-  }
-{% endfor %}
-  @media (max-width: 768px) {
-    {% for post in site.posts %}
+<noscript>
+  <style>
+  {% for post in site.posts %}
     .post-image.{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
-      background: url(./img/home/{{ post.image }}-md.jpg) no-repeat;
+      background: url(./img/home/{{ post.image }}.jpg) no-repeat;
       background-size: 100% auto;
     }
-    {% endfor %}
-  }
-</style>
+  {% endfor %}
+    @media (max-width: 768px) {
+      {% for post in site.posts %}
+      .post-image.{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
+        background: url(./img/home/{{ post.image }}-md.jpg) no-repeat;
+        background-size: 100% auto;
+      }
+      {% endfor %}
+    }
+  </style>
+</noscript>
 
 <h3 class="noselect pre hide">HERE'S WHAT I'VE BEEN WORKING ON</h3>
 
@@ -32,7 +34,7 @@ title: Home
     <meta itemprop="image" content="{{site.url}}/img/home/{{ post.image }}.jpg"/>
     <meta itemprop="url" content="{{site.url}}{{ post.id }}.html"/>
     <a href="{{ post.id }}.html" target="_self" class="w-link animated">
-      <div class="post-image {{post.priority}} animated {{post.title|split:' '|join:'-'|downcase}}"></div>
+      <div class="post-image {{post.priority}} animated {{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}"></div>
       <h1 class="w-title">{{post.title}}</h1>
       <div class="w-tags">{{ post.tech | join: " · "}}</div>
       <div class="w-info">Client: {{ post.client }} / working at {{post.agency}}</div>
