@@ -1,2 +1,5 @@
-import WebApp from './app.js';
-new WebApp();
+import Portfolio from "./Portfolio.js";
+
+const portfolio = new Portfolio();
+
+portfolio.load();
