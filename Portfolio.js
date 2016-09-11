@@ -44,7 +44,7 @@ class Portfolio {
       let filename,
         src;
 
-      if (this[_isMobile] && !this[_isRetina]) {
+      if (this[_isMobile]) {
         filename = `${this[_posts][i].image}-md.jpg`;
       }
       else {
