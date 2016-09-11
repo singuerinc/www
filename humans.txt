@@ -1,0 +1,10 @@
+/* TEAM */
+	Developer: Nahuel Scotti
+	Contact: nahuel.scotti [at] gmail.com
+	Twitter: @singuerinc
+	From:Stockholm, Sweden
+
+/* SITE */
+	Language: English
+	Doctype:HTML5
+	IDE: Webstorm
