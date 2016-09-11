@@ -1007,7 +1007,7 @@ Copyright (c) 2014 Daniel Eden
   ul.posts li > .w-link {
     -webkit-transition: background-color 0.1s;
     transition: background-color 0.1s;
-    background-color: black;
+    background-color: white;
   }
 
   ul.posts li > .w-link:hover {

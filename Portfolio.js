@@ -92,6 +92,7 @@ class Portfolio {
         li = document.querySelector(`li#${pId}`);
 
       li.classList.remove("hide");
+      li.querySelector(".w-link").style.backgroundColor = "black";
     }
 
     anime({
