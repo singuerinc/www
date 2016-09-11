@@ -887,11 +887,11 @@ Copyright (c) 2014 Daniel Eden
   text-align: center;
 }
 
-.project-page .posts li {
-  margin: 0 0 5px;
+.project-page .related-post li {
+  margin: 10px 0;
 }
 
-.project-page .posts a {
+.project-page .related-post a {
   color: #BBB;
 }
 
@@ -1062,4 +1062,9 @@ Copyright (c) 2014 Daniel Eden
   .project-page .project-title {
     text-align: left;
   }
+
+  .project-page .related-post li {
+    margin: 0 0 5px;
+  }
+
 }

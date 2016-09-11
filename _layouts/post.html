@@ -75,7 +75,7 @@
   <ul class="related-post posts">
   {% for post in site.categories[page.category] %}
     {% if post.id != page.id %}
-    <li><a href="{{ post.id }}.html" target="_self">{{ post.title }}</a></li>
+    <li><a href="{{ post.id }}.html" target="_self">{% if post.client != post.title %}{{post.client}} · {{ post.title }}{% else %}{{ post.title }}{% endif %}</a></li>
     {% endif %}
   {% endfor %}
   </ul>
