@@ -1,4 +1,4 @@
-casper.test.begin("Test", 316, function suite(test) {
+casper.test.begin("Test", 329, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
@@ -33,11 +33,24 @@ casper.test.begin("Test", 316, function suite(test) {
     // metas
     test.assertExists("meta[property='fb:app_id'][content='1253343308017588']");
     test.assertExists("meta[property='fb:admins'][content='nahuel.scotti']");
+    test.assertExists("meta[property='og:site_name'][content='Nahuel Scotti - Portfolio']");
+    test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio']");
+    test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
+    test.assertExists("meta[property='og:type'][content='website']");
     test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com']");
     test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+    test.assertExists("meta[property='og:locale'][content='en_US']");
+    test.assertExists("meta[property='og:image:type'][content='image/jpg']");
+    test.assertExists("meta[property='og:image:width'][content='816']");
+    test.assertExists("meta[property='og:image:height'][content='386']");
+    test.assertExists("meta[name='twitter:card'][content='summary']");
+    test.assertExists("meta[name='twitter:site'][content='@singuerinc']");
+    test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
+    test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
+    test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
 
-    // page title
-    test.assertTitle("Nahuel Scotti - Portfolio", "Homepage title is the one expected");
+      // page title
+    test.assertTitle("Nahuel Scotti - Portfolio");
 
     // main content
     test.assertExists("body .content");
