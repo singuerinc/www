@@ -1,5 +1,16 @@
 # www
 
+## [9.0.0] - 2016-09-11
+- Fix Black placeholders during the images loading should be white or transparent
+- Fix Related buttons are too small for mobile
+- Fix Images that are 50% tall are displayed incorrectly in mobile
+- Fix Style inside a div is not permited
+- Test in devices
+
+## [8.0.0] - 2016-09-10
+- optimize images for desktop
+- rewrite app.js
+
 ## [7.1.0] - 2016-09-09
 - Add Home button in the sidebar
 
