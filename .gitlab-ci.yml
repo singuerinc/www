@@ -18,6 +18,7 @@ variables:
   - npm install
   - npm run build
   - JEKYLL_ENV=test jekyll build -d $CI_PROJECT_DIR/public
+  - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
 
