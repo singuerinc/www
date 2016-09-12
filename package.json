@@ -4,7 +4,7 @@
   "description": "[![build status](https://gitlab.com/singuerinc/www.singuerinc.com/badges/master/build.svg)](https://gitlab.com/singuerinc/www.singuerinc.com/commits/master)",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js --progress; ./node_modules/cssnano-cli/cmd.js all.css ./public/all.css --discardComments.removeAll"
+    "build": "./node_modules/webpack/bin/webpack.js --progress"
   },
   "repository": {
     "type": "git",
