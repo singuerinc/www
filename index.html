@@ -24,13 +24,4 @@ title: Home
 
   {% endfor %}
 
-  <script type="text/javascript">
-    var list = document.querySelectorAll('ul.posts li');
-    for(var i=0; i<list.length; i++){
-      list[i].classList.add('hide');
-    }
-    var posts = [];
-    {% for post in site.posts %}posts.push({id: "{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}", image: "{{post.image}}"});{% endfor %}
-  </script>
-  <script type="text/javascript" src="./assets/bundle.js"></script>
 </ul>
