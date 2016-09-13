@@ -233,7 +233,7 @@ h1 {
   font-size: 2rem;
 }
 
-h3 {
+h2 {
   margin-top: 0;
   font-size: 1.20rem;
 }
@@ -311,7 +311,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.sidebar {
+.sidebar, .sidebar-mobile {
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
@@ -320,27 +320,27 @@ body {
 
 /* Sidebar links */
 
-.sidebar a {
+.sidebar a, .sidebar-mobile a {
   color: #fff;
 }
 
-.sidebar ul {
+.sidebar ul, .sidebar-mobile ul {
     display: none;
 }
 
-.sidebar.mobile ul {
+.sidebar-mobile ul {
     display: block;
 }
 
-.sidebar.mobile ul {
+.sidebar-mobile ul {
     display: block;
 }
 
-.sidebar.mobile ul li a {
+.sidebar-mobile ul li a {
   line-height: 40px;
 }
 
-.sidebar ul li a {
+.sidebar ul li a, .sidebar-mobile ul li a {
   font-weight: 400;
 }
 
@@ -397,7 +397,7 @@ h3 {
   padding: 0;
 }
 
-.content.container h3 {
+.content.container .preamble {
   letter-spacing: 1px;
   text-align: center;
   margin-bottom: 33px;
@@ -414,27 +414,25 @@ h3 {
   }
 }
 
-.sidebar {
+.sidebar, .sidebar-mobile {
   background-color: white;
   color: black;
 }
 
-.sidebar a,
-a {
+.sidebar a, .sidebar-mobile a, a {
   color: black;
 }
 
-.sidebar ul a {
+.sidebar ul a, .sidebar-mobile ul a {
   text-transform: uppercase;
 }
 
-.sidebar a:focus,
-a:active {
+.sidebar a:focus, .sidebar a:active, .sidebar-mobile a:focus, .sidebar-mobile a:active {
   color: white;
   background-color: black !important;
 }
 
-.sidebar ul {
+.sidebar ul, .sidebar-mobile ul {
   list-style: none;
   padding: 0px;
 }
@@ -452,6 +450,10 @@ header div a {
   display: inline;
   color: black;
   font-weight: 300;
+}
+
+header .singuerinc {
+  font-size: 1.8rem;
 }
 
 ul.posts {
@@ -806,10 +808,11 @@ Copyright (c) 2014 Daniel Eden
 .project-page .project-title {
   color: black;
   text-align: center;
+  font-size: 2rem;
 }
 
 .project-page .image {
-  margin: 28px 0;
+  margin: 26px 0;
   max-width: 100%;
 }
 
@@ -873,7 +876,8 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .project-page .related-title {
-  margin: 20px 0 5px;
+  font-size: 1.5rem;
+  margin: 30px 0 5px;
   color: #BBB;
   float: none;
   min-width: 100%;
@@ -1036,7 +1040,7 @@ Copyright (c) 2014 Daniel Eden
     margin: -40px 0 0 0;
   }
 
-  .sidebar.mobile {
+  .sidebar-mobile {
     display: none;
   }
 
@@ -1047,6 +1051,7 @@ Copyright (c) 2014 Daniel Eden
   }
 
   .project-page .related-title {
+    margin: 20px 0 5px;
     float: left;
     min-width: 100px;
     text-align: left;

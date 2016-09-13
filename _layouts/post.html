@@ -1,97 +1,93 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body class="project-page">
+<body class="project-page">
 
-    {% include sidebar.html %}
+  {% include sidebar.html %}
 
-    <div class="content container">
+  <div class="content container">
+    <div itemscope itemtype="http://schema.org/WebSite">
+      <h1 class="project-title">{% if page.client != page.title %}{{page.client}} · {{ page.title }}{% else %}{{ page.title }}{% endif %}</h1>
+      <meta itemprop="name" content="{{page.client}} - {{page.title}}"/>
+      <meta itemprop="contributor" content="Nahuel Scotti"/>
+      {% for award in page.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
+      <meta itemprop="keywords" content="{{page.tech|join:', '}}"/>
 
+      <meta itemprop="image" content="{{site.url}}/img/home/{{ page.image }}.jpg"/>
+      <img class="image" src="/img/home/{{ page.image }}.jpg" alt="{{ page.title }}" title="{{ page.title }}">
+      <meta itemprop="url" content="{{site.url}}{{ page.id }}"/>
 
-<div itemscope itemtype="http://schema.org/WebSite">
-  <h1 class="project-title">{% if page.client != page.title %}{{page.client}} · {{ page.title }}{% else %}{{ page.title }}{% endif %}</h1>
-  <meta itemprop="name" content="{{page.client}} - {{page.title}}"/>
-  <meta itemprop="contributor" content="Nahuel Scotti"/>
-  {% for award in page.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
-  <meta itemprop="keywords" content="{{page.tech|join:', '}}"/>
+      <div class="project-content {{page.css|join:' '}}">{{ content }}</div>
 
-  <meta itemprop="image" content="{{site.url}}/img/home/{{ page.image }}.jpg"/>
-  <img class="image" src="/img/home/{{ page.image }}.jpg" alt="{{ page.title }}" title="{{ page.title }}">
-  <meta itemprop="url" content="{{site.url}}{{ page.id }}"/>
+      <table class="info">
+        <tr>
+          <td class="info-title">Release</td>
+          <td>{{ page.date | date_to_string }}</td>
+        </tr>
+        <tr>
+          <td class="info-title">Client</td>
+          <td>{{ page.client }}</td>
+        </tr>
+        <tr>
+          <td class="info-title">Agency</td>
+          <td>{{ page.agency }}</td>
+        </tr>
+        {% if page.www != ''%}
+        <tr>
+          <td class="info-title">Website</td>
+          <td>
+            <a href="{{ page.www }}" target="_blank">Visit</a>
+          </td>
+        </tr>
+        {% endif %}
+        {% if page.more != ''%}
+        <tr>
+          <td class="info-title">More info</td>
+          <td>
+            <a href="{{ page.more }}" target="_blank">More info</a>
+          </td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td class="info-title">Tech</td>
+          <td>{{ page.tech | join: " · "}}</td>
+        </tr>
+        {% if page.awards %}
+        <tr>
+          <td class="info-awards">Awards</td>
+          <td>
+            {% for award in page.awards %}
+            <div class="award {{award}}"></div>
+            {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
+      </table>
+    </div>
+    <hr>
+    <h2 class="related-title">Related</h2>
+    <ul class="related-post posts">
+    {% for post in site.categories[page.category] %}
+      {% if post.id != page.id %}
+      <li><a href="{{ post.id }}.html" target="_self">{% if post.client != post.title %}{{post.client}} · {{ post.title }}{% else %}{{ post.title }}{% endif %}</a></li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </div>
 
-  <div class="project-content {{page.css|join:' '}}">{{ content }}</div>
+  {% include sidebar-mobile.html %}
 
-  <table class="info">
-    <tr>
-      <td class="info-title">Release</td>
-      <td>{{ page.date | date_to_string }}</td>
-    </tr>
-    <tr>
-      <td class="info-title">Client</td>
-      <td>{{ page.client }}</td>
-    </tr>
-    <tr>
-      <td class="info-title">Agency</td>
-      <td>{{ page.agency }}</td>
-    </tr>
-    {% if page.www != ''%}
-    <tr>
-      <td class="info-title">Website</td>
-      <td>
-        <a href="{{ page.www }}" target="_blank">Visit</a>
-      </td>
-    </tr>
-    {% endif %}
-    {% if page.more != ''%}
-    <tr>
-      <td class="info-title">More info</td>
-      <td>
-        <a href="{{ page.more }}" target="_blank">More info</a>
-      </td>
-    </tr>
-    {% endif %}
-    <tr>
-      <td class="info-title">Tech</td>
-      <td>{{ page.tech | join: " · "}}</td>
-    </tr>
-    {% if page.awards %}
-    <tr>
-      <td class="info-awards">Awards</td>
-      <td>
-        {% for award in page.awards %}
-        <div class="award {{award}}"></div>
-        {% endfor %}
-      </td>
-    </tr>
-    {% endif %}
-  </table>
+  <link rel="stylesheet" href="/all.css">
 
-</div>
+  <style type="text/css">
+    .hide {
+      display: block;
+    }
+  </style>
 
-  <hr>
-  <h2 class="related-title">Related</h2>
-  <ul class="related-post posts">
-  {% for post in site.categories[page.category] %}
-    {% if post.id != page.id %}
-    <li><a href="{{ post.id }}.html" target="_self">{% if post.client != post.title %}{{post.client}} · {{ post.title }}{% else %}{{ post.title }}{% endif %}</a></li>
-    {% endif %}
-  {% endfor %}
-  </ul>
-</div>
-
-{% include sidebar-mobile.html %}
-
-<link rel="stylesheet" href="/all.css">
-
-<style type="text/css">
-  .hide {
-    display: block;
-  }
-</style>
-
-{% include footer.html %}
+  {% include footer.html %}
 
 </body>
 </html>
