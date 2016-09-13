@@ -1,4 +1,4 @@
-casper.test.begin("Test", 329, function suite(test) {
+casper.test.begin("Test", 476, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
@@ -167,6 +167,20 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://www.b-reel.com/projects/ivy-park']");
       test.assertExists(".related-post");
       test.assertElementCount(".related-post li", 6);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function () {
       test.assertHttpStatus(200);
@@ -180,6 +194,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/']");
       test.assertElementCount(".related-post li", 6);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function () {
       test.assertHttpStatus(200);
@@ -193,6 +214,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.arawys.com']");
       test.assertElementCount(".related-post li", 4);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function () {
       test.assertHttpStatus(200);
@@ -208,6 +236,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.thefwa_site_of_the_day");
       test.assertElementCount(".related-post li", 6);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function () {
       test.assertHttpStatus(200);
@@ -222,6 +257,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.momentsapp.com']");
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.facebook.moments/']");
       test.assertElementCount(".related-post li", 6);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function () {
       test.assertHttpStatus(200);
@@ -235,6 +277,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://github.com/singuerinc/OverlayApp']");
       test.assertElementCount(".related-post li", 4);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function () {
       test.assertHttpStatus(200);
@@ -250,6 +299,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/']");
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/']");
       test.assertElementCount(".related-post li", 6);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function () {
       test.assertHttpStatus(200);
@@ -265,6 +321,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.chromeexperiments.com/experiment/kick-with-chrome']");
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/']");
       test.assertElementCount(".related-post li", 6);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function () {
       test.assertHttpStatus(200);
@@ -277,6 +340,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.kitappetit.com/']");
       test.assertElementCount(".related-post li", 4);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function () {
       test.assertHttpStatus(200);
@@ -295,6 +365,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.thefwa_site_of_the_day");
       test.assertElementCount(".related-post li", 6);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function () {
       test.assertHttpStatus(200);
@@ -307,6 +384,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.robertoivancano.com/']");
       test.assertElementCount(".related-post li", 4);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/singuerinc/cuchi-cuchi.html", function () {
       test.assertHttpStatus(200);
@@ -319,6 +403,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.cuchicuchi-guarderia.es/']");
       test.assertElementCount(".related-post li", 4);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/doubleyou/pepe-jeans.html", function () {
       test.assertHttpStatus(200);
@@ -330,6 +421,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Pepe Jeans");
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
       test.assertElementCount(".related-post li", 8);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function () {
       test.assertHttpStatus(200);
@@ -341,6 +439,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Nike");
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
       test.assertElementCount(".related-post li", 8);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function () {
       test.assertHttpStatus(200);
@@ -353,6 +458,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://audia1megusta-p1singuerinc.rhcloud.com/']");
       test.assertElementCount(".related-post li", 8);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function () {
       test.assertHttpStatus(200);
@@ -368,6 +480,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/com.nike.somun/']");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_bronce");
       test.assertElementCount(".related-post li", 8);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function () {
       test.assertHttpStatus(200);
@@ -385,6 +504,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-laus");
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-efi");
       test.assertElementCount(".related-post li", 8);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function () {
       test.assertHttpStatus(200);
@@ -398,6 +524,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Evax");
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
       test.assertElementCount(".related-post li", 8);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
       test.assertHttpStatus(200);
@@ -410,6 +543,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/es.audi.drivingexperience/']");
       test.assertElementCount(".related-post li", 8);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
       test.assertHttpStatus(200);
@@ -422,6 +562,13 @@ casper.test.begin("Test", 329, function suite(test) {
       test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
       test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/es.evax.estudios/']");
       test.assertElementCount(".related-post li", 8);
+      test.assertSelectorHasText(".related-title", "Related");
+      test.assertSelectorHasText(".share-title", "Share");
+      test.assertExists(".share-post");
+      test.assertElementCount(".share-post li", 3);
+      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
+      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
+      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
     })
     .run(function () {
       test.done();
