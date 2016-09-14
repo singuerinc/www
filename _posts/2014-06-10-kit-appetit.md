@@ -16,3 +16,5 @@ www: "http://www.kitappetit.com/"
 more: ""
 priority: 'priority-2'
 ---
+
+Kit Appétit
