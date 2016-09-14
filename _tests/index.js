@@ -1,4 +1,32 @@
-casper.test.begin("Test", 476, function suite(test) {
+var testAll = function (test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount) {
+  test.assertHttpStatus(200);
+  test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical +"']");
+  test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
+  test.assertExists("body.project-page");
+  test.assertExists("body.project-page .content h1");
+  test.assertExists("body.project-page .content img.image");
+  test.assertExists("body.project-page .content .project-content p");
+  test.assertSelectorHasText(".content h1", clientAndTitle);
+  test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", client);
+  test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", agency);
+  if(website != null){
+    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='" + website +"']");
+  }
+  if(more != null){
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='" + more +"']");
+  }
+  test.assertExists(".related-post");
+  test.assertSelectorHasText(".related-title", "Related");
+  test.assertElementCount(".related-post li", relatedCount);
+  test.assertSelectorHasText(".share-title", "Share");
+  test.assertExists(".share-post");
+  test.assertElementCount(".share-post li", shareCount);
+  test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text="+ encodeURI(clientAndTitle) +"&url=https://www.singuerinc.com" + canonical +"&via=singuerinc']");
+  test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com" + canonical +"']");
+  test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical +"']");
+};
+
+casper.test.begin("Test", 519, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
@@ -123,7 +151,7 @@ casper.test.begin("Test", 476, function suite(test) {
     test.assertElementCount("body .content ul.posts li#google_kick-with-chrome", 1);
     test.assertElementCount("body .content ul.posts li#kit-appétit_store", 1);
     test.assertElementCount("body .content ul.posts li#médecins-du-monde_names-not-numbers", 1);
-    test.assertElementCount("body .content ul.posts li#roberto-ivan-cano_portfolio", 1);
+    test.assertElementCount("body .content ul.posts li#roberto-iván-cano_portfolio", 1);
     test.assertElementCount("body .content ul.posts li#cuchi-cuchi_guardería", 1);
     test.assertElementCount("body .content ul.posts li#pepe-jeans_store", 1);
     test.assertElementCount("body .content ul.posts li#nike_pro-combat", 1);
@@ -154,421 +182,284 @@ casper.test.begin("Test", 476, function suite(test) {
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
     })
     .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertExists("body.project-page .content .project-content p");
-      test.assertSelectorHasText(".content h1", "Zalando · Ivy Park");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Zalando");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/']");
-      test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://www.b-reel.com/projects/ivy-park']");
-      test.assertExists(".related-post");
-      test.assertElementCount(".related-post li", 6);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Zalando",
+          title = "Ivy Park",
+          clientAndTitle = "Zalando · Ivy Park",
+          agency = "B-REEL",
+          canonical = "/b-reel/zalando-ivy-park.html",
+          website = "https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/",
+          more = "https://www.b-reel.com/projects/ivy-park",
+          relatedCount = 6,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertExists("body.project-page .content .project-content p");
-      test.assertSelectorHasText(".content h1", "B-REEL");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "B-REEL");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/']");
-      test.assertElementCount(".related-post li", 6);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "B-REEL",
+          title = "B-REEL",
+          clientAndTitle = "B-REEL",
+          agency = "B-REEL",
+          canonical = "/b-reel/b-reel-b-reel.html",
+          website = "https://www.b-reel.com/",
+          more = null,
+          relatedCount = 6,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertExists("body.project-page .content .project-content p");
-      test.assertSelectorHasText(".content h1", "Arawys · Store");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Arawys");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.arawys.com']");
-      test.assertElementCount(".related-post li", 4);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Arawys",
+          title = "Store",
+          clientAndTitle = "Arawys · Store",
+          agency = "singuerinc",
+          canonical = "/singuerinc/arawys-store.html",
+          website = "https://www.arawys.com",
+          more = null,
+          relatedCount = 4,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertExists("body.project-page .content .project-content p");
-      test.assertSelectorHasText(".content h1", "HTC Google · Vive");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "HTC Google");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.b-reel.com/projects/htc-vive']");
+      var client = "HTC Google",
+          title = "Vive",
+          clientAndTitle = "HTC Google · Vive",
+          agency = "B-REEL",
+          canonical = "/b-reel/htc-vive.html",
+          website = "https://www.b-reel.com/projects/htc-vive",
+          more = null,
+          relatedCount = 6,
+          shareCount = 3;
+
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.thefwa_site_of_the_day");
-      test.assertElementCount(".related-post li", 6);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertExists("body.project-page .content .project-content p");
-      test.assertSelectorHasText(".content h1", "Facebook · Moments");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Facebook");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.momentsapp.com']");
-      test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/com.facebook.moments/']");
-      test.assertElementCount(".related-post li", 6);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Facebook",
+          title = "Moments",
+          clientAndTitle = "Facebook · Moments",
+          agency = "B-REEL",
+          canonical = "/b-reel/facebook-moments.html",
+          website = "http://www.momentsapp.com",
+          more = "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/",
+          relatedCount = 6,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertExists("body.project-page .content .project-content p");
-      test.assertSelectorHasText(".content h1", "singuerinc · Overlay");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "singuerinc");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://github.com/singuerinc/OverlayApp']");
-      test.assertElementCount(".related-post li", 4);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "singuerinc",
+          title = "Overlay",
+          clientAndTitle = "singuerinc · Overlay",
+          agency = "singuerinc",
+          canonical = "/singuerinc/singuerinc-overlay-app.html",
+          website = "https://github.com/singuerinc/OverlayApp",
+          more = null,
+          relatedCount = 4,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
+      var client = "Skoda",
+          title = "Byggd för att ta skit",
+          clientAndTitle = "Skoda · Byggd för att ta skit",
+          agency = "B-REEL",
+          canonical = "/b-reel/skoda-byggd-for-at-tta-skit.html",
+          website = "https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/",
+          more = "http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/",
+          relatedCount = 6,
+          shareCount = 3;
+
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      test.assertSelectorHasText(".content h1", "Skoda · Byggd för att ta skit");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Skoda");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/']");
-      test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/']");
-      test.assertElementCount(".related-post li", 6);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
+      var client = "Google",
+          title = "Kick with Chrome",
+          clientAndTitle = "Google · Kick with Chrome",
+          agency = "B-REEL",
+          canonical = "/b-reel/kick-with-chrome.html",
+          website = "https://www.chromeexperiments.com/experiment/kick-with-chrome",
+          more = "http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/",
+          relatedCount = 6,
+          shareCount = 3;
+
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      test.assertSelectorHasText(".content h1", "Google · Kick with Chrome");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Google");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://www.chromeexperiments.com/experiment/kick-with-chrome']");
-      test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/']");
-      test.assertElementCount(".related-post li", 6);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertSelectorHasText(".content h1", "Kit Appétit");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Kit Appétit");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "singuerinc");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.kitappetit.com/']");
-      test.assertElementCount(".related-post li", 4);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Kit Appétit",
+          title = "Store",
+          clientAndTitle = "Kit Appétit · Store",
+          agency = "singuerinc",
+          canonical = "/singuerinc/kit-appetit.html",
+          website = "http://www.kitappetit.com/",
+          more = null,
+          relatedCount = 4,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
+      var client = "Médecins du Monde",
+          title = "Names not numbers",
+          clientAndTitle = "Médecins du Monde · Names not numbers",
+          agency = "B-REEL",
+          canonical = "/b-reel/names-not-numbers.html",
+          website = "https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/",
+          more = "http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/",
+          relatedCount = 6,
+          shareCount = 3;
+
       test.assertExists("body.project-page .content .project-content.no-columns");
-      test.assertExists("body.project-page .content .project-content p");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      test.assertSelectorHasText(".content h1", "Médecins du Monde · Names not numbers");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Médecins du Monde");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "B-REEL");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/']");
-      test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/']");
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.thefwa_site_of_the_day");
-      test.assertElementCount(".related-post li", 6);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertSelectorHasText(".content h1", "Roberto Ivan Cano · Portfolio");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Roberto Ivan Cano");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.robertoivancano.com/']");
-      test.assertElementCount(".related-post li", 4);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Roberto Iván Cano",
+          title = "Portfolio",
+          clientAndTitle = "Roberto Iván Cano · Portfolio",
+          agency = "small-machine",
+          canonical = "/singuerinc/roberto-ivan-cano.html",
+          website = "http://www.robertoivancano.com/",
+          more = null,
+          relatedCount = 4,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/singuerinc/cuchi-cuchi.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertSelectorHasText(".content h1", "Cuchi-Cuchi · Guardería");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Cuchi-Cuchi");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "small-machine");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='http://www.cuchicuchi-guarderia.es/']");
-      test.assertElementCount(".related-post li", 4);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Cuchi-Cuchi",
+          title = "Guardería",
+          clientAndTitle = "Cuchi-Cuchi · Guardería",
+          agency = "small-machine",
+          canonical = "/singuerinc/cuchi-cuchi.html",
+          website = "http://www.cuchicuchi-guarderia.es/",
+          more = null,
+          relatedCount = 4,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/doubleyou/pepe-jeans.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertSelectorHasText(".content h1", "Pepe Jeans · Store");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Pepe Jeans");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
-      test.assertElementCount(".related-post li", 8);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Pepe Jeans",
+          title = "Store",
+          clientAndTitle = "Pepe Jeans · Store",
+          agency = "Doubleyou",
+          canonical = "/doubleyou/pepe-jeans.html",
+          website = null,
+          more = null,
+          relatedCount = 8,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertSelectorHasText(".content h1", "Nike · Pro Combat");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Nike");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
-      test.assertElementCount(".related-post li", 8);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Nike",
+          title = "Pro Combat",
+          clientAndTitle = "Nike · Pro Combat",
+          agency = "Doubleyou",
+          canonical = "/doubleyou/nike-pro-combat.html",
+          website = null,
+          more = null,
+          relatedCount = 8,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertSelectorHasText(".content h1", "Audi · A1 Me gusta");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Audi");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://audia1megusta-p1singuerinc.rhcloud.com/']");
-      test.assertElementCount(".related-post li", 8);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Audi",
+          title = "A1 Me gusta",
+          clientAndTitle = "Audi · A1 Me gusta",
+          agency = "Doubleyou",
+          canonical = "/doubleyou/audi-a1-me-gusta.html",
+          website = "https://audia1megusta-p1singuerinc.rhcloud.com/",
+          more = null,
+          relatedCount = 8,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertSelectorHasText(".content h1", "FC Barcelona · Som un");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "FC Barcelona");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
+      var client = "FC Barcelona",
+          title = "Som un",
+          clientAndTitle = "FC Barcelona · Som un",
+          agency = "Doubleyou",
+          canonical = "/doubleyou/fcb-somos-uno.html",
+          website = "https://singuerinc-doubleyou.gitlab.io/com.nike.somun/",
+          more = null,
+          relatedCount = 8,
+          shareCount = 3;
+
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/com.nike.somun/']");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_bronce");
-      test.assertElementCount(".related-post li", 8);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
+      var client = "Atrápalo",
+          title = "Revívelo",
+          clientAndTitle = "Atrápalo · Revívelo",
+          agency = "Doubleyou",
+          canonical = "/doubleyou/atrapalo-revivelo.html",
+          website = null,
+          more = null,
+          relatedCount = 8,
+          shareCount = 3;
+
       test.assertExists("body.project-page .content .project-content.no-columns");
-      test.assertExists("body.project-page .content .project-content p");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      test.assertSelectorHasText(".content h1", "Atrápalo · Revívelo");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Atrápalo");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-sol_plata");
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-laus");
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-efi");
-      test.assertElementCount(".related-post li", 8);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
+      var client = "Evax",
+          title = "Adapt",
+          clientAndTitle = "Evax · Adapt",
+          agency = "Doubleyou",
+          canonical = "/doubleyou/exax-adapt.html",
+          website = null,
+          more = null,
+          relatedCount = 8,
+          shareCount = 3;
+
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      test.assertSelectorHasText(".content h1", "Evax · Adapt");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Evax");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
-      test.assertElementCount(".related-post li", 8);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertSelectorHasText(".content h1", "Audi · Driving Experience");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Audi");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/es.audi.drivingexperience/']");
-      test.assertElementCount(".related-post li", 8);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Audi",
+          title = "Driving Experience",
+          clientAndTitle = "Audi · Driving Experience",
+          agency = "Doubleyou",
+          canonical = "/doubleyou/audi-driving-experience.html",
+          website = null,
+          more = null,
+          relatedCount = 8,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
-      test.assertHttpStatus(200);
-      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("body.project-page");
-      test.assertExists("body.project-page .content h1");
-      test.assertExists("body.project-page .content img.image");
-      test.assertSelectorHasText(".content h1", "Evax · Estudio Risa");
-      test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", "Evax");
-      test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", "Doubleyou");
-      test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='https://singuerinc-doubleyou.gitlab.io/es.evax.estudios/']");
-      test.assertElementCount(".related-post li", 8);
-      test.assertSelectorHasText(".related-title", "Related");
-      test.assertSelectorHasText(".share-title", "Share");
-      test.assertExists(".share-post");
-      test.assertElementCount(".share-post li", 3);
-      test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE']");
-      test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=YOUR-URL']");
-      test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=YOUR-URL']");
+      var client = "Evax",
+          title = "Estudio Risa",
+          clientAndTitle = "Evax · Estudio Risa",
+          agency = "Doubleyou",
+          canonical = "/doubleyou/evax-estudio-risa.html",
+          website = "https://singuerinc-doubleyou.gitlab.io/es.evax.estudios/",
+          more = null,
+          relatedCount = 8,
+          shareCount = 3;
+
+      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount);
     })
     .run(function () {
       test.done();
