@@ -7,18 +7,24 @@
 
   {% include sidebar.html %}
 
+    {% if page.client == page.title %}
+      {% assign page_title = page.title %}
+    {% else %}
+      {% assign page_title = page.client | append: " · " | append: page.title %}
+    {% endif %}
+    {% assign page_url = site.url | append: page.url %}
+
     <div class="content container">
 
       <div itemscope itemtype="http://schema.org/WebSite">
-        <h1 class="project-title">{% if page.client != page.title %}{{page.client}} · {{ page.title }}{% else %}{{ page.title }}{% endif %}</h1>
+        <h1 class="project-title">{{ page_title }}</h1>
         <meta itemprop="name" content="{{page.client}} - {{page.title}}"/>
         <meta itemprop="contributor" content="Nahuel Scotti"/>
         {% for award in page.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
         <meta itemprop="keywords" content="{{page.tech|join:', '}}"/>
-
         <meta itemprop="image" content="{{site.url}}/img/home/{{ page.image }}.jpg"/>
         <img class="image" src="/img/home/{{ page.image }}.jpg" alt="{{ page.title }}" title="{{ page.title }}">
-        <meta itemprop="url" content="{{site.url}}{{ page.id }}"/>
+        <meta itemprop="url" content="{{page_url}}"/>
 
         <div class="project-content {{page.css|join:' '}}">{{ content }}</div>
 
@@ -71,9 +77,9 @@
 
       <h2 class="share-title">Share</h2>
       <ul class="share-post">
-        <li><a class="twitter" href="https://twitter.com/intent/tweet?text=YOUR-TITLE&url=YOUR-URL&via=TWITTER-HANDLE" target="_blank">Twitter</a></li>
-        <li><a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=YOUR-URL" target="_blank">Facebook</a></li>
-        <li><a class="google" href="https://plus.google.com/share?url=YOUR-URL" target="_blank">Google+</a></li>
+        <li><a class="twitter" href="https://twitter.com/intent/tweet?text={{page_title|uri_escape}}&url={{page_url|uri_escape}}&via=singuerinc" target="_blank">Twitter</a></li>
+        <li><a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{page_url|uri_escape}}" target="_blank">Facebook</a></li>
+        <li><a class="google" href="https://plus.google.com/share?url={{page_url|uri_escape}}" target="_blank">Google+</a></li>
       </ul>
 
       <hr>
@@ -82,7 +88,12 @@
       <ul class="related-post">
       {% for post in site.categories[page.category] %}
         {% if post.id != page.id %}
-        <li><a href="{{ post.id }}.html" target="_self">{% if post.client != post.title %}{{post.client}} · {{ post.title }}{% else %}{{ post.title }}{% endif %}</a></li>
+          {% if post.client == post.title %}
+            {% assign post_title = post.title %}
+          {% else %}
+            {% assign post_title = post.client | append: " · " | append: post.title %}
+          {% endif %}
+        <li><a href="{{ post.id }}.html" target="_self">{{ post_title }}</a></li>
         {% endif %}
       {% endfor %}
       </ul>

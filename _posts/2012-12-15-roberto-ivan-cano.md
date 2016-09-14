@@ -2,7 +2,7 @@
 layout: post
 title: Portfolio
 category: "singuerinc"
-client: Roberto Ivan Cano
+client: "Roberto Iván Cano"
 agency:
   - small-machine
 tech:
@@ -19,3 +19,5 @@ www: "http://www.robertoivancano.com/"
 more: ""
 priority: 'priority-2'
 ---
+
+Roberto Iván Cano · Portfolio
