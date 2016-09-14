@@ -868,11 +868,12 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .project-page hr {
+  clear: both;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.project-page .related-title {
+.project-page .related-title, .project-page .share-title {
   margin: 20px 0 5px;
   color: #BBB;
   float: none;
@@ -880,7 +881,15 @@ Copyright (c) 2014 Daniel Eden
   text-align: center;
 }
 
-.project-page .related-post {
+.project-page .related-post, .project-page .share-post {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 1%;
+}
+
+.project-page .related-post, .project-page .share-post {
   float: none;
   margin: 20px 0;
   width: auto;
@@ -891,8 +900,40 @@ Copyright (c) 2014 Daniel Eden
   margin: 10px 0;
 }
 
+.project-page .share-post li {
+  margin: 0 0 20px;
+  float: none;
+}
+
+.project-page .share-post li:last-child {
+  margin: 0 0;
+}
+
 .project-page .related-post a {
+  display: block;
   color: #BBB;
+}
+
+.project-page .share-post a {
+  display: block;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.project-page .share-post a.twitter {
+  background-color: #41b7d8;
+}
+
+.project-page .share-post a.facebook {
+  background-color: #3b5997;
+}
+
+.project-page .share-post a.google {
+  background-color: #d64937;
 }
 
 .project-page .award {
@@ -1046,13 +1087,14 @@ Copyright (c) 2014 Daniel Eden
     column-count: 2;
   }
 
-  .project-page .related-title {
+  .project-page .related-title, .project-page .share-title {
     float: left;
     min-width: 100px;
     text-align: left;
+    clear: left;
   }
 
-  .project-page .related-post {
+  .project-page .related-post, .project-page .share-post {
     float: left;
     margin: 20px 0;
     width: auto;
@@ -1063,8 +1105,33 @@ Copyright (c) 2014 Daniel Eden
     text-align: left;
   }
 
-  .project-page .related-post li {
-    margin: 0 0 5px;
+  .project-page .share-post li {
+    margin: 0 10px 10px 0;
+    float: left;
+  }
+
+  .project-page .share-post a {
+    width: auto;
+    -webkit-transition: background-color 0.5s;
+    -moz-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    transition: background-color 0.5s;
+  }
+
+  .project-page .share-post a.twitter, .project-page .share-post a.facebook, .project-page .share-post a.google {
+    background-color: #DDD;
+  }
+
+  .project-page .share-post a.twitter:hover {
+    background-color: #41b7d8;
+  }
+
+  .project-page .share-post a.facebook:hover {
+    background-color: #3b5997;
+  }
+
+  .project-page .share-post a.google:hover {
+    background-color: #d64937;
   }
 
 }
