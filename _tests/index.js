@@ -2,13 +2,13 @@ const testAll = function (test, client, title, clientAndTitle, agency, canonical
   test.assertHttpStatus(200);
   test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
 
-  test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio']");
+  test.assertExists("meta[property='og:title'][content='" + clientAndTitle + "']");
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
   test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
   test.assertExists("meta[property='og:image:width'][content='816']");
   test.assertExists("meta[property='og:image:height'][content='386']");
-  test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
+  test.assertExists("meta[name='twitter:title'][content='" + clientAndTitle + "']");
   test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
 
