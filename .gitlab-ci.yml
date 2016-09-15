@@ -107,7 +107,7 @@ pages:
   stage: deploy
   script:
   - gem install redcarpet jekyll jekyll-sitemap
-  - jekyll build -d public
+  - JEKYLL_ENV=production jekyll build -d public
   artifacts:
     paths:
     - public
