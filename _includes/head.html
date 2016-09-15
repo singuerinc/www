@@ -16,12 +16,26 @@
   <meta property="fb:app_id" content="1253343308017588" />
   <meta property="fb:admins" content="nahuel.scotti" />
 
+  {% if page.client %}
+    {% if page.client == page.title %}
+      {% assign page_title = page.title %}
+    {% else %}
+      {% assign page_title = page.client | append: " · " | append: page.title %}
+    {% endif %}
+  {% else %}
+    {% assign page_title = "Nahuel Scotti - Portfolio" %}
+  {% endif %}
   <meta property="og:site_name" content="Nahuel Scotti - Portfolio" />
-  <meta property="og:title" content="Nahuel Scotti - Portfolio">
+  <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="Developer. Currently working at NetEnt, Stockholm - Sweden.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{site.url}}">
-  <meta property="og:image" content="{{site.url}}/img/home/zalando--ivy-park.jpg">
+  <meta property="og:url" content="{{site.url}}{{page.url}}">
+  {% if page.image %}
+    {% assign page_image = page.image %}
+  {% else %}
+    {% assign page_image = "zalando--ivy-park" %}
+  {% endif %}
+  <meta property="og:image" content="{{site.url}}/img/home/{{page_image}}.jpg">
   <meta property="og:locale" content="en_US" />
   <meta property="og:image:type" content="image/jpg" />
   <meta property="og:image:width" content="816" />
@@ -29,9 +43,9 @@
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@singuerinc" />
-  <meta name="twitter:title" content="Nahuel Scotti - Portfolio" />
+  <meta name="twitter:title" content="{{page_title}}" />
   <meta name="twitter:description" content="Developer. Currently working at NetEnt, Stockholm - Sweden." />
-  <meta name="twitter:image" content="{{site.url}}/img/home/zalando--ivy-park.jpg" />
+  <meta name="twitter:image" content="{{site.url}}/img/home/{{page_image}}.jpg" />
 
   <link rel="author" href="humans.txt" />
 

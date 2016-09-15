@@ -941,6 +941,10 @@ Copyright (c) 2014 Daniel Eden
   background-color: #d64937;
 }
 
+.project-page .hide {
+  display: block;
+}
+
 .project-page .award {
   float: left;
 }
