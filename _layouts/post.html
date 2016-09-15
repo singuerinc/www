@@ -8,9 +8,9 @@
   {% include sidebar.html %}
 
     {% if page.client == page.title %}
-      {% assign page_title = page.title %}
+      {% assign page_title = page.title | prepend: "Nahuel Scotti - Portfolio: " %}
     {% else %}
-      {% assign page_title = page.client | append: " · " | append: page.title %}
+      {% assign page_title = page.client | append: " · " | append: page.title | prepend: "Nahuel Scotti - Portfolio: " %}
     {% endif %}
     {% assign page_url = site.url | append: page.url %}
 
@@ -86,7 +86,8 @@
 
       <h2 class="related-title">Related</h2>
       <ul class="related-post">
-      {% for post in site.categories[page.category] %}
+      {% assign category = site.categories[page.category] | sort: 'client' %}
+      {% for post in category %}
         {% if post.id != page.id %}
           {% if post.client == post.title %}
             {% assign post_title = post.title %}

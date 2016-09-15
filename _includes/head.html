@@ -18,9 +18,9 @@
 
   {% if page.client %}
     {% if page.client == page.title %}
-      {% assign page_title = page.title %}
+      {% assign page_title = page.title | prepend: "Nahuel Scotti - Portfolio: "%}
     {% else %}
-      {% assign page_title = page.client | append: " · " | append: page.title %}
+      {% assign page_title = page.client | append: " · " | append: page.title | prepend: "Nahuel Scotti - Portfolio: "%}
     {% endif %}
   {% else %}
     {% assign page_title = "Nahuel Scotti - Portfolio" %}
