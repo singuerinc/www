@@ -1,5 +1,14 @@
 # www
 
+## [10.0.0] - 2016-09-15
+- More semantic tags for project title, etc
+- Minimize CSS
+- Add Social icons
+- Add humans.txt
+
+## [9.1.0] - 2016-09-11
+- Create Twitter Card
+
 ## [9.0.0] - 2016-09-11
 - Fix Black placeholders during the images loading should be white or transparent
 - Fix Related buttons are too small for mobile
