@@ -1,13 +1,72 @@
+const testSidebar = function (test) {
+  // sidebar
+  test.assertExists("body .sidebar");
+  test.assertElementCount("body .sidebar", 1);
+  test.assertExists("body .sidebar-mobile");
+  test.assertElementCount("body .sidebar-mobile", 1);
+
+  // sidebar - title
+  test.assertExists("body .sidebar header");
+  test.assertElementCount("body .sidebar header", 1);
+  test.assertExists("body .sidebar header a");
+  test.assertSelectorHasText("body .sidebar header a", "@singuerinc");
+  test.assertExists("body .sidebar header a[href='/']", "@singuerinc");
+
+  // sidebar - desktop - links
+  test.assertExists("body .sidebar ul");
+  // home, about, github, twitter, blog, medium
+  test.assertElementCount("body .sidebar nav ul:first-child li", 6);
+  test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(1) a", "Home");
+  test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(2) a", "About");
+  test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(3) a", "GitHub");
+  test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(4) a", "Twitter");
+  test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(5) a", "Blog");
+  test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(6) a", "Medium");
+
+  test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='/']");
+  test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='/about.html']");
+  test.assertExists("body .sidebar nav ul:first-child li:nth-child(3) a[href='https://github.com/singuerinc']");
+  test.assertExists("body .sidebar nav ul:first-child li:nth-child(4) a[href='https://twitter.com/singuerinc']");
+  test.assertExists("body .sidebar nav ul:first-child li:nth-child(5) a[href='https://blog.singuerinc.com']");
+  test.assertExists("body .sidebar nav ul:first-child li:nth-child(6) a[href='https://medium.com/@singuerinc']");
+
+  // sidebar - mobile - links
+  test.assertExists("body .sidebar-mobile ul");
+  // home, about, github, twitter, blog, medium
+  test.assertElementCount("body .sidebar-mobile ul li", 6);
+  test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(1) a", "Home");
+  test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(2) a", "About");
+  test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(3) a", "GitHub");
+  test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(4) a", "Twitter");
+  test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(5) a", "Blog");
+  test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(6) a", "Medium");
+
+  test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='/']");
+  test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='/about.html']");
+  test.assertExists("body .sidebar-mobile ul li:nth-child(3) a[href='https://github.com/singuerinc']");
+  test.assertExists("body .sidebar-mobile ul li:nth-child(4) a[href='https://twitter.com/singuerinc']");
+  test.assertExists("body .sidebar-mobile ul li:nth-child(5) a[href='https://blog.singuerinc.com']");
+  test.assertExists("body .sidebar-mobile ul li:nth-child(6) a[href='https://medium.com/@singuerinc']");
+};
+
 const testAll = function (test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image) {
   test.assertHttpStatus(200);
   test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
 
+  test.assertExists("meta[property='fb:app_id'][content='1253343308017588']");
+  test.assertExists("meta[property='fb:admins'][content='nahuel.scotti']");
+  test.assertExists("meta[property='og:site_name'][content='Nahuel Scotti - Portfolio']");
   test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio: " + clientAndTitle + "']");
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
+  test.assertExists("meta[property='og:type'][content='website']");
   test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
   test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("meta[property='og:locale'][content='en_US']");
+  test.assertExists("meta[property='og:image:type'][content='image/jpg']");
   test.assertExists("meta[property='og:image:width'][content='816']");
   test.assertExists("meta[property='og:image:height'][content='386']");
+  test.assertExists("meta[name='twitter:card'][content='summary']");
+  test.assertExists("meta[name='twitter:site'][content='@singuerinc']");
   test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio: " + clientAndTitle + "']");
   test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
@@ -37,7 +96,7 @@ const testAll = function (test, client, title, clientAndTitle, agency, canonical
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
 };
 
-casper.test.begin("Test", 747, function suite(test) {
+casper.test.begin("Test", 1765, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
@@ -75,54 +134,7 @@ casper.test.begin("Test", 747, function suite(test) {
     test.assertExists("body .content .preamble");
     test.assertElementCount("body .content .preamble", 1);
 
-    // sidebar
-    test.assertExists("body .sidebar");
-    test.assertElementCount("body .sidebar", 1);
-    test.assertExists("body .sidebar-mobile");
-    test.assertElementCount("body .sidebar-mobile", 1);
-
-    // sidebar - title
-    test.assertExists("body .sidebar header");
-    test.assertElementCount("body .sidebar header", 1);
-    test.assertExists("body .sidebar header a");
-    test.assertSelectorHasText("body .sidebar header a", "@singuerinc");
-    test.assertExists("body .sidebar header a[href='/']", "@singuerinc");
-
-    // sidebar - desktop - links
-    test.assertExists("body .sidebar ul");
-    // home, about, github, twitter, blog, medium
-    test.assertElementCount("body .sidebar nav ul:first-child li", 6);
-    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(1) a", "Home");
-    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(2) a", "About");
-    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(3) a", "GitHub");
-    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(4) a", "Twitter");
-    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(5) a", "Blog");
-    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(6) a", "Medium");
-
-    test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='/']");
-    test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='/about.html']");
-    test.assertExists("body .sidebar nav ul:first-child li:nth-child(3) a[href='https://github.com/singuerinc']");
-    test.assertExists("body .sidebar nav ul:first-child li:nth-child(4) a[href='https://twitter.com/singuerinc']");
-    test.assertExists("body .sidebar nav ul:first-child li:nth-child(5) a[href='https://blog.singuerinc.com']");
-    test.assertExists("body .sidebar nav ul:first-child li:nth-child(6) a[href='https://medium.com/@singuerinc']");
-
-    // sidebar - mobile - links
-    test.assertExists("body .sidebar-mobile ul");
-    // home, about, github, twitter, blog, medium
-    test.assertElementCount("body .sidebar-mobile ul li", 6);
-    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(1) a", "Home");
-    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(2) a", "About");
-    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(3) a", "GitHub");
-    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(4) a", "Twitter");
-    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(5) a", "Blog");
-    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(6) a", "Medium");
-
-    test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='/']");
-    test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='/about.html']");
-    test.assertExists("body .sidebar-mobile ul li:nth-child(3) a[href='https://github.com/singuerinc']");
-    test.assertExists("body .sidebar-mobile ul li:nth-child(4) a[href='https://twitter.com/singuerinc']");
-    test.assertExists("body .sidebar-mobile ul li:nth-child(5) a[href='https://blog.singuerinc.com']");
-    test.assertExists("body .sidebar-mobile ul li:nth-child(6) a[href='https://medium.com/@singuerinc']");
+    testSidebar(test);
 
     // posts
     test.assertExists("body .content ul.posts");
@@ -158,7 +170,6 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertExists("body .content.container h1");
       test.assertSelectorHasText("body .content.container h1", "404: Page not found");
 
-      test.assertHttpStatus(200);
       // FIXME: test.assertResourceExists("https://www.google-analytics.com/analytics.js");
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
       test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/404.html']");
@@ -179,9 +190,12 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
       test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
       test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/about.html", function () {
       test.assertHttpStatus(200);
+      testSidebar(test);
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
       test.assertExists("body .content.container");
       test.assertExists("body .content.container p img");
@@ -202,6 +216,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "zalando--ivy-park";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function () {
       var client = "B-REEL",
@@ -216,6 +231,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "b-reel--b-reel";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function () {
       var client = "Arawys",
@@ -230,6 +246,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "arawys--store";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function () {
       var client = "HTC Google",
@@ -246,6 +263,7 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.thefwa_site_of_the_day");
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function () {
       var client = "Facebook",
@@ -260,6 +278,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "facebook--moments";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function () {
       var client = "singuerinc",
@@ -274,6 +293,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "singuerinc--overlay-app";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function () {
       var client = "Skoda",
@@ -290,6 +310,7 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function () {
       var client = "Google",
@@ -306,6 +327,7 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function () {
       var client = "Kit Appétit",
@@ -320,6 +342,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "kitappetit--kitappetit";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function () {
       var client = "Médecins du Monde",
@@ -338,6 +361,7 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.thefwa_site_of_the_day");
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function () {
       var client = "Roberto Iván Cano",
@@ -352,6 +376,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "roberto-ivan-cano";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/singuerinc/cuchi-cuchi.html", function () {
       var client = "Cuchi-Cuchi",
@@ -366,6 +391,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "cuchi-cuchi_50";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/doubleyou/pepe-jeans.html", function () {
       var client = "Pepe Jeans",
@@ -380,6 +406,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "pepe-jeans_50";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function () {
       var client = "Nike",
@@ -394,6 +421,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "nike--pro-combat";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-my-time-is-now.html", function () {
       var client = "Nike",
@@ -408,6 +436,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "nike--my-time-is-now";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function () {
       var client = "Audi",
@@ -422,6 +451,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "audi--a1-me-gusta";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function () {
       var client = "FC Barcelona",
@@ -439,6 +469,7 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_bronce");
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function () {
       var client = "Atrápalo",
@@ -458,6 +489,7 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-laus");
       test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-efi");
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function () {
       var client = "Evax",
@@ -474,6 +506,7 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
       var client = "Audi",
@@ -488,6 +521,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "audi--driving-experience";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
       var client = "Evax",
@@ -502,6 +536,7 @@ casper.test.begin("Test", 747, function suite(test) {
         image = "evax--estudio-risa";
 
       testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testSidebar(test);
     })
     .run(function () {
       test.done();
