@@ -1,8 +1,17 @@
 const testAll = function (test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image) {
   test.assertHttpStatus(200);
   test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
+
+  test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio']");
+  test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
+  test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
   test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("meta[property='og:image:width'][content='816']");
+  test.assertExists("meta[property='og:image:height'][content='386']");
+  test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
+  test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+
   test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
   test.assertExists("body.project-page");
   test.assertExists("body.project-page .content h1");
@@ -28,7 +37,7 @@ const testAll = function (test, client, title, clientAndTitle, agency, canonical
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
 };
 
-casper.test.begin("Test", 580, function suite(test) {
+casper.test.begin("Test", 727, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
