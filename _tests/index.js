@@ -37,7 +37,7 @@ const testAll = function (test, client, title, clientAndTitle, agency, canonical
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
 };
 
-casper.test.begin("Test", 727, function suite(test) {
+casper.test.begin("Test", 747, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
@@ -157,6 +157,28 @@ casper.test.begin("Test", 727, function suite(test) {
       test.assertExists("body .content.container");
       test.assertExists("body .content.container h1");
       test.assertSelectorHasText("body .content.container h1", "404: Page not found");
+
+      test.assertHttpStatus(200);
+      // FIXME: test.assertResourceExists("https://www.google-analytics.com/analytics.js");
+      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
+      test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/404.html']");
+      test.assertExists("meta[property='fb:app_id'][content='1253343308017588']");
+      test.assertExists("meta[property='fb:admins'][content='nahuel.scotti']");
+      test.assertExists("meta[property='og:site_name'][content='Nahuel Scotti - Portfolio']");
+      test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio']");
+      test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
+      test.assertExists("meta[property='og:type'][content='website']");
+      test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com/404.html']");
+      test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+      test.assertExists("meta[property='og:locale'][content='en_US']");
+      test.assertExists("meta[property='og:image:type'][content='image/jpg']");
+      test.assertExists("meta[property='og:image:width'][content='816']");
+      test.assertExists("meta[property='og:image:height'][content='386']");
+      test.assertExists("meta[name='twitter:card'][content='summary']");
+      test.assertExists("meta[name='twitter:site'][content='@singuerinc']");
+      test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
+      test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
+      test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
     })
     .thenOpen("http://jekyll:4000/about.html", function () {
       test.assertHttpStatus(200);
