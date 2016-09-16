@@ -26,15 +26,13 @@
         <img class="image" src="/img/home/{{ page.image }}.jpg" alt="{{ page.title }}" title="{{ page.title }}">
         <meta itemprop="url" content="{{page_url}}"/>
 
-        <div class="project-content {{page.css|join:' '}}">{{ content }}</div>
-
         <table class="info">
           <tr>
-            <td class="info-role">Role</td>
+            <td class="info-role">My role</td>
             <td>{{ page.role }}</td>
           </tr>
           <tr>
-            <td class="info-title">Release</td>
+            <td class="info-title">Date release</td>
             <td>{{ page.date | date_to_string }}</td>
           </tr>
           <tr>
@@ -76,6 +74,8 @@
           </tr>
           {% endif %}
         </table>
+
+        <div class="project-content {{page.css|join:' '}}">{{ content }}</div>
 
       </div>
 

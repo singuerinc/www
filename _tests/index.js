@@ -18,9 +18,9 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
   test.assertExists("body.project-page .content img.image");
   test.assertExists("body.project-page .content .project-content p");
   test.assertSelectorHasText(".content h1", clientAndTitle);
-  test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(1)", "Role");
+  test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(1)", "My role");
   test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(2)", role);
-  test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(1)", "Release");
+  test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(1)", "Date release");
   test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(1)", "Client");
   test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", client);
   test.assertSelectorHasText(".info tr:nth-child(4) td:nth-child(1)", "Agency");
