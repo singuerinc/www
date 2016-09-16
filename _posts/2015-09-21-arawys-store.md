@@ -2,6 +2,7 @@
 layout: post
 title: Store
 category: "singuerinc"
+role: Client Developer
 client: Arawys
 agency:
     - singuerinc

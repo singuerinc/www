@@ -2,6 +2,7 @@
 layout: post
 title: Pro Combat
 category: "doubleyou"
+role: Client Developer
 client: Nike
 agency:
     - Doubleyou

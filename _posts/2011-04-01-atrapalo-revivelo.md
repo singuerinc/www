@@ -2,6 +2,7 @@
 layout: post
 title: "Revívelo"
 category: "doubleyou"
+role: Client Developer
 client: "Atrápalo"
 agency:
   - Doubleyou

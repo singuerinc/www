@@ -2,6 +2,7 @@
 layout: post
 title: Store
 category: "singuerinc"
+role: Client Developer
 client: "Kit Appétit"
 agency:
     - singuerinc

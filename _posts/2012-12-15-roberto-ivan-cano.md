@@ -2,6 +2,7 @@
 layout: post
 title: Portfolio
 category: "singuerinc"
+role: Client Developer
 client: "Roberto Iván Cano"
 agency:
   - small-machine

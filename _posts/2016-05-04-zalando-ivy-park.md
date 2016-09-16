@@ -2,6 +2,7 @@
 layout: post
 title: "Ivy Park"
 category: "b-reel"
+role: Client Developer
 client: "Zalando"
 agency:
     - "B-REEL"

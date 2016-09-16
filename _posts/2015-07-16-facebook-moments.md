@@ -2,6 +2,7 @@
 layout: post
 title: "Moments"
 category: "b-reel"
+role: Client Developer
 client: "Facebook"
 agency:
     - "B-REEL"

@@ -2,6 +2,7 @@
 layout: post
 title: A1 Me gusta
 category: "doubleyou"
+role: Client Developer
 client: Audi
 agency:
     - Doubleyou

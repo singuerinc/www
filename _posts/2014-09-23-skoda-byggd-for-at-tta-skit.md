@@ -2,6 +2,7 @@
 layout: post
 title: "Byggd för att ta skit"
 category: "b-reel"
+role: Client Developer
 client: Skoda
 agency:
     - B-REEL

@@ -2,6 +2,7 @@
 layout: post
 title: "B-REEL"
 category: "b-reel"
+role: Client Developer
 client: "B-REEL"
 agency:
     - "B-REEL"
