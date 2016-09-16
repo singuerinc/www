@@ -2,6 +2,7 @@
 layout: post
 title: My time is now
 category: "doubleyou"
+role: "Flash Developer"
 client: Nike
 agency:
     - Doubleyou

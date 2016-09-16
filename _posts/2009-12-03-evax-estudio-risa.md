@@ -2,6 +2,7 @@
 layout: post
 title: Estudio Risa
 category: "doubleyou"
+role: "Flash Developer"
 client: Evax
 agency:
     - Doubleyou

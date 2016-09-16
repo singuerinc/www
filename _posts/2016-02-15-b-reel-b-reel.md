@@ -2,6 +2,7 @@
 layout: post
 title: "B-REEL"
 category: "b-reel"
+role: "Client/Backend Developer"
 client: "B-REEL"
 agency:
     - "B-REEL"
@@ -9,6 +10,7 @@ tech:
     - "html5"
     - "javascript"
     - "css3"
+    - "php"
 tags:
     - "responsive"
 

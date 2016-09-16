@@ -2,6 +2,7 @@
 layout: post
 title: Pro Combat
 category: "doubleyou"
+role: "Flash Developer"
 client: Nike
 agency:
     - Doubleyou

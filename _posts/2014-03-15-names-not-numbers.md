@@ -2,6 +2,7 @@
 layout: post
 title: Names not numbers
 category: "b-reel"
+role: "Tech Lead Developer"
 client: "Médecins du Monde"
 agency:
     - B-REEL

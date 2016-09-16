@@ -2,6 +2,7 @@
 layout: post
 title: Adapt
 category: "doubleyou"
+role: "Flash Developer"
 client: Evax
 agency:
     - Doubleyou

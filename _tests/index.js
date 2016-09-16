@@ -1,4 +1,4 @@
-const testAll = function (test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image) {
+const testAll = function (test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image) {
   test.assertHttpStatus(200);
   test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
 
@@ -18,14 +18,29 @@ const testAll = function (test, client, title, clientAndTitle, agency, canonical
   test.assertExists("body.project-page .content img.image");
   test.assertExists("body.project-page .content .project-content p");
   test.assertSelectorHasText(".content h1", clientAndTitle);
-  test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(2)", client);
-  test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", agency);
+  test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(1)", "My role");
+  test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(2)", role);
+  test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(1)", "Date release");
+  test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(1)", "Client");
+  test.assertSelectorHasText(".info tr:nth-child(3) td:nth-child(2)", client);
+  test.assertSelectorHasText(".info tr:nth-child(4) td:nth-child(1)", "Agency");
+  test.assertSelectorHasText(".info tr:nth-child(4) td:nth-child(2)", agency);
   if (website !== null) {
-    test.assertExists(".info tr:nth-child(4) td:nth-child(2) a[href='" + website + "']");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(1)", "Website");
+    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='" + website + "']");
   }
   if (more !== null) {
-    test.assertExists(".info tr:nth-child(5) td:nth-child(2) a[href='" + more + "']");
+    test.assertExists(".info tr:nth-child(6) td:nth-child(1)", "More");
+    test.assertExists(".info tr:nth-child(6) td:nth-child(2) a[href='" + more + "']");
   }
+
+  if (website === null && more === null) {
+    test.assertExists(".info tr:nth-child(5) td:nth-child(1)", "Tech");
+  }
+  else if (website === null || more === null) {
+    test.assertExists(".info tr:nth-child(6) td:nth-child(1)", "Tech");
+  }
+
   test.assertExists(".related-post");
   test.assertSelectorHasText(".related-title", "Related");
   test.assertElementCount(".related-post li", relatedCount);
@@ -37,7 +52,7 @@ const testAll = function (test, client, title, clientAndTitle, agency, canonical
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
 };
 
-casper.test.begin("Test", 747, function suite(test) {
+casper.test.begin("Test", 888, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
@@ -190,7 +205,8 @@ casper.test.begin("Test", 747, function suite(test) {
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
     })
     .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function () {
-      var client = "Zalando",
+      var role = "Client/Backend Developer",
+        client = "Zalando",
         title = "Ivy Park",
         clientAndTitle = "Zalando · Ivy Park",
         agency = "B-REEL",
@@ -201,10 +217,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "zalando--ivy-park";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function () {
-      var client = "B-REEL",
+      var role = "Client/Backend Developer",
+        client = "B-REEL",
         title = "B-REEL",
         clientAndTitle = "B-REEL",
         agency = "B-REEL",
@@ -215,10 +232,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "b-reel--b-reel";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function () {
-      var client = "Arawys",
+      var role = "Tech Lead Developer",
+        client = "Arawys",
         title = "Store",
         clientAndTitle = "Arawys · Store",
         agency = "singuerinc",
@@ -229,10 +247,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "arawys--store";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function () {
-      var client = "HTC Google",
+      var role = "Tech Architect/Backend Developer",
+        client = "HTC Google",
         title = "Vive",
         clientAndTitle = "HTC Google · Vive",
         agency = "B-REEL",
@@ -243,12 +262,13 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "htc--vive";
 
-      test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-awwwards_site_of_the_day");
-      test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.thefwa_site_of_the_day");
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-awwwards_site_of_the_day");
+      test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.thefwa_site_of_the_day");
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function () {
-      var client = "Facebook",
+      var role = "Tech Lead Developer",
+        client = "Facebook",
         title = "Moments",
         clientAndTitle = "Facebook · Moments",
         agency = "B-REEL",
@@ -259,10 +279,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "facebook--moments";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function () {
-      var client = "singuerinc",
+      var role = "Developer",
+        client = "singuerinc",
         title = "Overlay",
         clientAndTitle = "singuerinc · Overlay",
         agency = "singuerinc",
@@ -273,10 +294,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "singuerinc--overlay-app";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function () {
-      var client = "Skoda",
+      var role = "Client/Backend Developer",
+        client = "Skoda",
         title = "Byggd för att ta skit",
         clientAndTitle = "Skoda · Byggd för att ta skit",
         agency = "B-REEL",
@@ -289,10 +311,11 @@ casper.test.begin("Test", 747, function suite(test) {
 
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function () {
-      var client = "Google",
+      var role = "Client/Backend Developer",
+        client = "Google",
         title = "Kick with Chrome",
         clientAndTitle = "Google · Kick with Chrome",
         agency = "B-REEL",
@@ -305,10 +328,11 @@ casper.test.begin("Test", 747, function suite(test) {
 
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function () {
-      var client = "Kit Appétit",
+      var role = "Tech Lead Developer",
+        client = "Kit Appétit",
         title = "Store",
         clientAndTitle = "Kit Appétit · Store",
         agency = "singuerinc",
@@ -319,10 +343,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "kitappetit--kitappetit";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function () {
-      var client = "Médecins du Monde",
+      var role = "Tech Lead Developer",
+        client = "Médecins du Monde",
         title = "Names not numbers",
         clientAndTitle = "Médecins du Monde · Names not numbers",
         agency = "B-REEL",
@@ -335,12 +360,13 @@ casper.test.begin("Test", 747, function suite(test) {
 
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-awwwards_site_of_the_day");
-      test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.thefwa_site_of_the_day");
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      test.assertExists(".info tr:nth-child(8) td:nth-child(2) .award.award-awwwards_site_of_the_day");
+      test.assertExists(".info tr:nth-child(8) td:nth-child(2) .award.thefwa_site_of_the_day");
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function () {
-      var client = "Roberto Iván Cano",
+      var role = "Tech Lead Developer",
+        client = "Roberto Iván Cano",
         title = "Portfolio",
         clientAndTitle = "Roberto Iván Cano · Portfolio",
         agency = "small-machine",
@@ -351,10 +377,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "roberto-ivan-cano";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/singuerinc/cuchi-cuchi.html", function () {
-      var client = "Cuchi-Cuchi",
+      var role = "Client Developer",
+        client = "Cuchi-Cuchi",
         title = "Guardería",
         clientAndTitle = "Cuchi-Cuchi · Guardería",
         agency = "small-machine",
@@ -365,10 +392,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "cuchi-cuchi_50";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/pepe-jeans.html", function () {
-      var client = "Pepe Jeans",
+      var role = "Client Developer",
+        client = "Pepe Jeans",
         title = "Store",
         clientAndTitle = "Pepe Jeans · Store",
         agency = "Doubleyou",
@@ -379,10 +407,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "pepe-jeans_50";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function () {
-      var client = "Nike",
+      var role = "Flash Developer",
+        client = "Nike",
         title = "Pro Combat",
         clientAndTitle = "Nike · Pro Combat",
         agency = "Doubleyou",
@@ -393,10 +422,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "nike--pro-combat";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-my-time-is-now.html", function () {
-      var client = "Nike",
+      var role = "Flash Developer",
+        client = "Nike",
         title = "My time is now",
         clientAndTitle = "Nike · My time is now",
         agency = "Doubleyou",
@@ -407,10 +437,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "nike--my-time-is-now";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function () {
-      var client = "Audi",
+      var role = "Flash Developer",
+        client = "Audi",
         title = "A1 Me gusta",
         clientAndTitle = "Audi · A1 Me gusta",
         agency = "Doubleyou",
@@ -421,10 +452,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "audi--a1-me-gusta";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function () {
-      var client = "FC Barcelona",
+      var role = "Flash Developer",
+        client = "FC Barcelona",
         title = "Som un",
         clientAndTitle = "FC Barcelona · Som un",
         agency = "Doubleyou",
@@ -437,11 +469,12 @@ casper.test.begin("Test", 747, function suite(test) {
 
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_bronce");
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-sol_bronce");
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function () {
-      var client = "Atrápalo",
+      var role = "Flash Developer",
+        client = "Atrápalo",
         title = "Revívelo",
         clientAndTitle = "Atrápalo · Revívelo",
         agency = "Doubleyou",
@@ -454,13 +487,14 @@ casper.test.begin("Test", 747, function suite(test) {
 
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-sol_plata");
-      test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-laus");
-      test.assertExists(".info tr:nth-child(5) td:nth-child(2) .award.award-efi");
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_plata");
+      test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-laus");
+      test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-efi");
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function () {
-      var client = "Evax",
+      var role = "Flash Developer",
+        client = "Evax",
         title = "Adapt",
         clientAndTitle = "Evax · Adapt",
         agency = "Doubleyou",
@@ -473,10 +507,11 @@ casper.test.begin("Test", 747, function suite(test) {
 
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
-      var client = "Audi",
+      var role = "Flash Developer",
+        client = "Audi",
         title = "Driving Experience",
         clientAndTitle = "Audi · Driving Experience",
         agency = "Doubleyou",
@@ -487,10 +522,11 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "audi--driving-experience";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
-      var client = "Evax",
+      var role = "Flash Developer",
+        client = "Evax",
         title = "Estudio Risa",
         clientAndTitle = "Evax · Estudio Risa",
         agency = "Doubleyou",
@@ -501,7 +537,7 @@ casper.test.begin("Test", 747, function suite(test) {
         shareCount = 3,
         image = "evax--estudio-risa";
 
-      testAll(test, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .run(function () {
       test.done();

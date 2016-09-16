@@ -2,6 +2,7 @@
 layout: post
 title: Store
 category: "singuerinc"
+role: "Tech Lead Developer"
 client: Arawys
 agency:
     - singuerinc

@@ -2,6 +2,7 @@
 layout: post
 title: Som un
 category: "doubleyou"
+role: "Flash Developer"
 client: FC Barcelona
 agency:
     - Doubleyou

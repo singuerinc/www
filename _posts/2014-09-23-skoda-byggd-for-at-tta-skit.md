@@ -2,15 +2,16 @@
 layout: post
 title: "Byggd för att ta skit"
 category: "b-reel"
+role: "Client/Backend Developer"
 client: Skoda
 agency:
     - B-REEL
 tech:
+    - angularjs
     - html5
     - js
     - cms
     - nodejs
-    - angularjs
     - socket.io
 tags:
     - "b-reel"
