@@ -2,7 +2,7 @@
 layout: post
 title: "Guardería"
 category: "singuerinc"
-role: Client Developer
+role: "Client Developer"
 client: Cuchi-Cuchi
 agency:
     - small-machine

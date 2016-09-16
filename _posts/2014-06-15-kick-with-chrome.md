@@ -2,7 +2,7 @@
 layout: post
 title: Kick with Chrome
 category: "b-reel"
-role: Client Developer
+role: "Client/Backend Developer"
 client: Google
 agency:
     - B-REEL

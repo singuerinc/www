@@ -2,7 +2,7 @@
 layout: post
 title: "Overlay"
 category: "singuerinc"
-role: Client Developer
+role: "Developer"
 client: singuerinc
 agency:
     - singuerinc

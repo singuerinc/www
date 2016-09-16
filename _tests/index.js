@@ -205,7 +205,7 @@ casper.test.begin("Test", 888, function suite(test) {
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
     })
     .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function () {
-      var role = "Client Developer",
+      var role = "Client/Backend Developer",
         client = "Zalando",
         title = "Ivy Park",
         clientAndTitle = "Zalando · Ivy Park",
@@ -220,7 +220,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function () {
-      var role = "Client Developer",
+      var role = "Client/Backend Developer",
         client = "B-REEL",
         title = "B-REEL",
         clientAndTitle = "B-REEL",
@@ -235,7 +235,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function () {
-      var role = "Client Developer",
+      var role = "Tech Lead Developer",
         client = "Arawys",
         title = "Store",
         clientAndTitle = "Arawys · Store",
@@ -250,7 +250,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function () {
-      var role = "Client Developer",
+      var role = "Tech Architect/Backend Developer",
         client = "HTC Google",
         title = "Vive",
         clientAndTitle = "HTC Google · Vive",
@@ -267,7 +267,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function () {
-      var role = "Client Developer",
+      var role = "Tech Lead Developer",
         client = "Facebook",
         title = "Moments",
         clientAndTitle = "Facebook · Moments",
@@ -282,7 +282,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function () {
-      var role = "Client Developer",
+      var role = "Developer",
         client = "singuerinc",
         title = "Overlay",
         clientAndTitle = "singuerinc · Overlay",
@@ -297,7 +297,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function () {
-      var role = "Client Developer",
+      var role = "Client/Backend Developer",
         client = "Skoda",
         title = "Byggd för att ta skit",
         clientAndTitle = "Skoda · Byggd för att ta skit",
@@ -314,7 +314,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function () {
-      var role = "Client Developer",
+      var role = "Client/Backend Developer",
         client = "Google",
         title = "Kick with Chrome",
         clientAndTitle = "Google · Kick with Chrome",
@@ -331,7 +331,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function () {
-      var role = "Client Developer",
+      var role = "Tech Lead Developer",
         client = "Kit Appétit",
         title = "Store",
         clientAndTitle = "Kit Appétit · Store",
@@ -346,7 +346,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function () {
-      var role = "Client Developer",
+      var role = "Tech Lead Developer",
         client = "Médecins du Monde",
         title = "Names not numbers",
         clientAndTitle = "Médecins du Monde · Names not numbers",
@@ -365,7 +365,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function () {
-      var role = "Client Developer",
+      var role = "Tech Lead Developer",
         client = "Roberto Iván Cano",
         title = "Portfolio",
         clientAndTitle = "Roberto Iván Cano · Portfolio",
@@ -410,7 +410,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function () {
-      var role = "Client Developer",
+      var role = "Flash Developer",
         client = "Nike",
         title = "Pro Combat",
         clientAndTitle = "Nike · Pro Combat",
@@ -425,7 +425,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-my-time-is-now.html", function () {
-      var role = "Client Developer",
+      var role = "Flash Developer",
         client = "Nike",
         title = "My time is now",
         clientAndTitle = "Nike · My time is now",
@@ -440,7 +440,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function () {
-      var role = "Client Developer",
+      var role = "Flash Developer",
         client = "Audi",
         title = "A1 Me gusta",
         clientAndTitle = "Audi · A1 Me gusta",
@@ -455,7 +455,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function () {
-      var role = "Client Developer",
+      var role = "Flash Developer",
         client = "FC Barcelona",
         title = "Som un",
         clientAndTitle = "FC Barcelona · Som un",
@@ -473,7 +473,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function () {
-      var role = "Client Developer",
+      var role = "Flash Developer",
         client = "Atrápalo",
         title = "Revívelo",
         clientAndTitle = "Atrápalo · Revívelo",
@@ -493,7 +493,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function () {
-      var role = "Client Developer",
+      var role = "Flash Developer",
         client = "Evax",
         title = "Adapt",
         clientAndTitle = "Evax · Adapt",
@@ -510,7 +510,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
-      var role = "Client Developer",
+      var role = "Flash Developer",
         client = "Audi",
         title = "Driving Experience",
         clientAndTitle = "Audi · Driving Experience",
@@ -525,7 +525,7 @@ casper.test.begin("Test", 888, function suite(test) {
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
     .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
-      var role = "Client Developer",
+      var role = "Flash Developer",
         client = "Evax",
         title = "Estudio Risa",
         clientAndTitle = "Evax · Estudio Risa",

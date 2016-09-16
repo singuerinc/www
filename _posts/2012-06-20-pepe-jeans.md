@@ -2,7 +2,7 @@
 layout: post
 title: Store
 category: "doubleyou"
-role: Client Developer
+role: "Client Developer"
 client: Pepe Jeans
 agency:
     - Doubleyou

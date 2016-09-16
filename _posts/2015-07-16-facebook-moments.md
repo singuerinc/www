@@ -2,7 +2,7 @@
 layout: post
 title: "Moments"
 category: "b-reel"
-role: Client Developer
+role: "Tech Lead Developer"
 client: "Facebook"
 agency:
     - "B-REEL"
