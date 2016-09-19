@@ -3,7 +3,7 @@
 
 {% include head.html %}
 
-<body class="project-page">
+<body class="project-page page">
 
   {% include sidebar.html %}
 
@@ -17,8 +17,8 @@
     <div class="content container">
 
       <div itemscope itemtype="http://schema.org/WebSite">
-        <h1 class="project-title">{{ page_title }}</h1>
-        <meta itemprop="name" content="{{page.client}} - {{page.title}}"/>
+        <h1 class="project-title title">{{ page_title }}</h1>
+        <meta itemprop="name" content="{{page_title}}"/>
         <meta itemprop="contributor" content="Nahuel Scotti"/>
         {% for award in page.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
         <meta itemprop="keywords" content="{{page.tech|join:', '}}"/>
@@ -90,7 +90,8 @@
 
       <h2 class="related-title">Related</h2>
       <ul class="related-post">
-      {% for post in site.categories[page.category] %}
+      {% assign sorted_posts = site.categories.[page.category] | sort: "client" %}
+      {% for post in sorted_posts %}
         {% if post.id != page.id %}
           {% if post.client == post.title %}
             {% assign post_title = post.title %}

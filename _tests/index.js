@@ -1,3 +1,23 @@
+const TOTAL_TESTS = 1015;
+const testCommonMetas = function (test, canonical) {
+  test.assertExists("meta[property='fb:app_id'][content='1253343308017588']");
+  test.assertExists("meta[property='fb:admins'][content='nahuel.scotti']");
+  test.assertExists("meta[property='og:site_name'][content='Nahuel Scotti - Portfolio']");
+  test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio']");
+  test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
+  test.assertExists("meta[property='og:type'][content='website']");
+  test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
+  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+  test.assertExists("meta[property='og:locale'][content='en_US']");
+  test.assertExists("meta[property='og:image:type'][content='image/jpg']");
+  test.assertExists("meta[property='og:image:width'][content='816']");
+  test.assertExists("meta[property='og:image:height'][content='386']");
+  test.assertExists("meta[name='twitter:card'][content='summary']");
+  test.assertExists("meta[name='twitter:site'][content='@singuerinc']");
+  test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
+  test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
+  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+};
 const testAll = function (test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image) {
   test.assertHttpStatus(200);
   test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
@@ -18,6 +38,13 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
   test.assertExists("body.project-page .content img.image");
   test.assertExists("body.project-page .content .project-content p");
   test.assertSelectorHasText(".content h1", clientAndTitle);
+
+  test.assertExists("body.project-page .content meta[itemprop='name'][content='" + clientAndTitle + "']");
+  test.assertExists("body.project-page .content meta[itemprop='contributor'][content='Nahuel Scotti']");
+  // test.assertExists("body.project-page .content meta[itemprop='keywords'][content='" + clientAndTitle + "']");
+  test.assertExists("body.project-page .content meta[itemprop='image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("body.project-page .content meta[itemprop='url'][content='https://www.singuerinc.com" + canonical + "']");
+
   test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(1)", "My role");
   test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(2)", role);
   test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(1)", "Date release");
@@ -52,7 +79,7 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
 };
 
-casper.test.begin("Test", 888, function suite(test) {
+casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
@@ -60,24 +87,7 @@ casper.test.begin("Test", 888, function suite(test) {
     test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
     test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/']");
 
-    // metas
-    test.assertExists("meta[property='fb:app_id'][content='1253343308017588']");
-    test.assertExists("meta[property='fb:admins'][content='nahuel.scotti']");
-    test.assertExists("meta[property='og:site_name'][content='Nahuel Scotti - Portfolio']");
-    test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio']");
-    test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-    test.assertExists("meta[property='og:type'][content='website']");
-    test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com/']");
-    test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
-    test.assertExists("meta[property='og:locale'][content='en_US']");
-    test.assertExists("meta[property='og:image:type'][content='image/jpg']");
-    test.assertExists("meta[property='og:image:width'][content='816']");
-    test.assertExists("meta[property='og:image:height'][content='386']");
-    test.assertExists("meta[name='twitter:card'][content='summary']");
-    test.assertExists("meta[name='twitter:site'][content='@singuerinc']");
-    test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
-    test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-    test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+    testCommonMetas(test, "/");
 
     // page title
     test.assertTitle("Nahuel Scotti - Portfolio");
@@ -106,13 +116,14 @@ casper.test.begin("Test", 888, function suite(test) {
     // sidebar - desktop - links
     test.assertExists("body .sidebar ul");
     // home, about, github, twitter, blog, medium
-    test.assertElementCount("body .sidebar nav ul:first-child li", 6);
+    test.assertElementCount("body .sidebar nav ul:first-child li", 7);
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(1) a", "Home");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(2) a", "About");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(3) a", "GitHub");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(4) a", "Twitter");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(5) a", "Blog");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(6) a", "Medium");
+    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(7) a", "Sitemap");
 
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='/']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='/about.html']");
@@ -120,17 +131,19 @@ casper.test.begin("Test", 888, function suite(test) {
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(4) a[href='https://twitter.com/singuerinc']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(5) a[href='https://blog.singuerinc.com']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(6) a[href='https://medium.com/@singuerinc']");
+    test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='/sitemap.html']");
 
     // sidebar - mobile - links
     test.assertExists("body .sidebar-mobile ul");
     // home, about, github, twitter, blog, medium
-    test.assertElementCount("body .sidebar-mobile ul li", 6);
+    test.assertElementCount("body .sidebar-mobile ul li", 7);
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(1) a", "Home");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(2) a", "About");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(3) a", "GitHub");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(4) a", "Twitter");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(5) a", "Blog");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(6) a", "Medium");
+    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(7) a", "Sitemap");
 
     test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='/']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='/about.html']");
@@ -138,6 +151,7 @@ casper.test.begin("Test", 888, function suite(test) {
     test.assertExists("body .sidebar-mobile ul li:nth-child(4) a[href='https://twitter.com/singuerinc']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(5) a[href='https://blog.singuerinc.com']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(6) a[href='https://medium.com/@singuerinc']");
+    test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='/sitemap.html']");
 
     // posts
     test.assertExists("body .content ul.posts");
@@ -177,31 +191,29 @@ casper.test.begin("Test", 888, function suite(test) {
       // FIXME: test.assertResourceExists("https://www.google-analytics.com/analytics.js");
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
       test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/404.html']");
-      test.assertExists("meta[property='fb:app_id'][content='1253343308017588']");
-      test.assertExists("meta[property='fb:admins'][content='nahuel.scotti']");
-      test.assertExists("meta[property='og:site_name'][content='Nahuel Scotti - Portfolio']");
-      test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio']");
-      test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-      test.assertExists("meta[property='og:type'][content='website']");
-      test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com/404.html']");
-      test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
-      test.assertExists("meta[property='og:locale'][content='en_US']");
-      test.assertExists("meta[property='og:image:type'][content='image/jpg']");
-      test.assertExists("meta[property='og:image:width'][content='816']");
-      test.assertExists("meta[property='og:image:height'][content='386']");
-      test.assertExists("meta[name='twitter:card'][content='summary']");
-      test.assertExists("meta[name='twitter:site'][content='@singuerinc']");
-      test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
-      test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-      test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+
+      testCommonMetas(test, "/404.html");
     })
     .thenOpen("http://jekyll:4000/about.html", function () {
       test.assertHttpStatus(200);
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
+      test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/about.html']");
+
+      testCommonMetas(test, "/about.html");
+
       test.assertExists("body .content.container");
       test.assertExists("body .content.container p img");
       test.assertSelectorHasText("body .content.container h1", "I’m Nahuel Scotti. This is my portfolio.");
       test.assertExists("body .content.container blockquote");
+      test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
+    })
+    .thenOpen("http://jekyll:4000/sitemap.html", function () {
+      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
+      test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/sitemap.html']");
+
+      testCommonMetas(test, "/sitemap.html");
+
+      test.assertExists("body .content.container");
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
     })
     .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function () {
