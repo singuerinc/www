@@ -1,3 +1,4 @@
+const TOTAL_TESTS = 980;
 const testAll = function (test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image) {
   test.assertHttpStatus(200);
   test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
@@ -18,6 +19,13 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
   test.assertExists("body.project-page .content img.image");
   test.assertExists("body.project-page .content .project-content p");
   test.assertSelectorHasText(".content h1", clientAndTitle);
+
+  test.assertExists("body.project-page .content meta[itemprop='name'][content='" + clientAndTitle + "']");
+  test.assertExists("body.project-page .content meta[itemprop='contributor'][content='Nahuel Scotti']");
+  // test.assertExists("body.project-page .content meta[itemprop='keywords'][content='" + clientAndTitle + "']");
+  test.assertExists("body.project-page .content meta[itemprop='image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("body.project-page .content meta[itemprop='url'][content='https://www.singuerinc.com" + canonical + "']");
+
   test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(1)", "My role");
   test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(2)", role);
   test.assertSelectorHasText(".info tr:nth-child(2) td:nth-child(1)", "Date release");
@@ -52,7 +60,7 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
 };
 
-casper.test.begin("Test", 896, function suite(test) {
+casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
