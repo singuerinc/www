@@ -52,7 +52,7 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
 };
 
-casper.test.begin("Test", 888, function suite(test) {
+casper.test.begin("Test", 896, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
@@ -106,13 +106,14 @@ casper.test.begin("Test", 888, function suite(test) {
     // sidebar - desktop - links
     test.assertExists("body .sidebar ul");
     // home, about, github, twitter, blog, medium
-    test.assertElementCount("body .sidebar nav ul:first-child li", 6);
+    test.assertElementCount("body .sidebar nav ul:first-child li", 7);
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(1) a", "Home");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(2) a", "About");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(3) a", "GitHub");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(4) a", "Twitter");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(5) a", "Blog");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(6) a", "Medium");
+    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(7) a", "Sitemap");
 
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='/']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='/about.html']");
@@ -120,17 +121,19 @@ casper.test.begin("Test", 888, function suite(test) {
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(4) a[href='https://twitter.com/singuerinc']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(5) a[href='https://blog.singuerinc.com']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(6) a[href='https://medium.com/@singuerinc']");
+    test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='/sitemap.html']");
 
     // sidebar - mobile - links
     test.assertExists("body .sidebar-mobile ul");
     // home, about, github, twitter, blog, medium
-    test.assertElementCount("body .sidebar-mobile ul li", 6);
+    test.assertElementCount("body .sidebar-mobile ul li", 7);
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(1) a", "Home");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(2) a", "About");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(3) a", "GitHub");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(4) a", "Twitter");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(5) a", "Blog");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(6) a", "Medium");
+    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(7) a", "Sitemap");
 
     test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='/']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='/about.html']");
@@ -138,6 +141,7 @@ casper.test.begin("Test", 888, function suite(test) {
     test.assertExists("body .sidebar-mobile ul li:nth-child(4) a[href='https://twitter.com/singuerinc']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(5) a[href='https://blog.singuerinc.com']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(6) a[href='https://medium.com/@singuerinc']");
+    test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='/sitemap.html']");
 
     // posts
     test.assertExists("body .content ul.posts");
@@ -202,6 +206,12 @@ casper.test.begin("Test", 888, function suite(test) {
       test.assertExists("body .content.container p img");
       test.assertSelectorHasText("body .content.container h1", "I’m Nahuel Scotti. This is my portfolio.");
       test.assertExists("body .content.container blockquote");
+      test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
+    })
+    .thenOpen("http://jekyll:4000/sitemap.html", function () {
+      test.assertHttpStatus(200);
+      test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
+      test.assertExists("body .content.container");
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
     })
     .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function () {

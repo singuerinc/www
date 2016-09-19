@@ -255,10 +255,6 @@ blockquote p:last-child {
   margin-bottom: 0;
 }
 
-.page blockquote p {
-  font-size: 10px;
-}
-
 @media (min-width: 30rem) {
   blockquote {
     padding-right: 5rem;
@@ -353,13 +349,13 @@ body {
   }
 }
 
-.content {
+.page .content {
   padding-top: 4rem;
   padding-bottom: 0;
 }
 
 @media (min-width: 48rem) {
-  .content {
+  .page .content {
     max-width: 38rem;
     margin-left: 20rem;
     margin-right: 2rem;
@@ -372,7 +368,7 @@ body {
 }
 
 @media (min-width: 64rem) {
-  .content {
+  .page .content {
     margin-left: 22rem;
     margin-right: 4rem;
   }
@@ -403,13 +399,13 @@ h3 {
   margin-bottom: 33px;
 }
 
-.content {
+.page .content {
   max-width: 48rem;
   padding-top: 31px;
 }
 
 @media (max-width: 48rem) {
-  .content {
+  .page .content {
     padding-top: 0;
   }
 }
@@ -618,7 +614,7 @@ ul.posts .w-tags {
 }
 
 @media (min-width: 48rem) {
-  .content {
+  .page .content {
     max-width: 70rem;
   }
 }
@@ -801,11 +797,7 @@ Copyright (c) 2014 Daniel Eden
     display: none;
 }
 
-.project-page .content {
-  padding-top: 23px;
-}
-
-.project-page .project-title {
+.page .title {
   color: black;
   text-align: center;
   font-size: 2rem;
@@ -1005,6 +997,22 @@ Copyright (c) 2014 Daniel Eden
   content: 'PREMIOS GENIO';
 }
 
+.page .site-map h3 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.page .site-map {
+  list-style: none;
+  margin: 20px 0 40px;
+  padding: 0;
+}
+
+.page .site-map li ul {
+  list-style: none;
+  padding: 0;
+}
+
 @media (min-width: 48rem) {
 
   .sidebar {
@@ -1022,6 +1030,10 @@ Copyright (c) 2014 Daniel Eden
 
   header {
     padding: 0 0 2rem 0;
+  }
+
+  .page .title {
+    text-align: left;
   }
 
   ul.posts li.priority-0 {
@@ -1116,7 +1128,7 @@ Copyright (c) 2014 Daniel Eden
   }
 
   .project-page .project-title {
-    text-align: left;
+
   }
 
   .project-page .share-post li {

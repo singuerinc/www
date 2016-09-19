@@ -1,0 +1,50 @@
+---
+layout: default
+id: "/sitemap"
+title: Sitemap
+---
+
+<h2 class="title">Site map</h2>
+
+<h4>by category</h4>
+
+<ul class="site-map">
+    {% assign sorted_cats = site.categories | sort %}
+    {% for category in sorted_cats %}
+    {% capture label %}{{ category | first }}{% endcapture %}
+    {% assign sorted_posts = site.categories.[label] | sort: "client" %}
+    <li>
+        <h3>{{ label }}</h3>
+        <ul>
+
+            {% for post in sorted_posts %}
+
+            <li id="{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}" itemscope
+                itemtype="http://schema.org/WebSite">
+                <meta itemprop="name" content="{{post.client}} · {{post.title}}"/>
+                <meta itemprop="contributor" content="Nahuel Scotti"/>
+                {% for award in post.awards %}
+                <meta itemprop="award" content="{{award}}"/>
+                {% endfor %}
+                <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
+                <meta itemprop="image" content="{{site.url}}/img/home/{{ post.image }}.jpg"/>
+                <meta itemprop="url" content="{{site.url}}{{ post.id }}.html"/>
+                <a href="{{ post.id }}.html" target="_self">{{post.client}} · <em>{{post.title}}</em></a>
+            </li>
+
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+
+<blockquote>
+    <p>Disclaimer<br/>This website contains thoughts, ideas, and opinions that are my own and they don't necessarily
+        reflect those of my current or past employers.</p>
+</blockquote>
+
+<style type="text/css">
+    .hide {
+        display: block;
+    }
+</style>
