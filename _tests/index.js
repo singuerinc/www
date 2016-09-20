@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1015;
+const TOTAL_TESTS = 1016;
 const testCommonMetas = function (test, canonical) {
   test.assertExists("meta[property='fb:app_id'][content='1253343308017588']");
   test.assertExists("meta[property='fb:admins'][content='nahuel.scotti']");
@@ -82,6 +82,7 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
+    test.assertResourceExists("assets/nprogress.min.js");
     test.assertResourceExists("assets/bundle.js");
     test.assertResourceExists("https://www.google-analytics.com/analytics.js");
     test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
