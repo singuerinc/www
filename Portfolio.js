@@ -1,5 +1,6 @@
-/* global window, setTimeout, Image, document, NProgress */
+/* global window, setTimeout, Image, document */
 import anime from "animejs";
+import NProgress from "nprogress";
 
 const _onReady = Symbol("_onReady");
 const _totalImgLoaded = Symbol("_totalImgLoaded");

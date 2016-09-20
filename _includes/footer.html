@@ -7,7 +7,6 @@
   var posts = [];
   {% for post in site.posts %}posts.push({id: "{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}", image: "{{post.image}}"});{% endfor %}
 </script>
-<script type="text/javascript" src="./assets/nprogress.min.js"></script>
 <script type="text/javascript" src="./assets/bundle.js"></script>
 {% endif %}
 
