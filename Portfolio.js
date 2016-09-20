@@ -1,5 +1,6 @@
 /* global window, setTimeout, Image, document */
 import anime from "animejs";
+import NProgress from "nprogress";
 
 const _onReady = Symbol("_onReady");
 const _totalImgLoaded = Symbol("_totalImgLoaded");
@@ -27,16 +28,21 @@ class Portfolio {
    * @returns {void}
    */
   load() {
+    NProgress.configure({ showSpinner: false });
     const onLoad = (post, src) => {
       const tag = document.querySelector(`.post-image.${post.id}`);
 
       tag.style.backgroundImage = `url(${src})`;
 
       this[_totalImgLoaded]++;
+      NProgress.set(this[_totalImgLoaded] / this[_posts].length);
       if (this[_totalImgLoaded] === this[_posts].length) {
         const waitBeforeReady = 200;
 
-        setTimeout(() => this[_onReady](), waitBeforeReady);
+        setTimeout(() => {
+          NProgress.done(true);
+          this[_onReady]();
+        }, waitBeforeReady);
       }
     };
 
