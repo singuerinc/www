@@ -1,5 +1,20 @@
 # www
 
+## [11.0.0-rc4] - 2016-09-20
+- Add sitemap page
+- Remove <br/>'s
+- Implement progress bar on loading
+
+## [11.0.0-rc3] - 2016-09-16
+- Add role to project profiles
+
+## [11.0.0-rc2] - 2016-09-16
+- Award box is not vertically centered
+- git commit sha in html doc
+
+## [11.0.0-rc1] - 2016-09-15
+- Metas according to the page
+
 ## [10.0.0] - 2016-09-15
 - More semantic tags for project title, etc
 - Minimize CSS
