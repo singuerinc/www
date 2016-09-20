@@ -22,11 +22,11 @@ priority: 'priority-2'
 ---
 
 Overlay is an open source application I developed some time ago. It functionality is quiet basic, but powerful: overlay an image over other application, like an onion paper.
-<br/><br/>
+
 It main purpose is to help the developer with a guide, making easy to achieve a pixel perfect app.
-<br/><br/>
+
 It was developed in AIR/ActionScript.
-<br/>
+
 My original idea was to develop it in HTML/CSS/JS, but at that time and currently is not possible to have a transparent window (without some ugly hacks).
-<br/><br/>
+
 If you want to contribute, or just see the code, take a look at the GitHub repository: [https://github.com/singuerinc/OverlayApp](https://github.com/singuerinc/OverlayApp)
