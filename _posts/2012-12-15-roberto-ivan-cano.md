@@ -16,6 +16,7 @@ tags:
   - small-machine
   - ruby-on-rails
 image: "roberto-ivan-cano"
+image_home: "roberto-ivan-cano"
 www: "http://www.robertoivancano.com/"
 more: ""
 priority: 'priority-2'

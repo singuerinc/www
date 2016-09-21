@@ -15,6 +15,7 @@ tags:
   - actionscript-3
   - facebook-api
 image: "nike--pro-combat"
+image_home: "nike--pro-combat"
 www: ""
 more: ""
 priority: 'priority-0'

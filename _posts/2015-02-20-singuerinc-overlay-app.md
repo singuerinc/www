@@ -16,6 +16,7 @@ tags:
     - "air"
 
 image: "singuerinc--overlay-app"
+image_home: "singuerinc--overlay-app"
 www: "https://github.com/singuerinc/OverlayApp"
 more: ""
 priority: 'priority-2'

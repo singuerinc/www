@@ -16,6 +16,7 @@ tech:
 tags:
     - "b-reel"
 image: "skoda--byggd-for-att-ta-skit"
+image_home: "skoda--byggd-for-att-ta-skit"
 www: "https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/"
 more: "http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/"
 priority: 'priority-2'

@@ -17,6 +17,7 @@ tags:
     - "e-commerce"
 
 image: "arawys--store"
+image_home: "arawys--store"
 www: "https://www.arawys.com"
 more: ""
 priority: 'priority-2'

@@ -7,7 +7,7 @@ const testCommonMetas = function (test, canonical) {
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[property='og:type'][content='website']");
   test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
-  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/projects/zalando--ivy-park.jpg']");
   test.assertExists("meta[property='og:locale'][content='en_US']");
   test.assertExists("meta[property='og:image:type'][content='image/jpg']");
   test.assertExists("meta[property='og:image:width'][content='816']");
@@ -16,7 +16,7 @@ const testCommonMetas = function (test, canonical) {
   test.assertExists("meta[name='twitter:site'][content='@singuerinc']");
   test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
   test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/projects/zalando--ivy-park.jpg']");
 };
 const testAll = function (test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image) {
   test.assertHttpStatus(200);
@@ -25,12 +25,12 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
   test.assertExists("meta[property='og:title'][content='" + clientAndTitle + "']");
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
-  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/projects/" + image + ".jpg']");
   test.assertExists("meta[property='og:image:width'][content='816']");
   test.assertExists("meta[property='og:image:height'][content='386']");
   test.assertExists("meta[name='twitter:title'][content='" + clientAndTitle + "']");
   test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/projects/" + image + ".jpg']");
 
   test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
   test.assertExists("body.project-page");
@@ -42,7 +42,7 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
   test.assertExists("body.project-page .content meta[itemprop='name'][content='" + clientAndTitle + "']");
   test.assertExists("body.project-page .content meta[itemprop='contributor'][content='Nahuel Scotti']");
   // test.assertExists("body.project-page .content meta[itemprop='keywords'][content='" + clientAndTitle + "']");
-  test.assertExists("body.project-page .content meta[itemprop='image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("body.project-page .content meta[itemprop='image'][content='https://www.singuerinc.com/img/projects/" + image + ".jpg']");
   test.assertExists("body.project-page .content meta[itemprop='url'][content='https://www.singuerinc.com" + canonical + "']");
 
   test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(1)", "My role");
@@ -177,6 +177,24 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertElementCount("body .content ul.posts li#evax_adapt", 1);
     test.assertElementCount("body .content ul.posts li#audi_driving-experience", 1);
     test.assertElementCount("body .content ul.posts li#evax_estudio-risa", 1);
+
+    /*
+    <meta itemprop="name" content="Zalando - Ivy Park"/>
+      <meta itemprop="contributor" content="Nahuel Scotti"/>
+
+      <meta itemprop="keywords" content="html5, css3, js"/>
+      <meta itemprop="image" content="https://www.singuerinc.com/img/projects/zalando--ivy-park.jpg"/>
+      <meta itemprop="url" content="https://www.singuerinc.com/b-reel/zalando-ivy-park.html"/>
+      <a href="/b-reel/zalando-ivy-park.html" target="_self" class="w-link animated">
+      <div class="post-image priority-2 animated zalando_ivy-park"></div>
+      <h3 class="w-title">Ivy Park</h3>
+    <div class="w-tags">html5 · css3 · js</div>
+    <div class="w-info">Client: Zalando / working at B-REEL</div>
+    </a>
+      */
+
+
+
   })
     .thenOpen("http://jekyll:4000/random-no-existing-page.html", function () {
       test.assertHttpStatus(404);
@@ -402,7 +420,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
         more = null,
         relatedCount = 4,
         shareCount = 3,
-        image = "cuchi-cuchi_50";
+        image = "cuchi-cuchi";
+        // image = "cuchi-cuchi_50";
 
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })
@@ -417,7 +436,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
         more = null,
         relatedCount = 8,
         shareCount = 3,
-        image = "pepe-jeans_50";
+        image = "pepe-jeans";
+        // image = "pepe-jeans_50";
 
       testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
     })

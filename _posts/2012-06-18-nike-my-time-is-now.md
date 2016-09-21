@@ -15,6 +15,7 @@ tags:
   - actionscript-3
   - facebook-api
 image: "nike--my-time-is-now"
+image_home: "nike--my-time-is-now"
 www: ""
 more: ""
 priority: 'priority-0'

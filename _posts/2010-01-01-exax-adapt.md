@@ -14,6 +14,7 @@ tags:
   - flash
   - as3
 image: "evax--adapt"
+image_home: "evax--adapt"
 priority: 'priority-0'
 www: ""
 more: ""

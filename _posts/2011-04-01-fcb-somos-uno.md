@@ -15,6 +15,7 @@ tags:
   - flash
   - as3
 image: "fcb--somos-uno"
+image_home: "fcb--somos-uno"
 priority: 'priority-0'
 www: "https://singuerinc-doubleyou.gitlab.io/com.nike.somun/"
 more: ""

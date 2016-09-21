@@ -15,6 +15,7 @@ tags:
     - "responsive"
 
 image: "b-reel--b-reel"
+image_home: "b-reel--b-reel"
 www: "https://www.b-reel.com/"
 more: ""
 priority: 'priority-2'
