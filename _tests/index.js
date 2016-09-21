@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1267;
+const TOTAL_TESTS = 1289;
 const projects = [
   {
     id: "zalando_ivy-park",
@@ -329,7 +329,7 @@ const testAll = function (test, project) {
 
   test.assertHttpStatus(200);
   test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
-
+  test.assertResourceExists("img/projects/" + image + ".jpg");
   test.assertExists("meta[property='og:title'][content='" + clientAndTitle + "']");
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
@@ -391,6 +391,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
+    test.assertResourceExists("all.css");
     test.assertResourceExists("https://www.google-analytics.com/analytics.js");
     test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
     test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/']");
