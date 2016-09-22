@@ -1,4 +1,300 @@
-const TOTAL_TESTS = 1015;
+const TOTAL_TESTS = 1289;
+const projects = [
+  {
+    id: "zalando_ivy-park",
+    role: "Client/Backend Developer",
+    client: "Zalando",
+    title: "Ivy Park",
+    clientAndTitle: "Zalando · Ivy Park",
+    agency: "B-REEL",
+    canonical: "/b-reel/zalando-ivy-park.html",
+    website: "https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/",
+    more: "https://www.b-reel.com/projects/ivy-park",
+    relatedCount: 6,
+    shareCount: 3,
+    image: "zalando--ivy-park"
+  },
+  {
+    id: "b-reel_b-reel",
+    role: "Client/Backend Developer",
+    client: "B-REEL",
+    title: "B-REEL",
+    clientAndTitle: "B-REEL",
+    agency: "B-REEL",
+    canonical: "/b-reel/b-reel-b-reel.html",
+    website: "https://www.b-reel.com/",
+    more: null,
+    relatedCount: 6,
+    shareCount: 3,
+    image: "b-reel--b-reel"
+  },
+  {
+    id: "arawys_store",
+    role: "Tech Lead Developer",
+    client: "Arawys",
+    title: "Store",
+    clientAndTitle: "Arawys · Store",
+    agency: "singuerinc",
+    canonical: "/singuerinc/arawys-store.html",
+    website: "https://www.arawys.com",
+    more: null,
+    relatedCount: 4,
+    shareCount: 3,
+    image: "arawys--store"
+  },
+  {
+    id: "htc-google_vive",
+    role: "Tech Architect/Backend Developer",
+    client: "HTC Google",
+    title: "Vive",
+    clientAndTitle: "HTC Google · Vive",
+    agency: "B-REEL",
+    canonical: "/b-reel/htc-vive.html",
+    website: "https://www.b-reel.com/projects/htc-vive",
+    more: null,
+    relatedCount: 6,
+    shareCount: 3,
+    image: "htc--vive"
+  },
+  {
+    id: "facebook_moments",
+    role: "Tech Lead Developer",
+    client: "Facebook",
+    title: "Moments",
+    clientAndTitle: "Facebook · Moments",
+    agency: "B-REEL",
+    canonical: "/b-reel/facebook-moments.html",
+    website: "http://www.momentsapp.com",
+    more: "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/",
+    relatedCount: 6,
+    shareCount: 3,
+    image: "facebook--moments"
+  },
+  {
+    id: "singuerinc_overlay",
+    role: "Developer",
+    client: "singuerinc",
+    title: "Overlay",
+    clientAndTitle: "singuerinc · Overlay",
+    agency: "singuerinc",
+    canonical: "/singuerinc/singuerinc-overlay-app.html",
+    website: "https://github.com/singuerinc/OverlayApp",
+    more: null,
+    relatedCount: 4,
+    shareCount: 3,
+    image: "singuerinc--overlay-app"
+  },
+  {
+    id: "skoda_byggd-för-att-ta-skit",
+    role: "Client/Backend Developer",
+    client: "Skoda",
+    title: "Byggd för att ta skit",
+    clientAndTitle: "Skoda · Byggd för att ta skit",
+    agency: "B-REEL",
+    canonical: "/b-reel/skoda-byggd-for-at-tta-skit.html",
+    website: "https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/",
+    more: "http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/",
+    relatedCount: 6,
+    shareCount: 3,
+    image: "skoda--byggd-for-att-ta-skit"
+  },
+  {
+    id: "google_kick-with-chrome",
+    role: "Client/Backend Developer",
+    client: "Google",
+    title: "Kick with Chrome",
+    clientAndTitle: "Google · Kick with Chrome",
+    agency: "B-REEL",
+    canonical: "/b-reel/kick-with-chrome.html",
+    website: "https://www.chromeexperiments.com/experiment/kick-with-chrome",
+    more: "http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/",
+    relatedCount: 6,
+    shareCount: 3,
+    image: "google--kick-with-chrome"
+  },
+  {
+    id: "kit-appétit_store",
+    role: "Tech Lead Developer",
+    client: "Kit Appétit",
+    title: "Store",
+    clientAndTitle: "Kit Appétit · Store",
+    agency: "singuerinc",
+    canonical: "/singuerinc/kit-appetit.html",
+    website: "http://www.kitappetit.com/",
+    more: null,
+    relatedCount: 4,
+    shareCount: 3,
+    image: "kitappetit--kitappetit"
+  },
+  {
+    id: "médecins-du-monde_names-not-numbers",
+    role: "Tech Lead Developer",
+    client: "Médecins du Monde",
+    title: "Names not numbers",
+    clientAndTitle: "Médecins du Monde · Names not numbers",
+    agency: "B-REEL",
+    canonical: "/b-reel/names-not-numbers.html",
+    website: "https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/",
+    more: "http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/",
+    relatedCount: 6,
+    shareCount: 3,
+    image: "medecins-du-monde--names-not-numbers"
+  },
+  {
+    id: "roberto-iván-cano_portfolio",
+    role: "Tech Lead Developer",
+    client: "Roberto Iván Cano",
+    title: "Portfolio",
+    clientAndTitle: "Roberto Iván Cano · Portfolio",
+    agency: "small-machine",
+    canonical: "/singuerinc/roberto-ivan-cano.html",
+    website: "http://www.robertoivancano.com/",
+    more: null,
+    relatedCount: 4,
+    shareCount: 3,
+    image: "roberto-ivan-cano"
+  },
+  {
+    id: "cuchi-cuchi_guardería",
+    role: "Client Developer",
+    client: "Cuchi-Cuchi",
+    title: "Guardería",
+    clientAndTitle: "Cuchi-Cuchi · Guardería",
+    agency: "small-machine",
+    canonical: "/singuerinc/cuchi-cuchi.html",
+    website: "http://www.cuchicuchi-guarderia.es/",
+    more: null,
+    relatedCount: 4,
+    shareCount: 3,
+    image: "cuchi-cuchi"
+  },
+  {
+    id: "pepe-jeans_store",
+    role: "Client Developer",
+    client: "Pepe Jeans",
+    title: "Store",
+    clientAndTitle: "Pepe Jeans · Store",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/pepe-jeans.html",
+    website: null,
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "pepe-jeans"
+  },
+  {
+    id: "nike_pro-combat",
+    role: "Flash Developer",
+    client: "Nike",
+    title: "Pro Combat",
+    clientAndTitle: "Nike · Pro Combat",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/nike-pro-combat.html",
+    website: null,
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "nike--pro-combat"
+  },
+  {
+    id: "nike_my-time-is-now",
+    role: "Flash Developer",
+    client: "Nike",
+    title: "My time is now",
+    clientAndTitle: "Nike · My time is now",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/nike-my-time-is-now.html",
+    website: null,
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "nike--my-time-is-now"
+  },
+  {
+    id: "audi_a1-me-gusta",
+    role: "Flash Developer",
+    client: "Audi",
+    title: "A1 Me gusta",
+    clientAndTitle: "Audi · A1 Me gusta",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/audi-a1-me-gusta.html",
+    website: "https://audia1megusta-p1singuerinc.rhcloud.com/",
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "audi--a1-me-gusta"
+  },
+  {
+    id: "fc-barcelona_som-un",
+    role: "Flash Developer",
+    client: "FC Barcelona",
+    title: "Som un",
+    clientAndTitle: "FC Barcelona · Som un",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/fcb-somos-uno.html",
+    website: "https://singuerinc-doubleyou.gitlab.io/com.nike.somun/",
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "fcb--somos-uno"
+  },
+  {
+    id: "atrápalo_revívelo",
+    role: "Flash Developer",
+    client: "Atrápalo",
+    title: "Revívelo",
+    clientAndTitle: "Atrápalo · Revívelo",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/atrapalo-revivelo.html",
+    website: null,
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "atrapalo--revivelo"
+  },
+  {
+    id: "evax_adapt",
+    role: "Flash Developer",
+    client: "Evax",
+    title: "Adapt",
+    clientAndTitle: "Evax · Adapt",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/exax-adapt.html",
+    website: null,
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "evax--adapt"
+  },
+  {
+    id: "audi_driving-experience",
+    role: "Flash Developer",
+    client: "Audi",
+    title: "Driving Experience",
+    clientAndTitle: "Audi · Driving Experience",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/audi-driving-experience.html",
+    website: null,
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "audi--driving-experience"
+  },
+  {
+    id: "evax_estudio-risa",
+    role: "Flash Developer",
+    client: "Evax",
+    title: "Estudio Risa",
+    clientAndTitle: "Evax · Estudio Risa",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/evax-estudio-risa.html",
+    website: "https://singuerinc-doubleyou.gitlab.io/es.evax.estudios/",
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "evax--estudio-risa"
+  }];
+
 const testCommonMetas = function (test, canonical) {
   test.assertExists("meta[property='fb:app_id'][content='1253343308017588']");
   test.assertExists("meta[property='fb:admins'][content='nahuel.scotti']");
@@ -7,7 +303,7 @@ const testCommonMetas = function (test, canonical) {
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[property='og:type'][content='website']");
   test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
-  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/projects/zalando--ivy-park.jpg']");
   test.assertExists("meta[property='og:locale'][content='en_US']");
   test.assertExists("meta[property='og:image:type'][content='image/jpg']");
   test.assertExists("meta[property='og:image:width'][content='816']");
@@ -16,21 +312,33 @@ const testCommonMetas = function (test, canonical) {
   test.assertExists("meta[name='twitter:site'][content='@singuerinc']");
   test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
   test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/zalando--ivy-park.jpg']");
+  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/projects/zalando--ivy-park.jpg']");
 };
-const testAll = function (test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image) {
+const testAll = function (test, project) {
+  const role = project.role,
+    client = project.client,
+    title = project.title,
+    clientAndTitle = project.clientAndTitle,
+    agency = project.agency,
+    canonical = project.canonical,
+    website = project.website,
+    more = project.more,
+    relatedCount = project.relatedCount,
+    shareCount = project.shareCount,
+    image = project.image;
+
   test.assertHttpStatus(200);
   test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
-
+  test.assertResourceExists("img/projects/" + image + ".jpg");
   test.assertExists("meta[property='og:title'][content='" + clientAndTitle + "']");
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
-  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/projects/" + image + ".jpg']");
   test.assertExists("meta[property='og:image:width'][content='816']");
   test.assertExists("meta[property='og:image:height'][content='386']");
   test.assertExists("meta[name='twitter:title'][content='" + clientAndTitle + "']");
   test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/projects/" + image + ".jpg']");
 
   test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
   test.assertExists("body.project-page");
@@ -41,8 +349,8 @@ const testAll = function (test, role, client, title, clientAndTitle, agency, can
 
   test.assertExists("body.project-page .content meta[itemprop='name'][content='" + clientAndTitle + "']");
   test.assertExists("body.project-page .content meta[itemprop='contributor'][content='Nahuel Scotti']");
-  // test.assertExists("body.project-page .content meta[itemprop='keywords'][content='" + clientAndTitle + "']");
-  test.assertExists("body.project-page .content meta[itemprop='image'][content='https://www.singuerinc.com/img/home/" + image + ".jpg']");
+  test.assertExists("body.project-page .content meta[itemprop='keywords']");
+  test.assertExists("body.project-page .content meta[itemprop='image'][content='https://www.singuerinc.com/img/projects/" + image + ".jpg']");
   test.assertExists("body.project-page .content meta[itemprop='url'][content='https://www.singuerinc.com" + canonical + "']");
 
   test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(1)", "My role");
@@ -83,6 +391,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
   casper.start("http://jekyll:4000/index.html", function () {
     test.assertHttpStatus(200);
     test.assertResourceExists("assets/bundle.js");
+    test.assertResourceExists("all.css");
     test.assertResourceExists("https://www.google-analytics.com/analytics.js");
     test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
     test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/']");
@@ -177,6 +486,22 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertElementCount("body .content ul.posts li#evax_adapt", 1);
     test.assertElementCount("body .content ul.posts li#audi_driving-experience", 1);
     test.assertElementCount("body .content ul.posts li#evax_estudio-risa", 1);
+
+    for (var i = 0; i < projects.length; i++) {
+      var project = projects[i];
+
+      test.assertElementCount("body .content ul.posts li#" + project.id, 1);
+      test.assertExists("li#" + project.id + " meta[itemprop='name'][content='" + project.clientAndTitle + "']");
+      test.assertExists("li#" + project.id + " meta[itemprop='contributor'][content='Nahuel Scotti']");
+      test.assertExists("li#" + project.id + " meta[itemprop='keywords']");
+      test.assertExists("li#" + project.id + " meta[itemprop='image'][content='https://www.singuerinc.com/img/projects/" + project.image + ".jpg']");
+      test.assertExists("li#" + project.id + " meta[itemprop='url'][content='https://www.singuerinc.com" + project.canonical + "']");
+      test.assertExists("li#" + project.id + " a[href='" + project.canonical + "'][target='_self']");
+      test.assertExists("li#" + project.id + " div.post-image.animated." + project.id);
+      test.assertSelectorHasText("li#" + project.id + " h3[class='w-title']", project.title);
+      test.assertExists("li#" + project.id + " div[class='w-tags']");
+      test.assertSelectorHasText("li#" + project.id + " div[class='w-info']", "Client: " + project.client + " / working at " + project.agency);
+    }
   })
     .thenOpen("http://jekyll:4000/random-no-existing-page.html", function () {
       test.assertHttpStatus(404);
@@ -186,21 +511,17 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("body .content.container");
       test.assertExists("body .content.container h1");
       test.assertSelectorHasText("body .content.container h1", "404: Page not found");
-
       test.assertHttpStatus(200);
       // FIXME: test.assertResourceExists("https://www.google-analytics.com/analytics.js");
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
       test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/404.html']");
-
       testCommonMetas(test, "/404.html");
     })
     .thenOpen("http://jekyll:4000/about.html", function () {
       test.assertHttpStatus(200);
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
       test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/about.html']");
-
       testCommonMetas(test, "/about.html");
-
       test.assertExists("body .content.container");
       test.assertExists("body .content.container p img");
       test.assertSelectorHasText("body .content.container h1", "I’m Nahuel Scotti. This is my portfolio.");
@@ -210,346 +531,94 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     .thenOpen("http://jekyll:4000/sitemap.html", function () {
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
       test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/sitemap.html']");
-
       testCommonMetas(test, "/sitemap.html");
-
       test.assertExists("body .content.container");
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
     })
     .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function () {
-      var role = "Client/Backend Developer",
-        client = "Zalando",
-        title = "Ivy Park",
-        clientAndTitle = "Zalando · Ivy Park",
-        agency = "B-REEL",
-        canonical = "/b-reel/zalando-ivy-park.html",
-        website = "https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/",
-        more = "https://www.b-reel.com/projects/ivy-park",
-        relatedCount = 6,
-        shareCount = 3,
-        image = "zalando--ivy-park";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[0]);
     })
     .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function () {
-      var role = "Client/Backend Developer",
-        client = "B-REEL",
-        title = "B-REEL",
-        clientAndTitle = "B-REEL",
-        agency = "B-REEL",
-        canonical = "/b-reel/b-reel-b-reel.html",
-        website = "https://www.b-reel.com/",
-        more = null,
-        relatedCount = 6,
-        shareCount = 3,
-        image = "b-reel--b-reel";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[1]);
     })
     .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function () {
-      var role = "Tech Lead Developer",
-        client = "Arawys",
-        title = "Store",
-        clientAndTitle = "Arawys · Store",
-        agency = "singuerinc",
-        canonical = "/singuerinc/arawys-store.html",
-        website = "https://www.arawys.com",
-        more = null,
-        relatedCount = 4,
-        shareCount = 3,
-        image = "arawys--store";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[2]);
     })
     .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function () {
-      var role = "Tech Architect/Backend Developer",
-        client = "HTC Google",
-        title = "Vive",
-        clientAndTitle = "HTC Google · Vive",
-        agency = "B-REEL",
-        canonical = "/b-reel/htc-vive.html",
-        website = "https://www.b-reel.com/projects/htc-vive",
-        more = null,
-        relatedCount = 6,
-        shareCount = 3,
-        image = "htc--vive";
-
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.thefwa_site_of_the_day");
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[3]);
     })
     .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function () {
-      var role = "Tech Lead Developer",
-        client = "Facebook",
-        title = "Moments",
-        clientAndTitle = "Facebook · Moments",
-        agency = "B-REEL",
-        canonical = "/b-reel/facebook-moments.html",
-        website = "http://www.momentsapp.com",
-        more = "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/",
-        relatedCount = 6,
-        shareCount = 3,
-        image = "facebook--moments";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[4]);
     })
     .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function () {
-      var role = "Developer",
-        client = "singuerinc",
-        title = "Overlay",
-        clientAndTitle = "singuerinc · Overlay",
-        agency = "singuerinc",
-        canonical = "/singuerinc/singuerinc-overlay-app.html",
-        website = "https://github.com/singuerinc/OverlayApp",
-        more = null,
-        relatedCount = 4,
-        shareCount = 3,
-        image = "singuerinc--overlay-app";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[5]);
     })
     .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function () {
-      var role = "Client/Backend Developer",
-        client = "Skoda",
-        title = "Byggd för att ta skit",
-        clientAndTitle = "Skoda · Byggd för att ta skit",
-        agency = "B-REEL",
-        canonical = "/b-reel/skoda-byggd-for-at-tta-skit.html",
-        website = "https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/",
-        more = "http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/",
-        relatedCount = 6,
-        shareCount = 3,
-        image = "skoda--byggd-for-att-ta-skit";
-
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[6]);
     })
     .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function () {
-      var role = "Client/Backend Developer",
-        client = "Google",
-        title = "Kick with Chrome",
-        clientAndTitle = "Google · Kick with Chrome",
-        agency = "B-REEL",
-        canonical = "/b-reel/kick-with-chrome.html",
-        website = "https://www.chromeexperiments.com/experiment/kick-with-chrome",
-        more = "http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/",
-        relatedCount = 6,
-        shareCount = 3,
-        image = "google--kick-with-chrome";
-
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[7]);
     })
     .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function () {
-      var role = "Tech Lead Developer",
-        client = "Kit Appétit",
-        title = "Store",
-        clientAndTitle = "Kit Appétit · Store",
-        agency = "singuerinc",
-        canonical = "/singuerinc/kit-appetit.html",
-        website = "http://www.kitappetit.com/",
-        more = null,
-        relatedCount = 4,
-        shareCount = 3,
-        image = "kitappetit--kitappetit";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[8]);
     })
     .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function () {
-      var role = "Tech Lead Developer",
-        client = "Médecins du Monde",
-        title = "Names not numbers",
-        clientAndTitle = "Médecins du Monde · Names not numbers",
-        agency = "B-REEL",
-        canonical = "/b-reel/names-not-numbers.html",
-        website = "https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/",
-        more = "http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/",
-        relatedCount = 6,
-        shareCount = 3,
-        image = "medecins-du-monde--names-not-numbers";
-
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(8) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(8) td:nth-child(2) .award.thefwa_site_of_the_day");
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[9]);
     })
     .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function () {
-      var role = "Tech Lead Developer",
-        client = "Roberto Iván Cano",
-        title = "Portfolio",
-        clientAndTitle = "Roberto Iván Cano · Portfolio",
-        agency = "small-machine",
-        canonical = "/singuerinc/roberto-ivan-cano.html",
-        website = "http://www.robertoivancano.com/",
-        more = null,
-        relatedCount = 4,
-        shareCount = 3,
-        image = "roberto-ivan-cano";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[10]);
     })
     .thenOpen("http://jekyll:4000/singuerinc/cuchi-cuchi.html", function () {
-      var role = "Client Developer",
-        client = "Cuchi-Cuchi",
-        title = "Guardería",
-        clientAndTitle = "Cuchi-Cuchi · Guardería",
-        agency = "small-machine",
-        canonical = "/singuerinc/cuchi-cuchi.html",
-        website = "http://www.cuchicuchi-guarderia.es/",
-        more = null,
-        relatedCount = 4,
-        shareCount = 3,
-        image = "cuchi-cuchi_50";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      // image = "cuchi-cuchi_50";
+      testAll(test, projects[11]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/pepe-jeans.html", function () {
-      var role = "Client Developer",
-        client = "Pepe Jeans",
-        title = "Store",
-        clientAndTitle = "Pepe Jeans · Store",
-        agency = "Doubleyou",
-        canonical = "/doubleyou/pepe-jeans.html",
-        website = null,
-        more = null,
-        relatedCount = 8,
-        shareCount = 3,
-        image = "pepe-jeans_50";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      // image = "pepe-jeans_50";
+      testAll(test, projects[12]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function () {
-      var role = "Flash Developer",
-        client = "Nike",
-        title = "Pro Combat",
-        clientAndTitle = "Nike · Pro Combat",
-        agency = "Doubleyou",
-        canonical = "/doubleyou/nike-pro-combat.html",
-        website = null,
-        more = null,
-        relatedCount = 8,
-        shareCount = 3,
-        image = "nike--pro-combat";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[13]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/nike-my-time-is-now.html", function () {
-      var role = "Flash Developer",
-        client = "Nike",
-        title = "My time is now",
-        clientAndTitle = "Nike · My time is now",
-        agency = "Doubleyou",
-        canonical = "/doubleyou/nike-my-time-is-now.html",
-        website = null,
-        more = null,
-        relatedCount = 8,
-        shareCount = 3,
-        image = "nike--my-time-is-now";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[14]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function () {
-      var role = "Flash Developer",
-        client = "Audi",
-        title = "A1 Me gusta",
-        clientAndTitle = "Audi · A1 Me gusta",
-        agency = "Doubleyou",
-        canonical = "/doubleyou/audi-a1-me-gusta.html",
-        website = "https://audia1megusta-p1singuerinc.rhcloud.com/",
-        more = null,
-        relatedCount = 8,
-        shareCount = 3,
-        image = "audi--a1-me-gusta";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[15]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function () {
-      var role = "Flash Developer",
-        client = "FC Barcelona",
-        title = "Som un",
-        clientAndTitle = "FC Barcelona · Som un",
-        agency = "Doubleyou",
-        canonical = "/doubleyou/fcb-somos-uno.html",
-        website = "https://singuerinc-doubleyou.gitlab.io/com.nike.somun/",
-        more = null,
-        relatedCount = 8,
-        shareCount = 3,
-        image = "fcb--somos-uno";
-
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-sol_bronce");
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[16]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function () {
-      var role = "Flash Developer",
-        client = "Atrápalo",
-        title = "Revívelo",
-        clientAndTitle = "Atrápalo · Revívelo",
-        agency = "Doubleyou",
-        canonical = "/doubleyou/atrapalo-revivelo.html",
-        website = null,
-        more = null,
-        relatedCount = 8,
-        shareCount = 3,
-        image = "atrapalo--revivelo";
-
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_plata");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-laus");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-efi");
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[17]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function () {
-      var role = "Flash Developer",
-        client = "Evax",
-        title = "Adapt",
-        clientAndTitle = "Evax · Adapt",
-        agency = "Doubleyou",
-        canonical = "/doubleyou/exax-adapt.html",
-        website = null,
-        more = null,
-        relatedCount = 8,
-        shareCount = 3,
-        image = "evax--adapt";
-
       test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[18]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
-      var role = "Flash Developer",
-        client = "Audi",
-        title = "Driving Experience",
-        clientAndTitle = "Audi · Driving Experience",
-        agency = "Doubleyou",
-        canonical = "/doubleyou/audi-driving-experience.html",
-        website = null,
-        more = null,
-        relatedCount = 8,
-        shareCount = 3,
-        image = "audi--driving-experience";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[19]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
-      var role = "Flash Developer",
-        client = "Evax",
-        title = "Estudio Risa",
-        clientAndTitle = "Evax · Estudio Risa",
-        agency = "Doubleyou",
-        canonical = "/doubleyou/evax-estudio-risa.html",
-        website = "https://singuerinc-doubleyou.gitlab.io/es.evax.estudios/",
-        more = null,
-        relatedCount = 8,
-        shareCount = 3,
-        image = "evax--estudio-risa";
-
-      testAll(test, role, client, title, clientAndTitle, agency, canonical, website, more, relatedCount, shareCount, image);
+      testAll(test, projects[20]);
     })
     .run(function () {
       test.done();

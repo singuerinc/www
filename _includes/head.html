@@ -35,7 +35,7 @@
   {% else %}
     {% assign page_image = "zalando--ivy-park" %}
   {% endif %}
-  <meta property="og:image" content="{{site.url}}/img/home/{{page_image}}.jpg">
+  <meta property="og:image" content="{{site.url}}/img/projects/{{page_image}}.jpg">
   <meta property="og:locale" content="en_US" />
   <meta property="og:image:type" content="image/jpg" />
   <meta property="og:image:width" content="816" />
@@ -45,7 +45,7 @@
   <meta name="twitter:site" content="@singuerinc" />
   <meta name="twitter:title" content="{{page_title}}" />
   <meta name="twitter:description" content="Developer. Currently working at NetEnt, Stockholm - Sweden." />
-  <meta name="twitter:image" content="{{site.url}}/img/home/{{page_image}}.jpg" />
+  <meta name="twitter:image" content="{{site.url}}/img/projects/{{page_image}}.jpg" />
 
   <link rel="author" href="humans.txt" />
 
@@ -84,9 +84,9 @@
       @media (max-width: 768px) {
       {% for post in site.posts %}
         .post-image.{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
-        background: url(./img/home/{{ post.image }}-md.jpg) no-repeat;
-        background-size: 100% auto;
-      }
+          background: url(./img/home/{{ post.image }}-md.jpg) no-repeat;
+          background-size: 100% auto;
+        }
       {% endfor %}
       }
     </style>

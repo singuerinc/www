@@ -16,6 +16,7 @@ tags:
   - as3
   - interactive
 image: "atrapalo--revivelo"
+image_home: "atrapalo--revivelo"
 priority: 'priority-0'
 www: ""
 more: ""

@@ -13,6 +13,7 @@ tags:
     - "personal"
 
 image: "kitappetit--kitappetit"
+image_home: "kitappetit--kitappetit"
 www: "http://www.kitappetit.com/"
 more: ""
 priority: 'priority-2'

@@ -8,11 +8,18 @@ title: Home
 <ul class="posts">
   {% for post in site.posts %}
   <li id="{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}" class="post w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
-    <meta itemprop="name" content="{{post.client}} - {{post.title}}"/>
+
+    {% if post.client == post.title %}
+    {% assign post_title = post.title %}
+    {% else %}
+    {% assign post_title = post.client | append: " · " | append: post.title %}
+    {% endif %}
+
+    <meta itemprop="name" content="{{ post_title }}"/>
     <meta itemprop="contributor" content="Nahuel Scotti"/>
     {% for award in post.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
     <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
-    <meta itemprop="image" content="{{site.url}}/img/home/{{ post.image }}.jpg"/>
+    <meta itemprop="image" content="{{site.url}}/img/projects/{{ post.image }}.jpg"/>
     <meta itemprop="url" content="{{site.url}}{{ post.id }}.html"/>
     <a href="{{ post.id }}.html" target="_self" class="w-link animated">
       <div class="post-image {{post.priority}} animated {{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}"></div>

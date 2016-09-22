@@ -17,6 +17,7 @@ tags:
   - javascript
   - video
 image: "medecins-du-monde--names-not-numbers"
+image_home: "medecins-du-monde--names-not-numbers"
 www: "https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/"
 more: "http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/"
 awards: ['award-awwwards_site_of_the_day', 'thefwa_site_of_the_day']

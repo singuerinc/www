@@ -14,6 +14,7 @@ tags:
   - flash
   - as3
 image: "audi--driving-experience"
+image_home: "audi--driving-experience"
 www: "https://singuerinc-doubleyou.gitlab.io/es.audi.drivingexperience/"
 more: ""
 priority: 'priority-0'
