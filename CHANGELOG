@@ -1,5 +1,15 @@
 # www
 
+## [11.0.0] - 2016-09-22
+- Fix Images are not big enough
+- Add sitemap page
+- Remove <br/>'s
+- Implement progress bar on loading
+- Add role to project profiles
+- Award box is not vertically centered
+- git commit sha in html doc
+- Metas according to the page
+
 ## [11.0.0-rc4] - 2016-09-20
 - Add sitemap page
 - Remove <br/>'s
