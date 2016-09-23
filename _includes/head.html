@@ -1,3 +1,10 @@
+{% assign base = '' %}
+{% assign depth = page.url | split: '/' | size | minus: 1 %}
+{% if    depth <= 1 %}{% assign base = '.' %}
+{% elsif depth == 2 %}{% assign base = '..' %}
+{% elsif depth == 3 %}{% assign base = '../..' %}
+{% elsif depth == 4 %}{% assign base = '../../..' %}{% endif %}
+
 <head>
 
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -47,30 +54,21 @@
   <meta name="twitter:description" content="Developer. Currently working at NetEnt, Stockholm - Sweden." />
   <meta name="twitter:image" content="{{site.url}}/img/projects/{{page_image}}.jpg" />
 
-  <link rel="author" href="humans.txt" />
+  <link rel="author" href="{{base}}/humans.txt" />
 
   <title>Nahuel Scotti - Portfolio</title>
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/all.css">
-
-  {% unless page.id == "404" %}
-  <noscript>
-  {% endunless %}
-    <style type="text/css">
-      .hide {
-        display: block;
-      }
-    </style>
-  {% unless page.id == "404" %}
-  </noscript>
-  {% endunless %}
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{base}}/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="{{base}}/favicon.ico">
+  <link rel="stylesheet" href="{{base}}/all.css">
 
   <script type="text/javascript">
     if (("www.singuerinc.com" == window.location.host) && (window.location.protocol != 'https:')) {
       window.location = window.location.toString().replace(/^http:/, "https:");
     }
+  </script>
+  <script type="text/javascript">
+      var page = "{{page.url}}";
   </script>
   {% if page.url == "/" || page.url == "/index.html" %}
   <noscript>

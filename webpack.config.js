@@ -4,16 +4,17 @@ const webpack = require("webpack");
 module.exports = {
   entry: "./index.js",
   output: {
+    devtool: "#source-map",
     path: __dirname + "/assets",
     filename: "bundle.js",
     publicPath: "/assets/"
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // })
   ],
   module: {
     loaders: [

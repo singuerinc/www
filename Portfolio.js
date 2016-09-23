@@ -2,14 +2,16 @@
 import anime from "animejs";
 import NProgress from "nprogress";
 
-const _onReady = Symbol("_onReady");
+const _showTitle = Symbol("_showTitle");
+const _showSidebar = Symbol("_showSidebar");
+const _onIndexReady = Symbol("_onIndexReady");
 const _totalImgLoaded = Symbol("_totalImgLoaded");
 const _isRetina = Symbol("_isRetina");
 const _isMobile = Symbol("_isMobile");
 const _posts = Symbol("_posts");
 
 /**
- * The Portfolio class
+ * The Portfolio class.
  * @class Portfolio
  */
 class Portfolio {
@@ -17,17 +19,17 @@ class Portfolio {
   constructor() {
     const STYLE = Portfolio.getComputedStyle(document.querySelector("html"));
 
-    this[_posts] = window.posts;
     this[_isRetina] = window.devicePixelRatio > 1;
     this[_isMobile] = (parseInt(STYLE.getPropertyValue("width"), 10)) < 768;
-    this[_totalImgLoaded] = 0;
   }
 
   /**
    * Starts the load of all images in the portfolio.
    * @returns {void}
    */
-  load() {
+  loadIndex() {
+    this[_posts] = window.posts;
+    this[_totalImgLoaded] = 0;
     NProgress.configure({ showSpinner: false });
     const onLoad = (post, src) => {
       const tag = document.querySelector(`.post-image.${post.id}`);
@@ -41,48 +43,55 @@ class Portfolio {
 
         setTimeout(() => {
           NProgress.done(true);
-          this[_onReady]();
+          this[_onIndexReady]();
         }, waitBeforeReady);
       }
     };
 
-    for (let i = 0; i < this[_posts].length; i++) {
+    this[_posts].forEach((post, idx) => {
       let filename,
         src;
 
       if (this[_isMobile] && !this[_isRetina]) {
-        filename = `${this[_posts][i].image}-md.jpg`;
+        filename = `${post.image}-md.jpg`;
       }
       else {
-        filename = `${this[_posts][i].image}.jpg`;
+        filename = `${post.image}.jpg`;
       }
 
       src = `./img/home/${filename}`;
 
-      if (i < 4) {
+      if (idx < 4) {
         const image = new Image();
 
-        image.onload = () => onLoad(this[_posts][i], image.src);
+        image.onload = () => onLoad(post, image.src);
         image.src = src;
       }
       else {
-        onLoad(this[_posts][i], src);
+        onLoad(post, src);
       }
-    }
+    });
   }
 
   /**
-   * When all images are loaded an animation is played.
+   * Animates the title of the page.
    * @returns {void}
    */
-  [_onReady]() {
+  [_showTitle]() {
     anime({
-      targets: ".pre.hide",
+      targets: ".page .title",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
       opacity: [0, 1],
-      duration: 1500
+      duration: 1500,
+      easing: "easeInOutExpo"
     });
+  }
 
+  /**
+   * Animates the sidebar.
+   * @returns {void}
+   */
+  [_showSidebar]() {
     anime({
       targets: ".sidebar",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
@@ -92,14 +101,26 @@ class Portfolio {
       duration: 1500,
       easing: "easeInOutExpo"
     });
+  }
 
-    for (let i = 0; i < this[_posts].length; i++) {
-      const pId = this[_posts][i].id,
-        li = document.querySelector(`li#${pId}`);
+  /**
+   * When all images in the home page are loaded an animation is played.
+   * @returns {void}
+   */
+  [_onIndexReady]() {
+    this[_showSidebar]();
 
-      li.classList.remove("hide");
-      li.querySelector(".w-link").style.backgroundColor = "black";
-    }
+    anime({
+      targets: ".pre.hide",
+      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
+      opacity: [0, 1],
+      duration: 1500
+    });
+
+    document.querySelectorAll("ul.posts li").forEach((e) => {
+      e.classList.remove("hide");
+      e.querySelector(".w-link").style.backgroundColor = "black";
+    });
 
     anime({
       targets: ".posts li:nth-child(-n+4)",
@@ -111,6 +132,11 @@ class Portfolio {
     });
   }
 
+  /**
+   * Gets the computed style of an element.
+   * @param {HTMLElement} elem - The element you want to compute.
+   * @returns {Object} The computed style.
+   */
   static getComputedStyle(elem) {
     if (elem.ownerDocument.defaultView.opener) {
       return elem.ownerDocument.defaultView.getComputedStyle(elem, null);
@@ -118,6 +144,119 @@ class Portfolio {
     return window.getComputedStyle(elem, null);
   }
 
+  /**
+   * Executed when the about page is displayed.
+   * @returns {void}
+   */
+  loadAbout() {
+    this[_showSidebar]();
+    this[_showTitle]();
+
+    document.querySelectorAll(".content > p.text").forEach((e) => e.classList.remove("hide"));
+    anime({
+      targets: ".content > p.text",
+      translateY: [100, 0],
+      translateX: () => [anime.random(0, 500), 0],
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "easeInOutExpo",
+      delay: (el, index) => 50 * index * Math.random()
+    });
+
+    anime({
+      targets: ".content p img",
+      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
+      translateY: [100, 0],
+      translateX: () => [anime.random(0, 500), 0],
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "easeInOutExpo"
+    });
+
+    anime({
+      targets: ".content blockquote",
+      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
+      opacity: [0, 1],
+      duration: 1500,
+      delay: 6000,
+      easing: "easeInOutExpo"
+    });
+  }
+
+  /**
+   * Executed when the site-map page is displayed.
+   * @returns {void}
+   */
+  loadSiteMap() {
+    this[_showSidebar]();
+    this[_showTitle]();
+
+    document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide"));
+    anime({
+      targets: ".site-map li",
+      translateY: [100, 0],
+      translateX: () => [anime.random(0, 500), 0],
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "easeInOutExpo",
+      delay: (el, idx) => idx * 25
+    });
+
+    anime({
+      targets: ".content blockquote",
+      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
+      opacity: [0, 1],
+      duration: 1500,
+      delay: 6000,
+      easing: "easeInOutExpo"
+    });
+  }
+
+  /**
+   * Executed when the 404 page is displayed.
+   * @returns {void}
+   */
+  load404() {
+    this[_showSidebar]();
+    this[_showTitle]();
+
+    anime({
+      targets: ".content p",
+      translateY: [100, 0],
+      translateX: [anime.random(0, 500), 0],
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "easeInOutExpo"
+    });
+  }
+
+  /**
+   * Executed when the 404 page is displayed.
+   * @returns {void}
+   */
+  loadProject() {
+    this[_showSidebar]();
+    this[_showTitle]();
+
+    document.querySelector(".content").classList.remove("hide");
+    anime({
+      targets: [
+        ".project-page .image",
+        ".project-page .info tr",
+        ".project-page .project-content p",
+        ".project-page .share-title",
+        ".project-page .share-post",
+        ".project-page hr",
+        ".project-page .related-title",
+        ".project-page .related-post"
+      ],
+      translateY: [100, 0],
+      translateX: () => [anime.random(0, 500), 0],
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "easeInOutExpo"
+    });
+  }
 }
 
 export default Portfolio;

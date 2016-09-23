@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.hide {
+    visibility: hidden;
+}
+
 #nprogress {
     pointer-events: none
 }
@@ -884,11 +888,8 @@ Copyright (c) 2014 Daniel Eden
     }
 }
 
-.hide {
-    display: none;
-}
-
 .page .title {
+    margin-top: -10px;
     color: black;
     text-align: center;
     font-size: 2rem;
@@ -1023,10 +1024,6 @@ Copyright (c) 2014 Daniel Eden
 
 .project-page .share-post a.google {
     background-color: #d64937;
-}
-
-.project-page .hide {
-    display: block;
 }
 
 .project-page .award {
@@ -1216,10 +1213,6 @@ Copyright (c) 2014 Daniel Eden
         margin: 20px 0;
     }
 
-    .project-page .project-title {
-
-    }
-
     .project-page .share-post li {
         margin: 0 10px 10px 0;
         float: left;
@@ -1248,5 +1241,4 @@ Copyright (c) 2014 Daniel Eden
     .project-page .share-post a.google:hover {
         background-color: #d64937;
     }
-
 }
