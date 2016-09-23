@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1290;
+const TOTAL_TESTS = 1434;
 const projects = [
   {
     id: "zalando_ivy-park",
@@ -385,6 +385,13 @@ const testAll = function (test, project) {
   test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=" + encodeURI(clientAndTitle) + "&url=https://www.singuerinc.com" + canonical + "&via=singuerinc']");
   test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com" + canonical + "']");
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
+
+  test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='../']");
+  test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='../']");
+  test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='../about.html']");
+  test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='../about.html']");
+  test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='../sitemap.html']");
+  test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='../sitemap.html']");
 };
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
@@ -434,13 +441,13 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(6) a", "Medium");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(7) a", "Sitemap");
 
-    test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='/']");
-    test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='/about.html']");
+    test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='./']");
+    test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='./about.html']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(3) a[href='https://github.com/singuerinc']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(4) a[href='https://twitter.com/singuerinc']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(5) a[href='https://blog.singuerinc.com']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(6) a[href='https://medium.com/@singuerinc']");
-    test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='/sitemap.html']");
+    test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
 
     // sidebar - mobile - links
     test.assertExists("body .sidebar-mobile ul");
@@ -454,13 +461,13 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(6) a", "Medium");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(7) a", "Sitemap");
 
-    test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='/']");
-    test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='/about.html']");
+    test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='./']");
+    test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='./about.html']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(3) a[href='https://github.com/singuerinc']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(4) a[href='https://twitter.com/singuerinc']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(5) a[href='https://blog.singuerinc.com']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(6) a[href='https://medium.com/@singuerinc']");
-    test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='/sitemap.html']");
+    test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
 
     // posts
     test.assertExists("body .content ul.posts");
@@ -496,7 +503,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("li#" + project.id + " meta[itemprop='keywords']");
       test.assertExists("li#" + project.id + " meta[itemprop='image'][content='https://www.singuerinc.com/img/projects/" + project.image + ".jpg']");
       test.assertExists("li#" + project.id + " meta[itemprop='url'][content='https://www.singuerinc.com" + project.canonical + "']");
-      test.assertExists("li#" + project.id + " a[href='" + project.canonical + "'][target='_self']");
+      test.assertExists("li#" + project.id + " a[href='." + project.canonical + "'][target='_self']");
       test.assertExists("li#" + project.id + " div.post-image.animated." + project.id);
       test.assertSelectorHasText("li#" + project.id + " h3[class='w-title']", project.title);
       test.assertExists("li#" + project.id + " div[class='w-tags']");
@@ -517,6 +524,12 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
       test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/404.html']");
       testCommonMetas(test, "/404.html");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='./']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='./']");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='./about.html']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='./about.html']");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
     })
     .thenOpen("http://jekyll:4000/about.html", function () {
       test.assertHttpStatus(200);
@@ -528,6 +541,12 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertSelectorHasText("body .content.container .title", "I’m Nahuel Scotti. This is my portfolio.");
       test.assertExists("body .content.container blockquote");
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='./']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='./']");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='./about.html']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='./about.html']");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
     })
     .thenOpen("http://jekyll:4000/sitemap.html", function () {
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
@@ -535,6 +554,12 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       testCommonMetas(test, "/sitemap.html");
       test.assertExists("body .content.container");
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='./']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='./']");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='./about.html']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='./about.html']");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
     })
     .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function () {
       testAll(test, projects[0]);

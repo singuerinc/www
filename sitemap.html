@@ -4,6 +4,7 @@ id: "/sitemap"
 title: Sitemap
 ---
 
+{% include base.html %}
 <h2 class="title hide">Site map</h2>
 
 <ul class="site-map">
@@ -27,7 +28,7 @@ title: Sitemap
                 <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
                 <meta itemprop="image" content="{{site.url}}/img/projects/{{ post.image }}.jpg"/>
                 <meta itemprop="url" content="{{site.url}}{{ post.id }}.html"/>
-                <a href="{{ post.id }}.html" target="_self">{{post.client}} · <em>{{post.title}}</em></a>
+                <a href="{{base}}{{ post.id }}.html" target="_self">{{post.client}} · <em>{{post.title}}</em></a>
             </li>
 
             {% endfor %}

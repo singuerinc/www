@@ -2,6 +2,7 @@
 layout: default
 title: Home
 ---
+{% include base.html %}
 
 <h2 class="preamble noselect pre hide">HERE'S WHAT I'VE BEEN WORKING ON</h2>
 
@@ -21,7 +22,7 @@ title: Home
     <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
     <meta itemprop="image" content="{{site.url}}/img/projects/{{ post.image }}.jpg"/>
     <meta itemprop="url" content="{{site.url}}{{ post.id }}.html"/>
-    <a href="{{ post.id }}.html" target="_self" class="w-link animated">
+    <a href="{{base}}{{ post.id }}.html" target="_self" class="w-link animated">
       <div class="post-image {{post.priority}} animated {{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}"></div>
       <h3 class="w-title">{{post.title}}</h3>
       <div class="w-tags">{{ post.tech | join: " · "}}</div>
