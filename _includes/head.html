@@ -55,18 +55,6 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/all.css">
 
-  {% unless page.id == "404" %}
-  <noscript>
-  {% endunless %}
-    <style type="text/css">
-      .hide {
-        display: block;
-      }
-    </style>
-  {% unless page.id == "404" %}
-  </noscript>
-  {% endunless %}
-
   <script type="text/javascript">
     if (("www.singuerinc.com" == window.location.host) && (window.location.protocol != 'https:')) {
       window.location = window.location.toString().replace(/^http:/, "https:");

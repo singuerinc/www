@@ -4,7 +4,7 @@ id: "/sitemap"
 title: Sitemap
 ---
 
-<h2 class="title">Site map</h2>
+<h2 class="title hide">Site map</h2>
 
 <ul class="site-map">
     {% assign sorted_cats = site.categories | sort %}
@@ -36,13 +36,7 @@ title: Sitemap
     {% endfor %}
 </ul>
 
-<blockquote>
+<blockquote class="hide">
     <p>Disclaimer<br>This website contains thoughts, ideas, and opinions that are my own and they don't necessarily
         reflect those of my current or past employers.</p>
 </blockquote>
-
-<style type="text/css">
-    .hide {
-        display: block;
-    }
-</style>

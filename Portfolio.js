@@ -2,6 +2,8 @@
 import anime from "animejs";
 import NProgress from "nprogress";
 
+const _showTitle = Symbol("_showTitle");
+const _showSidebar = Symbol("_showSidebar");
 const _onIndexReady = Symbol("_onIndexReady");
 const _totalImgLoaded = Symbol("_totalImgLoaded");
 const _isRetina = Symbol("_isRetina");
@@ -9,7 +11,7 @@ const _isMobile = Symbol("_isMobile");
 const _posts = Symbol("_posts");
 
 /**
- * The Portfolio class
+ * The Portfolio class.
  * @class Portfolio
  */
 class Portfolio {
@@ -46,43 +48,50 @@ class Portfolio {
       }
     };
 
-    for (let i = 0; i < this[_posts].length; i++) {
+    this[_posts].forEach((post, idx) => {
       let filename,
         src;
 
       if (this[_isMobile] && !this[_isRetina]) {
-        filename = `${this[_posts][i].image}-md.jpg`;
+        filename = `${post.image}-md.jpg`;
       }
       else {
-        filename = `${this[_posts][i].image}.jpg`;
+        filename = `${post.image}.jpg`;
       }
 
       src = `./img/home/${filename}`;
 
-      if (i < 4) {
+      if (idx < 4) {
         const image = new Image();
 
-        image.onload = () => onLoad(this[_posts][i], image.src);
+        image.onload = () => onLoad(post, image.src);
         image.src = src;
       }
       else {
-        onLoad(this[_posts][i], src);
+        onLoad(post, src);
       }
-    }
+    });
   }
 
   /**
-   * When all images are loaded an animation is played.
+   * Animates the title of the page.
    * @returns {void}
    */
-  [_onIndexReady]() {
+  [_showTitle]() {
     anime({
-      targets: ".pre.hide",
+      targets: ".page .title",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
       opacity: [0, 1],
-      duration: 1500
+      duration: 1500,
+      easing: "easeInOutExpo"
     });
+  }
 
+  /**
+   * Animates the sidebar.
+   * @returns {void}
+   */
+  [_showSidebar]() {
     anime({
       targets: ".sidebar",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
@@ -92,14 +101,29 @@ class Portfolio {
       duration: 1500,
       easing: "easeInOutExpo"
     });
+  }
 
-    for (let i = 0; i < this[_posts].length; i++) {
-      const pId = this[_posts][i].id,
-        li = document.querySelector(`li#${pId}`);
+  /**
+   * When all images in the home page are loaded an animation is played.
+   * @returns {void}
+   */
+  [_onIndexReady]() {
+    this[_showSidebar]();
+
+    anime({
+      targets: ".pre.hide",
+      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
+      opacity: [0, 1],
+      duration: 1500
+    });
+
+    this[_posts].forEach((post) => {
+      const pId = post.id;
+      const li = document.querySelector(`li#${pId}`);
 
       li.classList.remove("hide");
       li.querySelector(".w-link").style.backgroundColor = "black";
-    }
+    });
 
     anime({
       targets: ".posts li:nth-child(-n+4)",
@@ -111,6 +135,11 @@ class Portfolio {
     });
   }
 
+  /**
+   * Gets the computed style of an element.
+   * @param {HTMLElement} elem - The element you want to compute.
+   * @returns {Object} The computed style.
+   */
   static getComputedStyle(elem) {
     if (elem.ownerDocument.defaultView.opener) {
       return elem.ownerDocument.defaultView.getComputedStyle(elem, null);
@@ -118,39 +147,58 @@ class Portfolio {
     return window.getComputedStyle(elem, null);
   }
 
+  /**
+   * Executed when the about page is displayed.
+   * @returns {void}
+   */
   loadAbout() {
+    this[_showSidebar]();
+    this[_showTitle]();
+
     anime({
       targets: ".content > p.text",
+      translateY: [100, 0],
+      translateX: () => [anime.random(0, 500), 0],
       opacity: [0, 1],
       duration: 1500,
       easing: "easeInOutExpo",
-      delay: (el, index) => 250 * index
+      delay: (el, index) => 50 * index * Math.random()
     });
 
     anime({
       targets: ".content blockquote",
+      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
       opacity: [0, 1],
       duration: 1500,
-      delay: 8000,
+      delay: 6000,
       easing: "easeInOutExpo"
     });
   }
 
+  /**
+   * Executed when the site-map page is displayed.
+   * @returns {void}
+   */
   loadSiteMap() {
+    this[_showSidebar]();
+    this[_showTitle]();
+
     anime({
-      targets: ".site-map > li",
+      targets: ".site-map li",
       translateY: [100, 0],
+      translateX: () => [anime.random(0, 500), 0],
       opacity: [0, 1],
       duration: 1500,
       easing: "easeInOutExpo",
-      delay: (el, index) => 250 * index
+      delay: (el, index) => 25 * index
     });
 
     anime({
       targets: ".content blockquote",
+      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
       opacity: [0, 1],
       duration: 1500,
-      delay: 8000,
+      delay: 6000,
       easing: "easeInOutExpo"
     });
   }

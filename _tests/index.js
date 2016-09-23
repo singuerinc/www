@@ -509,8 +509,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     .thenOpen("http://jekyll:4000/404.html", function () {
       test.assertHttpStatus(200);
       test.assertExists("body .content.container");
-      test.assertExists("body .content.container h1");
-      test.assertSelectorHasText("body .content.container h1", "404: Page not found");
+      test.assertExists("body .content.container .title");
+      test.assertSelectorHasText("body .content.container .title", "404: Page not found");
       test.assertHttpStatus(200);
       // FIXME: test.assertResourceExists("https://www.google-analytics.com/analytics.js");
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
@@ -524,7 +524,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       testCommonMetas(test, "/about.html");
       test.assertExists("body .content.container");
       test.assertExists("body .content.container p img");
-      test.assertSelectorHasText("body .content.container h1", "I’m Nahuel Scotti. This is my portfolio.");
+      test.assertSelectorHasText("body .content.container .title", "I’m Nahuel Scotti. This is my portfolio.");
       test.assertExists("body .content.container blockquote");
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
     })

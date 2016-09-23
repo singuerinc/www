@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.hide {
+    visibility: hidden;
+}
+
 #nprogress {
     pointer-events: none
 }
@@ -884,10 +888,6 @@ Copyright (c) 2014 Daniel Eden
     }
 }
 
-.hide {
-    display: none;
-}
-
 .page .title {
     color: black;
     text-align: center;
@@ -1023,10 +1023,6 @@ Copyright (c) 2014 Daniel Eden
 
 .project-page .share-post a.google {
     background-color: #d64937;
-}
-
-.project-page .hide {
-    display: block;
 }
 
 .project-page .award {
@@ -1248,5 +1244,4 @@ Copyright (c) 2014 Daniel Eden
     .project-page .share-post a.google:hover {
         background-color: #d64937;
     }
-
 }
