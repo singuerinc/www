@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1289;
+const TOTAL_TESTS = 1290;
 const projects = [
   {
     id: "zalando_ivy-park",
@@ -510,6 +510,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertHttpStatus(200);
       test.assertExists("body .content.container");
       test.assertExists("body .content.container .title");
+      test.assertExists("body .content.container p a[href='/']");
       test.assertSelectorHasText("body .content.container .title", "404: Page not found");
       test.assertHttpStatus(200);
       // FIXME: test.assertResourceExists("https://www.google-analytics.com/analytics.js");

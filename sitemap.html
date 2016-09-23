@@ -11,7 +11,7 @@ title: Sitemap
     {% for category in sorted_cats %}
     {% capture label %}{{ category | first }}{% endcapture %}
     {% assign sorted_posts = site.categories.[label] | sort: "client" %}
-    <li>
+    <li class="hide">
         <h3>{{ label }}</h3>
         <ul>
 

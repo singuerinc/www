@@ -889,6 +889,7 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .page .title {
+    margin-top: -10px;
     color: black;
     text-align: center;
     font-size: 2rem;
@@ -1210,10 +1211,6 @@ Copyright (c) 2014 Daniel Eden
 
     .project-page .share-post {
         margin: 20px 0;
-    }
-
-    .project-page .project-title {
-
     }
 
     .project-page .share-post li {

@@ -12,3 +12,9 @@ else if (page === "/about.html") {
 else if (page === "/sitemap.html") {
   portfolio.loadSiteMap();
 }
+else if (page === "/404.html") {
+  portfolio.load404();
+}
+else if (page === "/project") {
+  portfolio.loadProject();
+}

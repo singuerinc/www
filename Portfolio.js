@@ -117,12 +117,9 @@ class Portfolio {
       duration: 1500
     });
 
-    this[_posts].forEach((post) => {
-      const pId = post.id;
-      const li = document.querySelector(`li#${pId}`);
-
-      li.classList.remove("hide");
-      li.querySelector(".w-link").style.backgroundColor = "black";
+    document.querySelectorAll("ul.posts li").forEach((e) => {
+      e.classList.remove("hide");
+      e.querySelector(".w-link").style.backgroundColor = "black";
     });
 
     anime({
@@ -155,6 +152,7 @@ class Portfolio {
     this[_showSidebar]();
     this[_showTitle]();
 
+    document.querySelectorAll(".content > p.text").forEach((e) => e.classList.remove("hide"));
     anime({
       targets: ".content > p.text",
       translateY: [100, 0],
@@ -163,6 +161,16 @@ class Portfolio {
       duration: 1500,
       easing: "easeInOutExpo",
       delay: (el, index) => 50 * index * Math.random()
+    });
+
+    anime({
+      targets: ".content p img",
+      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
+      translateY: [100, 0],
+      translateX: () => [anime.random(0, 500), 0],
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "easeInOutExpo"
     });
 
     anime({
@@ -183,6 +191,7 @@ class Portfolio {
     this[_showSidebar]();
     this[_showTitle]();
 
+    document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide"));
     anime({
       targets: ".site-map li",
       translateY: [100, 0],
@@ -190,7 +199,7 @@ class Portfolio {
       opacity: [0, 1],
       duration: 1500,
       easing: "easeInOutExpo",
-      delay: (el, index) => 25 * index
+      delay: (el, idx) => idx * 25
     });
 
     anime({
@@ -199,6 +208,42 @@ class Portfolio {
       opacity: [0, 1],
       duration: 1500,
       delay: 6000,
+      easing: "easeInOutExpo"
+    });
+  }
+
+  /**
+   * Executed when the 404 page is displayed.
+   * @returns {void}
+   */
+  load404() {
+    this[_showSidebar]();
+    this[_showTitle]();
+
+    anime({
+      targets: ".content p",
+      translateY: [100, 0],
+      translateX: [anime.random(0, 500), 0],
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "easeInOutExpo"
+    });
+  }
+
+  /**
+   * Executed when the 404 page is displayed.
+   * @returns {void}
+   */
+  loadProject() {
+    this[_showSidebar]();
+    this[_showTitle]();
+
+    anime({
+      targets: ".content *",
+      translateY: [100, 0],
+      translateX: () => [anime.random(0, 500), 0],
+      opacity: [0, 1],
+      duration: 1500,
       easing: "easeInOutExpo"
     });
   }
