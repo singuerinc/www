@@ -238,8 +238,18 @@ class Portfolio {
     this[_showSidebar]();
     this[_showTitle]();
 
+    document.querySelector(".content").classList.remove("hide");
     anime({
-      targets: ".content *",
+      targets: [
+        ".project-page .image",
+        ".project-page .info tr",
+        ".project-page .project-content p",
+        ".project-page .share-title",
+        ".project-page .share-post",
+        ".project-page hr",
+        ".project-page .related-title",
+        ".project-page .related-post"
+      ],
       translateY: [100, 0],
       translateX: () => [anime.random(0, 500), 0],
       opacity: [0, 1],
