@@ -135,6 +135,25 @@ class Portfolio {
       easing: "easeInOutExpo"
     });
   }
+
+  loadSiteMap() {
+    anime({
+      targets: ".site-map > li",
+      translateY: [100, 0],
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "easeInOutExpo",
+      delay: (el, index) => 250 * index
+    });
+
+    anime({
+      targets: ".content blockquote",
+      opacity: [0, 1],
+      duration: 1500,
+      delay: 8000,
+      easing: "easeInOutExpo"
+    });
+  }
 }
 
 export default Portfolio;

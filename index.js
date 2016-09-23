@@ -9,3 +9,6 @@ if (page === "/" || page === "/index.html") {
 else if (page === "/about.html") {
   portfolio.loadAbout();
 }
+else if (page === "/sitemap.html") {
+  portfolio.loadSiteMap();
+}
