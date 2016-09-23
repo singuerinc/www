@@ -244,6 +244,7 @@ class Portfolio {
         ".project-page .image",
         ".project-page .info tr",
         ".project-page .project-content p",
+        ".project-page .project-content .video-wrapper",
         ".project-page .share-title",
         ".project-page .share-post",
         ".project-page hr",
