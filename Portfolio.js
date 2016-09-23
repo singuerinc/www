@@ -2,7 +2,7 @@
 import anime from "animejs";
 import NProgress from "nprogress";
 
-const _onReady = Symbol("_onReady");
+const _onIndexReady = Symbol("_onIndexReady");
 const _totalImgLoaded = Symbol("_totalImgLoaded");
 const _isRetina = Symbol("_isRetina");
 const _isMobile = Symbol("_isMobile");
@@ -17,17 +17,17 @@ class Portfolio {
   constructor() {
     const STYLE = Portfolio.getComputedStyle(document.querySelector("html"));
 
-    this[_posts] = window.posts;
     this[_isRetina] = window.devicePixelRatio > 1;
     this[_isMobile] = (parseInt(STYLE.getPropertyValue("width"), 10)) < 768;
-    this[_totalImgLoaded] = 0;
   }
 
   /**
    * Starts the load of all images in the portfolio.
    * @returns {void}
    */
-  load() {
+  loadIndex() {
+    this[_posts] = window.posts;
+    this[_totalImgLoaded] = 0;
     NProgress.configure({ showSpinner: false });
     const onLoad = (post, src) => {
       const tag = document.querySelector(`.post-image.${post.id}`);
@@ -41,7 +41,7 @@ class Portfolio {
 
         setTimeout(() => {
           NProgress.done(true);
-          this[_onReady]();
+          this[_onIndexReady]();
         }, waitBeforeReady);
       }
     };
@@ -75,7 +75,7 @@ class Portfolio {
    * When all images are loaded an animation is played.
    * @returns {void}
    */
-  [_onReady]() {
+  [_onIndexReady]() {
     anime({
       targets: ".pre.hide",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
@@ -118,6 +118,23 @@ class Portfolio {
     return window.getComputedStyle(elem, null);
   }
 
+  loadAbout() {
+    anime({
+      targets: ".content > p.text",
+      opacity: [0, 1],
+      duration: 1500,
+      easing: "easeInOutExpo",
+      delay: (el, index) => 250 * index
+    });
+
+    anime({
+      targets: ".content blockquote",
+      opacity: [0, 1],
+      duration: 1500,
+      delay: 8000,
+      easing: "easeInOutExpo"
+    });
+  }
 }
 
 export default Portfolio;
