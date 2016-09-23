@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 {% include head.html %}
+{% include base.html %}
 
 <script type="text/javascript">
   page = "/project";
@@ -26,7 +27,7 @@
         {% for award in page.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
         <meta itemprop="keywords" content="{{page.tech|join:', '}}"/>
         <meta itemprop="image" content="{{site.url}}/img/projects/{{ page.image }}.jpg"/>
-        <img class="image" src="/img/projects/{{ page.image }}.jpg" alt="{{ page.title }}" title="{{ page.title }}">
+        <img class="image" src="{{base}}/img/projects/{{ page.image }}.jpg" alt="{{ page.title }}" title="{{ page.title }}">
         <meta itemprop="url" content="{{page_url}}"/>
 
         <table class="info">
@@ -101,7 +102,7 @@
           {% else %}
             {% assign post_title = post.client | append: " · " | append: post.title %}
           {% endif %}
-        <li><a href="{{ post.id }}.html" target="_self">{{ post_title }}</a></li>
+        <li><a href="{{base}}{{ post.id }}.html" target="_self">{{ post_title }}</a></li>
         {% endif %}
       {% endfor %}
       </ul>
@@ -109,9 +110,6 @@
     </div>
 
   {% include sidebar-mobile.html %}
-
-  <link rel="stylesheet" href="/all.css">
-
   {% include footer.html %}
 
 </body>
