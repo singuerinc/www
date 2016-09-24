@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1434;
+const TOTAL_TESTS = 1458;
 const projects = [
   {
     id: "zalando_ivy-park",
@@ -386,6 +386,7 @@ const testAll = function (test, project) {
   test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com" + canonical + "']");
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
 
+  test.assertExists("body .sidebar header h1 a[href='../']");
   test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='../']");
   test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='../']");
   test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='../about.html']");
@@ -427,7 +428,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertElementCount("body .sidebar header", 1);
     test.assertExists("body .sidebar header a");
     test.assertSelectorHasText("body .sidebar header a", "@singuerinc");
-    test.assertExists("body .sidebar header a[href='/']", "@singuerinc");
+    test.assertExists("body .sidebar header a[href='./']", "@singuerinc");
 
     // sidebar - desktop - links
     test.assertExists("body .sidebar ul");
@@ -524,6 +525,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
       test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/404.html']");
       testCommonMetas(test, "/404.html");
+      test.assertExists("body .sidebar header h1 a[href='./']");
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='./']");
       test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='./']");
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='./about.html']");
@@ -541,6 +543,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertSelectorHasText("body .content.container .title", "I’m Nahuel Scotti. This is my portfolio.");
       test.assertExists("body .content.container blockquote");
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
+      test.assertExists("body .sidebar header h1 a[href='./']");
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='./']");
       test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='./']");
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='./about.html']");
@@ -554,6 +557,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       testCommonMetas(test, "/sitemap.html");
       test.assertExists("body .content.container");
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
+      test.assertExists("body .sidebar header h1 a[href='./']");
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='./']");
       test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='./']");
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='./about.html']");
