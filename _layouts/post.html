@@ -92,6 +92,28 @@
 
       <hr>
 
+      {% if page.previous.url || page.next.url %}
+      <ul class="prev-next-project">
+          {% if page.next.url %}
+            {% if page.next.client == page.next.title %}
+              {% assign page_next_title = page.next.title %}
+            {% else %}
+              {% assign page_next_title = page.next.client | append: " · " | append: page.next.title %}
+            {% endif %}
+          <li><a class="next" href="{{page.next.url}}">{{page_next_title}}</a></li>
+          {% endif %}
+          {% if page.previous.url %}
+            {% if page.previous.client == page.previous.title %}
+              {% assign page_previous_title = page.previous.title %}
+            {% else %}
+              {% assign page_previous_title = page.previous.client | append: " · " | append: page.previous.title %}
+            {% endif %}
+          <li><a class="prev" href="{{page.previous.url}}">{{page_previous_title}}</a></li>
+          {% endif %}
+      </ul>
+      <hr>
+      {% endif %}
+
       <h2 class="related-title">Related</h2>
       <ul class="related-post">
       {% assign sorted_posts = site.categories.[page.category] | sort: "client" %}

@@ -968,6 +968,31 @@ Copyright (c) 2014 Daniel Eden
 	text-align: center;
 }
 
+.project-page .prev-next-project {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.project-page .prev-next-project li:nth-child(1):before {
+	content: '\021B0';
+	margin-right: 7px;
+}
+
+.project-page .prev-next-project li:nth-child(1) {
+	float: left;
+}
+
+.project-page .prev-next-project li:last-child {
+	float: right;
+}
+
+.project-page .prev-next-project li:last-child:after {
+	content: '\021B1';
+	margin-left: 7px;
+}
+
 .project-page .related-post, .project-page .share-post {
 	list-style: none;
 	padding: 0;
