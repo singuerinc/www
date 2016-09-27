@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1458;
+const TOTAL_TESTS = 1500;
 const projects = [
   {
     id: "zalando_ivy-park",
@@ -317,7 +317,6 @@ const testCommonMetas = function (test, canonical) {
 const testAll = function (test, project) {
   const role = project.role,
     client = project.client,
-    title = project.title,
     clientAndTitle = project.clientAndTitle,
     agency = project.agency,
     canonical = project.canonical,
@@ -376,6 +375,11 @@ const testAll = function (test, project) {
     test.assertExists(".info tr:nth-child(6) td:nth-child(1)", "Tech");
   }
 
+  var isFirstProject = project.id === "zalando_ivy-park",
+    isLastProject = project.id === "evax_estudio-risa";
+
+  test.assertElementCount(".project-page .prev-next-project", 1);
+  test.assertElementCount(".project-page .prev-next-project li", (isFirstProject || isLastProject) ? 1 : 2);
   test.assertExists(".related-post");
   test.assertSelectorHasText(".related-title", "Related");
   test.assertElementCount(".related-post li", relatedCount);

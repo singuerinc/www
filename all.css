@@ -318,15 +318,21 @@ body {
 /* No `:visited` state is required by default (browsers will use `a`) */
 
 a {
-	color: #268bd2;
+	color: #bbb;
 	text-decoration: none;
+	-webkit-transition: color 500ms;
+	-moz-transition: color 500ms;
+	-ms-transition: color 500ms;
+	-o-transition: color 500ms;
+	transition: color 500ms;
 }
 
 /* `:focus` is linked to `:hover` for basic accessibility */
 
 a:hover,
 a:focus {
-	text-decoration: underline;
+	text-decoration: none;
+	color: black;
 }
 
 h1 {
@@ -510,17 +516,16 @@ h3 {
 	color: black;
 }
 
-.sidebar a, .sidebar-mobile a, a {
+.sidebar a, .sidebar-mobile a {
 	color: black;
+}
+
+.sidebar a:hover, .sidebar-mobile a:hover {
+	color: #bbb;
 }
 
 .sidebar ul a, .sidebar-mobile ul a {
 	text-transform: uppercase;
-}
-
-.sidebar a:focus, .sidebar a:active, .sidebar-mobile a:focus, .sidebar-mobile a:active {
-	color: white;
-	background-color: black !important;
 }
 
 .sidebar ul, .sidebar-mobile ul {
@@ -886,7 +891,6 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .page .title {
-	margin-top: -10px;
 	color: black;
 	text-align: center;
 	font-size: 2rem;
@@ -945,10 +949,6 @@ Copyright (c) 2014 Daniel Eden
 	padding: 3px 0;
 }
 
-.project-page .info * {
-	color: rgba(0, 0, 0, 0.4);
-}
-
 .project-page .info a {
 	text-decoration: underline;
 }
@@ -956,7 +956,7 @@ Copyright (c) 2014 Daniel Eden
 .project-page hr {
 	clear: both;
 	border: 0;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 .project-page .related-title, .project-page .share-title {
@@ -973,23 +973,23 @@ Copyright (c) 2014 Daniel Eden
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	text-align: center;
+	clear: both;
 }
 
-.project-page .prev-next-project li:nth-child(1):before {
-	content: '\021B0';
+.project-page .prev-next-project li {
+	padding: 10px 0;
+}
+
+.project-page .prev-next-project li.prev:before {
+	content: '\021E4';
+	color: #bbb;
 	margin-right: 7px;
 }
 
-.project-page .prev-next-project li:nth-child(1) {
-	float: left;
-}
-
-.project-page .prev-next-project li:last-child {
-	float: right;
-}
-
-.project-page .prev-next-project li:last-child:after {
-	content: '\021B1';
+.project-page .prev-next-project li.next:after {
+	content: '\021E5';
+	color: #bbb;
 	margin-left: 7px;
 }
 
@@ -1023,7 +1023,6 @@ Copyright (c) 2014 Daniel Eden
 
 .project-page .related-post a {
 	display: block;
-	color: #BBB;
 }
 
 .project-page .share-post a {
@@ -1221,6 +1220,22 @@ Copyright (c) 2014 Daniel Eden
 		min-width: 100px;
 		text-align: left;
 		clear: left;
+	}
+
+	.project-page .prev-next-project li.prev:before {
+		margin-right: 7px;
+	}
+
+	.project-page .prev-next-project li.prev {
+		float: left;
+	}
+
+	.project-page .prev-next-project li.next {
+		float: right;
+	}
+
+	.project-page .prev-next-project li.next:after {
+		margin-left: 7px;
 	}
 
 	.project-page .related-post, .project-page .share-post {

@@ -21,7 +21,31 @@
     <div class="content container hide">
 
       <div itemscope itemtype="http://schema.org/WebSite">
+
+        {% if page.previous.url or page.next.url %}
+        <ul class="prev-next-project">
+          {% if page.next.url %}
+          {% if page.next.client == page.next.title %}
+          {% assign page_next_title = page.next.title %}
+          {% else %}
+          {% assign page_next_title = page.next.client | append: " · " | append: page.next.title %}
+          {% endif %}
+          <li class="prev"><a href="{{page.next.url}}">{{page_next_title}}</a></li>
+          {% endif %}
+          {% if page.previous.url %}
+          {% if page.previous.client == page.previous.title %}
+          {% assign page_previous_title = page.previous.title %}
+          {% else %}
+          {% assign page_previous_title = page.previous.client | append: " · " | append: page.previous.title %}
+          {% endif %}
+          <li class="next"><a href="{{page.previous.url}}">{{page_previous_title}}</a></li>
+          {% endif %}
+        </ul>
+        {% endif %}
+
+
         <h1 class="project-title title">{{ page_title }}</h1>
+
         <meta itemprop="name" content="{{page_title}}"/>
         <meta itemprop="contributor" content="Nahuel Scotti"/>
         {% for award in page.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
@@ -83,6 +107,8 @@
 
       </div>
 
+      <hr>
+
       <h2 class="share-title">Share</h2>
       <ul class="share-post">
         <li><a class="twitter" href="https://twitter.com/intent/tweet?text={{page_title|uri_escape}}&url={{page_url|uri_escape}}&via=singuerinc" target="_blank">Twitter</a></li>
@@ -91,28 +117,6 @@
       </ul>
 
       <hr>
-
-      {% if page.previous.url || page.next.url %}
-      <ul class="prev-next-project">
-          {% if page.next.url %}
-            {% if page.next.client == page.next.title %}
-              {% assign page_next_title = page.next.title %}
-            {% else %}
-              {% assign page_next_title = page.next.client | append: " · " | append: page.next.title %}
-            {% endif %}
-          <li><a href="{{page.next.url}}">{{page_next_title}}</a></li>
-          {% endif %}
-          {% if page.previous.url %}
-            {% if page.previous.client == page.previous.title %}
-              {% assign page_previous_title = page.previous.title %}
-            {% else %}
-              {% assign page_previous_title = page.previous.client | append: " · " | append: page.previous.title %}
-            {% endif %}
-          <li><a href="{{page.previous.url}}">{{page_previous_title}}</a></li>
-          {% endif %}
-      </ul>
-      <hr>
-      {% endif %}
 
       <h2 class="related-title">Related</h2>
       <ul class="related-post">
