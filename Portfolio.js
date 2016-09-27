@@ -2,6 +2,7 @@
 import anime from "animejs";
 import NProgress from "nprogress";
 
+const _showPrevAndNextProjects = Symbol("_showPrevAndNextProjects");
 const _showTitle = Symbol("_showTitle");
 const _showSidebar = Symbol("_showSidebar");
 const _onIndexReady = Symbol("_onIndexReady");
@@ -70,6 +71,21 @@ class Portfolio {
       else {
         onLoad(post, src);
       }
+    });
+  }
+
+  /**
+   * Animates the previous and the next project in the page.
+   * @returns {void}
+   */
+  [_showPrevAndNextProjects]() {
+    anime({
+      targets: ".page .prev-next-project",
+      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
+      opacity: [0, 1],
+      duration: 2000,
+      delay: 150,
+      easing: "easeInOutExpo"
     });
   }
 
@@ -236,6 +252,7 @@ class Portfolio {
    */
   loadProject() {
     this[_showSidebar]();
+    this[_showPrevAndNextProjects]();
     this[_showTitle]();
 
     document.querySelector(".content").classList.remove("hide");
