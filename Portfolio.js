@@ -80,19 +80,9 @@ class Portfolio {
    */
   [_showPrevAndNextProjects]() {
     anime({
-      targets: ".page .prev-next-project .prev",
+      targets: ".page .prev-next-project",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
       opacity: [0, 1],
-      translateX: [100, 0],
-      duration: 2000,
-      delay: 150,
-      easing: "easeInOutExpo"
-    });
-    anime({
-      targets: ".page .prev-next-project .next",
-      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
-      opacity: [0, 1],
-      translateX: [-100, 0],
       duration: 2000,
       delay: 150,
       easing: "easeInOutExpo"

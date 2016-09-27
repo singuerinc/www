@@ -23,14 +23,14 @@
       <div itemscope itemtype="http://schema.org/WebSite">
 
         {% if page.previous.url or page.next.url %}
-        <ul class="prev-next-project">
+        <ul class="prev-next-project hide">
           {% if page.next.url %}
           {% if page.next.client == page.next.title %}
           {% assign page_next_title = page.next.title %}
           {% else %}
           {% assign page_next_title = page.next.client | append: " · " | append: page.next.title %}
           {% endif %}
-          <li class="prev hide"><a href="{{page.next.url}}">{{page_next_title}}</a></li>
+          <li class="prev"><a href="{{page.next.url}}">{{page_next_title}}</a></li>
           {% endif %}
           {% if page.previous.url %}
           {% if page.previous.client == page.previous.title %}
@@ -38,7 +38,7 @@
           {% else %}
           {% assign page_previous_title = page.previous.client | append: " · " | append: page.previous.title %}
           {% endif %}
-          <li class="next hide"><a href="{{page.previous.url}}">{{page_previous_title}}</a></li>
+          <li class="next"><a href="{{page.previous.url}}">{{page_previous_title}}</a></li>
           {% endif %}
         </ul>
         {% endif %}
