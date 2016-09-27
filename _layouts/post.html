@@ -30,7 +30,7 @@
           {% else %}
           {% assign page_next_title = page.next.client | append: " · " | append: page.next.title %}
           {% endif %}
-          <li class="prev"><a href="{{page.next.url}}">{{page_next_title}}</a></li>
+          <li class="prev hide"><a href="{{page.next.url}}">{{page_next_title}}</a></li>
           {% endif %}
           {% if page.previous.url %}
           {% if page.previous.client == page.previous.title %}
@@ -38,7 +38,7 @@
           {% else %}
           {% assign page_previous_title = page.previous.client | append: " · " | append: page.previous.title %}
           {% endif %}
-          <li class="next"><a href="{{page.previous.url}}">{{page_previous_title}}</a></li>
+          <li class="next hide"><a href="{{page.previous.url}}">{{page_previous_title}}</a></li>
           {% endif %}
         </ul>
         {% endif %}
