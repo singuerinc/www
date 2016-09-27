@@ -718,7 +718,15 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .project-page p em {
-	color: black;
+	font-size: 0.8em;
+	display: block;
+	line-height: 1.8em;
+	font-style: normal;
+	color: lightgrey;
+}
+
+.project-page .project-content ul {
+	font-size: 1.4em;
 }
 
 .project-page .info {
