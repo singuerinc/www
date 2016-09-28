@@ -21,8 +21,6 @@ priority: 'priority-0'
 www: ""
 more: ""
 awards: ['award-sol_plata', 'award-laus', 'award-efi']
-css:
-  - no-columns
 ---
 
 _Atrapalo.com. Online travel, tickets and leisure agency._

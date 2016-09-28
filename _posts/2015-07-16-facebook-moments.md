@@ -22,8 +22,11 @@ more: "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/"
 priority: 'priority-2'
 ---
 
-Facebook asked to B-Reel to create a landing page for they new mobile application. I was in charge of create a this website and making things move.  
+I was working at B-REEL when Facebook asked them to create a landing page for their new mobile application "Moments".  
 
-It was funny to create a fully responsive single-page site with a kind of parallax effect. Actually, it was a great challenge to create the video open animation working across different devices. In fact some time after the release I was surprised seeing Codrops creating a tutorial based on this effect:
+I had a great time creating this fully responsive single-page site.  
+If you click on the "Watch the video" button you will see a cool video transition made with a mix of CSS and Javascript. And when you scroll the page shows a fancy parallax effect.
 
-<a href='http://tympanus.net/codrops/2015/09/17/how-to-create-a-fullscreen-video-opening-animation/' target='\_blank'>http://tympanus.net/codrops/2015/09/17/how-to-create-a-fullscreen-video-opening-animation/</a>
+About the video transition:  
+It was a great challenge to me to make transition works across all kind of devices.  
+In fact, some time after the release, I was surprised when Codrops creates <a href="http://tympanus.net/codrops/2015/09/17/how-to-create-a-fullscreen-video-opening-animation/" target="_blank">a tutorial based on such effect</a>.

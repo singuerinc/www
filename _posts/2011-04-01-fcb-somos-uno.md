@@ -20,8 +20,6 @@ priority: 'priority-0'
 www: "https://singuerinc-doubleyou.gitlab.io/com.nike.somun/"
 more: ""
 awards: ['award-sol_bronce']
-css:
-  - no-columns
 ---
 
 <div class="video-wrapper">
