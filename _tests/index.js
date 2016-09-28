@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1500;
+const TOTAL_TESTS = 1494;
 const projects = [
   {
     id: "zalando_ivy-park",
