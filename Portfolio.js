@@ -251,6 +251,8 @@ class Portfolio {
    * @returns {void}
    */
   loadProject() {
+    let link;
+
     this[_showSidebar]();
     this[_showPrevAndNextProjects]();
     this[_showTitle]();
@@ -261,6 +263,7 @@ class Portfolio {
         ".project-page .image",
         ".project-page .info tr",
         ".project-page .project-content p",
+        ".project-page .project-content .video-wrapper",
         ".project-page .share-title",
         ".project-page .share-post",
         ".project-page hr",
@@ -273,6 +276,25 @@ class Portfolio {
       duration: 1500,
       easing: "easeInOutExpo"
     });
+
+    link = document.querySelectorAll(".prev-next-project li a");
+    link.forEach((t) => t.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isPrevBtn = e.target.parentNode.classList.contains("prev");
+
+      anime({
+        targets: [
+          ".page *"
+        ],
+        opacity: [1, 0],
+        translateX: [0, 100 * (isPrevBtn ? -1 : 1)],
+        duration: 1500,
+        easing: "easeInOutExpo",
+        complete: () => {
+          window.location.href = e.target.getAttribute("href");
+        }
+      });
+    }));
   }
 }
 
