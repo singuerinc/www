@@ -30,7 +30,7 @@ const projects = [
   },
   {
     id: "arawys_store",
-    role: "Tech Lead Developer",
+    role: "Lead Developer",
     client: "Arawys",
     title: "Store",
     clientAndTitle: "Arawys · Store",
@@ -44,7 +44,7 @@ const projects = [
   },
   {
     id: "htc-google_vive",
-    role: "Tech Architect/Backend Developer",
+    role: "Architect/Backend Developer",
     client: "HTC Google",
     title: "Vive",
     clientAndTitle: "HTC Google · Vive",
@@ -58,7 +58,7 @@ const projects = [
   },
   {
     id: "facebook_moments",
-    role: "Tech Lead Developer",
+    role: "Lead Developer",
     client: "Facebook",
     title: "Moments",
     clientAndTitle: "Facebook · Moments",
@@ -128,7 +128,7 @@ const projects = [
   },
   {
     id: "médecins-du-monde_names-not-numbers",
-    role: "Tech Lead Developer",
+    role: "Lead Developer",
     client: "Médecins du Monde",
     title: "Names not numbers",
     clientAndTitle: "Médecins du Monde · Names not numbers",

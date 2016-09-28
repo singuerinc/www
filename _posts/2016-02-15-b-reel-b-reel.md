@@ -27,4 +27,4 @@ Together with the team, we were responsible for making both frontend and backend
 
 The front end features a fully responsive bootstrap 12-grid layout and a custom Marionette/Backbone application to make smooth transitions and interactions on each page.
 
-I was also one of the core contributors of the B-REEL Javascript Framework, an innersource project that this website makes use of it.
+I was also one of the core contributors of the B-REEL Javascript Framework, an innersource project which b-reel.com makes use of it.
