@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import 'https://fonts.googleapis.com/css?family=Roboto';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400';
 
 .hide {
 	visibility: hidden;
@@ -718,11 +718,19 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .project-page p em {
-	font-size: 0.8em;
+	font-size: 1.4em;
 	display: block;
-	line-height: 1.8em;
+	line-height: 1.4em;
+	color: black;
+	margin: 20px 0;
+	border-left: 4px solid lightgray;
+	padding: 0 0 0 20px;
 	font-style: normal;
-	color: lightgrey;
+	font-weight: 300;
+}
+
+.project-page .project-content p a {
+	text-decoration: underline;
 }
 
 .project-page .project-content ul {

@@ -24,15 +24,16 @@ more: ""
 priority: 'priority-2'
 ---
 
+_"Arawys is a new way of selling clothes for the woman in Per&uacute;. It combines the latest tendencies from Europe with the fresh and energy from South America"._
+
 Arawys was the perfect excuse to explore the world of e-Commerces. After testing several options I decided to give a try to PrestaShop.
 
 I end up selecting it for many reasons:
 
-- It is open source and it has a big community behind. Which means good support in case of troubles.
+- It is open source and it has a big community behind, which means good support in case of troubles.
 - It is written in PHP and easy to setup. Also, it runs well on Docker.
 - Because it is possible to change entirely based on your needs.
 - And because the client had a tight budget and PrestaShop is free to use.
 
 It was one of those project that I was in charge of everything: frontend, backend, sysadmin, and also making changes to the design.
 
-_Arawys is a new way of selling clothes for the woman in Per&uacute;. It combines the latest tendencies from Europe with the fresh and energy from South America._
