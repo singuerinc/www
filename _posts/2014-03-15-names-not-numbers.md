@@ -22,8 +22,6 @@ www: "https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/"
 more: "http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/"
 awards: ['award-awwwards_site_of_the_day', 'thefwa_site_of_the_day']
 priority: 'priority-2'
-css:
-  - no-columns
 ---
 
 _The digital experience is based on a film, documenting the actual machine’s mechanics in a highly delicate manner._

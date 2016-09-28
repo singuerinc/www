@@ -22,8 +22,6 @@ image_home: "google--kick-with-chrome"
 www: "https://www.chromeexperiments.com/experiment/kick-with-chrome"
 more: "http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/"
 priority: 'priority-2'
-css:
-  - no-columns
 ---
 
 <div class="video-wrapper">

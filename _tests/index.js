@@ -590,12 +590,10 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       testAll(test, projects[5]);
     })
     .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function () {
-      test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       testAll(test, projects[6]);
     })
     .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function () {
-      test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       testAll(test, projects[7]);
     })
@@ -603,7 +601,6 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       testAll(test, projects[8]);
     })
     .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function () {
-      test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(8) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(8) td:nth-child(2) .award.thefwa_site_of_the_day");
@@ -630,13 +627,11 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       testAll(test, projects[15]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function () {
-      test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-sol_bronce");
       testAll(test, projects[16]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function () {
-      test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_plata");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-laus");
@@ -644,7 +639,6 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       testAll(test, projects[17]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function () {
-      test.assertExists("body.project-page .content .project-content.no-columns");
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       testAll(test, projects[18]);
     })

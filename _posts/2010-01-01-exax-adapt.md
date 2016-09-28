@@ -18,8 +18,6 @@ image_home: "evax--adapt"
 priority: 'priority-0'
 www: ""
 more: ""
-css:
-  - no-columns
 ---
 
 <div class="video-wrapper">
