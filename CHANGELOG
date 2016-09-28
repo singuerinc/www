@@ -1,33 +1,20 @@
 # www
 
-## [12.0.0-rc1] - 2016-09-23
-- Add some transitions
-- Fix absolute paths, the site can run in a subfolder
+## [12.0.0] - 2016-09-29
+- Add enter and leave transitions to pages
+- Add next project button
+- Add some animations to the project's page
+- Fix singuerinc link to home page
 
 ## [11.0.0] - 2016-09-22
 - Fix Images are not big enough
-- Add sitemap page
+- Add site map page
 - Remove <br/>'s
 - Implement progress bar on loading
 - Add role to project profiles
 - Award box is not vertically centered
 - git commit sha in html doc
-- Metas according to the page
-
-## [11.0.0-rc4] - 2016-09-20
-- Add sitemap page
-- Remove <br/>'s
-- Implement progress bar on loading
-
-## [11.0.0-rc3] - 2016-09-16
-- Add role to project profiles
-
-## [11.0.0-rc2] - 2016-09-16
-- Award box is not vertically centered
-- git commit sha in html doc
-
-## [11.0.0-rc1] - 2016-09-15
-- Metas according to the page
+- Meta tags according to the page
 
 ## [10.0.0] - 2016-09-15
 - More semantic tags for project title, etc
@@ -42,7 +29,7 @@
 - Fix Black placeholders during the images loading should be white or transparent
 - Fix Related buttons are too small for mobile
 - Fix Images that are 50% tall are displayed incorrectly in mobile
-- Fix Style inside a div is not permited
+- Fix Style inside a div is not permitted
 - Test in devices
 
 ## [8.0.0] - 2016-09-10
@@ -75,7 +62,7 @@
 - Fix fix only latest docker image is created !40
 
 ## [5.2.0] - 2016-08-25
-- Fix "Google Bot doen't see anything"
+- Fix "Google Bot doesn't see anything"
 - Optimize assets after PageSpeed Insights report
 - Exclude index.js from compiled public folder
 - Test before each commit (via git hook)
@@ -116,7 +103,7 @@
 
 ## [3.2.0] - 2016-08-14
 - Change Metadata id
-- Awards bagde
+- Awards badge
 - Awards layout
 
 ## [3.1.0] - 2016-08-12
@@ -133,7 +120,7 @@
 - Projects pages
 - Projects descriptions updated
 - CI now build, test and deploy
-- Test with html-proofer
+- Test with htmlproofer
 - Add Google Analytics "enhanced link attribution"
 - Styles updated
 - About has sidebar
