@@ -35,11 +35,20 @@ class Portfolio {
     document.querySelectorAll(els).forEach((el) => {
       el.addEventListener("click", (e) => {
         e.preventDefault();
+
+        anime({
+          targets: "img, iframe",
+          opacity: [1, 0],
+          duration: 800,
+          easing: "easeInExpo"
+        });
+
         anime({
           targets: ".content",
           opacity: [1, 0],
-          duration: () => 500,
-          easing: "easeInOutExpo",
+          translateX: [0, -50],
+          duration: 1000,
+          easing: "easeInExpo",
           complete: () => {
             Turbolinks.visit(e.target.getAttribute("href"), { action: "replace" });
           }
@@ -172,30 +181,37 @@ class Portfolio {
    */
   loadAbout() {
     this[_whenClickExit]("h1 a, .sidebar ul li a, .sidebar-mobile ul li a");
-    this[_showTitle]();
 
-    setTimeout(() => document.querySelectorAll(".content > p.text").forEach((e) => e.classList.remove("hide")), 1);
+    NProgress.inc();
+    const image = new Image();
 
-    anime({
-      targets: ".content > p.text, .content p img",
-      translateY: [100, 0],
-      translateX: () => [anime.random(0, 500), 0],
-      opacity: [0, 1],
-      duration: 1500,
-      easing: "easeInOutExpo",
-      delay: (el, index) => 50 * index * Math.random()
-    });
+    image.onload = () => {
+      NProgress.done(true);
+      this[_showTitle]();
 
-    anime({
-      targets: ".content blockquote",
-      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
-      opacity: [0, 1],
-      duration: 1500,
-      delay: 6000,
-      easing: "easeInOutExpo"
-    });
+      anime({
+        targets: ".content > p.text, .content p img",
+        translateY: [100, 0],
+        translateX: () => [anime.random(0, 500), 0],
+        opacity: [0, 1],
+        duration: 1500,
+        easing: "easeInOutExpo",
+        delay: (el, index) => 50 * index * Math.random()
+      });
 
-    setTimeout(() => document.querySelector(".content p img").classList.remove("hide"), 0);
+      anime({
+        targets: ".content blockquote",
+        begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
+        opacity: [0, 1],
+        duration: 1500,
+        delay: 6000,
+        easing: "easeInOutExpo"
+      });
+
+      setTimeout(() => document.querySelectorAll(".content p img, .content > p.text").forEach((e) => e.classList.remove("hide")), 0);
+    };
+
+    image.src = `${document.querySelector(".page .content img").getAttribute("src")}`;
   }
 
   /**
