@@ -1,10 +1,10 @@
-/* global window, setTimeout, Image, document */
+/* global window, setTimeout, Image, document, devicePixelRatio, Turbolinks */
 import anime from "animejs";
 import NProgress from "nprogress";
 
 const _showPrevAndNextProjects = Symbol("_showPrevAndNextProjects");
+const _whenClickExit = Symbol("_whenClickExit");
 const _showTitle = Symbol("_showTitle");
-const _showSidebar = Symbol("_showSidebar");
 const _onIndexReady = Symbol("_onIndexReady");
 const _totalImgLoaded = Symbol("_totalImgLoaded");
 const _isRetina = Symbol("_isRetina");
@@ -20,8 +20,32 @@ class Portfolio {
   constructor() {
     const STYLE = Portfolio.getComputedStyle(document.querySelector("html"));
 
-    this[_isRetina] = window.devicePixelRatio > 1;
+    this[_isRetina] = devicePixelRatio > 1;
     this[_isMobile] = (parseInt(STYLE.getPropertyValue("width"), 10)) < 768;
+  }
+
+  /**
+   * Adds a listener to each element.
+   * When the user clicks in one of those elements,
+   * then the pages fadeout and navigate to the next page.
+   * @param {string} els - A selector string
+   * @returns {void}
+   */
+  [_whenClickExit](els) {
+    document.querySelectorAll(els).forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        anime({
+          targets: ".content",
+          opacity: [1, 0],
+          duration: () => 500,
+          easing: "easeInOutExpo",
+          complete: () => {
+            Turbolinks.visit(e.target.getAttribute("href"), { action: "replace" });
+          }
+        });
+      });
+    });
   }
 
   /**
@@ -29,6 +53,7 @@ class Portfolio {
    * @returns {void}
    */
   loadIndex() {
+    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a, ul.posts li > .w-link");
     this[_posts] = window.posts;
     this[_totalImgLoaded] = 0;
     NProgress.configure({ showSpinner: false });
@@ -104,28 +129,10 @@ class Portfolio {
   }
 
   /**
-   * Animates the sidebar.
-   * @returns {void}
-   */
-  [_showSidebar]() {
-    anime({
-      targets: ".sidebar",
-      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
-      translateX: {
-        value: [-400, 0]
-      },
-      duration: 1500,
-      easing: "easeInOutExpo"
-    });
-  }
-
-  /**
    * When all images in the home page are loaded an animation is played.
    * @returns {void}
    */
   [_onIndexReady]() {
-    this[_showSidebar]();
-
     anime({
       targets: ".pre.hide",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
@@ -165,28 +172,19 @@ class Portfolio {
    * @returns {void}
    */
   loadAbout() {
-    this[_showSidebar]();
+    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a");
     this[_showTitle]();
 
-    document.querySelectorAll(".content > p.text").forEach((e) => e.classList.remove("hide"));
+    setTimeout(() => document.querySelectorAll(".content > p.text").forEach((e) => e.classList.remove("hide")), 1);
+
     anime({
-      targets: ".content > p.text",
+      targets: ".content > p.text, .content p img",
       translateY: [100, 0],
       translateX: () => [anime.random(0, 500), 0],
       opacity: [0, 1],
       duration: 1500,
       easing: "easeInOutExpo",
       delay: (el, index) => 50 * index * Math.random()
-    });
-
-    anime({
-      targets: ".content p img",
-      begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
-      translateY: [100, 0],
-      translateX: () => [anime.random(0, 500), 0],
-      opacity: [0, 1],
-      duration: 1500,
-      easing: "easeInOutExpo"
     });
 
     anime({
@@ -197,6 +195,8 @@ class Portfolio {
       delay: 6000,
       easing: "easeInOutExpo"
     });
+
+    setTimeout(() => document.querySelector(".content p img").classList.remove("hide"), 0);
   }
 
   /**
@@ -204,10 +204,11 @@ class Portfolio {
    * @returns {void}
    */
   loadSiteMap() {
-    this[_showSidebar]();
+    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a, .site-map a");
     this[_showTitle]();
 
-    document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide"));
+    setTimeout(() => document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide")), 0);
+
     anime({
       targets: ".site-map li",
       translateY: [100, 0],
@@ -233,7 +234,7 @@ class Portfolio {
    * @returns {void}
    */
   load404() {
-    this[_showSidebar]();
+    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a, .site-map a");
     this[_showTitle]();
 
     anime({
@@ -251,51 +252,40 @@ class Portfolio {
    * @returns {void}
    */
   loadProject() {
-    let link;
-
-    this[_showSidebar]();
-    this[_showPrevAndNextProjects]();
+    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a");
     this[_showTitle]();
 
-    document.querySelector(".content").classList.remove("hide");
+    let targets = [
+      ".project-page .project-title",
+      ".project-page .image",
+      ".project-page .info tr",
+      ".project-page .project-content p",
+      ".project-page .project-content .video-wrapper",
+      ".project-page .project-content ul",
+      ".project-page .share-title",
+      ".project-page .share-post",
+      ".project-page hr",
+      ".project-page .related-title",
+      ".project-page .related-post"
+    ];
+
+    setTimeout(() => document.querySelector(".content").classList.remove("hide"), 1);
+
     anime({
-      targets: [
-        ".project-page .image",
-        ".project-page .info tr",
-        ".project-page .project-content p",
-        ".project-page .project-content .video-wrapper",
-        ".project-page .project-content ul",
-        ".project-page .share-title",
-        ".project-page .share-post",
-        ".project-page hr",
-        ".project-page .related-title",
-        ".project-page .related-post"
-      ],
-      translateY: [100, 0],
-      translateX: () => [anime.random(0, 500), 0],
+      targets: ".project-page .prev-next-project",
       opacity: [0, 1],
-      duration: 1500,
+      duration: () => 1500,
       easing: "easeInOutExpo"
     });
 
-    link = document.querySelectorAll(".prev-next-project li a");
-    link.forEach((t) => t.addEventListener("click", (e) => {
-      e.preventDefault();
-      const isPrevBtn = e.target.parentNode.classList.contains("prev");
-
-      anime({
-        targets: [
-          ".page *"
-        ],
-        opacity: [1, 0],
-        translateX: [0, 100 * (isPrevBtn ? -1 : 1)],
-        duration: 1500,
-        easing: "easeInOutExpo",
-        complete: () => {
-          window.location.href = e.target.getAttribute("href");
-        }
-      });
-    }));
+    anime({
+      targets: targets,
+      translateY: [100, 0],
+      translateX: () => [anime.random(100, 500), 0],
+      opacity: [0, 1],
+      duration: () => 1500,
+      easing: "easeInOutExpo"
+    });
   }
 }
 

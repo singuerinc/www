@@ -9,7 +9,8 @@
     {% for post in site.posts %}
     posts.push({id: "{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}", image: "{{post.image_home}}"});{% endfor %}
 </script>
-<script type="text/javascript" src="{{base}}/assets/bundle.js"></script>
+<script type="text/javascript" src="{{base}}/assets/turbolinks.js"></script>
+<script type="text/javascript" src="{{base}}/assets/bundle.js" data-turbolinks-eval="false"></script>
 
 <script>
 

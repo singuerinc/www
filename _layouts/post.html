@@ -4,10 +4,10 @@
 {% include head.html %}
 {% include base.html %}
 
-<script type="text/javascript">
-  page = "/project";
-</script>
 <body class="project-page page">
+  <script type="text/javascript">
+    page = "/project";
+  </script>
 
   {% include sidebar.html %}
 
@@ -23,7 +23,7 @@
       <div itemscope itemtype="http://schema.org/WebSite">
 
         {% if page.previous.url or page.next.url %}
-        <ul class="prev-next-project hide">
+        <ul class="prev-next-project">
           {% if page.next.url %}
           {% if page.next.client == page.next.title %}
           {% assign page_next_title = page.next.title %}
