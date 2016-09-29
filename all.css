@@ -371,6 +371,11 @@ ul.posts li {
 	margin: 0 0 10px 0;
 }
 
+
+ul.posts li > a * {
+	pointer-events: none;
+}
+
 ul.posts li.animated {
 	opacity: 0;
 }
@@ -939,6 +944,10 @@ Copyright (c) 2014 Daniel Eden
 .page .site-map li ul {
 	list-style: none;
 	padding: 0;
+}
+
+.page .site-map a * {
+	pointer-events: none;
 }
 
 @media (min-width: 48rem) {
