@@ -56,7 +56,6 @@ class Portfolio {
     this[_whenClickExit]("h1 a, .sidebar ul li a, .sidebar-mobile ul li a, ul.posts li > .w-link");
     this[_posts] = window.posts;
     this[_totalImgLoaded] = 0;
-    NProgress.configure({ showSpinner: false });
     const onLoad = (post, src) => {
       const tag = document.querySelector(`.post-image.${post.id}`);
 
@@ -254,7 +253,6 @@ class Portfolio {
   loadProject() {
     this[_whenClickExit]("h1 a, .sidebar ul li a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a");
 
-    NProgress.configure({ showSpinner: false });
     NProgress.inc();
     const image = new Image();
 
