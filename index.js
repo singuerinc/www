@@ -1,14 +1,16 @@
-/* global page */
+/* global document */
 import Portfolio from "./Portfolio.js";
 
 document.addEventListener("turbolinks:load", (e) => {
+  let a,
+    page,
+    portfolio;
 
-  const a = document.createElement("a");
+  a = document.createElement("a");
   a.href = e.data.url;
-  const page = a.pathname;
-  // page = `/${e.data.url.split("/").pop()}`;
-  console.log(`load: ${page}, url: ${e.data.url}`);
-  const portfolio = new Portfolio();
+
+  page = a.pathname;
+  portfolio = new Portfolio();
 
   if (page === "/" || page === "/index.html") {
     portfolio.loadIndex();

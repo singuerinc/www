@@ -53,7 +53,7 @@ class Portfolio {
    * @returns {void}
    */
   loadIndex() {
-    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a, ul.posts li > .w-link");
+    this[_whenClickExit]("h1 a, .sidebar ul li a, .sidebar-mobile ul li a, ul.posts li > .w-link");
     this[_posts] = window.posts;
     this[_totalImgLoaded] = 0;
     NProgress.configure({ showSpinner: false });
@@ -172,7 +172,7 @@ class Portfolio {
    * @returns {void}
    */
   loadAbout() {
-    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a");
+    this[_whenClickExit]("h1 a, .sidebar ul li a, .sidebar-mobile ul li a");
     this[_showTitle]();
 
     setTimeout(() => document.querySelectorAll(".content > p.text").forEach((e) => e.classList.remove("hide")), 1);
@@ -204,7 +204,7 @@ class Portfolio {
    * @returns {void}
    */
   loadSiteMap() {
-    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a, .site-map a");
+    this[_whenClickExit]("h1 a, .sidebar ul li a, .sidebar-mobile ul li a, .site-map a");
     this[_showTitle]();
 
     setTimeout(() => document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide")), 0);
@@ -234,7 +234,7 @@ class Portfolio {
    * @returns {void}
    */
   load404() {
-    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a, .site-map a");
+    this[_whenClickExit]("h1 a, .sidebar ul li a, .sidebar-mobile ul li a, .site-map a");
     this[_showTitle]();
 
     anime({
@@ -252,40 +252,50 @@ class Portfolio {
    * @returns {void}
    */
   loadProject() {
-    this[_whenClickExit](".sidebar ul li a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a");
-    this[_showTitle]();
+    this[_whenClickExit]("h1 a, .sidebar ul li a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a");
 
-    let targets = [
-      ".project-page .project-title",
-      ".project-page .image",
-      ".project-page .info tr",
-      ".project-page .project-content p",
-      ".project-page .project-content .video-wrapper",
-      ".project-page .project-content ul",
-      ".project-page .share-title",
-      ".project-page .share-post",
-      ".project-page hr",
-      ".project-page .related-title",
-      ".project-page .related-post"
-    ];
+    NProgress.configure({ showSpinner: false });
+    NProgress.inc();
+    const image = new Image();
 
-    setTimeout(() => document.querySelector(".content").classList.remove("hide"), 1);
+    image.onload = () => {
+      NProgress.done(true);
+      this[_showTitle]();
 
-    anime({
-      targets: ".project-page .prev-next-project",
-      opacity: [0, 1],
-      duration: () => 1500,
-      easing: "easeInOutExpo"
-    });
+      let targets = [
+        ".project-page .project-title",
+        ".project-page .image",
+        ".project-page .info tr",
+        ".project-page .project-content p",
+        ".project-page .project-content .video-wrapper",
+        ".project-page .project-content ul",
+        ".project-page .share-title",
+        ".project-page .share-post",
+        ".project-page hr",
+        ".project-page .related-title",
+        ".project-page .related-post"
+      ];
 
-    anime({
-      targets: targets,
-      translateY: [100, 0],
-      translateX: () => [anime.random(100, 500), 0],
-      opacity: [0, 1],
-      duration: () => 1500,
-      easing: "easeInOutExpo"
-    });
+      setTimeout(() => document.querySelector(".content").classList.remove("hide"), 1);
+
+      anime({
+        targets: ".project-page .prev-next-project",
+        opacity: [0, 1],
+        duration: () => 1500,
+        easing: "easeInOutExpo"
+      });
+
+      anime({
+        targets: targets,
+        translateY: [100, 0],
+        translateX: () => [anime.random(100, 500), 0],
+        opacity: [0, 1],
+        duration: () => 1500,
+        easing: "easeInOutExpo"
+      });
+    };
+
+    image.src = `${document.querySelector(".project-page .image").getAttribute("src")}`;
   }
 }
 
