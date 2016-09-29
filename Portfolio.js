@@ -35,7 +35,7 @@ class Portfolio {
     document.querySelectorAll(els).forEach((el) => {
       el.addEventListener("click", (e) => {
         e.preventDefault();
-        
+
         anime({
           targets: ".content",
           opacity: [1, 0],
