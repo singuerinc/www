@@ -35,20 +35,12 @@ class Portfolio {
     document.querySelectorAll(els).forEach((el) => {
       el.addEventListener("click", (e) => {
         e.preventDefault();
-
-        anime({
-          targets: "img, iframe",
-          opacity: [1, 0],
-          duration: 800,
-          easing: "easeInExpo"
-        });
-
+        
         anime({
           targets: ".content",
           opacity: [1, 0],
-          translateX: [0, -50],
-          duration: 1000,
-          easing: "easeInExpo",
+          duration: 700,
+          easing: "easeInOutExpo",
           complete: () => {
             Turbolinks.visit(e.target.getAttribute("href"), { action: "replace" });
           }
