@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import 'https://fonts.googleapis.com/css?family=Roboto:300,400';
+@import 'https://fonts.googleapis.com/css?family=Roboto:200,300,400';
 
 .hide {
 	visibility: hidden;
@@ -749,7 +749,9 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .page .title {
-	color: black;
+	color: #474747;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
 	text-align: center;
 	font-size: 2rem;
 }
@@ -760,6 +762,7 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .project-page p {
+	font-weight: 200;
 	margin: 0 0 1rem;
 	padding: 0;
 	color: grey;
@@ -839,6 +842,7 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .project-page .prev-next-project {
+	display: none;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -1015,6 +1019,7 @@ Copyright (c) 2014 Daniel Eden
 
 	.page .title {
 		text-align: left;
+		font-size: 3rem;
 	}
 
 	ul.posts li.priority-0 {
@@ -1088,6 +1093,10 @@ Copyright (c) 2014 Daniel Eden
 		min-width: 100px;
 		text-align: left;
 		clear: left;
+	}
+
+	.project-page .prev-next-project {
+		display: block;
 	}
 
 	.project-page .prev-next-project li.prev:before {
