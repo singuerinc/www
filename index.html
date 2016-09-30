@@ -24,9 +24,8 @@ title: Home
     <meta itemprop="url" content="{{site.url}}{{ post.id }}.html"/>
     <a href="{{base}}{{ post.id }}.html" target="_self" class="w-link animated">
       <div class="post-image {{post.priority}} animated {{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}"></div>
-      <h3 class="w-title">{{post.title}}</h3>
+      <h3 class="w-title">{{post_title}}</h3>
       <div class="w-tags">{{ post.tech | join: " · "}}</div>
-      <div class="w-info">Client: {{ post.client }} / working at {{post.agency}}</div>
     </a>
   </li>
 

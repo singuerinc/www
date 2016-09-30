@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1590;
+const TOTAL_TESTS = 1569;
 const projects = [
   {
     id: "zalando_ivy-park",
@@ -522,7 +522,6 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("li#" + project.id + " div.post-image.animated." + project.id);
       test.assertSelectorHasText("li#" + project.id + " h3[class='w-title']", project.title);
       test.assertExists("li#" + project.id + " div[class='w-tags']");
-      test.assertSelectorHasText("li#" + project.id + " div[class='w-info']", "Client: " + project.client + " / working at " + project.agency);
     }
   })
     .thenOpen("http://jekyll:4000/random-no-existing-page.html", function () {
