@@ -341,6 +341,51 @@ h3 {
 	padding: 0;
 }
 
+.sidebar .social {
+	margin: 20px 0;
+}
+
+.sidebar .social li {
+	display: inline-block;
+}
+
+
+.sidebar .social li a {
+	display: block;
+	width: 25px;
+	height: 25px;
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+	transition: background-color 0.5s;
+}
+
+
+.sidebar .social li a.twitter {
+	background: #f4f4f4 url("./img/icons/twitter.svg") no-repeat;
+	background-size: 100%;
+}
+
+.sidebar .social li a.facebook {
+	background: #f4f4f4 url("./img/icons/facebook-f.svg") no-repeat center center;
+	background-size: 81%;
+}
+
+.sidebar .social li a.google {
+	background: #f4f4f4 url("./img/icons/google-plus.svg") no-repeat;
+	background-size: 100%;
+}
+
+.sidebar .social li a.twitter:hover {
+	background-color: #41b7d8;
+}
+.sidebar .social li a.facebook:hover {
+	background-color: #3b5997;
+}
+.sidebar .social li a.google:hover {
+	background-color: #d64937;
+}
+
 .sidebar-sticky {
 	bottom: auto;
 	left: 2rem;
