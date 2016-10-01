@@ -22,14 +22,14 @@ more: "http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom
 priority: 'priority-2'
 ---
 
-As a full stack developer this project was one of those that you would like to do over and over again.
+As a full-stack developer this project was one of those that you would like to do over and over again.
 
 The whole idea behind this production was so surreal as original:  
 Throw a bunch of shit over a Skoda car.
 
-The amount of shit (I think they used mud) thrown to it was decided on real-time by the website visitors.
+The amount of shit thrown to it (I think they used mud) was decided on real-time by the website visitors.
 
-To achieve that we made a frontend application that was displaying the car in video streaming 24/7.
+To see the entire process we made a frontend application that was displaying the car in video streaming 24/7.
 
 Trough the website we gave the possibility to the users to leave a message. And after a continuous automated process the messages were queued and converted into "amount of shit".
 

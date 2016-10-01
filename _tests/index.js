@@ -142,7 +142,7 @@ const projects = [
   },
   {
     id: "roberto-iván-cano_portfolio",
-    role: "Tech Lead Developer",
+    role: "Tech Lead Developer / Graphic Designer",
     client: "Roberto Iván Cano",
     title: "Portfolio",
     clientAndTitle: "Roberto Iván Cano · Portfolio",

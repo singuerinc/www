@@ -22,10 +22,11 @@ more: "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/"
 priority: 'priority-2'
 ---
 
-I was working at B-REEL when Facebook asked them to create a landing page for their new mobile application "Moments".  
+I was working at B-REEL when Facebook asked us to create a landing page for their new mobile application called "Moments".  
 
-I had a great time creating this fully responsive single-page site.  
-If you click on the "Watch the video" button you will see a cool video transition made with a mix of CSS and Javascript. And when you scroll, the page displays a fancy parallax effect.
+I had a great time creating this fully responsive single-page site.
+
+If you click on the "Watch the video" button you will see a cool video transition animation made with a mix of CSS and Javascript. And when you scroll, the page displays a fancy parallax effect.
 
 About the video transition:  
 It was a great challenge to me to make the transition works across all kind of devices.  

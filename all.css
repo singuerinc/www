@@ -770,6 +770,10 @@ Copyright (c) 2014 Daniel Eden
 	line-height: 2.5rem;
 }
 
+.project-page p strong {
+	font-weight: 400;
+}
+
 .project-page p em {
 	font-size: 1.4em;
 	display: block;

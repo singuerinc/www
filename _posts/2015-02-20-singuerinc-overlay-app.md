@@ -22,13 +22,13 @@ more: ""
 priority: 'priority-2'
 ---
 
-Overlay is an open source application I have developed just for fun at the beginning but becames a main tool in my daily work.  
+Overlay is an open source application I have developed. In the beginning it was just for fun, but rapidly it became a main tool in my daily work.
 
 It functionality is quiet basic but powerful. Like an onion paper, Overlay displays an image over another application.
 
 The main purpose of Overlay is to help the user with a guide, making simpler to achieve a pixel perfect design.
 
-I developed it in AIR/ActionScript, but I'm thinking about porting it to Javascript.
+I have written it in ActionScript, but I'm thinking about porting into Javascript.
 
 Would you like to contribute? Take a look at the GitHub repository:  
 <a href="https://github.com/singuerinc/OverlayApp" target="_blank">https://github.com/singuerinc/OverlayApp</a>

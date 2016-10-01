@@ -30,7 +30,7 @@ _A trip is an unforgettable experience that generates memories forever in our mi
 _The unimaginable can become reality. A fake company, "Rev&iacute;velo" (re-live-it, live it again), offers unforgettable memory implants. Every ad is a perfect metaphor of Atrapalo's products._
 
 <div class="video-wrapper">
-<iframe src="//www.youtube.com/embed/tJBfbUN1dvY" frameborder="0" allowfullscreen></iframe>
+<iframe src="//www.youtube.com/embed/tJBfbUN1dvY?rel=0&amp;showinfo=0&amp;vq=hd1080" frameborder="0" allowfullscreen></iframe>
 </div>
 
 Revivelo.com became the meeting point between those who asked and those who knew the answers:
