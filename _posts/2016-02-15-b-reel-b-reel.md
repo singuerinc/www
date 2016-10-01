@@ -21,10 +21,10 @@ more: ""
 priority: 'priority-2'
 ---
 
-Working at B-REEL, the company decided to update the whole website, making it fully responsive and with a new the design.
+Working at B-REEL, the company decided to update the whole website, making it fully responsive and with a new design.
 
-Together with the team, we were responsible for making both frontend and backend, deciding the architecture to use and selecting the technology to make it.
+Together with the team, we were responsible for making both frontend and backend, deciding the architecture to use, and selecting the technology to make it.
 
-The front end features a fully responsive bootstrap 12-grid layout and a custom Marionette/Backbone application to make smooth transitions and interactions on each page.
+The frontend features a fully responsive bootstrap 12-grid layout and a custom Marionette/Backbone application to make smooth transitions and interactions on each page.
 
 I was also one of the core contributors of the B-REEL Javascript Framework, an innersource project which b-reel.com makes use of it.

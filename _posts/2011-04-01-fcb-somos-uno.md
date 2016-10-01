@@ -23,7 +23,7 @@ awards: ['award-sol_bronce']
 ---
 
 <div class="video-wrapper">
-<iframe src="//www.youtube.com/embed/nKFNOtTUxUk?rel=0&vq=hd1080" frameborder="0" allowfullscreen></iframe>
+<iframe src="//www.youtube.com/embed/nKFNOtTUxUk?rel=0&amp;showinfo=0&amp;vq=hd1080" frameborder="0" allowfullscreen></iframe>
 </div>
 
 FC Barcelona · Som un
