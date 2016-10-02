@@ -21,4 +21,6 @@ priority: 'priority-0'
 sitemap: false
 ---
 
-Evax "Estudio Risa"
+It is nice when you found a simple solution to solve a simple situation.
+
+I made **Evax "Estudio Risa"** with that in mind. Nothing too fancy nor complicated, but simple enough to engage the user and give them a quick overview.
