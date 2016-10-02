@@ -23,30 +23,13 @@ more: ""
 awards: ['award-sol_plata', 'award-laus', 'award-efi']
 ---
 
-_Atrapalo.com. Online travel, tickets and leisure agency._
+There was a time when we used to build web experience that were like small games, in the sense that were so complex and the user could potentially be there 10 or 15 minutes.  
+That is not possible anymore, you can't retain a user for more than few seconds, you have to say what you have to say in an instant.
 
-_A trip is an unforgettable experience that generates memories forever in our minds. It make sense to explain that sensation using sci-fi imagery._
+But this project was made in 2011, when getting content from Facebook through the API was our most common task, and I enjoyed a lot making Flash experiences with lot of animations and complex mechanics.
 
-_The unimaginable can become reality. A fake company, "Rev&iacute;velo" (re-live-it, live it again), offers unforgettable memory implants. Every ad is a perfect metaphor of Atrapalo's products._
+**Rev&iacute;velo** was a lot of that, a fine production with a lot of detail.
 
 <div class="video-wrapper">
 <iframe src="//www.youtube.com/embed/tJBfbUN1dvY?rel=0&amp;showinfo=0&amp;vq=hd1080" frameborder="0" allowfullscreen></iframe>
 </div>
-
-Revivelo.com became the meeting point between those who asked and those who knew the answers:
-835,000 visits, 45% direct traffic from offline campaign, 85,000 new registered users, 32,000 new Facebook likes, 23,000 shares, 6,500 comments.
-
-**INSIGHT**
-
-A trip is an unforgettable experience so generate memories that remain forever in our minds, becoming valuable treasures.
-It does make sense to explain that using sci-fi codes.
-
-**IDEA**
-
-The unimaginable can become reality. A fake company, "Rev&iacute;velo" (re-live-it, live it again), offered unforgettable memory implants.
-Every ad was a perfect metaphor of Atrapalo's products.
-
-**IMPACT**
-
-Revivelo.com became the meeting point between those who asked and those who knew the answers:
-835,000 visits, 45% direct traffic from offline campaign, 85.000 new registered users, 32.000 new Facebook likes, 23.000 times shared, 6.500 comments.
