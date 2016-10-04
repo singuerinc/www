@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1569;
+const TOTAL_TESTS = 1504;
 const projects = [
   {
     id: "zalando_ivy-park",
@@ -178,7 +178,7 @@ const projects = [
     canonical: "/doubleyou/pepe-jeans.html",
     website: null,
     more: null,
-    relatedCount: 8,
+    relatedCount: 7,
     shareCount: 3,
     image: "pepe-jeans"
   },
@@ -192,7 +192,7 @@ const projects = [
     canonical: "/doubleyou/nike-pro-combat.html",
     website: null,
     more: null,
-    relatedCount: 8,
+    relatedCount: 7,
     shareCount: 3,
     image: "nike--pro-combat"
   },
@@ -206,7 +206,7 @@ const projects = [
     canonical: "/doubleyou/nike-my-time-is-now.html",
     website: null,
     more: null,
-    relatedCount: 8,
+    relatedCount: 7,
     shareCount: 3,
     image: "nike--my-time-is-now"
   },
@@ -220,7 +220,7 @@ const projects = [
     canonical: "/doubleyou/audi-a1-me-gusta.html",
     website: "https://audia1megusta-p1singuerinc.rhcloud.com/",
     more: null,
-    relatedCount: 8,
+    relatedCount: 7,
     shareCount: 3,
     image: "audi--a1-me-gusta"
   },
@@ -234,7 +234,7 @@ const projects = [
     canonical: "/doubleyou/fcb-somos-uno.html",
     website: "https://singuerinc-doubleyou.gitlab.io/com.nike.somun/",
     more: null,
-    relatedCount: 8,
+    relatedCount: 7,
     shareCount: 3,
     image: "fcb--somos-uno"
   },
@@ -248,23 +248,9 @@ const projects = [
     canonical: "/doubleyou/atrapalo-revivelo.html",
     website: null,
     more: null,
-    relatedCount: 8,
+    relatedCount: 7,
     shareCount: 3,
     image: "atrapalo--revivelo"
-  },
-  {
-    id: "evax_adapt",
-    role: "Flash Developer",
-    client: "Evax",
-    title: "Adapt",
-    clientAndTitle: "Evax · Adapt",
-    agency: "Doubleyou",
-    canonical: "/doubleyou/exax-adapt.html",
-    website: null,
-    more: null,
-    relatedCount: 8,
-    shareCount: 3,
-    image: "evax--adapt"
   },
   {
     id: "audi_driving-experience",
@@ -276,7 +262,7 @@ const projects = [
     canonical: "/doubleyou/audi-driving-experience.html",
     website: null,
     more: null,
-    relatedCount: 8,
+    relatedCount: 7,
     shareCount: 3,
     image: "audi--driving-experience"
   },
@@ -290,7 +276,7 @@ const projects = [
     canonical: "/doubleyou/evax-estudio-risa.html",
     website: "https://singuerinc-doubleyou.gitlab.io/es.evax.estudios/",
     more: null,
-    relatedCount: 8,
+    relatedCount: 7,
     shareCount: 3,
     image: "evax--estudio-risa"
   }];
@@ -486,7 +472,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     // posts
     test.assertExists("body .content ul.posts");
-    test.assertElementCount("body .content ul.posts li", 21);
+    test.assertElementCount("body .content ul.posts li", 20);
     test.assertElementCount("body .content ul.posts li#zalando_ivy-park", 1);
     test.assertElementCount("body .content ul.posts li#b-reel_b-reel", 1);
     test.assertElementCount("body .content ul.posts li#arawys_store", 1);
@@ -505,7 +491,6 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertElementCount("body .content ul.posts li#audi_a1-me-gusta", 1);
     test.assertElementCount("body .content ul.posts li#fc-barcelona_som-un", 1);
     test.assertElementCount("body .content ul.posts li#atrápalo_revívelo", 1);
-    test.assertElementCount("body .content ul.posts li#evax_adapt", 1);
     test.assertElementCount("body .content ul.posts li#audi_driving-experience", 1);
     test.assertElementCount("body .content ul.posts li#evax_estudio-risa", 1);
 
@@ -655,15 +640,11 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-efi");
       testAll(test, projects[17]);
     })
-    .thenOpen("http://jekyll:4000/doubleyou/exax-adapt.html", function () {
-      test.assertExists("body.project-page .content .project-content .video-wrapper");
+    .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
       testAll(test, projects[18]);
     })
-    .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
-      testAll(test, projects[19]);
-    })
     .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
-      testAll(test, projects[20]);
+      testAll(test, projects[19]);
     })
     .run(function () {
       test.done();
