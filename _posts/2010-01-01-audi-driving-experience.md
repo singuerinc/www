@@ -21,4 +21,6 @@ priority: 'priority-0'
 sitemap: false
 ---
 
-Audi "Driving Experience"
+Audi "Driving Experience" was my favorite project for a long time. Was the website where I learnt how to manage complex states within a application. Was my truly MVC first application.
+
+At that time GitHub was not there to pick one of those hundred options that we have now. So I made my own custom MVC framework to manage view states with sophisticated animations.
