@@ -23,8 +23,8 @@ more: ""
 awards: ['award-sol_plata', 'award-laus', 'award-efi']
 ---
 
-There was a time when we used to build web experience that were like small games, in the sense that were so complex and the user could potentially be there 10 or 15 minutes.  
-That is not possible anymore, you can't retain a user for more than few seconds, you have to say what you have to say in an instant.
+There was a time when we used to build web experience that were like small games, in the sense that were so complex and the user could potentially be there for 10 or 15 minutes.  
+But that is not possible anymore, you can not retain a user for more than few seconds. You have to say what you have to say in an instant.
 
 But this project was made in 2011, when getting content from Facebook through the API was our most common task, and I enjoyed a lot making Flash experiences with lot of animations and complex mechanics.
 
