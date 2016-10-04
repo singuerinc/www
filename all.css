@@ -1062,10 +1062,6 @@ Copyright (c) 2014 Daniel Eden
 		opacity: 1;
 	}
 
-	ul.posts li > .w-link:hover .w-info {
-		opacity: 1;
-	}
-
 	ul.posts li > .w-link:hover .w-title {
 		opacity: 1;
 	}
