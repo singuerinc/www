@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1504;
+const TOTAL_TESTS = 1528;
 const projects = [
   {
     id: "zalando_ivy-park",
@@ -282,6 +282,7 @@ const projects = [
   }];
 
 const testCommonMetas = function (test, canonical) {
+  test.assertSelectorHasText("html title", "Nahuel Scotti - Portfolio");
   test.assertExists("meta[property='fb:app_id'][content='1253343308017588']");
   test.assertExists("meta[property='fb:admins'][content='nahuel.scotti']");
   test.assertExists("meta[property='og:site_name'][content='Nahuel Scotti - Portfolio']");
@@ -313,6 +314,7 @@ const testAll = function (test, project) {
     image = project.image;
 
   test.assertHttpStatus(200);
+  test.assertSelectorHasText("html title", "Nahuel Scotti - Portfolio / " + clientAndTitle);
   test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
   test.assertResourceExists("img/projects/" + image + ".jpg");
   test.assertExists("meta[property='og:title'][content='" + clientAndTitle + "']");

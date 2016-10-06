@@ -56,7 +56,11 @@
 
   <link rel="author" href="{{base}}/humans.txt" />
 
+  {% if page.client %}
+  <title>Nahuel Scotti - Portfolio / {{page_title}}</title>
+  {% else %}
   <title>Nahuel Scotti - Portfolio</title>
+  {% endif %}
 
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{base}}/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="{{base}}/favicon.ico">
