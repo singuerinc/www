@@ -437,7 +437,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(4) a", "Twitter");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(5) a", "Blog");
     test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(6) a", "Medium");
-    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(7) a", "Sitemap");
+    test.assertSelectorHasText("body .sidebar nav ul:first-child li:nth-child(7) a", "Map");
 
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='./']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='./about.html']");
@@ -462,7 +462,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(4) a", "Twitter");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(5) a", "Blog");
     test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(6) a", "Medium");
-    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(7) a", "Sitemap");
+    test.assertSelectorHasText("body .sidebar-mobile ul li:nth-child(7) a", "Map");
 
     test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='./']");
     test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='./about.html']");
