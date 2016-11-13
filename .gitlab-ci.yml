@@ -23,8 +23,6 @@ variables:
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
 
 .test-functional: &test-functional-definition
-  variables:
-    GIT_STRATEGY: none
   image: singuerinc/docker_casperjs
   stage: test
   script:
