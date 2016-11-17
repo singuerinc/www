@@ -9,8 +9,11 @@ services:
       - ./:/srv/jekyll
     depends_on:
       - webpack
+    stdin_open: true
+    tty: true
 
   webpack:
+    image: singuerinc/www-webpack
     build:
       context: .
       dockerfile: Dockerfile-webpack
@@ -18,8 +21,11 @@ services:
     command: ../node_modules/webpack/bin/webpack.js --progress --watch
     volumes:
       - ./:/usr/src/app
+    stdin_open: true
+    tty: true
 
   tests:
+    image: singuerinc/www-tests
     build:
       context: .
       dockerfile: Dockerfile-tests
@@ -27,8 +33,6 @@ services:
     working_dir: /data
     volumes:
       - ./:/data
-    stdin_open: true
-    tty: true
 
   tests-links:
     image: jekyll/jekyll:3.2.1

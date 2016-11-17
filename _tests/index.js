@@ -1,5 +1,19 @@
-const TOTAL_TESTS = 1528;
+const TOTAL_TESTS = 1596;
 const projects = [
+  {
+    id: "singuerinc_bi",
+    role: "Developer",
+    client: "singuerinc",
+    title: "Bi",
+    clientAndTitle: "singuerinc · Bi",
+    agency: "singuerinc",
+    canonical: "/singuerinc/singuerinc-bi.html",
+    website: "https://bi.singuerinc.com/",
+    more: "https://github.com/singuerinc/bi",
+    relatedCount: 5,
+    shareCount: 3,
+    image: "singuerinc--bi"
+  },
   {
     id: "zalando_ivy-park",
     role: "Client/Backend Developer",
@@ -38,7 +52,7 @@ const projects = [
     canonical: "/singuerinc/arawys-store.html",
     website: "https://www.arawys.com",
     more: null,
-    relatedCount: 4,
+    relatedCount: 5,
     shareCount: 3,
     image: "arawys--store"
   },
@@ -80,7 +94,7 @@ const projects = [
     canonical: "/singuerinc/singuerinc-overlay-app.html",
     website: "https://github.com/singuerinc/OverlayApp",
     more: null,
-    relatedCount: 4,
+    relatedCount: 5,
     shareCount: 3,
     image: "singuerinc--overlay-app"
   },
@@ -122,7 +136,7 @@ const projects = [
     canonical: "/singuerinc/kit-appetit.html",
     website: "http://www.kitappetit.com/",
     more: null,
-    relatedCount: 4,
+    relatedCount: 5,
     shareCount: 3,
     image: "kitappetit--kitappetit"
   },
@@ -150,7 +164,7 @@ const projects = [
     canonical: "/singuerinc/roberto-ivan-cano.html",
     website: "http://www.robertoivancano.com/",
     more: null,
-    relatedCount: 4,
+    relatedCount: 5,
     shareCount: 3,
     image: "roberto-ivan-cano"
   },
@@ -164,7 +178,7 @@ const projects = [
     canonical: "/singuerinc/cuchi-cuchi.html",
     website: "http://www.cuchicuchi-guarderia.es/",
     more: null,
-    relatedCount: 4,
+    relatedCount: 5,
     shareCount: 3,
     image: "cuchi-cuchi"
   },
@@ -363,7 +377,7 @@ const testAll = function (test, project) {
     test.assertExists(".info tr:nth-child(6) td:nth-child(1)", "Tech");
   }
 
-  var isFirstProject = project.id === "zalando_ivy-park",
+  var isFirstProject = project.id === "singuerinc_bi",
     isLastProject = project.id === "evax_estudio-risa";
 
   test.assertElementCount(".project-page .prev-next-project", 1);
@@ -474,7 +488,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     // posts
     test.assertExists("body .content ul.posts");
-    test.assertElementCount("body .content ul.posts li", 20);
+    test.assertElementCount("body .content ul.posts li", 21);
+    test.assertElementCount("body .content ul.posts li#singuerinc_bi", 1);
     test.assertElementCount("body .content ul.posts li#zalando_ivy-park", 1);
     test.assertElementCount("body .content ul.posts li#b-reel_b-reel", 1);
     test.assertElementCount("body .content ul.posts li#arawys_store", 1);
@@ -573,80 +588,83 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("body .sidebar .social li a[href='https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com']");
       test.assertExists("body .sidebar .social li a[href='https://plus.google.com/share?url=https://www.singuerinc.com']");
     })
-    .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function () {
+    .thenOpen("http://jekyll:4000/singuerinc/singuerinc-bi.html", function () {
       testAll(test, projects[0]);
     })
-    .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function () {
+    .thenOpen("http://jekyll:4000/b-reel/zalando-ivy-park.html", function () {
       testAll(test, projects[1]);
     })
-    .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function () {
+    .thenOpen("http://jekyll:4000/b-reel/b-reel-b-reel.html", function () {
       testAll(test, projects[2]);
+    })
+    .thenOpen("http://jekyll:4000/singuerinc/arawys-store.html", function () {
+      testAll(test, projects[3]);
     })
     .thenOpen("http://jekyll:4000/b-reel/htc-vive.html", function () {
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.thefwa_site_of_the_day");
-      testAll(test, projects[3]);
-    })
-    .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function () {
       testAll(test, projects[4]);
     })
-    .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function () {
+    .thenOpen("http://jekyll:4000/b-reel/facebook-moments.html", function () {
       testAll(test, projects[5]);
+    })
+    .thenOpen("http://jekyll:4000/singuerinc/singuerinc-overlay-app.html", function () {
+      testAll(test, projects[6]);
     })
     .thenOpen("http://jekyll:4000/b-reel/skoda-byggd-for-at-tta-skit.html", function () {
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      testAll(test, projects[6]);
+      testAll(test, projects[7]);
     })
     .thenOpen("http://jekyll:4000/b-reel/kick-with-chrome.html", function () {
       test.assertExists("body.project-page .content .project-content .video-wrapper");
-      testAll(test, projects[7]);
+      testAll(test, projects[8]);
     })
     .thenOpen("http://jekyll:4000/singuerinc/kit-appetit.html", function () {
-      testAll(test, projects[8]);
+      testAll(test, projects[9]);
     })
     .thenOpen("http://jekyll:4000/b-reel/names-not-numbers.html", function () {
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(8) td:nth-child(2) .award.award-awwwards_site_of_the_day");
       test.assertExists(".info tr:nth-child(8) td:nth-child(2) .award.thefwa_site_of_the_day");
-      testAll(test, projects[9]);
+      testAll(test, projects[10]);
     })
     .thenOpen("http://jekyll:4000/singuerinc/roberto-ivan-cano.html", function () {
-      testAll(test, projects[10]);
+      testAll(test, projects[11]);
     })
     .thenOpen("http://jekyll:4000/singuerinc/cuchi-cuchi.html", function () {
       // image = "cuchi-cuchi_50";
-      testAll(test, projects[11]);
+      testAll(test, projects[12]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/pepe-jeans.html", function () {
       // image = "pepe-jeans_50";
-      testAll(test, projects[12]);
-    })
-    .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function () {
       testAll(test, projects[13]);
     })
-    .thenOpen("http://jekyll:4000/doubleyou/nike-my-time-is-now.html", function () {
+    .thenOpen("http://jekyll:4000/doubleyou/nike-pro-combat.html", function () {
       testAll(test, projects[14]);
     })
-    .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function () {
+    .thenOpen("http://jekyll:4000/doubleyou/nike-my-time-is-now.html", function () {
       testAll(test, projects[15]);
+    })
+    .thenOpen("http://jekyll:4000/doubleyou/audi-a1-me-gusta.html", function () {
+      testAll(test, projects[16]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/fcb-somos-uno.html", function () {
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(7) td:nth-child(2) .award.award-sol_bronce");
-      testAll(test, projects[16]);
+      testAll(test, projects[17]);
     })
     .thenOpen("http://jekyll:4000/doubleyou/atrapalo-revivelo.html", function () {
       test.assertExists("body.project-page .content .project-content .video-wrapper");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-sol_plata");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-laus");
       test.assertExists(".info tr:nth-child(6) td:nth-child(2) .award.award-efi");
-      testAll(test, projects[17]);
-    })
-    .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
       testAll(test, projects[18]);
     })
-    .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
+    .thenOpen("http://jekyll:4000/doubleyou/audi-driving-experience.html", function () {
       testAll(test, projects[19]);
+    })
+    .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
+      testAll(test, projects[20]);
     })
     .run(function () {
       test.done();
