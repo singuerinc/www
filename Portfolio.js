@@ -54,7 +54,7 @@ class Portfolio {
    * @returns {void}
    */
   loadIndex() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul li a, .sidebar-mobile ul li a, ul.posts li > .w-link");
+    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link");
     this[_posts] = window.posts;
     this[_totalImgLoaded] = 0;
     const onLoad = (post, src) => {
@@ -172,7 +172,7 @@ class Portfolio {
    * @returns {void}
    */
   loadAbout() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul li a, .sidebar-mobile ul li a");
+    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a");
 
     NProgress.inc();
     const image = new Image();
@@ -211,7 +211,7 @@ class Portfolio {
    * @returns {void}
    */
   loadSiteMap() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul li a, .sidebar-mobile ul li a, .site-map a");
+    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a");
     this[_showTitle]();
 
     setTimeout(() => document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide")), 0);
@@ -241,7 +241,7 @@ class Portfolio {
    * @returns {void}
    */
   load404() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul li a, .sidebar-mobile ul li a, .site-map a");
+    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a");
     this[_showTitle]();
 
     anime({
@@ -259,7 +259,7 @@ class Portfolio {
    * @returns {void}
    */
   loadProject() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul li a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a");
+    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a");
 
     NProgress.inc();
     const image = new Image();
