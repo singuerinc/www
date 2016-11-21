@@ -1,4 +1,4 @@
-const TOTAL_TESTS = 1596;
+const TOTAL_TESTS = 1548;
 const projects = [
   {
     id: "singuerinc_bi",
@@ -400,10 +400,8 @@ const testAll = function (test, project) {
   test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='../sitemap.html']");
   test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='../sitemap.html']");
 
-  test.assertElementCount("body .sidebar .social li a", 3);
+  test.assertElementCount("body .sidebar .social li a", 1);
   test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=https://www.singuerinc.com&via=singuerinc']");
-  test.assertExists("body .sidebar .social li a[href='https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com']");
-  test.assertExists("body .sidebar .social li a[href='https://plus.google.com/share?url=https://www.singuerinc.com']");
 };
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
@@ -461,10 +459,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(6) a[href='https://medium.com/@singuerinc']");
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
 
-    test.assertElementCount("body .sidebar .social li a", 3);
+    test.assertElementCount("body .sidebar .social li a", 1);
     test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=https://www.singuerinc.com&via=singuerinc']");
-    test.assertExists("body .sidebar .social li a[href='https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com']");
-    test.assertExists("body .sidebar .social li a[href='https://plus.google.com/share?url=https://www.singuerinc.com']");
 
     // sidebar - mobile - links
     test.assertExists("body .sidebar-mobile ul");
@@ -565,10 +561,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='./about.html']");
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
       test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
-      test.assertElementCount("body .sidebar .social li a", 3);
+      test.assertElementCount("body .sidebar .social li a", 1);
       test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=https://www.singuerinc.com&via=singuerinc']");
-      test.assertExists("body .sidebar .social li a[href='https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com']");
-      test.assertExists("body .sidebar .social li a[href='https://plus.google.com/share?url=https://www.singuerinc.com']");
     })
     .thenOpen("http://jekyll:4000/sitemap.html", function () {
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
@@ -583,10 +577,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='./about.html']");
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
       test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
-      test.assertElementCount("body .sidebar .social li a", 3);
+      test.assertElementCount("body .sidebar .social li a", 1);
       test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=https://www.singuerinc.com&via=singuerinc']");
-      test.assertExists("body .sidebar .social li a[href='https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com']");
-      test.assertExists("body .sidebar .social li a[href='https://plus.google.com/share?url=https://www.singuerinc.com']");
     })
     .thenOpen("http://jekyll:4000/singuerinc/singuerinc-bi.html", function () {
       testAll(test, projects[0]);

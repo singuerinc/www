@@ -347,7 +347,6 @@ h3 {
 	display: inline-block;
 }
 
-
 .sidebar .social li a {
 	display: block;
 	width: 25px;
@@ -358,30 +357,19 @@ h3 {
 	transition: background-color 0.5s;
 }
 
-
-.sidebar .social li a.twitter {
-	background: #f4f4f4 url("./img/icons/twitter.svg") no-repeat;
-	background-size: 100%;
+.sidebar .social li a svg {
+	pointer-events: none;
 }
 
-.sidebar .social li a.facebook {
-	background: #f4f4f4 url("./img/icons/facebook-f.svg") no-repeat center center;
-	background-size: 81%;
+.sidebar .social li a svg path {
+	-webkit-transition: fill 0.5s;
+	-moz-transition: fill 0.5s;
+	-o-transition: fill 0.5s;
+	transition: fill 0.5s;
 }
 
-.sidebar .social li a.google {
-	background: #f4f4f4 url("./img/icons/google-plus.svg") no-repeat;
-	background-size: 100%;
-}
-
-.sidebar .social li a.twitter:hover {
-	background-color: #41b7d8;
-}
-.sidebar .social li a.facebook:hover {
-	background-color: #3b5997;
-}
-.sidebar .social li a.google:hover {
-	background-color: #d64937;
+.sidebar .social li a:hover svg path {
+	fill: #41b7d8;
 }
 
 .sidebar-sticky {
