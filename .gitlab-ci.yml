@@ -32,8 +32,6 @@ variables:
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
 
 .test-deploy: &test-deploy-definition
-  variables:
-    GIT_STRATEGY: none
   image: mhart/alpine-node:6
   stage: deploy
 
