@@ -42,7 +42,7 @@ class Portfolio {
           duration: 700,
           easing: "easeInOutExpo",
           complete: () => {
-            Turbolinks.visit(e.target.getAttribute("href"), { action: "replace" });
+            Turbolinks.visit(e.target.getAttribute("href"), { action: "advance" });
           }
         });
       });
@@ -283,6 +283,12 @@ class Portfolio {
       ];
 
       setTimeout(() => document.querySelector(".content").classList.remove("hide"), 1);
+
+      anime({
+        targets: ".content",
+        opacity: [0, 1],
+        easing: "easeInOutExpo"
+      });
 
       anime({
         targets: ".project-page .prev-next-project",
