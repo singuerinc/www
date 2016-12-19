@@ -2,7 +2,6 @@
 import Portfolio from "./Portfolio.js";
 
 document.addEventListener("turbolinks:load", (e) => {
-  console.log(e);
   let a,
     page,
     portfolio;
