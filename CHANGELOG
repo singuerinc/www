@@ -1,7 +1,29 @@
 # www
 
-## [13.0.0] - 2016-11-16
+## [16.1.0] - 2016-12-19
+- Add new ACME file
+
+## [16.0.0] - 2016-12-19
+- Add test for category field
+
+## [15.0.0] - 2016-11-16
 - Add "Bi" project
+
+## [14.0.0] - 2016-11-16
+- Sitemap: Rename to map
+- Add Project title to page title
+- Change CI builds to GIT_STRATEGY: none when needed
+
+## [13.0.0] - 2016-11-16
+- Renew SSL Certificate
+- Change title color (gradient background)
+- Remove Evax "Adapt" project
+- Better project's descriptions
+- Add social icons in home page
+- Remove project's client from home page
+- Load new page with Turbolinks
+- Add next project button
+- Fix singuerinc link to home page
 
 ## [12.0.0] - 2016-09-29
 - Add enter and leave transitions to pages
