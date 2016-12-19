@@ -116,7 +116,7 @@
       <hr>
 
       <h2 class="related-title">Related</h2>
-      <ul class="related-post">
+      <ul class="related-post" data-category="{{page.category}}">
       {% assign sorted_posts = site.categories.[page.category] | sort: "client" %}
       {% for post in sorted_posts %}
         {% if post.id != page.id %}

@@ -1,8 +1,9 @@
-const TOTAL_TESTS = 1548;
+const TOTAL_TESTS = 1569;
 const projects = [
   {
     id: "singuerinc_bi",
     role: "Developer",
+    category: "singuerinc",
     client: "singuerinc",
     title: "Bi",
     clientAndTitle: "singuerinc · Bi",
@@ -17,6 +18,7 @@ const projects = [
   {
     id: "zalando_ivy-park",
     role: "Client/Backend Developer",
+    category: "b-reel",
     client: "Zalando",
     title: "Ivy Park",
     clientAndTitle: "Zalando · Ivy Park",
@@ -31,6 +33,7 @@ const projects = [
   {
     id: "b-reel_b-reel",
     role: "Client/Backend Developer",
+    category: "b-reel",
     client: "B-REEL",
     title: "B-REEL",
     clientAndTitle: "B-REEL",
@@ -45,6 +48,7 @@ const projects = [
   {
     id: "arawys_store",
     role: "Lead Developer",
+    category: "singuerinc",
     client: "Arawys",
     title: "Store",
     clientAndTitle: "Arawys · Store",
@@ -59,6 +63,7 @@ const projects = [
   {
     id: "htc-google_vive",
     role: "Architect/Backend Developer",
+    category: "b-reel",
     client: "HTC Google",
     title: "Vive",
     clientAndTitle: "HTC Google · Vive",
@@ -73,6 +78,7 @@ const projects = [
   {
     id: "facebook_moments",
     role: "Lead Developer",
+    category: "b-reel",
     client: "Facebook",
     title: "Moments",
     clientAndTitle: "Facebook · Moments",
@@ -87,6 +93,7 @@ const projects = [
   {
     id: "singuerinc_overlay",
     role: "Developer",
+    category: "singuerinc",
     client: "singuerinc",
     title: "Overlay",
     clientAndTitle: "singuerinc · Overlay",
@@ -101,6 +108,7 @@ const projects = [
   {
     id: "skoda_byggd-för-att-ta-skit",
     role: "Client/Backend Developer",
+    category: "b-reel",
     client: "Skoda",
     title: "Byggd för att ta skit",
     clientAndTitle: "Skoda · Byggd för att ta skit",
@@ -115,6 +123,7 @@ const projects = [
   {
     id: "google_kick-with-chrome",
     role: "Client/Backend Developer",
+    category: "b-reel",
     client: "Google",
     title: "Kick with Chrome",
     clientAndTitle: "Google · Kick with Chrome",
@@ -129,6 +138,7 @@ const projects = [
   {
     id: "kit-appétit_store",
     role: "Tech Lead Developer",
+    category: "singuerinc",
     client: "Kit Appétit",
     title: "Store",
     clientAndTitle: "Kit Appétit · Store",
@@ -143,6 +153,7 @@ const projects = [
   {
     id: "médecins-du-monde_names-not-numbers",
     role: "Lead Developer",
+    category: "b-reel",
     client: "Médecins du Monde",
     title: "Names not numbers",
     clientAndTitle: "Médecins du Monde · Names not numbers",
@@ -157,6 +168,7 @@ const projects = [
   {
     id: "roberto-iván-cano_portfolio",
     role: "Tech Lead Developer / Graphic Designer",
+    category: "singuerinc",
     client: "Roberto Iván Cano",
     title: "Portfolio",
     clientAndTitle: "Roberto Iván Cano · Portfolio",
@@ -171,6 +183,7 @@ const projects = [
   {
     id: "cuchi-cuchi_guardería",
     role: "Client Developer",
+    category: "singuerinc",
     client: "Cuchi-Cuchi",
     title: "Guardería",
     clientAndTitle: "Cuchi-Cuchi · Guardería",
@@ -185,6 +198,7 @@ const projects = [
   {
     id: "pepe-jeans_store",
     role: "Client Developer",
+    category: "doubleyou",
     client: "Pepe Jeans",
     title: "Store",
     clientAndTitle: "Pepe Jeans · Store",
@@ -199,6 +213,7 @@ const projects = [
   {
     id: "nike_pro-combat",
     role: "Flash Developer",
+    category: "doubleyou",
     client: "Nike",
     title: "Pro Combat",
     clientAndTitle: "Nike · Pro Combat",
@@ -213,6 +228,7 @@ const projects = [
   {
     id: "nike_my-time-is-now",
     role: "Flash Developer",
+    category: "doubleyou",
     client: "Nike",
     title: "My time is now",
     clientAndTitle: "Nike · My time is now",
@@ -227,6 +243,7 @@ const projects = [
   {
     id: "audi_a1-me-gusta",
     role: "Flash Developer",
+    category: "doubleyou",
     client: "Audi",
     title: "A1 Me gusta",
     clientAndTitle: "Audi · A1 Me gusta",
@@ -241,6 +258,7 @@ const projects = [
   {
     id: "fc-barcelona_som-un",
     role: "Flash Developer",
+    category: "doubleyou",
     client: "FC Barcelona",
     title: "Som un",
     clientAndTitle: "FC Barcelona · Som un",
@@ -255,6 +273,7 @@ const projects = [
   {
     id: "atrápalo_revívelo",
     role: "Flash Developer",
+    category: "doubleyou",
     client: "Atrápalo",
     title: "Revívelo",
     clientAndTitle: "Atrápalo · Revívelo",
@@ -269,6 +288,7 @@ const projects = [
   {
     id: "audi_driving-experience",
     role: "Flash Developer",
+    category: "doubleyou",
     client: "Audi",
     title: "Driving Experience",
     clientAndTitle: "Audi · Driving Experience",
@@ -283,6 +303,7 @@ const projects = [
   {
     id: "evax_estudio-risa",
     role: "Flash Developer",
+    category: "doubleyou",
     client: "Evax",
     title: "Estudio Risa",
     clientAndTitle: "Evax · Estudio Risa",
@@ -320,6 +341,7 @@ const testAll = function (test, project) {
     client = project.client,
     clientAndTitle = project.clientAndTitle,
     agency = project.agency,
+    category = project.category,
     canonical = project.canonical,
     website = project.website,
     more = project.more,
@@ -384,6 +406,7 @@ const testAll = function (test, project) {
   test.assertElementCount(".project-page .prev-next-project li", (isFirstProject || isLastProject) ? 1 : 2);
   test.assertExists(".related-post");
   test.assertSelectorHasText(".related-title", "Related");
+  test.assertExists(".related-post[data-category=\"" + category + "\"]");
   test.assertElementCount(".related-post li", relatedCount);
   test.assertSelectorHasText(".share-title", "Share");
   test.assertExists(".share-post");
