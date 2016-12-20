@@ -1,5 +1,8 @@
 # www
 
+## [16.3.0] - 2016-12-20
+- Fix #128 / Loading bar display with blue color until loads css
+
 ## [16.2.0] - 2016-12-20
 - Fix back button and Turbolinks cache problem
 
