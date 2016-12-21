@@ -4,3 +4,5 @@
 {% elsif depth == 2 %}{% assign base = '..' %}
 {% elsif depth == 3 %}{% assign base = '../..' %}
 {% elsif depth == 4 %}{% assign base = '../../..' %}{% endif %}
+
+{% if page.url == '/404.html' %}{% assign base = site.url %}{% endif %}
