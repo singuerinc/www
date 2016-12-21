@@ -33,3 +33,12 @@ But this project was made in 2011, when getting content from Facebook through th
 <div class="video-wrapper">
 <iframe src="//www.youtube.com/embed/tJBfbUN1dvY?rel=0&amp;showinfo=0&amp;vq=hd1080" frameborder="0" allowfullscreen></iframe>
 </div>
+
+<ul class="screen-shots">
+    <li><img src="../../img/projects/atrapalo--revivelo/Revivelo_Site_Experiencia_01.jpg" width="100%"></li>
+    <li><img src="../../img/projects/atrapalo--revivelo/Revivelo_Site_Experiencia_05.jpg" width="100%"></li>
+    <li><img src="../../img/projects/atrapalo--revivelo/Revivelo_Site_Experiencia_08.jpg" width="100%"></li>
+    <li><img src="../../img/projects/atrapalo--revivelo/Revivelo_Site_Experiencia_10.jpg" width="100%"></li>
+    <li><img src="../../img/projects/atrapalo--revivelo/Revivelo_Site_Experiencia_11.jpg" width="100%"></li>
+    <li><img src="../../img/projects/atrapalo--revivelo/Revivelo_Site_Experiencia_20.jpg" width="100%"></li>
+</ul>
