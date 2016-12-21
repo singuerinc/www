@@ -1,3 +1,6 @@
+var system = require('system');
+var env = system.env;
+var URL = env["SITE_URL"];
 const TOTAL_TESTS = 1569;
 const projects = [
   {
@@ -324,8 +327,8 @@ const testCommonMetas = function (test, canonical) {
   test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio']");
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[property='og:type'][content='website']");
-  test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
-  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/projects/zalando--ivy-park.jpg']");
+  test.assertExists("meta[property='og:url'][content='" + URL + canonical + "']");
+  test.assertExists("meta[property='og:image'][content='" + URL + "/img/projects/zalando--ivy-park.jpg']");
   test.assertExists("meta[property='og:locale'][content='en_US']");
   test.assertExists("meta[property='og:image:type'][content='image/jpg']");
   test.assertExists("meta[property='og:image:width'][content='816']");
@@ -334,7 +337,7 @@ const testCommonMetas = function (test, canonical) {
   test.assertExists("meta[name='twitter:site'][content='@singuerinc']");
   test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio']");
   test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/projects/zalando--ivy-park.jpg']");
+  test.assertExists("meta[name='twitter:image'][content='" + URL + "/img/projects/zalando--ivy-park.jpg']");
 };
 const testAll = function (test, project) {
   const role = project.role,
@@ -351,17 +354,17 @@ const testAll = function (test, project) {
 
   test.assertHttpStatus(200);
   test.assertSelectorHasText("html title", "Nahuel Scotti - Portfolio / " + clientAndTitle);
-  test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com" + canonical + "']");
+  test.assertExists("link[rel='canonical'][href='" + URL + canonical + "']");
   test.assertResourceExists("img/projects/" + image + ".jpg");
   test.assertExists("meta[property='og:title'][content='" + clientAndTitle + "']");
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-  test.assertExists("meta[property='og:url'][content='https://www.singuerinc.com" + canonical + "']");
-  test.assertExists("meta[property='og:image'][content='https://www.singuerinc.com/img/projects/" + image + ".jpg']");
+  test.assertExists("meta[property='og:url'][content='" + URL + canonical + "']");
+  test.assertExists("meta[property='og:image'][content='" + URL + "/" + "img/projects/" + image + ".jpg']");
   test.assertExists("meta[property='og:image:width'][content='816']");
   test.assertExists("meta[property='og:image:height'][content='386']");
   test.assertExists("meta[name='twitter:title'][content='" + clientAndTitle + "']");
   test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
-  test.assertExists("meta[name='twitter:image'][content='https://www.singuerinc.com/img/projects/" + image + ".jpg']");
+  test.assertExists("meta[name='twitter:image'][content='" + URL + "/" + "img/projects/" + image + ".jpg']");
 
   test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
   test.assertExists("body.project-page");
@@ -373,8 +376,8 @@ const testAll = function (test, project) {
   test.assertExists("body.project-page .content meta[itemprop='name'][content='" + clientAndTitle + "']");
   test.assertExists("body.project-page .content meta[itemprop='contributor'][content='Nahuel Scotti']");
   test.assertExists("body.project-page .content meta[itemprop='keywords']");
-  test.assertExists("body.project-page .content meta[itemprop='image'][content='https://www.singuerinc.com/img/projects/" + image + ".jpg']");
-  test.assertExists("body.project-page .content meta[itemprop='url'][content='https://www.singuerinc.com" + canonical + "']");
+  test.assertExists("body.project-page .content meta[itemprop='image'][content='" + URL + "/img/projects/" + image + ".jpg']");
+  test.assertExists("body.project-page .content meta[itemprop='url'][content='" + URL + canonical + "']");
 
   test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(1)", "My role");
   test.assertSelectorHasText(".info tr:nth-child(1) td:nth-child(2)", role);
@@ -411,9 +414,9 @@ const testAll = function (test, project) {
   test.assertSelectorHasText(".share-title", "Share");
   test.assertExists(".share-post");
   test.assertElementCount(".share-post li", shareCount);
-  test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=" + encodeURI(clientAndTitle) + "&url=https://www.singuerinc.com" + canonical + "&via=singuerinc']");
-  test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com" + canonical + "']");
-  test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=https://www.singuerinc.com" + canonical + "']");
+  test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=" + encodeURI(clientAndTitle) + "&url=" + URL + canonical + "&via=singuerinc']");
+  test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=" + URL + canonical + "']");
+  test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=" + URL + canonical + "']");
 
   test.assertExists("body .sidebar header h1 a[href='../']");
   test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='../']");
@@ -424,7 +427,7 @@ const testAll = function (test, project) {
   test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='../sitemap.html']");
 
   test.assertElementCount("body .sidebar .social li a", 1);
-  test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=https://www.singuerinc.com&via=singuerinc']");
+  test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=" + URL + "&via=singuerinc']");
 };
 
 casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
@@ -434,7 +437,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertResourceExists("all.css");
     test.assertResourceExists("https://www.google-analytics.com/analytics.js");
     test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-    test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/']");
+    test.assertExists("link[rel='canonical'][href='" + URL + "/']");
 
     testCommonMetas(test, "/");
 
@@ -483,7 +486,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
 
     test.assertElementCount("body .sidebar .social li a", 1);
-    test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=https://www.singuerinc.com&via=singuerinc']");
+    test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=" + URL + "&via=singuerinc']");
 
     // sidebar - mobile - links
     test.assertExists("body .sidebar-mobile ul");
@@ -537,8 +540,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("li#" + project.id + " meta[itemprop='name'][content='" + project.clientAndTitle + "']");
       test.assertExists("li#" + project.id + " meta[itemprop='contributor'][content='Nahuel Scotti']");
       test.assertExists("li#" + project.id + " meta[itemprop='keywords']");
-      test.assertExists("li#" + project.id + " meta[itemprop='image'][content='https://www.singuerinc.com/img/projects/" + project.image + ".jpg']");
-      test.assertExists("li#" + project.id + " meta[itemprop='url'][content='https://www.singuerinc.com" + project.canonical + "']");
+      test.assertExists("li#" + project.id + " meta[itemprop='image'][content='"+ URL +"/img/projects/" + project.image + ".jpg']");
+      test.assertExists("li#" + project.id + " meta[itemprop='url'][content='"+ URL + project.canonical + "']");
       test.assertExists("li#" + project.id + " a[href='." + project.canonical + "'][target='_self']");
       test.assertExists("li#" + project.id + " div.post-image.animated." + project.id);
       test.assertSelectorHasText("li#" + project.id + " h3[class='w-title']", project.title);
@@ -552,25 +555,25 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertHttpStatus(200);
       test.assertExists("body .content.container");
       test.assertExists("body .content.container .title");
-      test.assertExists("body .content.container p a[href='/']");
+      test.assertExists("body .content.container p a[href='" + URL + "']");
       test.assertSelectorHasText("body .content.container .title", "404: Page not found");
       test.assertHttpStatus(200);
       // FIXME: test.assertResourceExists("https://www.google-analytics.com/analytics.js");
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/404.html']");
+      test.assertExists("link[rel='canonical'][href='" + URL + "/404.html']");
       testCommonMetas(test, "/404.html");
-      test.assertExists("body .sidebar header h1 a[href='./']");
-      test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='./']");
-      test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='./']");
-      test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='./about.html']");
-      test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='./about.html']");
-      test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
-      test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
+      test.assertExists("body .sidebar header h1 a[href='" + URL + "/']");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(1) a[href='" + URL + "/']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(1) a[href='" + URL + "/']");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(2) a[href='" + URL + "/about.html']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(2) a[href='" + URL + "/about.html']");
+      test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='" + URL + "/sitemap.html']");
+      test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='" + URL + "/sitemap.html']");
     })
     .thenOpen("http://jekyll:4000/about.html", function () {
       test.assertHttpStatus(200);
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/about.html']");
+      test.assertExists("link[rel='canonical'][href='" + URL + "/about.html']");
       testCommonMetas(test, "/about.html");
       test.assertExists("body .content.container");
       test.assertExists("body .content.container p img");
@@ -585,11 +588,11 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
       test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
       test.assertElementCount("body .sidebar .social li a", 1);
-      test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=https://www.singuerinc.com&via=singuerinc']");
+      test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=" + URL + "&via=singuerinc']");
     })
     .thenOpen("http://jekyll:4000/sitemap.html", function () {
       test.assertTextExists("ga('create', 'UA-881783-8', {'cookieDomain': 'none'});");
-      test.assertExists("link[rel='canonical'][href='https://www.singuerinc.com/sitemap.html']");
+      test.assertExists("link[rel='canonical'][href='" + URL + "/sitemap.html']");
       testCommonMetas(test, "/sitemap.html");
       test.assertExists("body .content.container");
       test.assertSelectorHasText("body .content.container blockquote p", "Disclaimer");
@@ -601,7 +604,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("body .sidebar nav ul:first-child li:nth-child(7) a[href='./sitemap.html']");
       test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
       test.assertElementCount("body .sidebar .social li a", 1);
-      test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=https://www.singuerinc.com&via=singuerinc']");
+      test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=" + URL + "&via=singuerinc']");
     })
     .thenOpen("http://jekyll:4000/singuerinc/singuerinc-bi.html", function () {
       testAll(test, projects[0]);

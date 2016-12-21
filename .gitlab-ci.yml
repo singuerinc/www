@@ -17,7 +17,7 @@ variables:
   - apk add --update nodejs
   - npm install
   - npm run build
-  - JEKYLL_ENV=test jekyll build -d $CI_PROJECT_DIR/public
+  - JEKYLL_ENV=test jekyll build --config _config.yml,_config-test.yml -d $CI_PROJECT_DIR/public
   - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
@@ -26,6 +26,7 @@ variables:
   image: singuerinc/docker_casperjs
   stage: test
   script:
+  - export SITE_URL="http://$TEST_DOMAIN"
   - echo "0.0.0.0 jekyll" >> /etc/hosts
   - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
@@ -69,12 +70,26 @@ test:deploy:
 staging:build:
   <<: *test-build-definition
   environment: staging
+  script:
+  - apk add --update nodejs
+  - npm install
+  - npm run build
+  - JEKYLL_ENV=test jekyll build --config _config.yml,_config-staging.yml -d $CI_PROJECT_DIR/public
+  - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
+  - rm $CI_PROJECT_DIR/public/robots.txt
+  - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
   only:
   - master
 
 staging:test:functional:
   <<: *test-functional-definition
   environment: staging
+  script:
+  - export SITE_URL="http://$STAGING_DOMAIN"
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
+  - python -m SimpleHTTPServer 4000 &
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
   - master
 
@@ -92,12 +107,24 @@ staging:deploy:
 pages:build:
   <<: *test-build-definition
   environment: production
+  script:
+  - apk add --update nodejs
+  - npm install
+  - npm run build
+  - JEKYLL_ENV=test jekyll build -d $CI_PROJECT_DIR/public
+  - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
   only:
   - tags
 
 pages:test:functional:
   <<: *test-functional-definition
   environment: production
+  script:
+  - export SITE_URL="http://$PROD_DOMAIN"
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
+  - python -m SimpleHTTPServer 4000 &
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
   - tags
 
