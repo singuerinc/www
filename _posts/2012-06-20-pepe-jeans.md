@@ -29,3 +29,8 @@ We developed a dynamic frontend with Java/Magnolia. All the layout was customiza
 At that time, HTML5 was the new guy in the town, so we build the entire website with open technologies: HTML5, CSS3, and a JavaScript/Backbone application to make it more reactive.
 
 Fully responsive, mobile first, the website featured a 12-grid-based layout based on Bootstrap.
+
+<ul class="screen-shots">
+    <li><img src="../../img/projects/pepe-jeans/Buscador_1366.jpg" width="100%"></li>
+    <li><img src="../../img/projects/pepe-jeans/Captura_home_eng.jpg" width="100%"></li>
+</ul>
