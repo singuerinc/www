@@ -356,13 +356,13 @@ const testAll = function (test, project) {
   test.assertSelectorHasText("html title", "Nahuel Scotti - Portfolio / " + clientAndTitle);
   test.assertExists("link[rel='canonical'][href='" + URL + canonical + "']");
   test.assertResourceExists("img/projects/" + image + ".jpg");
-  test.assertExists("meta[property='og:title'][content='" + clientAndTitle + "']");
+  test.assertExists("meta[property='og:title'][content='Nahuel Scotti - Portfolio / " + clientAndTitle + "']");
   test.assertExists("meta[property='og:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[property='og:url'][content='" + URL + canonical + "']");
   test.assertExists("meta[property='og:image'][content='" + URL + "/" + "img/projects/" + image + ".jpg']");
   test.assertExists("meta[property='og:image:width'][content='816']");
   test.assertExists("meta[property='og:image:height'][content='386']");
-  test.assertExists("meta[name='twitter:title'][content='" + clientAndTitle + "']");
+  test.assertExists("meta[name='twitter:title'][content='Nahuel Scotti - Portfolio / " + clientAndTitle + "']");
   test.assertExists("meta[name='twitter:description'][content='Developer. Currently working at NetEnt, Stockholm - Sweden.']");
   test.assertExists("meta[name='twitter:image'][content='" + URL + "/" + "img/projects/" + image + ".jpg']");
 
@@ -414,7 +414,7 @@ const testAll = function (test, project) {
   test.assertSelectorHasText(".share-title", "Share");
   test.assertExists(".share-post");
   test.assertElementCount(".share-post li", shareCount);
-  test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=" + encodeURI(clientAndTitle) + "&url=" + URL + canonical + "&via=singuerinc']");
+  test.assertExists(".share-post li:nth-child(1) a[href='https://twitter.com/intent/tweet?text=" + encodeURI("Nahuel Scotti - Portfolio / " + clientAndTitle) + "&url=" + URL + canonical + "&via=singuerinc']");
   test.assertExists(".share-post li:nth-child(2) a[href='https://www.facebook.com/sharer/sharer.php?u=" + URL + canonical + "']");
   test.assertExists(".share-post li:nth-child(3) a[href='https://plus.google.com/share?url=" + URL + canonical + "']");
 

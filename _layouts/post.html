@@ -9,9 +9,9 @@
   {% include sidebar.html %}
 
     {% if page.client == page.title %}
-      {% assign page_title = page.title | prepend: "Nahuel Scotti - Portfolio: " %}
+      {% assign page_title = page.title %}
     {% else %}
-      {% assign page_title = page.client | append: " · " | append: page.title | prepend: "Nahuel Scotti - Portfolio: " %}
+      {% assign page_title = page.client | append: " · " | append: page.title %}
     {% endif %}
     {% assign page_url = site.url | append: page.url %}
 
@@ -108,7 +108,7 @@
 
       <h2 class="share-title">Share</h2>
       <ul class="share-post">
-        <li><a class="twitter" href="https://twitter.com/intent/tweet?text={{page_title|uri_escape}}&url={{page_url|uri_escape}}&via=singuerinc" target="_blank">Twitter</a></li>
+        <li><a class="twitter" href="https://twitter.com/intent/tweet?text={{page_title|prepend:'Nahuel Scotti - Portfolio / '|uri_escape}}&url={{page_url|uri_escape}}&via=singuerinc" target="_blank">Twitter</a></li>
         <li><a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{page_url|uri_escape}}" target="_blank">Facebook</a></li>
         <li><a class="google" href="https://plus.google.com/share?url={{page_url|uri_escape}}" target="_blank">Google+</a></li>
       </ul>
