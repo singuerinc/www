@@ -1,5 +1,14 @@
 # www
 
+## [16.5.0] - 2016-12-21
+- Fix 404 page javascript error
+
+## [16.4.1] - 2016-12-21
+- Fix SITE_URL protocol
+
+## [16.4.0] - 2016-12-21
+- Fix 404 styles
+
 ## [16.3.0] - 2016-12-20
 - Fix #128 / Loading bar display with blue color until loads css
 
