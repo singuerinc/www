@@ -7,9 +7,10 @@ document.addEventListener("turbolinks:load", (e) => {
     portfolio;
 
   a = document.createElement("a");
-  a.href = e.data.url;
+  a.href = document.querySelector("meta[name=\"page:url\"]").getAttribute("content");
 
   page = a.pathname;
+
   portfolio = new Portfolio();
 
   if (page === "/" || page === "/index.html") {
