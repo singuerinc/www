@@ -26,7 +26,7 @@ variables:
   image: singuerinc/docker_casperjs
   stage: test
   script:
-  - export SITE_URL="$TEST_DOMAIN"
+  - export SITE_URL="http://$TEST_DOMAIN"
   - echo "0.0.0.0 jekyll" >> /etc/hosts
   - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
