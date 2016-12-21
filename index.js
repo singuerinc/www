@@ -1,5 +1,31 @@
+/* global document */
 import Portfolio from "./Portfolio.js";
 
-const portfolio = new Portfolio();
+document.addEventListener("turbolinks:load", (e) => {
+  let a,
+    page,
+    portfolio;
 
-portfolio.load();
+  a = document.createElement("a");
+  a.href = document.querySelector("meta[name=\"page:url\"]").getAttribute("content");
+
+  page = a.pathname;
+
+  portfolio = new Portfolio();
+
+  if (page === "/" || page === "/index.html") {
+    portfolio.loadIndex();
+  }
+  else if (page === "/about.html") {
+    portfolio.loadAbout();
+  }
+  else if (page === "/sitemap.html") {
+    portfolio.loadSiteMap();
+  }
+  else if (page === "/404.html") {
+    portfolio.load404();
+  }
+  else {
+    portfolio.loadProject();
+  }
+});

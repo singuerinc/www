@@ -1,13 +1,21 @@
+{% include base.html %}
 <head>
 
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <style>
+    .hide {
+      visibility: hidden;
+    }
+  </style>
 
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="turbolinks-cache-control" content="no-cache">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   {% if page %}
   <link rel="canonical" href="{{site.url}}{{page.url}}" />
   {% endif %}
 
+  <meta name="page:url" content="{{page.url}}" />
   <meta name="author" content="Nahuel Scotti" />
   <meta name="description" content="Nahuel Scotti - Developer. Currently working at NetEnt, Stockholm - Sweden." />
   <meta name="keywords" content="nahuel scotti, @singuerinc, portfolio, developer, html5, javascript, netent, b-reel, doubleyou, backbone, requirejs, angularjs, nodejs, flash, flex, as3, ruby, rails, zalando, arawys, htc, facebook, overlay, skoda, google, kitappetit, nike, pepejeans, audi, fcb, barcelona, evax" />
@@ -35,7 +43,7 @@
   {% else %}
     {% assign page_image = "zalando--ivy-park" %}
   {% endif %}
-  <meta property="og:image" content="{{site.url}}/img/home/{{page_image}}.jpg">
+  <meta property="og:image" content="{{site.url}}/img/projects/{{page_image}}.jpg">
   <meta property="og:locale" content="en_US" />
   <meta property="og:image:type" content="image/jpg" />
   <meta property="og:image:width" content="816" />
@@ -45,27 +53,19 @@
   <meta name="twitter:site" content="@singuerinc" />
   <meta name="twitter:title" content="{{page_title}}" />
   <meta name="twitter:description" content="Developer. Currently working at NetEnt, Stockholm - Sweden." />
-  <meta name="twitter:image" content="{{site.url}}/img/home/{{page_image}}.jpg" />
+  <meta name="twitter:image" content="{{site.url}}/img/projects/{{page_image}}.jpg" />
 
-  <link rel="author" href="humans.txt" />
+  <link rel="author" href="{{base}}/humans.txt" />
 
+  {% if page.client %}
+  <title>Nahuel Scotti - Portfolio / {{page_title}}</title>
+  {% else %}
   <title>Nahuel Scotti - Portfolio</title>
+  {% endif %}
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/all.css">
-
-  {% unless page.id == "404" %}
-  <noscript>
-  {% endunless %}
-    <style type="text/css">
-      .hide {
-        display: block;
-      }
-    </style>
-  {% unless page.id == "404" %}
-  </noscript>
-  {% endunless %}
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{base}}/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="{{base}}/favicon.ico">
+  <link rel="stylesheet" href="{{base}}/all.css">
 
   <script type="text/javascript">
     if (("www.singuerinc.com" == window.location.host) && (window.location.protocol != 'https:')) {
@@ -84,13 +84,18 @@
       @media (max-width: 768px) {
       {% for post in site.posts %}
         .post-image.{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}.{{post.priority}} {
-        background: url(./img/home/{{ post.image }}-md.jpg) no-repeat;
-        background-size: 100% auto;
-      }
+          background: url(./img/home/{{ post.image }}-md.jpg) no-repeat;
+          background-size: 100% auto;
+        }
       {% endfor %}
       }
     </style>
   </noscript>
   {% endif %}
 
+  <style>
+    #nprogress .bar {
+	    background: #ddd;
+    }
+  </style>
 </head>

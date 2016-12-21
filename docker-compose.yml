@@ -2,15 +2,18 @@ version: "2"
 services:
   jekyll:
     image: jekyll/jekyll:3.2.1
-    command: jekyll s
+    command: jekyll s --config _config.yml,_config-dev.yml
     ports:
       - 127.0.0.1:4000:4000
     volumes:
       - ./:/srv/jekyll
     depends_on:
       - webpack
+    stdin_open: true
+    tty: true
 
   webpack:
+    image: singuerinc/www-webpack
     build:
       context: .
       dockerfile: Dockerfile-webpack
@@ -18,17 +21,18 @@ services:
     command: ../node_modules/webpack/bin/webpack.js --progress --watch
     volumes:
       - ./:/usr/src/app
+    stdin_open: true
+    tty: true
 
   tests:
+    image: singuerinc/www-tests
     build:
       context: .
       dockerfile: Dockerfile-tests
-    command: /bin/bash -c "echo '127.0.0.1 jekyll' >> /etc/hosts; cd /data/public; python -m SimpleHTTPServer 4000 & casperjs test /data/_tests/index.js"
+    command: /bin/bash -c "export SITE_URL="http://localhost:4000"; echo '127.0.0.1 jekyll' >> /etc/hosts; cd /data/public; python -m SimpleHTTPServer 4000 & casperjs test /data/_tests/index.js"
     working_dir: /data
     volumes:
       - ./:/data
-    stdin_open: true
-    tty: true
 
   tests-links:
     image: jekyll/jekyll:3.2.1

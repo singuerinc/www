@@ -1,5 +1,64 @@
 # www
 
+## [16.6.0] - 2016-12-21
+- Add Atrapalo Revivelo screenshots
+
+## [16.5.0] - 2016-12-21
+- Fix 404 page javascript error
+
+## [16.4.1] - 2016-12-21
+- Fix SITE_URL protocol
+
+## [16.4.0] - 2016-12-21
+- Fix 404 styles
+
+## [16.3.0] - 2016-12-20
+- Fix #128 / Loading bar display with blue color until loads css
+
+## [16.2.0] - 2016-12-20
+- Fix back button and Turbolinks cache problem
+
+## [16.1.0] - 2016-12-19
+- Add new ACME file
+
+## [16.0.0] - 2016-12-19
+- Add test for category field
+
+## [15.0.0] - 2016-11-16
+- Add "Bi" project
+
+## [14.0.0] - 2016-11-16
+- Sitemap: Rename to map
+- Add Project title to page title
+- Change CI builds to GIT_STRATEGY: none when needed
+
+## [13.0.0] - 2016-11-16
+- Renew SSL Certificate
+- Change title color (gradient background)
+- Remove Evax "Adapt" project
+- Better project's descriptions
+- Add social icons in home page
+- Remove project's client from home page
+- Load new page with Turbolinks
+- Add next project button
+- Fix singuerinc link to home page
+
+## [12.0.0] - 2016-09-29
+- Add enter and leave transitions to pages
+- Add next project button
+- Add some animations to the project's page
+- Fix singuerinc link to home page
+
+## [11.0.0] - 2016-09-22
+- Fix Images are not big enough
+- Add site map page
+- Remove <br/>'s
+- Implement progress bar on loading
+- Add role to project profiles
+- Award box is not vertically centered
+- git commit sha in html doc
+- Meta tags according to the page
+
 ## [10.0.0] - 2016-09-15
 - More semantic tags for project title, etc
 - Minimize CSS
@@ -13,7 +72,7 @@
 - Fix Black placeholders during the images loading should be white or transparent
 - Fix Related buttons are too small for mobile
 - Fix Images that are 50% tall are displayed incorrectly in mobile
-- Fix Style inside a div is not permited
+- Fix Style inside a div is not permitted
 - Test in devices
 
 ## [8.0.0] - 2016-09-10
@@ -46,7 +105,7 @@
 - Fix fix only latest docker image is created !40
 
 ## [5.2.0] - 2016-08-25
-- Fix "Google Bot doen't see anything"
+- Fix "Google Bot doesn't see anything"
 - Optimize assets after PageSpeed Insights report
 - Exclude index.js from compiled public folder
 - Test before each commit (via git hook)
@@ -87,7 +146,7 @@
 
 ## [3.2.0] - 2016-08-14
 - Change Metadata id
-- Awards bagde
+- Awards badge
 - Awards layout
 
 ## [3.1.0] - 2016-08-12
@@ -104,7 +163,7 @@
 - Projects pages
 - Projects descriptions updated
 - CI now build, test and deploy
-- Test with html-proofer
+- Test with htmlproofer
 - Add Google Analytics "enhanced link attribution"
 - Styles updated
 - About has sidebar

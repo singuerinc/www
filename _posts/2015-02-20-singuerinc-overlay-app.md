@@ -2,6 +2,7 @@
 layout: post
 title: "Overlay"
 category: "singuerinc"
+role: "Developer"
 client: singuerinc
 agency:
     - singuerinc
@@ -15,17 +16,19 @@ tags:
     - "air"
 
 image: "singuerinc--overlay-app"
+image_home: "singuerinc--overlay-app"
 www: "https://github.com/singuerinc/OverlayApp"
 more: ""
 priority: 'priority-2'
 ---
 
-Overlay is an open source application I developed some time ago. It functionality is quiet basic, but powerful: overlay an image over other application, like an onion paper.
-<br/><br/>
-It main purpose is to help the developer with a guide, making easy to achieve a pixel perfect app.
-<br/><br/>
-It was developed in AIR/ActionScript.
-<br/>
-My original idea was to develop it in HTML/CSS/JS, but at that time and currently is not possible to have a transparent window (without some ugly hacks).
-<br/><br/>
-If you want to contribute, or just see the code, take a look at the GitHub repository: [https://github.com/singuerinc/OverlayApp](https://github.com/singuerinc/OverlayApp)
+Overlay is an open source application I have developed. In the beginning it was just for fun, but rapidly it became a main tool in my daily work.
+
+It functionality is quiet basic but powerful. Like an onion paper, Overlay displays an image over another application.
+
+The main purpose of Overlay is to help the user with a guide, making simpler to achieve a pixel perfect design.
+
+I have written it in ActionScript, but I'm thinking about porting into Javascript.
+
+Would you like to contribute? Take a look at the GitHub repository:  
+<a href="https://github.com/singuerinc/OverlayApp" target="_blank">https://github.com/singuerinc/OverlayApp</a>

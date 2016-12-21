@@ -1,14 +1,16 @@
-{% if page.url == "/" || page.url == "/index.html" %}
 <script type="text/javascript">
-  var list = document.querySelectorAll('ul.posts li');
-  for(var i=0; i<list.length; i++){
-    list[i].classList.add('hide');
-  }
-  var posts = [];
-  {% for post in site.posts %}posts.push({id: "{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}", image: "{{post.image}}"});{% endfor %}
+    var list = document.querySelectorAll('ul.posts li');
+
+    for(var i=0; i<list.length; i++){
+        list[i].classList.add('hide');
+    }
+
+    var posts = [];
+    {% for post in site.posts %}
+    posts.push({id: "{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}", image: "{{post.image_home}}"});{% endfor %}
 </script>
-<script type="text/javascript" src="./assets/bundle.js"></script>
-{% endif %}
+<script type="text/javascript" src="{{base}}/assets/turbolinks.js"></script>
+<script type="text/javascript" src="{{base}}/assets/bundle.js" data-turbolinks-eval="false"></script>
 
 <script>
 
@@ -25,6 +27,18 @@
 
   ga('send', 'pageview');
 
-  <!-- {{ jekyll.environment }} -->
+  <!-- {{ jekyll.environment }} - {{ site.data['hash'] }} -->
 
 </script>
+
+{% unless page.id == "404" %}
+<noscript>
+    {% endunless %}
+    <style type="text/css">
+        .hide {
+            visibility: visible;
+        }
+    </style>
+    {% unless page.id == "404" %}
+</noscript>
+{% endunless %}

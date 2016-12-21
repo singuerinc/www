@@ -2,8 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 {% include head.html %}
+{% include base.html %}
 
-<body class="project-page">
+<body class="project-page page">
 
   {% include sidebar.html %}
 
@@ -14,23 +15,49 @@
     {% endif %}
     {% assign page_url = site.url | append: page.url %}
 
-    <div class="content container">
+    <div class="content container hide">
 
       <div itemscope itemtype="http://schema.org/WebSite">
-        <h1 class="project-title">{{ page_title }}</h1>
-        <meta itemprop="name" content="{{page.client}} - {{page.title}}"/>
+
+        {% if page.previous.url or page.next.url %}
+        <ul class="prev-next-project">
+          {% if page.next.url %}
+          {% if page.next.client == page.next.title %}
+          {% assign page_next_title = page.next.title %}
+          {% else %}
+          {% assign page_next_title = page.next.client | append: " · " | append: page.next.title %}
+          {% endif %}
+          <li class="prev"><a href="{{page.next.url}}">{{page_next_title}}</a></li>
+          {% endif %}
+          {% if page.previous.url %}
+          {% if page.previous.client == page.previous.title %}
+          {% assign page_previous_title = page.previous.title %}
+          {% else %}
+          {% assign page_previous_title = page.previous.client | append: " · " | append: page.previous.title %}
+          {% endif %}
+          <li class="next"><a href="{{page.previous.url}}">{{page_previous_title}}</a></li>
+          {% endif %}
+        </ul>
+        {% endif %}
+
+
+        <h1 class="project-title title">{{ page_title }}</h1>
+
+        <meta itemprop="name" content="{{page_title}}"/>
         <meta itemprop="contributor" content="Nahuel Scotti"/>
         {% for award in page.awards %}<meta itemprop="award" content="{{award}}"/>{% endfor %}
         <meta itemprop="keywords" content="{{page.tech|join:', '}}"/>
-        <meta itemprop="image" content="{{site.url}}/img/home/{{ page.image }}.jpg"/>
-        <img class="image" src="/img/home/{{ page.image }}.jpg" alt="{{ page.title }}" title="{{ page.title }}">
+        <meta itemprop="image" content="{{site.url}}/img/projects/{{ page.image }}.jpg"/>
+        <img class="image" src="{{base}}/img/projects/{{ page.image }}.jpg" alt="{{ page.title }}" title="{{ page.title }}">
         <meta itemprop="url" content="{{page_url}}"/>
-
-        <div class="project-content {{page.css|join:' '}}">{{ content }}</div>
 
         <table class="info">
           <tr>
-            <td class="info-title">Release</td>
+            <td class="info-role">My role</td>
+            <td>{{ page.role }}</td>
+          </tr>
+          <tr>
+            <td class="info-title">Date release</td>
             <td>{{ page.date | date_to_string }}</td>
           </tr>
           <tr>
@@ -73,7 +100,11 @@
           {% endif %}
         </table>
 
+        <div class="project-content {{page.css|join:' '}}">{{ content }}</div>
+
       </div>
+
+      <hr>
 
       <h2 class="share-title">Share</h2>
       <ul class="share-post">
@@ -85,16 +116,16 @@
       <hr>
 
       <h2 class="related-title">Related</h2>
-      <ul class="related-post">
-      {% assign category = site.categories[page.category] | sort: 'client' %}
-      {% for post in category %}
+      <ul class="related-post" data-category="{{page.category}}">
+      {% assign sorted_posts = site.categories.[page.category] | sort: "client" %}
+      {% for post in sorted_posts %}
         {% if post.id != page.id %}
           {% if post.client == post.title %}
             {% assign post_title = post.title %}
           {% else %}
             {% assign post_title = post.client | append: " · " | append: post.title %}
           {% endif %}
-        <li><a href="{{ post.id }}.html" target="_self">{{ post_title }}</a></li>
+        <li><a href="{{base}}{{ post.id }}.html" target="_self">{{ post_title }}</a></li>
         {% endif %}
       {% endfor %}
       </ul>
@@ -102,9 +133,6 @@
     </div>
 
   {% include sidebar-mobile.html %}
-
-  <link rel="stylesheet" href="/all.css">
-
   {% include footer.html %}
 
 </body>
