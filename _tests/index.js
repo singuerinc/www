@@ -1,7 +1,7 @@
 var system = require('system');
 var env = system.env;
 var URL = env["SITE_URL"];
-const TOTAL_TESTS = 1569;
+const TOTAL_TESTS = 1635;
 const projects = [
   {
     id: "singuerinc_bi",
@@ -209,7 +209,7 @@ const projects = [
     canonical: "/doubleyou/pepe-jeans.html",
     website: null,
     more: null,
-    relatedCount: 7,
+    relatedCount: 8,
     shareCount: 3,
     image: "pepe-jeans"
   },
@@ -224,7 +224,7 @@ const projects = [
     canonical: "/doubleyou/nike-pro-combat.html",
     website: null,
     more: null,
-    relatedCount: 7,
+    relatedCount: 8,
     shareCount: 3,
     image: "nike--pro-combat"
   },
@@ -239,7 +239,7 @@ const projects = [
     canonical: "/doubleyou/nike-my-time-is-now.html",
     website: null,
     more: null,
-    relatedCount: 7,
+    relatedCount: 8,
     shareCount: 3,
     image: "nike--my-time-is-now"
   },
@@ -254,7 +254,7 @@ const projects = [
     canonical: "/doubleyou/audi-a1-me-gusta.html",
     website: "https://audia1megusta-p1singuerinc.rhcloud.com/",
     more: null,
-    relatedCount: 7,
+    relatedCount: 8,
     shareCount: 3,
     image: "audi--a1-me-gusta"
   },
@@ -269,7 +269,7 @@ const projects = [
     canonical: "/doubleyou/fcb-somos-uno.html",
     website: "https://singuerinc-doubleyou.gitlab.io/com.nike.somun/",
     more: null,
-    relatedCount: 7,
+    relatedCount: 8,
     shareCount: 3,
     image: "fcb--somos-uno"
   },
@@ -284,7 +284,7 @@ const projects = [
     canonical: "/doubleyou/atrapalo-revivelo.html",
     website: null,
     more: null,
-    relatedCount: 7,
+    relatedCount: 8,
     shareCount: 3,
     image: "atrapalo--revivelo"
   },
@@ -299,7 +299,7 @@ const projects = [
     canonical: "/doubleyou/audi-driving-experience.html",
     website: null,
     more: null,
-    relatedCount: 7,
+    relatedCount: 8,
     shareCount: 3,
     image: "audi--driving-experience"
   },
@@ -314,9 +314,24 @@ const projects = [
     canonical: "/doubleyou/evax-estudio-risa.html",
     website: "https://singuerinc-doubleyou.gitlab.io/es.evax.estudios/",
     more: null,
-    relatedCount: 7,
+    relatedCount: 8,
     shareCount: 3,
     image: "evax--estudio-risa"
+  },
+  {
+    id: "columna-group_colors",
+    role: "Flash Developer",
+    category: "doubleyou",
+    client: "Columna Group",
+    title: "Colors",
+    clientAndTitle: "Columna Group · Colors",
+    agency: "Doubleyou",
+    canonical: "/doubleyou/columna-colors.html",
+    website: "https://singuerinc-doubleyou.gitlab.io/com.columnacolors.www/",
+    more: null,
+    relatedCount: 8,
+    shareCount: 3,
+    image: "columna--colors"
   }];
 
 const testCommonMetas = function (test, canonical) {
@@ -403,7 +418,7 @@ const testAll = function (test, project) {
   }
 
   var isFirstProject = project.id === "singuerinc_bi",
-    isLastProject = project.id === "evax_estudio-risa";
+    isLastProject = project.id === "columna-group_colors";
 
   test.assertElementCount(".project-page .prev-next-project", 1);
   test.assertElementCount(".project-page .prev-next-project li", (isFirstProject || isLastProject) ? 1 : 2);
@@ -510,7 +525,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     // posts
     test.assertExists("body .content ul.posts");
-    test.assertElementCount("body .content ul.posts li", 21);
+    test.assertElementCount("body .content ul.posts li", 22);
     test.assertElementCount("body .content ul.posts li#singuerinc_bi", 1);
     test.assertElementCount("body .content ul.posts li#zalando_ivy-park", 1);
     test.assertElementCount("body .content ul.posts li#b-reel_b-reel", 1);
@@ -532,6 +547,7 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     test.assertElementCount("body .content ul.posts li#atrápalo_revívelo", 1);
     test.assertElementCount("body .content ul.posts li#audi_driving-experience", 1);
     test.assertElementCount("body .content ul.posts li#evax_estudio-risa", 1);
+    test.assertElementCount("body .content ul.posts li#columna-group_colors", 1);
 
     for (var i = 0; i < projects.length; i++) {
       var project = projects[i];
@@ -683,6 +699,9 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
     })
     .thenOpen("http://jekyll:4000/doubleyou/evax-estudio-risa.html", function () {
       testAll(test, projects[20]);
+    })
+    .thenOpen("http://jekyll:4000/doubleyou/columna-colors.html", function () {
+      testAll(test, projects[21]);
     })
     .run(function () {
       test.done();
