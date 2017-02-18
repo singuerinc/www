@@ -1,4 +1,6 @@
 .idea
-/node_modules
 /public
 /assets/bundle.js
+node_modules
+coverage
+.nyc_output

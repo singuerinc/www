@@ -4,13 +4,15 @@
   "description": "[![build status](https://gitlab.com/singuerinc/www.singuerinc.com/badges/master/build.svg)](https://gitlab.com/singuerinc/www.singuerinc.com/commits/master)",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js --progress"
+    "build": "./node_modules/webpack/bin/webpack.js --progress",
+    "test": "nyc ava --serial --verbose --watch",
+    "report": "nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@gitlab.com/singuerinc-works/com.singuerinc.www.git"
   },
-  "author": "",
+  "author": "singuerinc",
   "license": "ISC",
   "bugs": {
     "url": "https://gitlab.com/singuerinc-works/com.singuerinc.www/issues"
@@ -18,16 +20,55 @@
   "homepage": "https://gitlab.com/singuerinc-works/com.singuerinc.www#README",
   "devDependencies": {
     "animejs": "1.1.1",
+    "ava": "^0.18.1",
     "babel-core": "6.11.4",
     "babel-loader": "6.2.4",
     "babel-preset-es2015": "6.9.0",
+    "browser-env": "^2.0.21",
+    "chai": "^3.5.0",
     "css-loader": "0.23.1",
     "cssnano-cli": "1.0.4",
     "eslint-config-airbnb": "9.0.1",
     "file-loader": "0.9.0",
     "nprogress": "0.2.0",
+    "nyc": "^10.1.2",
+    "sinon": "^1.17.7",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.13.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-4",
+      "react"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ],
+    "ignore": "./__tests__",
+    "env": {
+      "development": {
+        "sourceMaps": "inline"
+      }
+    }
+  },
+  "ava": {
+    "require": [
+      "babel-register",
+      "./__tests__/helpers/setup-browser-env.js"
+    ],
+    "babel": "inherit",
+    "files": [
+      "__tests__/*.test.js"
+    ],
+    "source": [
+      "**/*.{js,jsx}",
+      "!public/**/*"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "tap": true,
+    "powerAssert": true
   }
 }
