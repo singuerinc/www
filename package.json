@@ -29,6 +29,9 @@
     "css-loader": "0.23.1",
     "cssnano-cli": "1.0.4",
     "eslint-config-airbnb": "9.0.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.2",
+    "eslint-plugin-standard": "^2.0.1",
     "file-loader": "0.9.0",
     "nprogress": "0.2.0",
     "nyc": "^10.1.2",
@@ -56,11 +59,11 @@
   "ava": {
     "require": [
       "babel-register",
-      "./__tests__/helpers/setup-browser-env.js"
+      "./__tests__/unit/helpers/setup-browser-env.js"
     ],
     "babel": "inherit",
     "files": [
-      "__tests__/*.test.js"
+      "__tests__/unit/*.test.js"
     ],
     "source": [
       "**/*.{js,jsx}",
@@ -69,13 +72,13 @@
     "concurrency": 5,
     "failFast": true,
     "tap": true,
-    "powerAssert": true
+    "powerAssert": false
   },
   "nyc": {
-    "lines": 99,
-    "statements": 99,
-    "functions": 99,
-    "branches": 99,
+    "lines": 75,
+    "statements": 75,
+    "functions": 75,
+    "branches": 75,
     "reporter": [
       "html",
       "text-summary"

@@ -135,6 +135,7 @@ pages:build:
   - npm i -g yarn
   - yarn
   - yarn run build
+  - rm $CI_PROJECT_DIR/public/assets/bundle.js.map
   - JEKYLL_ENV=test jekyll build -d $CI_PROJECT_DIR/public
   - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
   only:

@@ -1,15 +1,6 @@
 /* global window, setTimeout, Image, document, devicePixelRatio, Turbolinks */
-import anime from "animejs";
+import {anime} from "./anime";
 import NProgress from "nprogress";
-
-const _showPrevAndNextProjects = Symbol("_showPrevAndNextProjects");
-const _whenClickExit = Symbol("_whenClickExit");
-const _showTitle = Symbol("_showTitle");
-const _onIndexReady = Symbol("_onIndexReady");
-const _totalImgLoaded = Symbol("_totalImgLoaded");
-const _isRetina = Symbol("_isRetina");
-const _isMobile = Symbol("_isMobile");
-const _posts = Symbol("_posts");
 
 /**
  * The Portfolio class.
@@ -18,23 +9,24 @@ const _posts = Symbol("_posts");
 class Portfolio {
 
   constructor() {
-    const STYLE = Portfolio.getComputedStyle(document.querySelector("html"));
+    const STYLE = this._getComputedStyle(document.querySelector("html"));
 
-    this[_isRetina] = devicePixelRatio > 1;
-    this[_isMobile] = (parseInt(STYLE.getPropertyValue("width"), 10)) < 768;
+    this._isRetina = window.devicePixelRatio > 1;
+    this._isMobile = (parseInt(STYLE.getPropertyValue("width"), 10)) < 768;
   }
 
   /**
+   * @private
    * Adds a listener to each element.
    * When the user clicks in one of those elements,
    * then the pages fadeout and navigate to the next page.
-   * @param {string} els - A selector string
+   * @param {string} elements - A selector string
    * @returns {void}
    */
-  [_whenClickExit](els) {
-    document.querySelectorAll(els).forEach((el) => {
-      el.addEventListener("click", (e) => {
-        e.preventDefault();
+  _whenClickExit(elements) {
+    document.querySelectorAll(elements).forEach((el) => {
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
 
         anime({
           targets: ".content",
@@ -42,43 +34,43 @@ class Portfolio {
           duration: 700,
           easing: "easeInOutExpo",
           complete: () => {
-            Turbolinks.visit(e.target.getAttribute("href"), { action: "advance" });
+            Turbolinks.visit(event.target.getAttribute("href"), { action: "advance" });
           }
         });
       });
     });
   }
 
+  _onLoad(postId, totalImages, src) {
+    const tag = document.querySelector(`.post-image.${postId}`);
+
+    tag.style.backgroundImage = `url(${src})`;
+
+    this._totalImgLoaded++;
+    NProgress.set(this._totalImgLoaded / totalImages);
+    if (this._totalImgLoaded === totalImages) {
+      const waitBeforeReady = 200;
+
+      setTimeout(() => {
+        NProgress.done(true);
+        this._onIndexReady();
+      }, waitBeforeReady);
+    }
+  }
+
   /**
    * Starts the load of all images in the portfolio.
+   * @param {array} posts
    * @returns {void}
    */
-  loadIndex() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link");
-    this[_posts] = window.posts;
-    this[_totalImgLoaded] = 0;
-    const onLoad = (post, src) => {
-      const tag = document.querySelector(`.post-image.${post.id}`);
-
-      tag.style.backgroundImage = `url(${src})`;
-
-      this[_totalImgLoaded]++;
-      NProgress.set(this[_totalImgLoaded] / this[_posts].length);
-      if (this[_totalImgLoaded] === this[_posts].length) {
-        const waitBeforeReady = 200;
-
-        setTimeout(() => {
-          NProgress.done(true);
-          this[_onIndexReady]();
-        }, waitBeforeReady);
-      }
-    };
-
-    this[_posts].forEach((post, idx) => {
+  loadIndex(posts) {
+    this._whenClickExit("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link");
+    this._totalImgLoaded = 0;
+    posts.forEach((post, idx) => {
       let filename,
         src;
 
-      if (this[_isMobile] && !this[_isRetina]) {
+      if (this._isMobile && !this._isRetina) {
         filename = `${post.image}-md.jpg`;
       }
       else {
@@ -90,20 +82,21 @@ class Portfolio {
       if (idx < 4) {
         const image = new Image();
 
-        image.onload = () => onLoad(post, image.src);
+        image.onload = () => this._onLoad(post.id, posts.length, image.src);
         image.src = src;
       }
       else {
-        onLoad(post, src);
+        this._onLoad(post.id, posts.length, src);
       }
     });
   }
 
   /**
+   * @private
    * Animates the previous and the next project in the page.
    * @returns {void}
    */
-  [_showPrevAndNextProjects]() {
+  _showPrevAndNextProjects() {
     anime({
       targets: ".page .prev-next-project",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
@@ -115,10 +108,11 @@ class Portfolio {
   }
 
   /**
+   * @private
    * Animates the title of the page.
    * @returns {void}
    */
-  [_showTitle]() {
+  _showTitle() {
     anime({
       targets: ".page .title",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
@@ -129,10 +123,11 @@ class Portfolio {
   }
 
   /**
+   * @private
    * When all images in the home page are loaded an animation is played.
    * @returns {void}
    */
-  [_onIndexReady]() {
+  _onIndexReady() {
     anime({
       targets: ".pre.hide",
       begin: (animation) => animation.animatables[0].target.classList.remove("hide"),
@@ -156,11 +151,12 @@ class Portfolio {
   }
 
   /**
+   * @private
    * Gets the computed style of an element.
    * @param {HTMLElement} elem - The element you want to compute.
    * @returns {Object} The computed style.
    */
-  static getComputedStyle(elem) {
+  _getComputedStyle(elem) {
     if (elem.ownerDocument.defaultView.opener) {
       return elem.ownerDocument.defaultView.getComputedStyle(elem, null);
     }
@@ -172,14 +168,14 @@ class Portfolio {
    * @returns {void}
    */
   loadAbout() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a");
+    this._whenClickExit("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a");
 
     NProgress.inc();
     const image = new Image();
 
     image.onload = () => {
       NProgress.done(true);
-      this[_showTitle]();
+      this._showTitle();
 
       anime({
         targets: ".content > p.text, .content p img",
@@ -211,10 +207,10 @@ class Portfolio {
    * @returns {void}
    */
   loadSiteMap() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a");
-    this[_showTitle]();
+    this._whenClickExit("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a");
+    this._showTitle();
 
-    setTimeout(() => document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide")), 0);
+    setTimeout(() => document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide")), 1);
 
     anime({
       targets: ".site-map li",
@@ -241,8 +237,8 @@ class Portfolio {
    * @returns {void}
    */
   load404() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a");
-    this[_showTitle]();
+    this._whenClickExit("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a");
+    this._showTitle();
 
     anime({
       targets: ".content p",
@@ -259,14 +255,14 @@ class Portfolio {
    * @returns {void}
    */
   loadProject() {
-    this[_whenClickExit]("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a");
+    this._whenClickExit("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a");
 
     NProgress.inc();
     const image = new Image();
 
     image.onload = () => {
       NProgress.done(true);
-      this[_showTitle]();
+      this._showTitle();
 
       let targets = [
         ".project-page .project-title",
@@ -282,7 +278,10 @@ class Portfolio {
         ".project-page .related-post"
       ];
 
-      setTimeout(() => document.querySelector(".content").classList.remove("hide"), 1);
+        setTimeout(() => {
+            const content = document.querySelector(".content");
+            content.classList.remove("hide")
+        }, 1);
 
       anime({
         targets: ".content",

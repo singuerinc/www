@@ -1,7 +1,7 @@
 # www
 
 [![build status](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/build.svg)](https://gitlab.com/singuerinc-works/com.singuerinc.www/commits/master)
-![coverage](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/coverage.svg)
+[![coverage report](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/coverage.svg)](https://gitlab.com/singuerinc-works/com.singuerinc.www/commits/master)
 
 ## Serve inside a Docker container
 

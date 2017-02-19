@@ -1,7 +1,7 @@
 export const init = (document, portfolio) => {
   return new Promise((resolve, reject) => {
     document.addEventListener("turbolinks:load", () => {
-      let page = getPage();
+      const page = getPage();
 
       navigate(page, portfolio);
 
@@ -14,7 +14,7 @@ export const init = (document, portfolio) => {
 
 export const navigate = (page, portfolio) => {
   if (page === "" || page === "/" || page === "/index.html") {
-    portfolio.loadIndex();
+    portfolio.loadIndex(window.posts);
   }
   else if (page === "/about.html") {
     portfolio.loadAbout();
@@ -33,8 +33,9 @@ export const navigate = (page, portfolio) => {
 };
 
 export const getPage = () => {
-  let a = document.createElement("a");
-  let meta = document.querySelector("meta[name=\"page:url\"]");
+  const a = document.createElement("a");
+  const meta = document.querySelector("meta[name=\"page:url\"]");
+
   a.href = meta.getAttribute("content");
   return a.pathname;
 };

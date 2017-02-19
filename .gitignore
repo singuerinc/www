@@ -1,6 +1,6 @@
 .idea
 /public
-/assets/bundle.js
+/assets/bundle.js*
 node_modules
 coverage
 .nyc_output
