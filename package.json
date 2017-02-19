@@ -72,10 +72,10 @@
     "powerAssert": true
   },
   "nyc": {
-    "lines": 99,
-    "statements": 99,
-    "functions": 99,
-    "branches": 99,
+    "lines": 75,
+    "statements": 75,
+    "functions": 75,
+    "branches": 75,
     "reporter": [
       "html",
       "text-summary"
