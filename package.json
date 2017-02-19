@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js --progress",
-    "test": "nyc ava --serial --verbose --watch",
-    "report": "nyc report --reporter=html"
+    "test": "nyc ava --serial --verbose",
+    "report": "nyc report"
   },
   "repository": {
     "type": "git",
@@ -70,5 +70,18 @@
     "failFast": true,
     "tap": true,
     "powerAssert": true
+  },
+  "nyc": {
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 99,
+    "reporter": [
+      "html",
+      "text-summary"
+    ],
+    "cache": true,
+    "all": false,
+    "check-coverage": true
   }
 }

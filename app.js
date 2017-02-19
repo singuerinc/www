@@ -1,4 +1,4 @@
-export default function (document, portfolio) {
+export const init = (document, portfolio) => {
   return new Promise((resolve, reject) => {
     document.addEventListener("turbolinks:load", () => {
       let page = getPage();
@@ -12,7 +12,7 @@ export default function (document, portfolio) {
   });
 };
 
-export let navigate = (page, portfolio) => {
+export const navigate = (page, portfolio) => {
   if (page === "" || page === "/" || page === "/index.html") {
     portfolio.loadIndex();
   }
@@ -32,7 +32,7 @@ export let navigate = (page, portfolio) => {
   }
 };
 
-export let getPage = () => {
+export const getPage = () => {
   let a = document.createElement("a");
   let meta = document.querySelector("meta[name=\"page:url\"]");
   a.href = meta.getAttribute("content");
