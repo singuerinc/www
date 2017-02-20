@@ -1,5 +1,5 @@
 /* global window, setTimeout, Image, document, devicePixelRatio, Turbolinks */
-import anime from "animejs";
+import {anime} from "./anime";
 import NProgress from "nprogress";
 
 /**
@@ -25,8 +25,8 @@ class Portfolio {
    */
   _whenClickExit(elements) {
     document.querySelectorAll(elements).forEach((el) => {
-      el.addEventListener("click", (e) => {
-        e.preventDefault();
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
 
         anime({
           targets: ".content",
@@ -34,7 +34,7 @@ class Portfolio {
           duration: 700,
           easing: "easeInOutExpo",
           complete: () => {
-            Turbolinks.visit(e.target.getAttribute("href"), { action: "advance" });
+            Turbolinks.visit(event.target.getAttribute("href"), { action: "advance" });
           }
         });
       });

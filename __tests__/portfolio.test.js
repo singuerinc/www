@@ -2,6 +2,7 @@ import test from 'ava';
 import sinon from 'sinon';
 import 'chai';
 import Portfolio from '../Portfolio';
+import * as animejs from '../anime';
 
 let sandbox;
 
@@ -101,15 +102,39 @@ test('_whenClickExit should add a click listener to each element', t => {
   const portfolio = new Portfolio();
   const element = document.createElement('div');
   const elements = [element];
-
   sandbox.stub(document, "querySelectorAll", () => elements);
-
   const addEventListenerSpy = sandbox.spy(element, "addEventListener");
-
   portfolio._whenClickExit(elements);
   t.is(addEventListenerSpy.callCount, 1);
-
   const callback = addEventListenerSpy.getCall(0).args[1];
-
   t.true(addEventListenerSpy.getCall(0).calledWithExactly("click", callback));
+});
+
+test('_whenClickExit, on click should prevent default and call anime', t => {
+  global.Turbolinks = {
+    visit: sinon.spy()
+  };
+  const animeStub = sandbox.stub(animejs, "anime");
+  const portfolio = new Portfolio();
+  const element = document.createElement('div');
+  const elements = [element];
+  sandbox.stub(document, "querySelectorAll", () => elements);
+  const addEventListenerSpy = sandbox.spy(element, "addEventListener");
+  portfolio._whenClickExit(elements);
+  const callback = addEventListenerSpy.getCall(0).args[1];
+  const callbackSpy = sandbox.spy(callback);
+  const A = document.createElement("a");
+  const event = {
+    target : A,
+    preventDefault: sinon.spy()
+  };
+  callbackSpy(event);
+  t.is(callbackSpy.callCount, 1);
+  t.is(event.preventDefault.callCount, 1);
+  t.is(event.preventDefault.callCount, 1);
+  t.is(animeStub.callCount, 1);
+  const animeCompleteCallback = animeStub.getCall(0).args[0];
+  animeCompleteCallback.complete();
+  t.is(Turbolinks.visit.callCount, 1);
+  t.true(Turbolinks.visit.calledWithExactly(A.getAttribute("href"), {action: "advance"}));
 });
