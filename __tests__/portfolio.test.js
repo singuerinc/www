@@ -60,17 +60,56 @@ test('isMobile should be false if the page with equal or greater than 768', t =>
   t.false(portfolio._isMobile);
 });
 
+test('loadIndex should assign window.posts to portfolio._posts', t => {
+  window.posts = [1,2,3];
+  const portfolio = new Portfolio();
+  portfolio.loadIndex();
+  t.is(portfolio._posts, window.posts);
+});
+
 test('loadIndex should call whenClickExit', t => {
   window.posts = [];
   const portfolio = new Portfolio();
   const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
   portfolio.loadIndex();
   t.true(whenClickExitStub.calledOnce);
+  t.true(whenClickExitStub.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link"));
 });
 
-test('loadIndex should assign window.posts to portfolio._posts', t => {
-  window.posts = [1,2,3];
+test('_whenClickExit should iterate over each element', t => {
   const portfolio = new Portfolio();
+  const _whenClickExitSpy = sandbox.spy(portfolio, "_whenClickExit");
   portfolio.loadIndex();
-  t.is(portfolio._posts, window.posts);
+  t.true(_whenClickExitSpy.calledOnce);
+  t.true(_whenClickExitSpy.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link"));
+});
+
+test('_whenClickExit should iterate on each element', t => {
+  const portfolio = new Portfolio();
+  const elements = [
+    document.createElement('div'),
+    document.createElement('div'),
+    document.createElement('div')
+  ];
+  sandbox.stub(document, "querySelectorAll", () => elements);
+  const forEachSpy = sandbox.spy(elements, "forEach");
+  portfolio._whenClickExit(elements);
+  t.is(forEachSpy.callCount, 1);
+});
+
+test('_whenClickExit should add a click listener to each element', t => {
+  const portfolio = new Portfolio();
+  const element = document.createElement('div');
+  const elements = [element];
+
+  sandbox.stub(document, "querySelectorAll", () => elements);
+
+  const addEventListenerSpy = sandbox.spy(element, "addEventListener");
+
+  portfolio._whenClickExit(elements);
+  t.is(addEventListenerSpy.callCount, 1);
+
+  const callback = addEventListenerSpy.getCall(0).args[1];
+
+  t.true(addEventListenerSpy.getCall(0).calledWithExactly("click", callback));
 });

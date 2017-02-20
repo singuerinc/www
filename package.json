@@ -69,7 +69,7 @@
     "concurrency": 5,
     "failFast": true,
     "tap": true,
-    "powerAssert": true
+    "powerAssert": false
   },
   "nyc": {
     "lines": 75,

@@ -20,11 +20,11 @@ class Portfolio {
    * Adds a listener to each element.
    * When the user clicks in one of those elements,
    * then the pages fadeout and navigate to the next page.
-   * @param {string} els - A selector string
+   * @param {string} elements - A selector string
    * @returns {void}
    */
-  _whenClickExit(els) {
-    document.querySelectorAll(els).forEach((el) => {
+  _whenClickExit(elements) {
+    document.querySelectorAll(elements).forEach((el) => {
       el.addEventListener("click", (e) => {
         e.preventDefault();
 
