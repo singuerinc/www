@@ -42,7 +42,7 @@ test('isRetina should be true if devicePixelRatio is greater than 1', t => {
 test('isMobile should be true if the page with is less than 768', t => {
   class HTMLHtmlElementMock {
     getPropertyValue(){
-      return "767";
+	  return "767";
     }
   }
   sandbox.stub(Portfolio.prototype, "_getComputedStyle").returns(new HTMLHtmlElementMock());
@@ -61,18 +61,10 @@ test('isMobile should be false if the page with equal or greater than 768', t =>
   t.false(portfolio._isMobile);
 });
 
-test('loadIndex should assign window.posts to portfolio._posts', t => {
-  window.posts = [1,2,3];
-  const portfolio = new Portfolio();
-  portfolio.loadIndex();
-  t.is(portfolio._posts, window.posts);
-});
-
 test('loadIndex should call whenClickExit', t => {
-  window.posts = [];
   const portfolio = new Portfolio();
   const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
-  portfolio.loadIndex();
+  portfolio.loadIndex([]);
   t.true(whenClickExitStub.calledOnce);
   t.true(whenClickExitStub.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link"));
 });
@@ -80,7 +72,7 @@ test('loadIndex should call whenClickExit', t => {
 test('_whenClickExit should iterate over each element', t => {
   const portfolio = new Portfolio();
   const _whenClickExitSpy = sandbox.spy(portfolio, "_whenClickExit");
-  portfolio.loadIndex();
+  portfolio.loadIndex([]);
   t.true(_whenClickExitSpy.calledOnce);
   t.true(_whenClickExitSpy.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link"));
 });
@@ -137,4 +129,17 @@ test('_whenClickExit, on click should prevent default and call anime', t => {
   animeCompleteCallback.complete();
   t.is(Turbolinks.visit.callCount, 1);
   t.true(Turbolinks.visit.calledWithExactly(A.getAttribute("href"), {action: "advance"}));
+});
+
+test('Portfolio#loadIndex', t => {
+  const portfolio = new Portfolio();
+  const posts = [1,2,3];
+  const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
+  const postsForEachStub = sandbox.stub(posts, "forEach");
+
+  portfolio.loadIndex(posts);
+
+  t.true(whenClickExitStub.calledOnce);
+  t.is(portfolio._totalImgLoaded, 0);
+  t.is(postsForEachStub.callCount, 1);
 });

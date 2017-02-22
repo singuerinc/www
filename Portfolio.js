@@ -41,32 +41,32 @@ class Portfolio {
     });
   }
 
+  _onLoad(post, posts, src) {
+    const tag = document.querySelector(`.post-image.${post.id}`);
+
+    tag.style.backgroundImage = `url(${src})`;
+
+    this._totalImgLoaded++;
+    NProgress.set(this._totalImgLoaded / posts.length);
+    if (this._totalImgLoaded === posts.length) {
+      const waitBeforeReady = 200;
+
+      setTimeout(() => {
+        NProgress.done(true);
+        this._onIndexReady();
+      }, waitBeforeReady);
+    }
+  }
+
   /**
    * Starts the load of all images in the portfolio.
+   * @param {array} posts
    * @returns {void}
    */
-  loadIndex() {
+  loadIndex(posts) {
     this._whenClickExit("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link");
-    this._posts = window.posts;
     this._totalImgLoaded = 0;
-    const onLoad = (post, src) => {
-      const tag = document.querySelector(`.post-image.${post.id}`);
-
-      tag.style.backgroundImage = `url(${src})`;
-
-      this._totalImgLoaded++;
-      NProgress.set(this._totalImgLoaded / this._posts.length);
-      if (this._totalImgLoaded === this._posts.length) {
-        const waitBeforeReady = 200;
-
-        setTimeout(() => {
-          NProgress.done(true);
-          this._onIndexReady();
-        }, waitBeforeReady);
-      }
-    };
-
-    this._posts.forEach((post, idx) => {
+    posts.forEach((post, idx) => {
       let filename,
         src;
 
@@ -82,7 +82,7 @@ class Portfolio {
       if (idx < 4) {
         const image = new Image();
 
-        image.onload = () => onLoad(post, image.src);
+        image.onload = () => this._onLoad(post, posts, image.src);
         image.src = src;
       }
       else {
