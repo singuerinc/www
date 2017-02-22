@@ -3,12 +3,14 @@ import sinon from 'sinon';
 import 'chai';
 import Portfolio from '../Portfolio';
 import * as animejs from '../anime';
+import NProgress from "nprogress";
 
 let sandbox;
 
 test.beforeEach(() => {
   sandbox = sinon.sandbox.create();
   window.devicePixelRatio = 1;
+  global.requestAnimationFrame = () => {};
 });
 
 test.afterEach.always(() => {
@@ -142,4 +144,21 @@ test('Portfolio#loadIndex', t => {
   t.true(whenClickExitStub.calledOnce);
   t.is(portfolio._totalImgLoaded, 0);
   t.is(postsForEachStub.callCount, 1);
+});
+
+test('Portfolio#_onLoad', t => {
+  const portfolio = new Portfolio();
+  sandbox.stub(document, "querySelector", () => document.createElement("div"));
+  const onLoadSpy = sandbox.spy(portfolio, "_onLoad");
+  const clock = sinon.useFakeTimers();
+  const progressSetSpy = sandbox.spy(NProgress, "set");
+  const progressDoneSpy = sandbox.spy(NProgress, "done");
+  portfolio._totalImgLoaded = 2;
+  portfolio._onLoad(1, 3, 'image.jpg');
+  t.true(onLoadSpy.calledOnce);
+  t.true(progressSetSpy.calledOnce);
+  t.true(progressSetSpy.calledWithExactly(1));
+  clock.tick(250);
+  t.true(progressDoneSpy.calledOnce);
+  clock.restore();
 });

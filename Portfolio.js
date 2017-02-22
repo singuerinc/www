@@ -41,14 +41,14 @@ class Portfolio {
     });
   }
 
-  _onLoad(post, posts, src) {
-    const tag = document.querySelector(`.post-image.${post.id}`);
+  _onLoad(postId, totalImages, src) {
+    const tag = document.querySelector(`.post-image.${postId}`);
 
     tag.style.backgroundImage = `url(${src})`;
 
     this._totalImgLoaded++;
-    NProgress.set(this._totalImgLoaded / posts.length);
-    if (this._totalImgLoaded === posts.length) {
+    NProgress.set(this._totalImgLoaded / totalImages);
+    if (this._totalImgLoaded === totalImages) {
       const waitBeforeReady = 200;
 
       setTimeout(() => {
@@ -82,7 +82,7 @@ class Portfolio {
       if (idx < 4) {
         const image = new Image();
 
-        image.onload = () => this._onLoad(post, posts, image.src);
+        image.onload = () => this._onLoad(post.id, posts.length, image.src);
         image.src = src;
       }
       else {
