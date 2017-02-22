@@ -144,6 +144,56 @@ test('Portfolio#loadIndex', t => {
   t.true(whenClickExitStub.calledOnce);
   t.is(portfolio._totalImgLoaded, 0);
   t.is(postsForEachStub.callCount, 1);
+
+	const onLoadSpy = sandbox.stub(portfolio, "_onLoad");
+	const forEachCallback = postsForEachStub.getCall(0).args[0];
+	const forEachCallbackSpy = sandbox.spy(forEachCallback);
+	const post = {image: 'image'};
+	forEachCallbackSpy(post, 0);
+	t.true(forEachCallbackSpy.called);
+	t.is(onLoadSpy.callCount, 0);
+	forEachCallbackSpy(post, 1);
+	t.is(onLoadSpy.callCount, 0);
+	forEachCallbackSpy(post, 2);
+	t.is(onLoadSpy.callCount, 0);
+	forEachCallbackSpy(post, 3);
+	t.is(onLoadSpy.callCount, 0);
+	forEachCallbackSpy(post, 4);
+	t.is(onLoadSpy.callCount, 1);
+	t.true(onLoadSpy.calledWithExactly(post, './img/home/image.jpg'));
+});
+
+test('Portfolio#loadIndex when is mobile but not retina', t => {
+  const portfolio = new Portfolio();
+  const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
+  const posts = [1,2,3];
+  const postsForEachStub = sandbox.stub(posts, "forEach");
+
+	portfolio._isMobile = true;
+	portfolio._isRetina = false;
+
+  portfolio.loadIndex(posts);
+
+  t.true(whenClickExitStub.calledOnce);
+  t.is(portfolio._totalImgLoaded, 0);
+  t.is(postsForEachStub.callCount, 1);
+
+	const onLoadSpy = sandbox.stub(portfolio, "_onLoad");
+	const forEachCallback = postsForEachStub.getCall(0).args[0];
+	const forEachCallbackSpy = sandbox.spy(forEachCallback);
+	const post = {image: 'image'};
+	forEachCallbackSpy(post, 0);
+	t.true(forEachCallbackSpy.called);
+	t.is(onLoadSpy.callCount, 0);
+	forEachCallbackSpy(post, 1);
+	t.is(onLoadSpy.callCount, 0);
+	forEachCallbackSpy(post, 2);
+	t.is(onLoadSpy.callCount, 0);
+	forEachCallbackSpy(post, 3);
+	t.is(onLoadSpy.callCount, 0);
+	forEachCallbackSpy(post, 4);
+	t.is(onLoadSpy.callCount, 1);
+	t.true(onLoadSpy.calledWithExactly(post, './img/home/image-md.jpg'));
 });
 
 test('Portfolio#_onLoad', t => {
@@ -153,6 +203,7 @@ test('Portfolio#_onLoad', t => {
   const clock = sinon.useFakeTimers();
   const progressSetSpy = sandbox.spy(NProgress, "set");
   const progressDoneSpy = sandbox.spy(NProgress, "done");
+  const onIndexReadySpy = sandbox.spy(portfolio, "_onIndexReady");
   portfolio._totalImgLoaded = 2;
   portfolio._onLoad(1, 3, 'image.jpg');
   t.true(onLoadSpy.calledOnce);
@@ -160,5 +211,57 @@ test('Portfolio#_onLoad', t => {
   t.true(progressSetSpy.calledWithExactly(1));
   clock.tick(250);
   t.true(progressDoneSpy.calledOnce);
+  t.true(onIndexReadySpy.calledOnce);
   clock.restore();
+});
+
+test('Portfolio._showPrevAndNextProjects', t => {
+  const portfolio = new Portfolio();
+  const animeStub = sandbox.stub(animejs, "anime");
+  portfolio._showPrevAndNextProjects();
+  t.is(animeStub.callCount, 1);
+  t.true(animeStub.calledWith(sinon.match({targets: ".page .prev-next-project"})));
+});
+
+test('Portfolio.loadSiteMap', t => {
+  const portfolio = new Portfolio();
+  const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
+  const showTitleSpy = sandbox.stub(portfolio, "_showTitle");
+  const loadSiteMapSpy = sandbox.spy(portfolio, "loadSiteMap");
+  const animeStub = sandbox.stub(animejs, "anime");
+  portfolio.loadSiteMap();
+  t.true(loadSiteMapSpy.calledOnce);
+  t.true(whenClickExitStub.calledOnce);
+  t.true(whenClickExitStub.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a"));
+  t.true(showTitleSpy.calledOnce);
+  t.is(animeStub.callCount, 2);
+	t.true(animeStub.getCall(0).calledWith(sinon.match({targets: ".site-map li"})))
+	t.true(animeStub.getCall(1).calledWith(sinon.match({targets: ".content blockquote"})))
+});
+
+test('Portfolio.load404', t => {
+  const portfolio = new Portfolio();
+  const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
+  const showTitleSpy = sandbox.stub(portfolio, "_showTitle");
+  const load404Spy = sandbox.spy(portfolio, "load404");
+  const animeStub = sandbox.stub(animejs, "anime");
+  portfolio.load404();
+  t.true(load404Spy.calledOnce);
+  t.true(whenClickExitStub.calledOnce);
+  t.true(whenClickExitStub.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a"));
+  t.true(showTitleSpy.calledOnce);
+  t.is(animeStub.callCount, 1);
+	t.true(animeStub.getCall(0).calledWith(sinon.match({targets: ".content p"})))
+});
+
+test('Portfolio._getComputedStyle', t => {
+	const portfolio = new Portfolio();
+	const getComputedStyleSpy = sandbox.spy(portfolio, "_getComputedStyle");
+	const windowGetComputedStyleSpy = sandbox.spy(window, "getComputedStyle");
+	const element = document.createElement("div");
+	portfolio._getComputedStyle(element);
+	t.true(getComputedStyleSpy.calledOnce);
+	t.true(getComputedStyleSpy.calledWithExactly(element));
+	t.true(windowGetComputedStyleSpy.calledOnce);
+	t.true(windowGetComputedStyleSpy.calledWithExactly(element, null));
 });

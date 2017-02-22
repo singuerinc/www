@@ -86,7 +86,7 @@ class Portfolio {
         image.src = src;
       }
       else {
-        onLoad(post, src);
+        this._onLoad(post, src);
       }
     });
   }
