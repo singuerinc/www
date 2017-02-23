@@ -397,3 +397,15 @@ test('Portfolio.loadProject', t => {
 	clock.tick(1);
 	clock.restore();
 });
+
+test('Portfolio._onIndexReady', t => {
+
+  const animeStub = sandbox.stub(animejs, "anime");
+	const querySelectorAllSpy = sandbox.spy(document, "querySelectorAll");
+	const portfolio = new Portfolio();
+	portfolio._onIndexReady();
+	t.true(querySelectorAllSpy.called);
+	t.is(animeStub.callCount, 2);
+	t.true(animeStub.getCall(0).calledWith(sinon.match({targets: ".pre.hide"})));
+	t.true(animeStub.getCall(1).calledWith(sinon.match({targets: ".posts li:nth-child(-n+4)"})));
+});
