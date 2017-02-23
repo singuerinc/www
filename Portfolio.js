@@ -278,7 +278,10 @@ class Portfolio {
         ".project-page .related-post"
       ];
 
-      setTimeout(() => document.querySelector(".content").classList.remove("hide"), 1);
+        setTimeout(() => {
+            const content = document.querySelector(".content");
+            content.classList.remove("hide")
+        }, 1);
 
       anime({
         targets: ".content",
