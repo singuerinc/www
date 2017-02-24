@@ -24,7 +24,7 @@ test("it should return a Portfolio instance", (t) => {
   t.is(Portfolio, portfolio.constructor);
 });
 
-test("it should call Portfolio getComputedStyle in the constructor", (t) => {
+test("it should call Portfolio#getComputedStyle in the constructor", (t) => {
   const getComputedStyleSpy = sandbox.spy(Portfolio.prototype, "_getComputedStyle");
 
   const portfolio = new Portfolio();
@@ -33,21 +33,21 @@ test("it should call Portfolio getComputedStyle in the constructor", (t) => {
   t.is(getComputedStyleSpy.getCall(0).args[0].constructor, HTMLHtmlElement);
 });
 
-test("isRetina should be false if devicePixelRatio is equal or less than 1", (t) => {
+test("Portfolio#_isRetina should be false if devicePixelRatio is equal or less than 1", (t) => {
   sandbox.stub(window, "devicePixelRatio", 1);
   const portfolio = new Portfolio();
 
   t.false(portfolio._isRetina);
 });
 
-test("isRetina should be true if devicePixelRatio is greater than 1", (t) => {
+test("Portfolio#_isRetina should be true if devicePixelRatio is greater than 1", (t) => {
   sandbox.stub(window, "devicePixelRatio", 2);
   const portfolio = new Portfolio();
 
   t.true(portfolio._isRetina);
 });
 
-test("isMobile should be true if the page with is less than 768", (t) => {
+test("Portfolio#_isMobile should be true if the page with is less than 768", (t) => {
   class HTMLHtmlElementMock {
     getPropertyValue() {
       return "767";
@@ -59,7 +59,7 @@ test("isMobile should be true if the page with is less than 768", (t) => {
   t.true(portfolio._isMobile);
 });
 
-test("isMobile should be false if the page with equal or greater than 768", (t) => {
+test("Portfolio#_isMobile should be false if the page with equal or greater than 768", (t) => {
   class HTMLHtmlElementMock {
     getPropertyValue() {
       return "768";
@@ -71,7 +71,7 @@ test("isMobile should be false if the page with equal or greater than 768", (t) 
   t.false(portfolio._isMobile);
 });
 
-test("loadIndex should call whenClickExit", (t) => {
+test("Portfolio#loadIndex should call whenClickExit", (t) => {
   const portfolio = new Portfolio();
   const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
 
@@ -80,16 +80,7 @@ test("loadIndex should call whenClickExit", (t) => {
   t.true(whenClickExitStub.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link"));
 });
 
-test("_whenClickExit should iterate over each element", (t) => {
-  const portfolio = new Portfolio();
-  const _whenClickExitSpy = sandbox.spy(portfolio, "_whenClickExit");
-
-  portfolio.loadIndex([]);
-  t.true(_whenClickExitSpy.calledOnce);
-  t.true(_whenClickExitSpy.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link"));
-});
-
-test("_whenClickExit should iterate on each element", (t) => {
+test("Portfolio#_whenClickExit should iterate on each element", (t) => {
   const portfolio = new Portfolio();
   const elements = [
     document.createElement("div"),
@@ -104,7 +95,7 @@ test("_whenClickExit should iterate on each element", (t) => {
   t.is(forEachSpy.callCount, 1);
 });
 
-test("_whenClickExit should add a click listener to each element", (t) => {
+test("Portfolio#_whenClickExit should add a listener to each element", (t) => {
   const portfolio = new Portfolio();
   const element = document.createElement("div");
   const elements = [element];
@@ -119,7 +110,7 @@ test("_whenClickExit should add a click listener to each element", (t) => {
   t.true(addEventListenerSpy.getCall(0).calledWithExactly("click", callback));
 });
 
-test("_whenClickExit, on click should prevent default and call anime", (t) => {
+test("Portfolio#_whenClickExit, on click should prevent default and call anime", (t) => {
   global.Turbolinks = {
     visit: sinon.spy()
   };
@@ -266,7 +257,7 @@ test("Portfolio#_onLoad else", (t) => {
 	t.is(portfolio._totalImgLoaded, 1);
 });
 
-test("Portfolio._showPrevAndNextProjects", (t) => {
+test("Portfolio#_showPrevAndNextProjects", (t) => {
   const portfolio = new Portfolio();
   const animeStub = sandbox.stub(animejs, "anime");
 
@@ -279,7 +270,7 @@ test("Portfolio._showPrevAndNextProjects", (t) => {
 	t.true(removeSpy.calledWithExactly("hide"));
 });
 
-test("Portfolio.loadSiteMap", (t) => {
+test("Portfolio#loadSiteMap", (t) => {
 	const element = {classList: {remove: sinon.spy()}};
 	const querySelectorAllStub = sandbox.stub(document, "querySelectorAll").withArgs(".site-map li").returns([element]);
 	const clock = sinon.useFakeTimers();
@@ -309,7 +300,7 @@ test("Portfolio.loadSiteMap", (t) => {
 	clock.restore();
 });
 
-test("Portfolio.load404", (t) => {
+test("Portfolio#load404", (t) => {
   const portfolio = new Portfolio();
   const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
   const showTitleStub = sandbox.stub(portfolio, "_showTitle");
@@ -325,7 +316,7 @@ test("Portfolio.load404", (t) => {
   t.true(animeStub.getCall(0).calledWith(sinon.match({ targets: ".content p" })));
 });
 
-test("Portfolio._getComputedStyle", (t) => {
+test("Portfolio#_getComputedStyle", (t) => {
   const portfolio = new Portfolio();
   const getComputedStyleSpy = sandbox.spy(portfolio, "_getComputedStyle");
   const windowGetComputedStyleSpy = sandbox.spy(window, "getComputedStyle");
@@ -338,7 +329,7 @@ test("Portfolio._getComputedStyle", (t) => {
   t.true(windowGetComputedStyleSpy.calledWithExactly(element, null));
 });
 
-test("Portfolio._getComputedStyle alternative", (t) => {
+test("Portfolio#_getComputedStyle alternative", (t) => {
   const portfolio = new Portfolio();
   const getComputedStyleSpy = sandbox.spy(portfolio, "_getComputedStyle");
   const windowGetComputedStyleSpy = sandbox.spy(window, "getComputedStyle");
@@ -360,7 +351,7 @@ test("Portfolio._getComputedStyle alternative", (t) => {
   t.true(spy.calledWithExactly(element, null));
 });
 
-test("Portfolio._showTitle", (t) => {
+test("Portfolio#_showTitle", (t) => {
   const portfolio = new Portfolio();
   const animeStub = sandbox.stub(animejs, "anime");
 
@@ -373,7 +364,7 @@ test("Portfolio._showTitle", (t) => {
 	t.true(removeSpy.calledWithExactly("hide"));
 });
 
-test("Portfolio.loadAbout", (t) => {
+test("Portfolio#loadAbout", (t) => {
   class ImageMock {
     constructor() {
       this._onloadCallback;
@@ -431,7 +422,7 @@ test("Portfolio.loadAbout", (t) => {
   clock.restore();
 });
 
-test("Portfolio.loadProject", (t) => {
+test("Portfolio#loadProject", (t) => {
   class ImageMock {
     constructor() {
       this._onloadCallback;
@@ -488,7 +479,7 @@ test("Portfolio.loadProject", (t) => {
   clock.restore();
 });
 
-test("Portfolio._onIndexReady", (t) => {
+test("Portfolio#_onIndexReady", (t) => {
   const animeStub = sandbox.stub(animejs, "anime");
 	const element = document.createElement("div");
 	sandbox.stub(element, "querySelector").withArgs(".w-link").returns(document.createElement("div"));
@@ -505,6 +496,4 @@ test("Portfolio._onIndexReady", (t) => {
 	t.true(removeSpy.called);
 	t.true(removeSpy.calledWithExactly("hide"));
 	animeStub.getCall(1).args[0].delay(null, 0);
-
-	console.log(querySelectorAllSpy.getCall(0).args[0]);
 });
