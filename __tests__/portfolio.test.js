@@ -253,6 +253,19 @@ test("Portfolio#_onLoad", (t) => {
   clock.restore();
 });
 
+test("Portfolio#_onLoad else", (t) => {
+  const portfolio = new Portfolio();
+
+  sandbox.stub(document, "querySelector", () => document.createElement("div"));
+  const progressSetSpy = sandbox.stub(NProgress, "set");
+
+  portfolio._totalImgLoaded = 0;
+  portfolio._onLoad(0, 3, "image.jpg");
+  t.true(progressSetSpy.calledOnce);
+  t.true(progressSetSpy.calledWithExactly(1/3));
+	t.is(portfolio._totalImgLoaded, 1);
+});
+
 test("Portfolio._showPrevAndNextProjects", (t) => {
   const portfolio = new Portfolio();
   const animeStub = sandbox.stub(animejs, "anime");
