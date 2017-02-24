@@ -245,6 +245,10 @@ test("Portfolio._showPrevAndNextProjects", (t) => {
   portfolio._showPrevAndNextProjects();
   t.is(animeStub.callCount, 1);
   t.true(animeStub.calledWith(sinon.match({ targets: ".page .prev-next-project" })));
+	const removeSpy = sinon.spy();
+	animeStub.getCall(0).args[0].begin({ animatables: [{target: { classList: { remove: removeSpy}}}]});
+	t.true(removeSpy.called);
+	t.true(removeSpy.calledWithExactly("hide"));
 });
 
 test("Portfolio.loadSiteMap", (t) => {
@@ -262,6 +266,13 @@ test("Portfolio.loadSiteMap", (t) => {
   t.is(animeStub.callCount, 2);
   t.true(animeStub.getCall(0).calledWith(sinon.match({ targets: ".site-map li" })));
   t.true(animeStub.getCall(1).calledWith(sinon.match({ targets: ".content blockquote" })));
+
+	const removeSpy = sinon.spy();
+	animeStub.getCall(1).args[0].begin({ animatables: [{target: { classList: { remove: removeSpy}}}]});
+	t.true(removeSpy.called);
+	t.true(removeSpy.calledWithExactly("hide"));
+	animeStub.getCall(0).args[0].delay(null, 0);
+	animeStub.getCall(0).args[0].translateX();
 });
 
 test("Portfolio.load404", (t) => {
@@ -322,6 +333,10 @@ test("Portfolio._showTitle", (t) => {
   portfolio._showTitle();
   t.true(animeStub.calledOnce);
   t.true(animeStub.calledWith(sinon.match({ targets: ".page .title" })));
+	const removeSpy = sinon.spy();
+	animeStub.getCall(0).args[0].begin({ animatables: [{target: { classList: { remove: removeSpy}}}]});
+	t.true(removeSpy.called);
+	t.true(removeSpy.calledWithExactly("hide"));
 });
 
 test("Portfolio.loadAbout", (t) => {
@@ -441,4 +456,9 @@ test("Portfolio._onIndexReady", (t) => {
   t.is(animeStub.callCount, 2);
   t.true(animeStub.getCall(0).calledWith(sinon.match({ targets: ".pre.hide" })));
   t.true(animeStub.getCall(1).calledWith(sinon.match({ targets: ".posts li:nth-child(-n+4)" })));
+	const removeSpy = sinon.spy();
+	animeStub.getCall(0).args[0].begin({ animatables: [{target: { classList: { remove: removeSpy}}}]});
+	t.true(removeSpy.called);
+	t.true(removeSpy.calledWithExactly("hide"));
+	animeStub.getCall(1).args[0].delay(null, 0);
 });
