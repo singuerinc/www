@@ -210,7 +210,7 @@ class Portfolio {
     this._whenClickExit("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a");
     this._showTitle();
 
-    setTimeout(() => document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide")), 0);
+    setTimeout(() => document.querySelectorAll(".site-map li").forEach((e) => e.classList.remove("hide")), 1);
 
     anime({
       targets: ".site-map li",

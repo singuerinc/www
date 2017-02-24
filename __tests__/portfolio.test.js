@@ -252,6 +252,9 @@ test("Portfolio._showPrevAndNextProjects", (t) => {
 });
 
 test("Portfolio.loadSiteMap", (t) => {
+	const element = {classList: {remove: sinon.spy()}};
+	const querySelectorAllStub = sandbox.stub(document, "querySelectorAll").withArgs(".site-map li").returns([element]);
+	const clock = sinon.useFakeTimers();
   const portfolio = new Portfolio();
   const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
   const showTitleStub = sandbox.stub(portfolio, "_showTitle");
@@ -273,6 +276,9 @@ test("Portfolio.loadSiteMap", (t) => {
 	t.true(removeSpy.calledWithExactly("hide"));
 	animeStub.getCall(0).args[0].delay(null, 0);
 	animeStub.getCall(0).args[0].translateX();
+
+	clock.tick(1);
+	clock.restore();
 });
 
 test("Portfolio.load404", (t) => {
@@ -375,6 +381,8 @@ test("Portfolio.loadAbout", (t) => {
   const nprogressIncStub = sandbox.stub(NProgress, "inc");
   const progressDoneSpy = sandbox.stub(NProgress, "done");
   const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
+	const element = {classList: {remove: sinon.spy()}};
+	const querySelectorAllStub = sandbox.stub(document, "querySelectorAll").withArgs(".content p img, .content > p.text").returns([element]);
 
   portfolio.loadAbout();
 
