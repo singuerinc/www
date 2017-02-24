@@ -385,6 +385,9 @@ test("Portfolio.loadAbout", (t) => {
   t.is(animeStub.callCount, 2);
   t.true(animeStub.getCall(0).calledWith(sinon.match({ targets: ".content > p.text, .content p img" })));
   t.true(animeStub.getCall(1).calledWith(sinon.match({ targets: ".content blockquote" })));
+	animeStub.getCall(0).args[0].translateX();
+	animeStub.getCall(0).args[0].delay(null, 0);
+	animeStub.getCall(1).args[0].begin({animatables: [{target:{classList:{remove: sinon.spy()}}}]});
   t.is(whenClickExitStub.callCount, 1);
   t.true(whenClickExitStub.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a"));
   t.true(imageMockStub.called);
@@ -438,7 +441,10 @@ test("Portfolio.loadProject", (t) => {
   t.is(animeStub.callCount, 3);
   t.true(animeStub.getCall(0).calledWith(sinon.match({ targets: ".content" })));
   t.true(animeStub.getCall(1).calledWith(sinon.match({ targets: ".project-page .prev-next-project" })));
+	animeStub.getCall(1).args[0].duration();
   t.true(animeStub.getCall(2).calledWith(sinon.match.object));
+	animeStub.getCall(2).args[0].translateX();
+	animeStub.getCall(2).args[0].duration();
   t.is(whenClickExitStub.callCount, 1);
   t.true(whenClickExitStub.calledWithExactly("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a"));
   t.true(imageMockStub.called);
@@ -448,17 +454,21 @@ test("Portfolio.loadProject", (t) => {
 
 test("Portfolio._onIndexReady", (t) => {
   const animeStub = sandbox.stub(animejs, "anime");
-  const querySelectorAllSpy = sandbox.spy(document, "querySelectorAll");
+	const element = document.createElement("div");
+	sandbox.stub(element, "querySelector").withArgs(".w-link").returns(document.createElement("div"));
+  const querySelectorAllSpy = sandbox.stub(document, "querySelectorAll", () => [element]);
   const portfolio = new Portfolio();
+	const removeSpy = sinon.spy();
 
   portfolio._onIndexReady();
   t.true(querySelectorAllSpy.called);
   t.is(animeStub.callCount, 2);
   t.true(animeStub.getCall(0).calledWith(sinon.match({ targets: ".pre.hide" })));
   t.true(animeStub.getCall(1).calledWith(sinon.match({ targets: ".posts li:nth-child(-n+4)" })));
-	const removeSpy = sinon.spy();
 	animeStub.getCall(0).args[0].begin({ animatables: [{target: { classList: { remove: removeSpy}}}]});
 	t.true(removeSpy.called);
 	t.true(removeSpy.calledWithExactly("hide"));
 	animeStub.getCall(1).args[0].delay(null, 0);
+
+	console.log(querySelectorAllSpy.getCall(0).args[0]);
 });
