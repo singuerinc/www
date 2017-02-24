@@ -173,7 +173,7 @@ test("Portfolio#loadIndex", (t) => {
   const onLoadSpy = sandbox.stub(portfolio, "_onLoad");
   const forEachCallback = postsForEachStub.getCall(0).args[0];
   const forEachCallbackSpy = sandbox.spy(forEachCallback);
-  const post = { image: "image" };
+  const post = { id: "image", image: "image" };
 
   forEachCallbackSpy(post, 0);
   t.true(forEachCallbackSpy.called);
@@ -186,7 +186,7 @@ test("Portfolio#loadIndex", (t) => {
   t.is(onLoadSpy.callCount, 4);
   forEachCallbackSpy(post, 4);
   t.is(onLoadSpy.callCount, 5);
-  t.true(onLoadSpy.calledWithExactly(post, "./img/home/image.jpg"));
+  t.true(onLoadSpy.calledWithExactly("image", 3, "./img/home/image.jpg"));
 });
 
 test("Portfolio#loadIndex when is mobile but not retina", (t) => {
@@ -207,7 +207,7 @@ test("Portfolio#loadIndex when is mobile but not retina", (t) => {
   const onLoadSpy = sandbox.stub(portfolio, "_onLoad");
   const forEachCallback = postsForEachStub.getCall(0).args[0];
   const forEachCallbackSpy = sandbox.spy(forEachCallback);
-  const post = { image: "image" };
+  const post = { id: "image", image: "image" };
 
   forEachCallbackSpy(post, 0);
   t.true(forEachCallbackSpy.called);
@@ -220,7 +220,7 @@ test("Portfolio#loadIndex when is mobile but not retina", (t) => {
   t.is(onLoadSpy.callCount, 0);
   forEachCallbackSpy(post, 4);
   t.is(onLoadSpy.callCount, 1);
-  t.true(onLoadSpy.calledWithExactly(post, "./img/home/image-md.jpg"));
+  t.true(onLoadSpy.calledWithExactly("image", 3, "./img/home/image-md.jpg"));
 });
 
 test("Portfolio#_onLoad", (t) => {

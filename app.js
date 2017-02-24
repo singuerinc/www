@@ -14,7 +14,7 @@ export const init = (document, portfolio) => {
 
 export const navigate = (page, portfolio) => {
   if (page === "" || page === "/" || page === "/index.html") {
-    portfolio.loadIndex();
+    portfolio.loadIndex(window.posts);
   }
   else if (page === "/about.html") {
     portfolio.loadAbout();
