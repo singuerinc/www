@@ -153,7 +153,22 @@ test("_whenClickExit, on click should prevent default and call anime", (t) => {
 });
 
 test("Portfolio#loadIndex", (t) => {
-  const portfolio = new Portfolio();
+  class ImageMock {
+    constructor() {
+      this._onloadCallback;
+      this._src;
+    }
+    set onload(callback) {
+      this._onloadCallback = callback;
+    }
+    set src(value) {
+      this._src = value;
+      this._onloadCallback();
+    }
+  }
+
+  const imageMockStub = sandbox.stub(global, "Image", ImageMock);
+	const portfolio = new Portfolio();
   const posts = [1, 2, 3];
   const whenClickExitStub = sandbox.stub(portfolio, "_whenClickExit");
   const postsForEachStub = sandbox.stub(posts, "forEach");
@@ -171,15 +186,15 @@ test("Portfolio#loadIndex", (t) => {
 
   forEachCallbackSpy(post, 0);
   t.true(forEachCallbackSpy.called);
-  t.is(onLoadSpy.callCount, 0);
-  forEachCallbackSpy(post, 1);
-  t.is(onLoadSpy.callCount, 0);
-  forEachCallbackSpy(post, 2);
-  t.is(onLoadSpy.callCount, 0);
-  forEachCallbackSpy(post, 3);
-  t.is(onLoadSpy.callCount, 0);
-  forEachCallbackSpy(post, 4);
   t.is(onLoadSpy.callCount, 1);
+  forEachCallbackSpy(post, 1);
+  t.is(onLoadSpy.callCount, 2);
+  forEachCallbackSpy(post, 2);
+  t.is(onLoadSpy.callCount, 3);
+  forEachCallbackSpy(post, 3);
+  t.is(onLoadSpy.callCount, 4);
+  forEachCallbackSpy(post, 4);
+  t.is(onLoadSpy.callCount, 5);
   t.true(onLoadSpy.calledWithExactly(post, "./img/home/image.jpg"));
 });
 
