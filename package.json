@@ -4,9 +4,12 @@
   "description": "[![build status](https://gitlab.com/singuerinc/www.singuerinc.com/badges/master/build.svg)](https://gitlab.com/singuerinc/www.singuerinc.com/commits/master)",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js --progress",
+    "build:css": "cssnano ./all.css ./public/all.css --discardComments.removeAll",
+    "build:js": "webpack --progress",
+    "build": "jekyll build -d ./public",
     "test": "nyc ava --serial --verbose",
-    "report": "nyc report"
+    "report": "nyc report",
+    "list": "exit 0"
   },
   "repository": {
     "type": "git",
@@ -28,10 +31,6 @@
     "chai": "^3.5.0",
     "css-loader": "0.23.1",
     "cssnano-cli": "1.0.4",
-    "eslint-config-airbnb": "9.0.1",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.2",
-    "eslint-plugin-standard": "^2.0.1",
     "file-loader": "0.9.0",
     "nprogress": "0.2.0",
     "nyc": "^10.1.2",
@@ -66,7 +65,7 @@
       "__tests__/unit/*.test.js"
     ],
     "source": [
-      "**/*.{js,jsx}",
+      "**/*.{js}",
       "!public/**/*"
     ],
     "concurrency": 5,
@@ -75,10 +74,10 @@
     "powerAssert": false
   },
   "nyc": {
-    "lines": 75,
-    "statements": 75,
-    "functions": 75,
-    "branches": 75,
+    "lines": 95,
+    "statements": 95,
+    "functions": 95,
+    "branches": 95,
     "reporter": [
       "html",
       "text-summary"

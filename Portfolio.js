@@ -3,7 +3,9 @@ import {anime} from "./anime";
 import NProgress from "nprogress";
 
 /**
- * The Portfolio class.
+ * The Portfolio is the entry point for every request the website does.
+ * When the page is loaded, the application resolve wich page should be
+ * loaded and ask the portfolio to load the correct content.
  * @class Portfolio
  */
 class Portfolio {
@@ -20,12 +22,12 @@ class Portfolio {
    * Adds a listener to each element.
    * When the user clicks in one of those elements,
    * then the pages fadeout and navigate to the next page.
-   * @param {string} elements - A selector string
+   * @param {string} elements - The selector string.
    * @returns {void}
    */
   _whenClickExit(elements) {
-    document.querySelectorAll(elements).forEach((el) => {
-      el.addEventListener("click", (event) => {
+    document.querySelectorAll(elements).forEach((element) => {
+      element.addEventListener("click", (event) => {
         event.preventDefault();
 
         anime({
@@ -41,14 +43,24 @@ class Portfolio {
     });
   }
 
+  /**
+   * @private
+   * _onLoad acts everytime an image is loaded.
+   * It display the image and check if all the images
+   * are loaded, in that case calls _onIndexReady that
+   * execute an animation.
+   * @param {string} portId - The post identifier.
+   * @param {number} totalImages - The amount of images to load.
+   * @param {string} src - The path to the image.
+   */
   _onLoad(postId, totalImages, src) {
     const tag = document.querySelector(`.post-image.${postId}`);
 
     tag.style.backgroundImage = `url(${src})`;
 
-    this._totalImgLoaded++;
-    NProgress.set(this._totalImgLoaded / totalImages);
-    if (this._totalImgLoaded === totalImages) {
+    this._totalImagesLoaded++;
+    NProgress.set(this._totalImagesLoaded / totalImages);
+    if (this._totalImagesLoaded === totalImages) {
       const waitBeforeReady = 200;
 
       setTimeout(() => {
@@ -65,10 +77,10 @@ class Portfolio {
    */
   loadIndex(posts) {
     this._whenClickExit("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link");
-    this._totalImgLoaded = 0;
-    posts.forEach((post, idx) => {
-      let filename,
-        src;
+    this._totalImagesLoaded = 0;
+    posts.forEach((post, index) => {
+      let filename;
+      let src;
 
       if (this._isMobile && !this._isRetina) {
         filename = `${post.image}-md.jpg`;
@@ -79,7 +91,7 @@ class Portfolio {
 
       src = `./img/home/${filename}`;
 
-      if (idx < 4) {
+      if (index < 4) {
         const image = new Image();
 
         image.onload = () => this._onLoad(post.id, posts.length, image.src);
@@ -135,9 +147,9 @@ class Portfolio {
       duration: 1500
     });
 
-    document.querySelectorAll("ul.posts li").forEach((e) => {
-      e.classList.remove("hide");
-      e.querySelector(".w-link").style.backgroundColor = "black";
+    document.querySelectorAll("ul.posts li").forEach((element) => {
+      element.classList.remove("hide");
+      element.querySelector(".w-link").style.backgroundColor = "black";
     });
 
     anime({
@@ -146,7 +158,7 @@ class Portfolio {
       opacity: [0, 1],
       duration: 1500,
       easing: "easeInOutExpo",
-      delay: (el, index) => 250 * index
+      delay: (element, index) => 250 * index
     });
   }
 
@@ -184,7 +196,7 @@ class Portfolio {
         opacity: [0, 1],
         duration: 1500,
         easing: "easeInOutExpo",
-        delay: (el, index) => 50 * index * Math.random()
+        delay: (element, index) => 50 * index * Math.random()
       });
 
       anime({
@@ -219,7 +231,7 @@ class Portfolio {
       opacity: [0, 1],
       duration: 1500,
       easing: "easeInOutExpo",
-      delay: (el, idx) => idx * 25
+      delay: (element, idx) => idx * 25
     });
 
     anime({
@@ -280,7 +292,7 @@ class Portfolio {
 
         setTimeout(() => {
             const content = document.querySelector(".content");
-            content.classList.remove("hide")
+            content.classList.remove("hide");
         }, 1);
 
       anime({

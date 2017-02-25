@@ -11,19 +11,20 @@ variables:
   image: jekyll/jekyll:3.2.1
   stage: build
   cache:
-      paths:
-      - node_modules/
+    paths:
+    - node_modules/
   artifacts:
     paths:
     - public
     expire_in: 45 minutes
   script:
+  - export JEKYLL_ENV=test
   - apk add --update nodejs
   - npm i -g yarn
   - yarn
-  - yarn run build
-  - JEKYLL_ENV=test jekyll build --config _config.yml,_config-test.yml -d $CI_PROJECT_DIR/public
-  - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
+  - yarn run build:js
+  - yarn run build -- --config _config.yml,_config-test.yml
+  - yarn run build:css
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
 
@@ -93,12 +94,14 @@ staging:build:
   <<: *build-definition
   environment: staging
   script:
+  - export JEKYLL_ENV=staging
   - apk add --update nodejs
   - npm i -g yarn
   - yarn
+  - yarn run build:js -- -p
+  - yarn run build -- --config _config.yml,_config-staging.yml
   - yarn run build
-  - JEKYLL_ENV=test jekyll build --config _config.yml,_config-staging.yml -d $CI_PROJECT_DIR/public
-  - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
+  - yarn run build:css
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
   only:
@@ -113,6 +116,12 @@ staging:functional_test:
   - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
+  only:
+  - master
+
+pages:unit_test:
+  <<: *test-unit-definition
+  environment: staging
   only:
   - master
 
@@ -131,13 +140,13 @@ pages:build:
   <<: *build-definition
   environment: production
   script:
+  - export JEKYLL_ENV=production
   - apk add --update nodejs
   - npm i -g yarn
   - yarn
+  - yarn run build:js -- -p
   - yarn run build
-  - rm $CI_PROJECT_DIR/public/assets/bundle.js.map
-  - JEKYLL_ENV=test jekyll build -d $CI_PROJECT_DIR/public
-  - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
+  - yarn run build:css
   only:
   - tags
 
@@ -150,6 +159,12 @@ pages:functional_test:
   - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
+  only:
+  - tags
+
+pages:unit_test:
+  <<: *test-unit-definition
+  environment: production
   only:
   - tags
 

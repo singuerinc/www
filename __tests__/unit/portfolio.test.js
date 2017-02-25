@@ -11,7 +11,7 @@ let sandbox;
 test.beforeEach(() => {
   sandbox = sinon.sandbox.create();
   window.devicePixelRatio = 1;
-  global.requestAnimationFrame = () => { };
+  global.requestAnimationFrame = () => {};
 });
 
 test.afterEach.always(() => {
@@ -167,7 +167,7 @@ test("Portfolio#loadIndex", (t) => {
   portfolio.loadIndex(posts);
 
   t.true(whenClickExitStub.calledOnce);
-  t.is(portfolio._totalImgLoaded, 0);
+  t.is(portfolio._totalImagesLoaded, 0);
   t.is(postsForEachStub.callCount, 1);
 
   const onLoadSpy = sandbox.stub(portfolio, "_onLoad");
@@ -201,7 +201,7 @@ test("Portfolio#loadIndex when is mobile but not retina", (t) => {
   portfolio.loadIndex(posts);
 
   t.true(whenClickExitStub.calledOnce);
-  t.is(portfolio._totalImgLoaded, 0);
+  t.is(portfolio._totalImagesLoaded, 0);
   t.is(postsForEachStub.callCount, 1);
 
   const onLoadSpy = sandbox.stub(portfolio, "_onLoad");
@@ -233,7 +233,7 @@ test("Portfolio#_onLoad", (t) => {
   const progressDoneSpy = sandbox.stub(NProgress, "done");
   const onIndexReadySpy = sandbox.stub(portfolio, "_onIndexReady");
 
-  portfolio._totalImgLoaded = 2;
+  portfolio._totalImagesLoaded = 2;
   portfolio._onLoad(1, 3, "image.jpg");
   t.true(onLoadSpy.calledOnce);
   t.true(progressSetSpy.calledOnce);
@@ -250,11 +250,11 @@ test("Portfolio#_onLoad else", (t) => {
   sandbox.stub(document, "querySelector", () => document.createElement("div"));
   const progressSetSpy = sandbox.stub(NProgress, "set");
 
-  portfolio._totalImgLoaded = 0;
+  portfolio._totalImagesLoaded = 0;
   portfolio._onLoad(0, 3, "image.jpg");
   t.true(progressSetSpy.calledOnce);
   t.true(progressSetSpy.calledWithExactly(1/3));
-	t.is(portfolio._totalImgLoaded, 1);
+	t.is(portfolio._totalImagesLoaded, 1);
 });
 
 test("Portfolio#_showPrevAndNextProjects", (t) => {

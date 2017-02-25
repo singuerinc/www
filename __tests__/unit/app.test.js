@@ -11,20 +11,16 @@ test.beforeEach(() => {
   sandbox = sinon.sandbox.create();
   portfolio = sinon.createStubInstance(Portfolio);
 
-  sandbox.stub(document, "createElement", () => {
-    return {
+  sandbox.stub(document, "createElement").withArgs("a").returns({
       get pathname(){
         return this.href.replace("https://www.singuerinc.com", "");
       }
-    }
   });
 
-  sandbox.stub(document, "querySelector", () => {
-    return {
+  sandbox.stub(document, "querySelector").withArgs("meta[name=\"page:url\"]").returns({
       getAttribute(){
         return "https://www.singuerinc.com/doubleyou/nike-my-time-is-now.html";
       }
-    }
   });
 });
 
@@ -39,21 +35,21 @@ test('it should return a Promise when init is called', t => {
 });
 
 test('it should listen turbolinks load event on document', t => {
-  const listener = sandbox.stub(document, "addEventListener");
+  const listenerStub = sandbox.stub(document, "addEventListener");
+
   app.init(document, portfolio);
-  t.true(listener.withArgs("turbolinks:load").calledOnce);
-  t.pass();
+  t.true(listenerStub.withArgs("turbolinks:load").calledOnce);
 });
 
 test('it should define a page variable with pathname as value', t => {
-  const listener = sandbox.stub(document, "addEventListener");
+  const listenerStub = sandbox.stub(document, "addEventListener");
   const promise = app.init(document, portfolio);
   promise.then(result => {
     t.is(typeof(result), 'object');
     t.is(typeof(result.page), 'string');
     t.is(result.page, '/doubleyou/nike-my-time-is-now.html');
   });
-  listener.callArg(1);
+  listenerStub.callArg(1);
   return promise;
 });
 
@@ -62,13 +58,13 @@ test('it should get the page pathname', t => {
 });
 
 test('it should call getPage method', t => {
-  let getPageSpy = sandbox.spy(app, "getPage");
-  const listener = sandbox.stub(document, "addEventListener");
+  const getPageSpy = sandbox.spy(app, "getPage");
+  const listenerStub = sandbox.stub(document, "addEventListener");
   const promise = app.init(document, portfolio);
   promise.then(() => {
     t.true(getPageSpy.calledOnce);
   });
-  listener.callArg(1);
+  listenerStub.callArg(1);
 });
 
 test('it should load the index when page empty', t => {
