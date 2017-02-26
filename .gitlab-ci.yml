@@ -100,7 +100,6 @@ staging:build:
   - yarn
   - yarn run build:js -- -p
   - yarn run build -- --config _config.yml,_config-staging.yml
-  - yarn run build
   - yarn run build:css
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
@@ -119,7 +118,7 @@ staging:functional_test:
   only:
   - master
 
-pages:unit_test:
+staging:unit_test:
   <<: *test-unit-definition
   environment: staging
   only:
