@@ -149,17 +149,17 @@ pages:build:
   only:
   - tags
 
-    #pages:functional_test:
-    #  <<: *test-functional-definition
-    #  environment: production
-    #  script:
-    #  - export SITE_URL="https://$PROD_DOMAIN"
-    #  - echo "0.0.0.0 jekyll" >> /etc/hosts
-    #  - cd $CI_PROJECT_DIR/public
-    #  - python -m SimpleHTTPServer 4000 &
-    #  - casperjs test $CI_PROJECT_DIR/_tests/index.js
-    #  only:
-    #  - tags
+pages:functional_test:
+  <<: *test-functional-definition
+  environment: production
+  script:
+  - export SITE_URL="https://$PROD_DOMAIN"
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
+  - python -m SimpleHTTPServer 4000 &
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
+  only:
+  - tags
 
 pages:unit_test:
   <<: *test-unit-definition
