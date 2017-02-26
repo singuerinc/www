@@ -7,18 +7,24 @@ variables:
   CONTAINER_TEST_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:$CI_BUILD_TAG
   CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
 
-.test-build: &test-build-definition
+.build: &build-definition
   image: jekyll/jekyll:3.2.1
   stage: build
+  cache:
+    paths:
+    - node_modules/
   artifacts:
+    paths:
+    - public
     expire_in: 45 minutes
-    untracked: true
   script:
+  - export JEKYLL_ENV=test
   - apk add --update nodejs
-  - npm install
-  - npm run build
-  - JEKYLL_ENV=test jekyll build --config _config.yml,_config-test.yml -d $CI_PROJECT_DIR/public
-  - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
+  - npm i -g yarn
+  - yarn
+  - yarn run build:js
+  - yarn run build -- --config _config.yml,_config-test.yml
+  - yarn run build:css
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
 
@@ -32,21 +38,38 @@ variables:
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
 
-.test-deploy: &test-deploy-definition
-  image: mhart/alpine-node:6
+.test-unit: &test-unit-definition
+  image: mhart/alpine-node:7.5.0
+  stage: test
+  script:
+  - npm i -g yarn
+  - yarn
+  - yarn run test
+  - yarn run report
+
+.deploy: &deploy-definition
+  image: mhart/alpine-node:7.5.0
   stage: deploy
-
-
+  variables:
+    GIT_STRATEGY: none
 
 test:build:
-  <<: *test-build-definition
+  <<: *build-definition
   environment: test
   only:
   - branches
   except:
   - master
 
-test:test:functional:
+test:unit_test:
+  <<: *test-unit-definition
+  environment: test
+  only:
+  - branches
+  except:
+  - master
+
+test:functional_test:
   <<: *test-functional-definition
   environment: test
   only:
@@ -55,7 +78,7 @@ test:test:functional:
   - master
 
 test:deploy:
-  <<: *test-deploy-definition
+  <<: *deploy-definition
   environment: test
   script:
   - npm install -g surge
@@ -68,20 +91,23 @@ test:deploy:
   - master
 
 staging:build:
-  <<: *test-build-definition
+  <<: *build-definition
   environment: staging
   script:
+  - export JEKYLL_ENV=staging
   - apk add --update nodejs
-  - npm install
-  - npm run build
-  - JEKYLL_ENV=test jekyll build --config _config.yml,_config-staging.yml -d $CI_PROJECT_DIR/public
-  - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
+  - npm i -g yarn
+  - yarn
+  - yarn run build:js -- -p
+  - yarn run build -- --config _config.yml,_config-staging.yml
+  - yarn run build
+  - yarn run build:css
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
   only:
   - master
 
-staging:test:functional:
+staging:functional_test:
   <<: *test-functional-definition
   environment: staging
   script:
@@ -93,8 +119,14 @@ staging:test:functional:
   only:
   - master
 
+pages:unit_test:
+  <<: *test-unit-definition
+  environment: staging
+  only:
+  - master
+
 staging:deploy:
-  <<: *test-deploy-definition
+  <<: *deploy-definition
   environment: staging
   script:
   - npm install -g surge
@@ -105,18 +137,20 @@ staging:deploy:
   - master
 
 pages:build:
-  <<: *test-build-definition
+  <<: *build-definition
   environment: production
   script:
+  - export JEKYLL_ENV=production
   - apk add --update nodejs
-  - npm install
-  - npm run build
-  - JEKYLL_ENV=test jekyll build -d $CI_PROJECT_DIR/public
-  - ./node_modules/cssnano-cli/cmd.js $CI_PROJECT_DIR/all.css $CI_PROJECT_DIR/public/all.css --discardComments.removeAll
+  - npm i -g yarn
+  - yarn
+  - yarn run build:js -- -p
+  - yarn run build
+  - yarn run build:css
   only:
   - tags
 
-pages:test:functional:
+pages:functional_test:
   <<: *test-functional-definition
   environment: production
   script:
@@ -125,6 +159,12 @@ pages:test:functional:
   - cd $CI_PROJECT_DIR/public
   - python -m SimpleHTTPServer 4000 &
   - casperjs test $CI_PROJECT_DIR/_tests/index.js
+  only:
+  - tags
+
+pages:unit_test:
+  <<: *test-unit-definition
+  environment: production
   only:
   - tags
 
