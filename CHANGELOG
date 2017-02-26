@@ -1,5 +1,11 @@
 # www
 
+## [18.0.0] - 2017-02-26
+- Add unit tests to javascript app
+
+## [17.1.0] - 2017-01-22
+- Use Open Color palette
+
 ## [17.0.0] - 2016-12-22
 - Add Columna Colors project
 
