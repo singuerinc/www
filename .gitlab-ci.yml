@@ -13,17 +13,12 @@ variables:
   cache:
     paths:
     - node_modules/
-  artifacts:
-    paths:
-    - public
-    expire_in: 45 minutes
   script:
-  - export JEKYLL_ENV=test
   - apk add --update nodejs
   - npm i -g yarn
   - yarn
   - yarn run build:js
-  - yarn run build -- --config _config.yml,_config-test.yml
+  - JEKYLL_ENV=test yarn run build -- --config _config.yml,_config-test.yml
   - yarn run build:css
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
@@ -56,6 +51,10 @@ variables:
 test:build:
   <<: *build-definition
   environment: test
+  artifacts:
+    paths:
+    - public
+    expire_in: 45 minutes
   only:
   - branches
   except:
@@ -69,13 +68,13 @@ test:unit_test:
   except:
   - master
 
-    #test:functional_test:
-    #  <<: *test-functional-definition
-    #  environment: test
-    #  only:
-    #  - branches
-    #  except:
-    #  - master
+test:functional_test:
+  <<: *test-functional-definition
+  environment: test
+  only:
+  - branches
+  except:
+  - master
 
 test:deploy:
   <<: *deploy-definition
@@ -93,30 +92,33 @@ test:deploy:
 staging:build:
   <<: *build-definition
   environment: staging
+  artifacts:
+    paths:
+    - public
+    expire_in: 45 minutes
   script:
-  - export JEKYLL_ENV=staging
   - apk add --update nodejs
   - npm i -g yarn
   - yarn
   - yarn run build:js -- -p
-  - yarn run build -- --config _config.yml,_config-staging.yml
+  - JEKYLL_ENV=staging yarn run build -- --config _config.yml,_config-staging.yml
   - yarn run build:css
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
   only:
   - master
 
-    #staging:functional_test:
-    #  <<: *test-functional-definition
-    #  environment: staging
-    #  script:
-    #  - export SITE_URL="http://$STAGING_DOMAIN"
-    #  - echo "0.0.0.0 jekyll" >> /etc/hosts
-    #  - cd $CI_PROJECT_DIR/public
-    #  - python -m SimpleHTTPServer 4000 &
-    #  - casperjs test $CI_PROJECT_DIR/_tests/index.js
-    #  only:
-    #  - master
+staging:functional_test:
+  <<: *test-functional-definition
+  environment: staging
+  script:
+  - export SITE_URL="http://$STAGING_DOMAIN"
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
+  - python -m SimpleHTTPServer 4000 &
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
+  only:
+  - master
 
 staging:unit_test:
   <<: *test-unit-definition
@@ -138,13 +140,15 @@ staging:deploy:
 pages:build:
   <<: *build-definition
   environment: production
+  artifacts:
+    paths:
+    - public
   script:
-  - export JEKYLL_ENV=production
   - apk add --update nodejs
   - npm i -g yarn
   - yarn
   - yarn run build:js -- -p
-  - yarn run build
+  - JEKYLL_ENV=test yarn run build
   - yarn run build:css
   only:
   - tags
