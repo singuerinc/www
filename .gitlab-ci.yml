@@ -10,6 +10,10 @@ variables:
 .build: &build-definition
   image: jekyll/jekyll:3.2.1
   stage: build
+  artifacts:
+    paths:
+    - public
+    expire_in: 45 minutes
   cache:
     paths:
     - node_modules/
@@ -51,10 +55,6 @@ variables:
 test:build:
   <<: *build-definition
   environment: test
-  artifacts:
-    paths:
-    - public
-    expire_in: 45 minutes
   only:
   - branches
   except:
@@ -92,10 +92,6 @@ test:deploy:
 staging:build:
   <<: *build-definition
   environment: staging
-  artifacts:
-    paths:
-    - public
-    expire_in: 45 minutes
   script:
   - apk add --update nodejs
   - npm i -g yarn
@@ -140,9 +136,6 @@ staging:deploy:
 pages:build:
   <<: *build-definition
   environment: production
-  artifacts:
-    paths:
-    - public
   script:
   - apk add --update nodejs
   - npm i -g yarn
