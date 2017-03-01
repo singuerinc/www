@@ -1,228 +1,327 @@
-# www
 
-## [18.0.0] - 2017-02-26
-- Add unit tests to javascript app
+18.1.0 / 2017-03-01
+==================
 
-## [17.1.0] - 2017-01-22
-- Use Open Color palette
+  * Merge branch '138-use-absolute-path-in-favicon' into 'master'
+  * Use absolute path on favicon
 
-## [17.0.0] - 2016-12-22
-- Add Columna Colors project
+18.0.0 / 2017-02-26
+==================
 
-## [16.7.0] - 2016-12-21
-- Add metas to projects
+  * Add unit tests to javascript app
 
-## [16.6.0] - 2016-12-21
-- Add Atrapalo Revivelo screenshots
+17.1.0 / 2017-01-22
+==================
 
-## [16.5.0] - 2016-12-21
-- Fix 404 page javascript error
+  * Use Open Color palette
 
-## [16.4.1] - 2016-12-21
-- Fix SITE_URL protocol
+17.0.0 / 2016-12-22
+==================
 
-## [16.4.0] - 2016-12-21
-- Fix 404 styles
+  * Add Columna Colors project
 
-## [16.3.0] - 2016-12-20
-- Fix #128 / Loading bar display with blue color until loads css
+16.7.0 / 2016-12-21
+==================
 
-## [16.2.0] - 2016-12-20
-- Fix back button and Turbolinks cache problem
+  * Add metas to projects
 
-## [16.1.0] - 2016-12-19
-- Add new ACME file
+16.6.0 / 2016-12-21
+==================
 
-## [16.0.0] - 2016-12-19
-- Add test for category field
+  * Add Atrapalo Revivelo screenshots
 
-## [15.0.0] - 2016-11-16
-- Add "Bi" project
+16.5.0 / 2016-12-21
+==================
 
-## [14.0.0] - 2016-11-16
-- Sitemap: Rename to map
-- Add Project title to page title
-- Change CI builds to GIT_STRATEGY: none when needed
+  * Fix 404 page javascript error
 
-## [13.0.0] - 2016-11-16
-- Renew SSL Certificate
-- Change title color (gradient background)
-- Remove Evax "Adapt" project
-- Better project's descriptions
-- Add social icons in home page
-- Remove project's client from home page
-- Load new page with Turbolinks
-- Add next project button
-- Fix singuerinc link to home page
+16.4.1 / 2016-12-21
+==================
 
-## [12.0.0] - 2016-09-29
-- Add enter and leave transitions to pages
-- Add next project button
-- Add some animations to the project's page
-- Fix singuerinc link to home page
+  * Fix SITE_URL protocol
 
-## [11.0.0] - 2016-09-22
-- Fix Images are not big enough
-- Add site map page
-- Remove <br/>'s
-- Implement progress bar on loading
-- Add role to project profiles
-- Award box is not vertically centered
-- git commit sha in html doc
-- Meta tags according to the page
+16.4.0 / 2016-12-21
+==================
 
-## [10.0.0] - 2016-09-15
-- More semantic tags for project title, etc
-- Minimize CSS
-- Add Social icons
-- Add humans.txt
+  * Fix 404 styles
 
-## [9.1.0] - 2016-09-11
-- Create Twitter Card
+16.3.0 / 2016-12-20
+==================
 
-## [9.0.0] - 2016-09-11
-- Fix Black placeholders during the images loading should be white or transparent
-- Fix Related buttons are too small for mobile
-- Fix Images that are 50% tall are displayed incorrectly in mobile
-- Fix Style inside a div is not permitted
-- Test in devices
+  * Fix #128 / Loading bar display with blue color until loads css
 
-## [8.0.0] - 2016-09-10
-- optimize images for desktop
-- rewrite app.js
+16.2.0 / 2016-12-20
+==================
 
-## [7.1.0] - 2016-09-09
-- Add Home button in the sidebar
+  * Fix back button and Turbolinks cache problem
 
-## [7.0.0] - 2016-09-08
-- Add Evax "Estudio Risa" project
-- Update Readme file with test command
-- Remove "scoped" from <style> tag
-- Fix Docker test command
-- Fix Project title should not be duplicated
-- Remove header variable "host"
+16.1.0 / 2016-12-19
+==================
 
-## [6.0.0] - 2016-08-28
-- Fix Google Analytics is sending statistics during the tests
-- Use anchors in gitlab-ci.yml
-- Exclude robots from test and staging environment
-- Add CNAME for each environment
-- Test files loaded
-- Change $TRAVIS_BUILD_DIR variable to $CI_PROJECT_DIR in .gitlab-ci.yml
+  * Add new ACME file
 
-## [5.2.2] - 2016-08-26
-- Fix Docker tag
+16.0.0 / 2016-12-19
+==================
 
-## [5.2.1] - 2016-08-26
-- Fix fix only latest docker image is created !40
+  * Add test for category field
 
-## [5.2.0] - 2016-08-25
-- Fix "Google Bot doesn't see anything"
-- Optimize assets after PageSpeed Insights report
-- Exclude index.js from compiled public folder
-- Test before each commit (via git hook)
-- Fix 404 white text and styles
-- Test 404 case
+15.0.0 / 2016-11-16
+==================
 
-## [5.1.0] - 2016-08-24
-- Add 200 status test
-- Add Google Analytics test on all pages
-- Update Google Analytics script
+  * Add "Bi" project
 
-## [5.0.0] - 2016-08-24
-- Add Functional tests
-- Change About title
-- htmlproofer now checks external links
-- lock jekyll image to 3.2.1 tag
+14.0.0 / 2016-11-16
+==================
 
-## [4.0.0] - 2016-08-21
-- Add Facebook App ID
-- Add Facebook Admin ID
-- Fix absolute paths (bundle.js, analytics.js)
-- Remove unused images
-- Max width for project images
-- Audi Driving Experience: Hi-res image
-- FCB Som Un: Hi-res image
-- Audi A1 Me Gusta: Hi-res image
+  * Sitemap: Rename to map
+  * Add Project title to page title
+  * Change CI builds to GIT_STRATEGY: none when needed
 
-## [3.3.0] - 2016-08-19
-- Change og:image to Ivy Park
+13.0.0 / 2016-11-16
+==================
 
-## [3.2.2] - 2016-08-18
-- Change Audi "Driving Experience" url
-- Change FCB "Som Un" url
-- Change MDM "Names not numbers" url
+  * Renew SSL Certificate
+  * Change title color (gradient background)
+  * Remove Evax "Adapt" project
+  * Better project's descriptions
+  * Add social icons in home page
+  * Remove project's client from home page
+  * Load new page with Turbolinks
+  * Add next project button
+  * Fix singuerinc link to home page
 
-## [3.2.1] - 2016-08-15
-- Add Skoda website url
+12.0.0 / 2016-09-29
+==================
 
-## [3.2.0] - 2016-08-14
-- Change Metadata id
-- Awards badge
-- Awards layout
+  * Add enter and leave transitions to pages
+  * Add next project button
+  * Add some animations to the project's page
+  * Fix singuerinc link to home page
 
-## [3.1.0] - 2016-08-12
-- Remove Gulp stuff - not needed since Webpack
-- Compile "bundle.js" + assets during the build process in CI
-- Make a Docker image on each release
-- Minify JS
-- Add Medium link to the Sidebar
+11.0.0 / 2016-09-22
+==================
 
-## [3.0.1] - 2016-08-12
-- Update "About" image
+  * Fix Images are not big enough
+  * Add site map page
+  * Remove <br/>'s
+  * Implement progress bar on loading
+  * Add role to project profiles
+  * Award box is not vertically centered
+  * git commit sha in html doc
+  * Meta tags according to the page
 
-## [3.0.0] - 2016-08-10
-- Projects pages
-- Projects descriptions updated
-- CI now build, test and deploy
-- Test with htmlproofer
-- Add Google Analytics "enhanced link attribution"
-- Styles updated
-- About has sidebar
-- Canonical URLs
-- No longer "hover" on mobile
-- Expire artifacts after 20 min
+10.0.0 / 2016-09-15
+==================
 
-## [2.2.0] - 2016-08-01
-- Change Overlay image
-- Add robots.txt
+  * More semantic tags for project title, etc
+  * Minimize CSS
+  * Add Social icons
+  * Add humans.txt
 
-## [2.1.0] - 2016-07-28
-- Fix Minor style changes
-- Remove project urls and fix a.w-links without url
+9.1.0 / 2016-09-11
+==================
 
-## [2.0.0] - 2016-07-27
-- Add ES6 syntax
-- Move to Webpack
-- Add anime.js
+  * Create Twitter Card
 
-## [1.5.0] - 2016-07-24
-- Added profile photo
-- Updated "about" text
+9.0.0 / 2016-09-11
+==================
 
-## [1.4.2] - 2016-07-24
-- fixed skoda link
-- updated "arawys" project image
+  * Fix Black placeholders during the images loading should be white or transparent
+  * Fix Related buttons are too small for mobile
+  * Fix Images that are 50% tall are displayed incorrectly in mobile
+  * Fix Style inside a div is not permitted
+  * Test in devices
 
-## [1.4.1] - 2016-07-24
-- Update FWA and AWWWARDS logo
+8.0.0 / 2016-09-10
+==================
 
-## [1.4.0] - 2016-07-24
-- Changed "B-Reel" project image
-- Changed "Zalando" Ivy Park url
-- Changed "Moments" url
-- Added docker-compose.yml file
+  * optimize images for desktop
+  * rewrite app.js
 
-## [1.3.0] - 2016-07-18
-- Added Zalando "Ivy park project"
+7.1.0 / 2016-09-09
+==================
 
-## [1.2.0] - 2013-07-17
-- Change urls to https
+  * Add Home button in the sidebar
 
-## [1.1.0] - 2013-07-18
-- Added "netent" to keywords
-- WIP: Changed URLs to HTTPS
-- Added Redirect to https script
-- Removed profile:username tag
-- Updated profile info
-- Added SSL to domain, https://www.singuerinc.com is now available
+7.0.0 / 2016-09-08
+==================
+
+  * Add Evax "Estudio Risa" project
+  * Update Readme file with test command
+  * Remove "scoped" from <style> tag
+  * Fix Docker test command
+  * Fix Project title should not be duplicated
+  * Remove header variable "host"
+
+6.0.0 / 2016-08-28
+==================
+
+  * Fix Google Analytics is sending statistics during the tests
+  * Use anchors in gitlab-ci.yml
+  * Exclude robots from test and staging environment
+  * Add CNAME for each environment
+  * Test files loaded
+  * Change $TRAVIS_BUILD_DIR variable to $CI_PROJECT_DIR in .gitlab-ci.yml
+
+5.2.2 / 2016-08-26
+==================
+
+  * Fix Docker tag
+
+5.2.1 / 2016-08-26
+==================
+
+  * Fix fix only latest docker image is created !40
+
+5.2.0 / 2016-08-25
+==================
+
+  * Fix "Google Bot doesn't see anything"
+  * Optimize assets after PageSpeed Insights report
+  * Exclude index.js from compiled public folder
+  * Test before each commit (via git hook)
+  * Fix 404 white text and styles
+  * Test 404 case
+
+5.1.0 / 2016-08-24
+==================
+
+  * Add 200 status test
+  * Add Google Analytics test on all pages
+  * Update Google Analytics script
+
+5.0.0 / 2016-08-24
+==================
+
+  * Add Functional tests
+  * Change About title
+  * htmlproofer now checks external links
+  * lock jekyll image to 3.2.1 tag
+
+4.0.0 / 2016-08-21
+==================
+
+  * Add Facebook App ID
+  * Add Facebook Admin ID
+  * Fix absolute paths (bundle.js, analytics.js)
+  * Remove unused images
+  * Max width for project images
+  * Audi Driving Experience: Hi-res image
+  * FCB Som Un: Hi-res image
+  * Audi A1 Me Gusta: Hi-res image
+
+3.3.0 / 2016-08-19
+==================
+
+  * Change og:image to Ivy Park
+
+3.2.2 / 2016-08-18
+==================
+
+  * Change Audi "Driving Experience" url
+  * Change FCB "Som Un" url
+  * Change MDM "Names not numbers" url
+
+3.2.1 / 2016-08-15
+==================
+
+  * Add Skoda website url
+
+3.2.0 / 2016-08-14
+==================
+
+  * Change Metadata id
+  * Awards badge
+  * Awards layout
+
+3.1.0 / 2016-08-12
+==================
+
+  * Remove Gulp stuff   * not needed since Webpack
+  * Compile "bundle.js" + assets during the build process in CI
+  * Make a Docker image on each release
+  * Minify JS
+  * Add Medium link to the Sidebar
+
+3.0.1 / 2016-08-12
+==================
+
+  * Update "About" image
+
+3.0.0 / 2016-08-10
+==================
+
+  * Projects pages
+  * Projects descriptions updated
+  * CI now build, test and deploy
+  * Test with htmlproofer
+  * Add Google Analytics "enhanced link attribution"
+  * Styles updated
+  * About has sidebar
+  * Canonical URLs
+  * No longer "hover" on mobile
+  * Expire artifacts after 20 min
+
+2.2.0 / 2016-08-01
+==================
+
+  * Change Overlay image
+  * Add robots.txt
+
+2.1.0 / 2016-07-28
+==================
+
+  * Fix Minor style changes
+  * Remove project urls and fix a.w-links without url
+
+2.0.0 / 2016-07-27
+==================
+
+  * Add ES6 syntax
+  * Move to Webpack
+  * Add anime.js
+
+1.5.0 / 2016-07-24
+==================
+
+  * Added profile photo
+  * Updated "about" text
+
+1.4.2 / 2016-07-24
+==================
+
+  * fixed skoda link
+  * updated "arawys" project image
+
+1.4.1 / 2016-07-24
+==================
+
+  * Update FWA and AWWWARDS logo
+
+1.4.0 / 2016-07-24
+==================
+
+  * Changed "B-Reel" project image
+  * Changed "Zalando" Ivy Park url
+  * Changed "Moments" url
+  * Added docker-compose.yml file
+
+1.3.0 / 2016-07-18
+==================
+
+  * Added Zalando "Ivy park project"
+
+1.2.0 / 2013-07-17
+==================
+
+  * Change urls to https
+
+1.1.0 / 2013-07-18
+==================
+
+  * Added "netent" to keywords
+  * WIP: Changed URLs to HTTPS
+  * Added Redirect to https script
+  * Removed profile:username tag
+  * Updated profile info
+  * Added SSL to domain, https://www.singuerinc.com is now available
