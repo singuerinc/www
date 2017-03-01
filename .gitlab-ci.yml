@@ -14,6 +14,7 @@ variables:
     paths:
     - public
     expire_in: 45 minutes
+    untracked: true
   cache:
     paths:
     - node_modules/
