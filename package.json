@@ -22,7 +22,7 @@
   },
   "homepage": "https://gitlab.com/singuerinc-works/com.singuerinc.www#README",
   "dependencies": {
-    "animejs": "^2.0.1",
+    "animejs": "1.1.1",
     "nprogress": "^0.2.0"
   },
   "devDependencies": {
