@@ -1,41 +1,36 @@
-export const init = (document, portfolio) => {
-  return new Promise((resolve, reject) => {
-    document.addEventListener("turbolinks:load", () => {
-      const page = getPage();
+/* global window, document */
+export const getPage = () => {
+  const a = document.createElement('a');
+  const meta = document.querySelector('meta[name="page:url"]');
 
-      navigate(page, portfolio);
-
-      resolve({
-        page
-      });
-    });
-  });
+  a.href = meta.getAttribute('content');
+  return a.pathname;
 };
 
 export const navigate = (page, portfolio) => {
-  if (page === "" || page === "/" || page === "/index.html") {
+  if (page === '' || page === '/' || page === '/index.html') {
     portfolio.loadIndex(window.posts);
-  }
-  else if (page === "/about.html") {
+  } else if (page === '/about.html') {
     portfolio.loadAbout();
-  }
-  else if (page === "/sitemap.html") {
+  } else if (page === '/sitemap.html') {
     portfolio.loadSiteMap();
-  }
-  else if (page === "/404.html") {
+  } else if (page === '/404.html') {
     portfolio.load404();
-  }
-  else if (/(\/.+){2}.html/.test(page)){
+  } else if (/(\/.+){2}.html/.test(page)) {
     portfolio.loadProject();
   } else {
     throw new Error(`Page '${page}' can not be handled.`);
   }
 };
 
-export const getPage = () => {
-  const a = document.createElement("a");
-  const meta = document.querySelector("meta[name=\"page:url\"]");
+export const init = (document, portfolio) => new Promise((resolve) => {
+  document.addEventListener('turbolinks:load', () => {
+    const page = getPage();
 
-  a.href = meta.getAttribute("content");
-  return a.pathname;
-};
+    navigate(page, portfolio);
+
+    resolve({
+      page,
+    });
+  });
+});

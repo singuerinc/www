@@ -1,40 +1,40 @@
 /* global require, module, __dirname */
-const webpack = require("webpack");
+const webpack = require('webpack');
 
 module.exports = {
-  entry: "./index.js",
-  devtool: "#source-map",
+  entry: './index.js',
+  devtool: '#source-map',
   output: {
-    path: __dirname + "/assets",
-    filename: "bundle.js",
-    publicPath: "/assets/"
+    path: `${__dirname}/assets`,
+    filename: 'bundle.js',
+    publicPath: '/assets/',
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      }
-    })
+        warnings: false,
+      },
+    }),
   ],
   module: {
     loaders: [
       {
         test: /\.js$/,
-        loader: "babel-loader"
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
-        loader: "style!css"
+        loader: 'style!css',
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: "url-loader?limit=8192"
+        loader: 'url-loader?limit=8192',
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
-      }
-    ]
-  }
+        loader: 'babel-loader',
+      },
+    ],
+  },
 };

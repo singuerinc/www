@@ -1,3 +1,4 @@
+/* eslint-disable */
 var system = require('system');
 var env = system.env;
 var URL = env["SITE_URL"];

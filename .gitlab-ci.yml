@@ -1,4 +1,5 @@
 stages:
+- lint
 - build
 - test
 - deploy
@@ -6,6 +7,14 @@ stages:
 variables:
   CONTAINER_TEST_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:$CI_BUILD_TAG
   CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
+
+.lint: &lint-definition
+  image: mhart/alpine-node:7.5.0
+  stage: lint
+  script:
+  - npm i -g yarn
+  - yarn
+  - yarn run lint
 
 .build: &build-definition
   image: jekyll/jekyll:3.2.1
@@ -52,6 +61,14 @@ variables:
   stage: deploy
   variables:
     GIT_STRATEGY: none
+
+test:lint:
+  <<: *lint-definition
+  environment: test
+  only:
+  - branches
+  except:
+  - master
 
 test:build:
   <<: *build-definition
