@@ -9,7 +9,7 @@
     "build": "jekyll build -d ./public",
     "test": "nyc ava --serial --verbose",
     "report": "nyc report",
-    "lint": "eslint"
+    "lint": "eslint . --c ./.eslintrc.js"
   },
   "repository": {
     "type": "git",
