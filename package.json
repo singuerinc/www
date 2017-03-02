@@ -9,7 +9,7 @@
     "build": "jekyll build -d ./public",
     "test": "nyc ava --serial --verbose",
     "report": "nyc report",
-    "lint": "eslint . --c ./.eslintrc.js"
+    "lint": "eslint . --color --cache --c ./.eslintrc.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,11 @@
     "url": "https://gitlab.com/singuerinc-works/com.singuerinc.www/issues"
   },
   "homepage": "https://gitlab.com/singuerinc-works/com.singuerinc.www#README",
+  "dependencies": {
+    "animejs": "^2.0.1",
+    "nprogress": "^0.2.0"
+  },
   "devDependencies": {
-    "animejs": "1.1.1",
     "ava": "^0.18.1",
     "babel-core": "6.11.4",
     "babel-loader": "6.2.4",
@@ -37,7 +40,6 @@
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "file-loader": "0.9.0",
-    "nprogress": "0.2.0",
     "nyc": "^10.1.2",
     "sinon": "^1.17.7",
     "style-loader": "0.13.1",
@@ -90,6 +92,5 @@
     "cache": true,
     "all": false,
     "check-coverage": true
-  },
-  "dependencies": {}
+  }
 }

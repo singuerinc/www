@@ -1,4 +1,5 @@
 /* global window, setTimeout, Image, document, Turbolinks */
+/* eslint-disable class-methods-use-this */
 import NProgress from 'nprogress';
 import { anime } from './anime';
 
@@ -11,10 +12,10 @@ import { anime } from './anime';
 class Portfolio {
 
   constructor() {
-    const STYLE = this._getComputedStyle(document.querySelector('html'));
+    const STYLE = this.getComputedStyle(document.querySelector('html'));
 
-    this._isRetina = window.devicePixelRatio > 1;
-    this._isMobile = (parseInt(STYLE.getPropertyValue('width'), 10)) < 768;
+    this.isRetina = window.devicePixelRatio > 1;
+    this.isMobile = (parseInt(STYLE.getPropertyValue('width'), 10)) < 768;
   }
 
   /**
@@ -25,7 +26,7 @@ class Portfolio {
    * @param {string} elements - The selector string.
    * @returns {void}
    */
-  _whenClickExit(elements) {
+  whenClickExit(elements) {
     document.querySelectorAll(elements).forEach((element) => {
       element.addEventListener('click', (event) => {
         event.preventDefault();
@@ -54,19 +55,19 @@ class Portfolio {
    * @param {string} src - The path to the image.
    * @returns {void}
    */
-  _onLoad(postId, totalImages, src) {
+  onLoad(postId, totalImages, src) {
     const tag = document.querySelector(`.post-image.${postId}`);
 
     tag.style.backgroundImage = `url(${src})`;
 
-    this._totalImagesLoaded += 1;
-    NProgress.set(this._totalImagesLoaded / totalImages);
-    if (this._totalImagesLoaded === totalImages) {
+    this.totalImagesLoaded += 1;
+    NProgress.set(this.totalImagesLoaded / totalImages);
+    if (this.totalImagesLoaded === totalImages) {
       const waitBeforeReady = 200;
 
       setTimeout(() => {
         NProgress.done(true);
-        this._onIndexReady();
+        this.onIndexReady();
       }, waitBeforeReady);
     }
   }
@@ -77,12 +78,12 @@ class Portfolio {
    * @returns {void}
    */
   loadIndex(posts) {
-    this._whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link');
-    this._totalImagesLoaded = 0;
+    this.whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link');
+    this.totalImagesLoaded = 0;
     posts.forEach((post, index) => {
       let filename;
 
-      if (this._isMobile && !this._isRetina) {
+      if (this.isMobile && !this.isRetina) {
         filename = `${post.image}-md.jpg`;
       } else {
         filename = `${post.image}.jpg`;
@@ -93,10 +94,10 @@ class Portfolio {
       if (index < 4) {
         const image = new Image();
 
-        image.onload = () => this._onLoad(post.id, posts.length, image.src);
+        image.onload = () => this.onLoad(post.id, posts.length, image.src);
         image.src = src;
       } else {
-        this._onLoad(post.id, posts.length, src);
+        this.onLoad(post.id, posts.length, src);
       }
     });
   }
@@ -106,7 +107,7 @@ class Portfolio {
    * @private
    * @returns {void}
    */
-  _showPrevAndNextProjects() {
+  showPrevAndNextProjects() {
     anime({
       targets: '.page .prev-next-project',
       begin: animation => animation.animatables[0].target.classList.remove('hide'),
@@ -122,7 +123,7 @@ class Portfolio {
    * @private
    * @returns {void}
    */
-  _showTitle() {
+  showTitle() {
     anime({
       targets: '.page .title',
       begin: animation => animation.animatables[0].target.classList.remove('hide'),
@@ -137,7 +138,7 @@ class Portfolio {
    * @private
    * @returns {void}
    */
-  _onIndexReady() {
+  onIndexReady() {
     anime({
       targets: '.pre.hide',
       begin: animation => animation.animatables[0].target.classList.remove('hide'),
@@ -147,7 +148,9 @@ class Portfolio {
 
     document.querySelectorAll('ul.posts li').forEach((element) => {
       element.classList.remove('hide');
-      element.querySelector('.w-link').style.backgroundColor = 'black';
+      const link = element.querySelector('.w-link');
+
+      link.style.backgroundColor = 'black';
     });
 
     anime({
@@ -166,7 +169,7 @@ class Portfolio {
    * @param {HTMLElement} elem - The element you want to compute.
    * @returns {Object} The computed style.
    */
-  _getComputedStyle(elem) {
+  getComputedStyle(elem) {
     if (elem.ownerDocument.defaultView.opener) {
       return elem.ownerDocument.defaultView.getComputedStyle(elem, null);
     }
@@ -178,14 +181,14 @@ class Portfolio {
    * @returns {void}
    */
   loadAbout() {
-    this._whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a');
+    this.whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a');
 
     NProgress.inc();
     const image = new Image();
 
     image.onload = () => {
       NProgress.done(true);
-      this._showTitle();
+      this.showTitle();
 
       anime({
         targets: '.content > p.text, .content p img',
@@ -217,8 +220,8 @@ class Portfolio {
    * @returns {void}
    */
   loadSiteMap() {
-    this._whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a');
-    this._showTitle();
+    this.whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a');
+    this.showTitle();
 
     setTimeout(() => document.querySelectorAll('.site-map li').forEach(e => e.classList.remove('hide')), 1);
 
@@ -247,8 +250,8 @@ class Portfolio {
    * @returns {void}
    */
   load404() {
-    this._whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a');
-    this._showTitle();
+    this.whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a');
+    this.showTitle();
 
     anime({
       targets: '.content p',
@@ -265,14 +268,14 @@ class Portfolio {
    * @returns {void}
    */
   loadProject() {
-    this._whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a');
+    this.whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .prev-next-project li a, .project-page .related-post a');
 
     NProgress.inc();
     const image = new Image();
 
     image.onload = () => {
       NProgress.done(true);
-      this._showTitle();
+      this.showTitle();
 
       const targets = [
         '.project-page .project-title',

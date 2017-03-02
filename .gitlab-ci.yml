@@ -86,13 +86,13 @@ test:unit_test:
   except:
   - master
 
-    #test:functional_test:
-    #  <<: *test-functional-definition
-    #  environment: test
-    #  only:
-    #  - branches
-    #  except:
-    #  - master
+test:functional_test:
+  <<: *test-functional-definition
+  environment: test
+  only:
+  - branches
+  except:
+  - master
 
 test:deploy:
   <<: *deploy-definition
@@ -123,17 +123,17 @@ staging:build:
   only:
   - master
 
-    #staging:functional_test:
-    #  <<: *test-functional-definition
-    #  environment: staging
-    #  script:
-    #  - export SITE_URL="http://$STAGING_DOMAIN"
-    #  - echo "0.0.0.0 jekyll" >> /etc/hosts
-    #  - cd $CI_PROJECT_DIR/public
-    #  - python -m SimpleHTTPServer 4000 &
-    #  - casperjs test $CI_PROJECT_DIR/_tests/index.js
-    #  only:
-    #  - master
+staging:functional_test:
+  <<: *test-functional-definition
+  environment: staging
+  script:
+  - export SITE_URL="http://$STAGING_DOMAIN"
+  - echo "0.0.0.0 jekyll" >> /etc/hosts
+  - cd $CI_PROJECT_DIR/public
+  - python -m SimpleHTTPServer 4000 &
+  - casperjs test $CI_PROJECT_DIR/_tests/index.js
+  only:
+  - master
 
 staging:unit_test:
   <<: *test-unit-definition
