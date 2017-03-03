@@ -1,4 +1,6 @@
-# Nahuel Scotti - Portfolio
+Nahuel Scotti - Portfolio
+===
+
 Here is what I have been working on.
 
 [![Build Status](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/build.svg)](https://gitlab.com/singuerinc-works/com.singuerinc.www/commits/master)
@@ -18,7 +20,7 @@ Althougth it is possible to install all dependencies on a local environment
 2. Clone the project
 	
 	```sh
-	git clone https://gitlab.com/singuerinc-works/com.singuerinc.www.git && cd $
+	git clone git@gitlab.com:singuerinc-works/com.singuerinc.www.git
 	cd www
 	```
 3. Start the Docker container
@@ -42,7 +44,7 @@ open 'http://localhost:8080'
 
 ## Development setup
 
-The project is made with [Jekyll](https://jekyllrb.com/)
+The project is generated with [Jekyll](https://jekyllrb.com/)
 
 The Jekyll Docker container is in charge of compile the project every
 time a change is made.
@@ -97,7 +99,5 @@ See [https://gitlab.com/singuerinc-works/com.singuerinc.www/blob/master/CHANGELO
 ## Meta
 
 Nahuel Scotti – [@singuerinc](https://twitter.com/singuerinc) – nahuel.scotti@gmail.com
-
-Distributed under the XYZ license. See ``LICENSE`` for more information.
 
 [https://github.com/singuerinc/](https://github.com/singuerinc/)
