@@ -1,4 +1,15 @@
 
+18.2.0 / 2017-03-03
+==================
+
+  * Add lint to staging and production environment
+  * Merge branch '137-update-readme-file' into 'master'
+  * Merge branch '134-use-airbnb-style-js' into 'master'
+  * Add authors file
+  * Update CHANGELOG markup
+  * Merge branch '138-use-absolute-path-in-favicon' into 'master'
+  * Add airbnb eslint config, fix js files
+
 18.1.0 / 2017-03-01
 ==================
 
