@@ -107,6 +107,12 @@ test:deploy:
   except:
   - master
 
+staging:lint:
+  <<: *lint-definition
+  environment: staging
+  only:
+  - master
+
 staging:build:
   <<: *build-definition
   environment: staging
@@ -150,6 +156,12 @@ staging:deploy:
   - surge -p $CI_PROJECT_DIR/public
   only:
   - master
+
+pages:lint:
+  <<: *lint-definition
+  environment: production
+  only:
+  - tags
 
 pages:build:
   <<: *build-definition
