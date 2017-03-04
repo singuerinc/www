@@ -11,24 +11,24 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
+      sourceMap: true,
     }),
   ],
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-      },
+    rules: [
       {
         test: /\.css$/,
-        loader: 'style!css',
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'url-loader?limit=8192',
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+        },
       },
       {
         test: /\.js$/,
