@@ -9,6 +9,7 @@
     "build": "jekyll build -d ./public",
     "test": "nyc ava --serial --verbose",
     "report": "nyc report",
+    "report-lcov": "nyc report --reporter=text-lcov > coverage.lcov",
     "lint": "eslint . --color --cache --c ./.eslintrc.js"
   },
   "repository": {
