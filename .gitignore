@@ -3,5 +3,8 @@
 /assets/bundle.js*
 node_modules
 coverage
+coverage.lcov
 .nyc_output
 tags
+.sonar-cache
+.sonar

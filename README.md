@@ -77,6 +77,18 @@ Checks if all the links (internal and extenal) are working.
 docker-compose run tests-links
 ```
 
+#### Run Sonarqube
+
+```sh
+docker-compose run webpack yarn run test
+docker-compose run webpack yarn run report-lcov
+# update lcov files paths
+
+docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+
+docker run --link sonarqube:sonarqube --entrypoint /opt/sonar-runner-2.4/bin/sonar-runner -e SONAR_USER_HOME=/data/.sonar-cache -v $(pwd):/data -u $(id -u) sebp/sonar-runner -Dsonar.host.url=http://sonarqube:9000 -Dsonar.jdbc.driverClassName=org.h2.Driver   -Dsonar.embeddedDatabase.port=9092
+```
+
 ## Make a change
 
 Usually, to make a change follow the next workflow:
