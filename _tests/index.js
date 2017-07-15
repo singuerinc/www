@@ -2,8 +2,23 @@
 var system = require('system');
 var env = system.env;
 var URL = env["SITE_URL"];
-const TOTAL_TESTS = 1702;
+const TOTAL_TESTS = 1768;
 const projects = [
+  {
+    id: "singuerinc_subway",
+    role: "Developer",
+    category: "singuerinc",
+    client: "singuerinc",
+    title: "Subway",
+    clientAndTitle: "singuerinc · Subway",
+    agency: "singuerinc",
+    canonical: "/singuerinc/singuerinc-subway.html",
+    website: "https://singuerinc-labs.gitlab.io/subway/",
+    more: null,
+    relatedCount: 7,
+    shareCount: 3,
+    image: "singuerinc--subway-viz"
+  },
   {
     id: "singuerinc_tomeito-app",
     role: "Developer",
@@ -15,7 +30,7 @@ const projects = [
     canonical: "/singuerinc/singuerinc-tomeito-app.html",
     website: "https://tomeito-app.singuerinc.com/",
     more: "https://blog.singuerinc.com/app/macos/vuejs/electron/2017/05/09/introducing-tomeito/",
-    relatedCount: 6,
+    relatedCount: 7,
     shareCount: 3,
     image: "singuerinc--tomeito-app"
   },
@@ -30,7 +45,7 @@ const projects = [
     canonical: "/singuerinc/singuerinc-bi.html",
     website: "https://bi.singuerinc.com/",
     more: "https://github.com/singuerinc/bi",
-    relatedCount: 6,
+    relatedCount: 7,
     shareCount: 3,
     image: "singuerinc--bi"
   },
@@ -75,7 +90,7 @@ const projects = [
     canonical: "/singuerinc/arawys-store.html",
     website: "https://www.arawys.com",
     more: null,
-    relatedCount: 6,
+    relatedCount: 7,
     shareCount: 3,
     image: "arawys--store"
   },
@@ -120,7 +135,7 @@ const projects = [
     canonical: "/singuerinc/singuerinc-overlay-app.html",
     website: "https://github.com/singuerinc/OverlayApp",
     more: null,
-    relatedCount: 6,
+    relatedCount: 7,
     shareCount: 3,
     image: "singuerinc--overlay-app"
   },
@@ -165,7 +180,7 @@ const projects = [
     canonical: "/singuerinc/kit-appetit.html",
     website: "http://www.kitappetit.com/",
     more: null,
-    relatedCount: 6,
+    relatedCount: 7,
     shareCount: 3,
     image: "kitappetit--kitappetit"
   },
@@ -195,7 +210,7 @@ const projects = [
     canonical: "/singuerinc/roberto-ivan-cano.html",
     website: "http://www.robertoivancano.com/",
     more: null,
-    relatedCount: 6,
+    relatedCount: 7,
     shareCount: 3,
     image: "roberto-ivan-cano"
   },
@@ -210,7 +225,7 @@ const projects = [
     canonical: "/singuerinc/cuchi-cuchi.html",
     website: "http://www.cuchicuchi-guarderia.es/",
     more: null,
-    relatedCount: 6,
+    relatedCount: 7,
     shareCount: 3,
     image: "cuchi-cuchi"
   },
@@ -433,7 +448,7 @@ const testAll = function (test, project) {
     test.assertExists(".info tr:nth-child(6) td:nth-child(1)", "Tech");
   }
 
-  var isFirstProject = project.id === "singuerinc_tomeito-app",
+  var isFirstProject = project.id === "singuerinc_subway",
     isLastProject = project.id === "columna-group_colors";
 
   test.assertElementCount(".project-page .prev-next-project", 1);
@@ -541,7 +556,8 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
 
     // posts
     test.assertExists("body .content ul.posts");
-    test.assertElementCount("body .content ul.posts li", 23);
+    test.assertElementCount("body .content ul.posts li", 24);
+    test.assertElementCount("body .content ul.posts li#singuerinc_subway", 1);
     test.assertElementCount("body .content ul.posts li#singuerinc_tomeito-app", 1);
     test.assertElementCount("body .content ul.posts li#singuerinc_bi", 1);
     test.assertElementCount("body .content ul.posts li#zalando_ivy-park", 1);
@@ -638,6 +654,9 @@ casper.test.begin("Test", TOTAL_TESTS, function suite(test) {
       test.assertExists("body .sidebar-mobile ul li:nth-child(7) a[href='./sitemap.html']");
       test.assertElementCount("body .sidebar .social li a", 1);
       test.assertExists("body .sidebar .social li a[href='https://twitter.com/intent/tweet?url=" + URL + "&via=singuerinc']");
+    })
+    .thenOpen("http://jekyll:4000/singuerinc/singuerinc-subway.html", function () {
+      testAll(test, projects.shift());
     })
     .thenOpen("http://jekyll:4000/singuerinc/singuerinc-tomeito-app.html", function () {
       testAll(test, projects.shift());

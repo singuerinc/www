@@ -38,4 +38,4 @@ An electron based application built with a modern stack: node, Vue.js and Vuex.
 ![](../img/projects/singuerinc--tomeito-app/tomeito-break.png)
 ![](../img/projects/singuerinc--tomeito-app/tomeito-long-break.png)
 
-Tomeito is an attemp to build a simple and easy to use app for following the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) created by Francesco Cirillo.
+Tomeito is an attempt to build a simple and easy to use app for following the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) created by Francesco Cirillo.
