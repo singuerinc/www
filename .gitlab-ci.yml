@@ -37,16 +37,6 @@ variables:
   - rm $CI_PROJECT_DIR/public/robots.txt
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
 
-.test-functional: &test-functional-definition
-  image: singuerinc/docker_casperjs
-  stage: test
-  script:
-  - export SITE_URL="http://$TEST_DOMAIN"
-  - echo "0.0.0.0 jekyll" >> /etc/hosts
-  - cd $CI_PROJECT_DIR/public
-  - python -m SimpleHTTPServer 4000 &
-  - casperjs test $CI_PROJECT_DIR/_tests/index.js
-
 .test-unit: &test-unit-definition
   image: mhart/alpine-node:7.5.0
   stage: test
@@ -80,14 +70,6 @@ test:build:
 
 test:unit_test:
   <<: *test-unit-definition
-  environment: test
-  only:
-  - branches
-  except:
-  - master
-
-test:functional_test:
-  <<: *test-functional-definition
   environment: test
   only:
   - branches
@@ -128,18 +110,6 @@ staging:build:
   only:
   - master
 
-staging:functional_test:
-  <<: *test-functional-definition
-  environment: staging
-  script:
-  - export SITE_URL="http://$STAGING_DOMAIN"
-  - echo "0.0.0.0 jekyll" >> /etc/hosts
-  - cd $CI_PROJECT_DIR/public
-  - python -m SimpleHTTPServer 4000 &
-  - casperjs test $CI_PROJECT_DIR/_tests/index.js
-  only:
-  - master
-
 staging:unit_test:
   <<: *test-unit-definition
   environment: staging
@@ -173,18 +143,6 @@ pages:build:
   - yarn run build:js -- -p
   - JEKYLL_ENV=test yarn run build
   - yarn run build:css
-  only:
-  - tags
-
-pages:functional_test:
-  <<: *test-functional-definition
-  environment: production
-  script:
-  - export SITE_URL="https://$PROD_DOMAIN"
-  - echo "0.0.0.0 jekyll" >> /etc/hosts
-  - cd $CI_PROJECT_DIR/public
-  - python -m SimpleHTTPServer 4000 &
-  - casperjs test $CI_PROJECT_DIR/_tests/index.js
   only:
   - tags
 
