@@ -32,6 +32,7 @@ variables:
   - npm i -g yarn
   - yarn
   - yarn run build:js
+  - gem install redcarpet jekyll jekyll-sitemap
   - JEKYLL_ENV=test yarn run build -- --config _config.yml,_config-test.yml
   - yarn run build:css
   - rm $CI_PROJECT_DIR/public/robots.txt
@@ -103,6 +104,7 @@ staging:build:
   - npm i -g yarn
   - yarn
   - yarn run build:js -- -p
+  - gem install redcarpet jekyll jekyll-sitemap
   - JEKYLL_ENV=staging yarn run build -- --config _config.yml,_config-staging.yml
   - yarn run build:css
   - rm $CI_PROJECT_DIR/public/robots.txt
