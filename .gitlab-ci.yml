@@ -143,6 +143,7 @@ pages:build:
   - npm i -g yarn
   - yarn
   - yarn run build:js -- -p
+  - gem install redcarpet jekyll jekyll-sitemap
   - JEKYLL_ENV=test yarn run build
   - yarn run build:css
   only:
