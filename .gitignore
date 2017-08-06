@@ -8,3 +8,5 @@ coverage.lcov
 tags
 .sonar-cache
 .sonar
+.tmp/tscache
+.eslintcache

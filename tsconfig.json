@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true
+  },
+  "include": [
+    "node_modules/typescript/lib/lib.es6.d.ts",
+    "_src/**/*.ts"
+  ],
+  "exclude": [
+  ],
+  "typeRoots": [
+    "node_modules/@types"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "useCache": true,
+    "useBabel": true,
+    "cacheDirectory": ".tmp/tscache",
+    "silent": true,
+    "useTranspileModule": false,
+    "transpileOnly": false
+  }
+}
