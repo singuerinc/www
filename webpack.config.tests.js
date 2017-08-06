@@ -1,13 +1,10 @@
 /* global require, module, __dirname */
 module.exports = {
-  entry: ['./_src/index.ts'],
+  entry: ['./__tests__/unit/app.test.ts'],
   devtool: 'cheap-eval-source-map',
   output: {
-    path: `${__dirname}/assets`,
-    filename: 'bundle.js',
-    publicPath: '/assets/',
-    library: 'app',
-    libraryTarget: 'umd',
+    path: `${__dirname}/__tests__/unit`,
+    filename: 'tests.js',
   },
   plugins: [],
   resolve: {

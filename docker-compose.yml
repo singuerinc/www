@@ -20,7 +20,7 @@ services:
     working_dir: /usr/src/app
     environment:
       - NODE_ENV=development
-    command: ../node_modules/webpack/bin/webpack.js --progress --watch
+    command: yarn run build:js
     volumes:
       - ./:/usr/src/app
     stdin_open: true
