@@ -141,7 +141,7 @@ export default class Portfolio {
 
             const src: string = `./img/home/${filename}`;
 
-            if (index < 4) {
+            if (index < 2) {
                 const image: HTMLImageElement = new (window as any).Image();
 
                 image.onload = () => this.onLoad(post.id, posts.length, image.src);
