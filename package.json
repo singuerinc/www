@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build:css": "cssnano ./all.css ./public/all.css --discardComments.removeAll",
-    "build:js": "webpack --progress",
+    "build:js": "webpack --env=dev --progress --profile --colors",
+    "build:js:prod": "webpack --env=prod --progress --profile --colors",
     "build:tests": "tsc -p ./__tests__/tsconfig.json",
     "build": "jekyll build -d ./public",
     "test": "yarn run build:tests && nyc ava --serial --verbose",

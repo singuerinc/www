@@ -31,7 +31,7 @@ variables:
   - apk add --update nodejs
   - npm i -g yarn
   - yarn
-  - yarn run build:js
+  - yarn run build:js:prod
   - gem install redcarpet jekyll jekyll-sitemap
   - JEKYLL_ENV=test yarn run build -- --config _config.yml,_config-test.yml
   - yarn run build:css
@@ -103,7 +103,7 @@ staging:build:
   - apk add --update nodejs
   - npm i -g yarn
   - yarn
-  - yarn run build:js -- -p
+  - yarn run build:js:prod -- -p
   - gem install redcarpet jekyll jekyll-sitemap
   - JEKYLL_ENV=staging yarn run build -- --config _config.yml,_config-staging.yml
   - yarn run build:css
@@ -142,7 +142,7 @@ pages:build:
   - apk add --update nodejs
   - npm i -g yarn
   - yarn
-  - yarn run build:js -- -p
+  - yarn run build:js:prod -- -p
   - gem install redcarpet jekyll jekyll-sitemap
   - JEKYLL_ENV=test yarn run build
   - yarn run build:css
