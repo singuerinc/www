@@ -7,8 +7,6 @@ services:
       - 127.0.0.1:4000:4000
     volumes:
       - ./:/srv/jekyll
-    depends_on:
-      - webpack
     stdin_open: true
     tty: true
 

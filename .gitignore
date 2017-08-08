@@ -1,4 +1,5 @@
 .idea
+_src/**/*.js
 /public
 /assets/bundle.js*
 node_modules
