@@ -72,7 +72,7 @@
           <tr>
             <td class="info-title">Website</td>
             <td>
-              <a href="{{ page.www }}" target="_blank">Visit</a>
+              <a href="{{ page.www }}" target="_blank" rel="noopener">Visit</a>
             </td>
           </tr>
           {% endif %}
@@ -80,7 +80,7 @@
           <tr>
             <td class="info-title">More info</td>
             <td>
-              <a href="{{ page.more }}" target="_blank">More info</a>
+              <a href="{{ page.more }}" target="_blank" rel="noopener">More info</a>
             </td>
           </tr>
           {% endif %}
@@ -108,9 +108,9 @@
 
       <h2 class="share-title">Share</h2>
       <ul class="share-post">
-        <li><a class="twitter" href="https://twitter.com/intent/tweet?text={{page_title|prepend:'Nahuel Scotti - Portfolio / '|uri_escape}}&url={{page_url|uri_escape}}&via=singuerinc" target="_blank">Twitter</a></li>
-        <li><a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{page_url|uri_escape}}" target="_blank">Facebook</a></li>
-        <li><a class="google" href="https://plus.google.com/share?url={{page_url|uri_escape}}" target="_blank">Google+</a></li>
+        <li><a class="twitter" href="https://twitter.com/intent/tweet?text={{page_title|prepend:'Nahuel Scotti - Portfolio / '|uri_escape}}&url={{page_url|uri_escape}}&via=singuerinc" target="_blank" rel="noopener">Twitter</a></li>
+        <li><a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{page_url|uri_escape}}" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a class="google" href="https://plus.google.com/share?url={{page_url|uri_escape}}" target="_blank" rel="noopener">Google+</a></li>
       </ul>
 
       <hr>

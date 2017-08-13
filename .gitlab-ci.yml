@@ -9,16 +9,22 @@ variables:
   CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-works/com.singuerinc.www:latest
 
 .lint: &lint-definition
-  image: mhart/alpine-node:7.5.0
+  image: node:8-alpine
   stage: lint
+  variables:
+    GIT_STRATEGY: fetch
+  cache:
+    paths:
+    - node_modules/
   script:
-  - npm i -g yarn
   - yarn
   - yarn run lint
 
 .build: &build-definition
   image: jekyll/jekyll:3.2.1
   stage: build
+  variables:
+    GIT_STRATEGY: fetch
   artifacts:
     paths:
     - public
@@ -39,16 +45,17 @@ variables:
   - 'printf "User-agent: *\nDisallow: /" > $CI_PROJECT_DIR/public/robots.txt'
 
 .test-unit: &test-unit-definition
-  image: mhart/alpine-node:7.5.0
+  image: node:8-alpine
   stage: test
+  variables:
+    GIT_STRATEGY: fetch
   script:
-  - npm i -g yarn
   - yarn
   - yarn run test
   - yarn run report
 
 .deploy: &deploy-definition
-  image: mhart/alpine-node:7.5.0
+  image: node:8-alpine
   stage: deploy
   variables:
     GIT_STRATEGY: none
@@ -81,7 +88,7 @@ test:deploy:
   <<: *deploy-definition
   environment: test
   script:
-  - npm install -g surge
+  - yarn global add surge
   - rm $CI_PROJECT_DIR/public/CNAME
   - printf "$TEST_DOMAIN" > $CI_PROJECT_DIR/public/CNAME
   - surge -p $CI_PROJECT_DIR/public
@@ -122,7 +129,7 @@ staging:deploy:
   <<: *deploy-definition
   environment: staging
   script:
-  - npm install -g surge
+  - yarn global add surge
   - rm $CI_PROJECT_DIR/public/CNAME
   - printf "$STAGING_DOMAIN" > $CI_PROJECT_DIR/public/CNAME
   - surge -p $CI_PROJECT_DIR/public

@@ -285,28 +285,27 @@ export default class Portfolio {
                 ".project-page .related-post",
             ];
 
-            setTimeout(() => {
-                const content: HTMLElement = document.querySelector(".content") as HTMLElement;
-
-                content.classList.remove("hide");
-            }, 1);
-
             animejs.anime({
-                easing: "easeInOutExpo",
+                begin: () => {
+                    const content: HTMLElement = document.querySelector(".content") as HTMLElement;
+
+                    content.classList.remove("hide");
+                },
+                easing: "easeOutExpo",
                 opacity: [0, 1],
                 targets: ".content",
             });
 
             animejs.anime({
                 duration: 1500,
-                easing: "easeInOutExpo",
+                easing: "easeOutExpo",
                 opacity: [0, 1],
                 targets: ".project-page .prev-next-project",
             });
 
             animejs.anime({
                 duration: 1500,
-                easing: "easeInOutExpo",
+                easing: "easeOutExpo",
                 opacity: [0, 1],
                 targets,
                 translateX: () => [animejs.anime.random(100, 500), 0],
@@ -331,8 +330,11 @@ export default class Portfolio {
             targets: ".pre.hide",
         });
 
-        document.querySelectorAll("ul.posts li").forEach((element) => {
+        document.querySelectorAll("ul.posts li").forEach((element: HTMLElement, index: number) => {
             element.classList.remove("hide");
+            if (index < 4) {
+                element.style.opacity = "0";
+            }
 
             const link: HTMLElement = element.querySelector(".w-link") as HTMLElement;
 
@@ -340,9 +342,12 @@ export default class Portfolio {
         });
 
         animejs.anime({
+            begin: (animation: any) => {
+                animation.animatables[0].target.classList.remove("hide");
+            },
             delay: (element: Element, index: number) => 250 * index,
             duration: 1500,
-            easing: "easeInOutExpo",
+            easing: "easeInOutQuad",
             opacity: [0, 1],
             targets: ".posts li:nth-child(-n+4)",
             translateY: [400, 0],

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:css": "cssnano ./all.css ./public/all.css --discardComments.removeAll",
-    "build:js": "webpack --env=dev --progress --profile --colors",
+    "build:js": "webpack --watch --env=dev --progress --profile --colors",
     "build:js:prod": "webpack --env=prod --progress --profile --colors",
     "build:tests": "tsc -p ./__tests__/tsconfig.json",
     "build": "jekyll build -d ./public",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://gitlab.com/singuerinc-works/com.singuerinc.www#README",
   "dependencies": {
-    "animejs": "1.1.1",
+    "animejs": "^2.0.2",
     "nprogress": "^0.2.0",
     "turbolinks": "^5.0.3"
   },
@@ -84,10 +84,10 @@
     "powerAssert": true
   },
   "nyc": {
-    "lines": 95,
-    "statements": 95,
-    "functions": 95,
-    "branches": 95,
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
     "reporter": [
       "html",
       "text-summary"

@@ -26,7 +26,7 @@ Built on top of Ruby on Rails, this website features a CMS made from scratch.
 
 I personally enjoyed a lot doing this site because each page has it own particular detail.
 
-For instance, <a href="http://www.robertoivancano.com/en/travels" target="_blank">Travels</a> contains a customized Google's Maps theme where we display some locations where Roberto has been working. And then you can click on one of those location and see all the photos he took on that place. 
+For instance, <a href="http://www.robertoivancano.com/en/travels" target="_blank" rel="noopener">Travels</a> contains a customized Google's Maps theme where we display some locations where Roberto has been working. And then you can click on one of those location and see all the photos he took on that place. 
 
 I have also made the design. For this particular case I did not create a PSD, but instead I was creating the layout at the same time that I was developing.  
 
