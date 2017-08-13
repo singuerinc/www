@@ -6,7 +6,7 @@ Here is what I have been working on.
 [![Build Status](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/build.svg)](https://gitlab.com/singuerinc-works/com.singuerinc.www/commits/master)
 [![Coverage Report](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/coverage.svg)](https://gitlab.com/singuerinc-works/com.singuerinc.www/commits/master)
 
-This is my portfolio, a place to show some work and experiments I have
+This is my portfolio, a place that displays some work and experiments I have
 been working in the last few years.
 
 ![](screenshot.png)
@@ -63,30 +63,11 @@ Test all the Javascript code.
 docker-compose run webpack yarn run test
 ```
 
-#### E2E tests - CasperJS
-Tests in a (headless) browser if all the pages and elements are ok.
-
-```sh
-docker-compose up tests
-```
-
 #### Links tests
 Checks if all the links (internal and extenal) are working.
 
 ```sh
 docker-compose run tests-links
-```
-
-#### Run Sonarqube
-
-```sh
-docker-compose run webpack yarn run test
-docker-compose run webpack yarn run report-lcov
-# update lcov files paths
-
-docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
-
-docker run --link sonarqube:sonarqube --entrypoint /opt/sonar-runner-2.4/bin/sonar-runner -e SONAR_USER_HOME=/data/.sonar-cache -v $(pwd):/data -u $(id -u) sebp/sonar-runner -Dsonar.host.url=http://sonarqube:9000 -Dsonar.jdbc.driverClassName=org.h2.Driver   -Dsonar.embeddedDatabase.port=9092
 ```
 
 ## Make a change

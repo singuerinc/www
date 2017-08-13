@@ -1,3 +1,71 @@
+21.3.0
+==================
+
+  * update animejs to version 2
+  * change to node:alpine-8 images w/yarn included
+  * optimize some lighthouse stuff
+ 
+21.2.0
+==================
+
+  * optimize images
+  * limit to 2 the number of images to pre-load
+ 
+21.1.0
+==================
+
+  * build js for production without sourcemaps
+ 
+21.0.0
+==================
+
+  * Refactor js: Use TypeScript
+ 
+20.1.3
+==================
+
+  * new acme keys
+ 
+20.1.2
+==================
+
+  * fix: add deps
+ 
+20.1.1
+==================
+
+  * update acme content
+ 
+20.1.0
+==================
+
+  * dynamic acme file generation
+ 
+20.0.1
+==================
+
+  * Remove 'function test' from CI
+ 
+20.0.0
+==================
+
+  * Add Subway project
+ 
+19.0.0
+==================
+
+  * Add "Tomeito-app" project
+ 
+18.2.1
+==================
+
+  * acme file
+ 
+18.3.0
+==================
+
+  * acme file
+
 
 18.2.0 / 2017-03-03
 ==================
