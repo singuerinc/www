@@ -1,5 +1,6 @@
 .idea
 _src/**/*.js
+__tests__/**/*.js
 /public
 /assets/bundle.js*
 node_modules

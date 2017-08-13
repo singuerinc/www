@@ -1,3 +1,0 @@
-FROM singuerinc/docker_casperjs
-RUN apt-get update && \
-  apt-get install -y curl
