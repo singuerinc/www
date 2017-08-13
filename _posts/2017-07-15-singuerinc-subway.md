@@ -9,14 +9,16 @@ agency:
 tech:
     - "es6"
     - "javascript"
+    - "typescript"
     - "PixiJS"
 tags:
     - "es6"
     - "PixiJS"
+    - "typescript"
 image: "singuerinc--subway-viz"
 image_home: "singuerinc--subway-viz"
 www: "https://singuerinc-labs.gitlab.io/subway/"
-more: ""
+more: "https://github.com/singuerinc/subway"
 priority: 'priority-2'
 ---
 

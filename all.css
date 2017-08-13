@@ -746,7 +746,8 @@ Copyright (c) 2014 Daniel Eden
     padding: 0;
     color: grey;
     font-size: 1.7rem;
-    line-height: 2.5rem;
+    line-height: 2.2rem;
+    letter-spacing: -0.03rem;
 }
 
 .project-page p strong {
