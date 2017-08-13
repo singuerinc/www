@@ -343,7 +343,6 @@ export default class Portfolio {
 
         animejs.anime({
             begin: (animation: any) => {
-                // console.log(animation.animatables);
                 animation.animatables[0].target.classList.remove("hide");
             },
             delay: (element: Element, index: number) => 250 * index,

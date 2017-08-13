@@ -32,11 +32,11 @@ The name that you see on the card is one of the four hundred png images that sho
 
 Every time the video starts we pick one of those images. Then we put it on top of the video and we sync in order to create the illusion that we have a unique video for each name. 
 
-I have used a technique which I explain more in depth in <a href="https://blog.singuerinc.com/javascript/video/html5/sync/2014/01/22/code-day-022-perfect-html5-video-sync/" target="_blank">my blog</a>.  
+I have used a technique which I explain more in depth in <a href="https://blog.singuerinc.com/javascript/video/html5/sync/2014/01/22/code-day-022-perfect-html5-video-sync/" target="_blank" rel="noopener">my blog</a>.  
 TL;DR Basically you have to encode the frame number in binary code in your video using black and white pixels. Using the `requestAnimationFrame()` function and drawing the video on a canvas you can extract those pixels and transform them in numbers.
 
 Below is the video that we use as base.  
-Check it on the <a href="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/" target="_blank">website</a> to see the final result.
+Check it on the <a href="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/" target="_blank" rel="noopener">website</a> to see the final result.
 
 <div class="video-wrapper">
 
