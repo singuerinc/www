@@ -1,16 +1,18 @@
 import { expect } from "chai";
-import { Chromeless } from "chromeless";
+import * as puppeteer from "puppeteer";
 
-describe("a", () => {
-  it("b", async () => {
-    const chromeless = new Chromeless();
+describe("/", () => {
+  it("should contain all posts", async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto("http://localhost:4000");
 
-    await chromeless.goto("http://localhost:4000");
+    const posts = await page.evaluate(() => {
+      return Array.from(document.querySelectorAll("ul.posts li"));
+    });
 
-    const result = await chromeless.exists("ul.posts li");
+    expect(posts.length).to.be.equal(24);
 
-    expect(result).to.be.true;
-
-    await chromeless.end();
+    browser.close();
   });
 });
