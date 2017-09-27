@@ -133,7 +133,7 @@ export default class Portfolio {
         posts.forEach((post: IPost, index: number) => {
             let filename: string;
 
-            if (this.isMobile && !this.isRetina) {
+            if (this.isMobile) {
                 filename = `${post.image}-md.jpg`;
             } else {
                 filename = `${post.image}.jpg`;
