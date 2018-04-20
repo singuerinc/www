@@ -1,11 +1,4 @@
-FROM mhart/alpine-node:7.5.0
-
-RUN apk add --no-cache curl && \
-  mkdir -p /opt && \
-  curl -sL https://yarnpkg.com/latest.tar.gz | tar xz -C /opt && \
-  mv /opt/dist /opt/yarn && \
-  ln -s /opt/yarn/bin/yarn /usr/local/bin && \
-  apk del --purge curl
+FROM node:8
 
 VOLUME /usr/src/app
 
