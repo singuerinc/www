@@ -179,10 +179,11 @@ export default class Portfolio {
             animejs.anime({
                 begin: (animation: any) => animation.animatables[0].target.classList.remove("hide"),
                 delay: 6000,
-                duration: 1500,
-                easing: "easeInOutExpo",
+                duration: 2000,
+                easing: "easeOutExpo",
                 opacity: [0, 1],
                 targets: ".content blockquote",
+                translateX: () => [50, 0],
             });
 
             setTimeout(() => {
@@ -192,7 +193,7 @@ export default class Portfolio {
                 list.forEach((e) => {
                     e.classList.remove("hide");
                 });
-            }, 0);
+            }, 100);
         };
 
         const selector: HTMLElement = document.querySelector(".page .content img") as HTMLElement;
