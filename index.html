@@ -4,11 +4,11 @@ title: Home
 ---
 {% include base.html %}
 
-<h2 class="preamble noselect pre hide f6 fw3 tc">HERE'S WHAT I'VE BEEN WORKING ON</h2>
+<h2 class="preamble noselect pre hide f4 pa0 ma0 mb4 fw3 tc tracked">HERE'S WHAT I'VE BEEN WORKING ON</h2>
 
-<ul class="posts mt4 mb3">
+<ul class="posts list pa0 w-100 overflow-hidden mt4 mb3">
   {% for post in site.posts %}
-  <li id="{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}" class="post w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
+  <li id="{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}" class="post relative fl w-100 mt0 mb4 w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
 
     {% if post.client == post.title %}
     {% assign post_title = post.title %}
@@ -22,8 +22,8 @@ title: Home
     <meta itemprop="keywords" content="{{post.tech|join:', '}}"/>
     <meta itemprop="image" content="{{site.url}}/img/projects/{{ post.image }}.jpg"/>
     <meta itemprop="url" content="{{site.url}}{{ post.id }}.html"/>
-    <a href="{{base}}{{ post.id }}.html" target="_self" class="w-link animated">
-      <div class="post-image {{post.priority}} animated {{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}"></div>
+    <a href="{{base}}{{ post.id }}.html" target="_self" class="w-link relative db no-underline animated">
+      <div class="post-image w-100 cover {{post.priority}} animated {{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}"></div>
       <h3 class="w-title">{{post_title}}</h3>
       <div class="w-tags">{{ post.tech | join: " · "}}</div>
     </a>

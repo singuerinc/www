@@ -5,16 +5,16 @@ title: Sitemap
 ---
 
 {% include base.html %}
-<h2 class="title hide">Site map</h2>
+<h2 class="title f4 pa0 ma0 hide">Site map</h2>
 
-<ul class="site-map">
+<ul class="site-map list mh0 mt1 mb4 pa0">
     {% assign sorted_cats = site.categories | sort %}
     {% for category in sorted_cats %}
     {% capture label %}{{ category | first }}{% endcapture %}
     {% assign sorted_posts = site.categories.[label] | sort: "client" %}
     <li class="hide">
-        <h3>{{ label }}</h3>
-        <ul>
+        <h3 class="ttu f3">{{ label }}</h3>
+        <ul class="list pa0 ma0">
 
             {% for post in sorted_posts %}
 

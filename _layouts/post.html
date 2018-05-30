@@ -4,7 +4,7 @@
 {% include head.html %}
 {% include base.html %}
 
-<body class="project-page page">
+  <body class="project-page page sans-serif near-black bg-near-white f5 f4-l lh-copy mb5 db">
 
   {% include sidebar.html %}
 
@@ -15,12 +15,12 @@
     {% endif %}
     {% assign page_url = site.url | append: page.url %}
 
-    <div class="content container hide">
+    <div class="content container pt4 pb0 hide">
 
       <div itemscope itemtype="http://schema.org/WebSite">
 
         {% if page.previous.url or page.next.url %}
-        <ul class="prev-next-project">
+        <ul class="prev-next-project list ma0 pa0 overflow-hidden tc cb dn">
           {% if page.next.url %}
           {% if page.next.client == page.next.title %}
           {% assign page_next_title = page.next.title %}
@@ -41,7 +41,7 @@
         {% endif %}
 
 
-        <h1 class="project-title title">{{ page_title }}</h1>
+        <h1 class="project-title title f3 pa0 ma0">{{ page_title }}</h1>
 
         <meta itemprop="name" content="{{page_title}}"/>
         <meta itemprop="contributor" content="Nahuel Scotti"/>
@@ -72,7 +72,7 @@
           <tr>
             <td class="info-title">Website</td>
             <td>
-              <a href="{{ page.www }}" target="_blank" rel="noopener">{{ page.www }}</a>
+              <a class="underline" href="{{ page.www }}" target="_blank" rel="noopener">{{ page.www }}</a>
             </td>
           </tr>
           {% endif %}
@@ -80,7 +80,7 @@
           <tr>
             <td class="info-title">More info</td>
             <td>
-              <a href="{{ page.more }}" target="_blank" rel="noopener">{{ page.more }}</a>
+              <a class="underline" href="{{ page.more }}" target="_blank" rel="noopener">{{ page.more }}</a>
             </td>
           </tr>
           {% endif %}
@@ -106,8 +106,8 @@
 
       <hr>
 
-      <h2 class="share-title">Share</h2>
-      <ul class="share-post">
+      <h2 class="share-title f4 pa0 ma0">Share</h2>
+      <ul class="share-post list mv0">
         <li><a class="twitter" href="https://twitter.com/intent/tweet?text=Check+out+{{page_title|uri_escape}}+%23portfolio&url={{page_url|uri_escape}}" target="_blank" rel="noopener">Twitter</a></li>
         <li><a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{page_url|uri_escape}}" target="_blank" rel="noopener">Facebook</a></li>
         <li><a class="google" href="https://plus.google.com/share?url={{page_url|uri_escape}}" target="_blank" rel="noopener">Google+</a></li>
@@ -115,8 +115,8 @@
 
       <hr>
 
-      <h2 class="related-title">Related</h2>
-      <ul class="related-post" data-category="{{page.category}}">
+      <h2 class="related-title f4 pa0 ma0">Related</h2>
+      <ul class="related-post list mv0" data-category="{{page.category}}">
       {% assign sorted_posts = site.categories.[page.category] | sort: "client" %}
       {% for post in sorted_posts %}
         {% if post.id != page.id %}
@@ -125,7 +125,7 @@
           {% else %}
             {% assign post_title = post.client | append: " · " | append: post.title %}
           {% endif %}
-        <li><a href="{{base}}{{ post.id }}.html" target="_self">{{ post_title }}</a></li>
+        <li><a class="db" href="{{base}}{{ post.id }}.html" target="_self">{{ post_title }}</a></li>
         {% endif %}
       {% endfor %}
       </ul>
