@@ -1,5 +1,10 @@
 @charset "UTF-8";
 @import 'https://fonts.googleapis.com/css?family=Roboto:200,300,400';
+
+html {
+    font-size: 12px;
+}
+
 .hide {
     visibility: hidden;
 }
@@ -136,7 +141,6 @@ img {
 .sidebar,
 .sidebar-mobile {
     text-align: center;
-    padding: 2rem 1rem;
     color: rgba(255, 255, 255, .5);
 }
 

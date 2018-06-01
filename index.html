@@ -4,9 +4,9 @@ title: Home
 ---
 {% include base.html %}
 
-<h2 class="preamble noselect pre hide f4 pa0 ma0 mb4 fw3 tc tracked">HERE'S WHAT I'VE BEEN WORKING ON</h2>
+<h2 class="preamble noselect pre hide f4 pa0 mh0 mt2 mb4 fw3 tc tracked">HERE'S WHAT I'VE BEEN WORKING ON</h2>
 
-<ul class="posts list pa0 w-100 overflow-hidden mt4 mb3">
+<ul class="posts list pa0 w-100 overflow-hidden mt0 mb3">
   {% for post in site.posts %}
   <li id="{{post.client|split:' '|join:'-'|downcase}}_{{post.title|split:' '|join:'-'|downcase}}" class="post relative fl w-100 mt0 mb4 w {{post.priority}} {{post.awards | join: ' '}}" itemscope itemtype="http://schema.org/WebSite">
 
