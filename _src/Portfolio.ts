@@ -10,26 +10,32 @@ export interface IPost {
 }
 
 /**
+ * Gets the computed style of an element.
+ * @public
+ * @param {Element} elem - The element you want to compute.
+ * @returns {CSSStyleDeclaration} The computed style.
+ */
+const getComputedStyle = (elem: Element): CSSStyleDeclaration => {
+    const dv = elem.ownerDocument.defaultView;
+    const p = dv.opener ? dv : window;
+    return p.getComputedStyle(elem);
+};
+
+const filenameByPlatform = (name, mobile) => {
+    return `./img/home/${name}${mobile ? "-md" : ""}.jpg` ;
+};
+
+const html = document.querySelector("html") as HTMLElement;
+const cssPropVal = (el, prop) => el.getPropertyValue(prop);
+const isMobile = +cssPropVal(getComputedStyle(html), "width") < 768;
+
+/**
  * The Portfolio is the entry point for every request the website does.
  * When the page is loaded, the application resolve which page should be
  * loaded and ask the portfolio to load the correct content.
  * @class Portfolio
  */
 export default class Portfolio {
-    /**
-     * Gets the computed style of an element.
-     * @private
-     * @param {HTMLElement} elem - The element you want to compute.
-     * @returns {CSSStyleDeclaration} The computed style.
-     */
-    public static getComputedStyle(elem: Element): CSSStyleDeclaration {
-        if (elem.ownerDocument.defaultView.opener) {
-            return elem.ownerDocument.defaultView.getComputedStyle(elem);
-        }
-
-        return window.getComputedStyle(elem);
-    }
-
     /**
      * Animates the title of the page.
      * @private
@@ -45,24 +51,7 @@ export default class Portfolio {
         });
     }
 
-    /**
-     * Returns the device pixel ratio
-     * @returns {number}
-     */
-    public static getPixelRatio(): number {
-        return window.devicePixelRatio;
-    }
-
     public totalImagesLoaded: number;
-    public isRetina: boolean;
-    public isMobile: boolean;
-
-    constructor() {
-        const STYLE: CSSStyleDeclaration = Portfolio.getComputedStyle(document.querySelector("html") as HTMLElement);
-
-        this.isRetina = Portfolio.getPixelRatio() > 1;
-        this.isMobile = (parseInt(STYLE.getPropertyValue("width"), 10)) < 768;
-    }
 
     /**
      * Adds a listener to each element.
@@ -131,15 +120,7 @@ export default class Portfolio {
         this.whenClickExit("h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, ul.posts li > .w-link");
         this.totalImagesLoaded = 0;
         posts.forEach((post: IPost, index: number) => {
-            let filename: string;
-
-            if (this.isMobile) {
-                filename = `${post.image}-md.jpg`;
-            } else {
-                filename = `${post.image}.jpg`;
-            }
-
-            const src: string = `./img/home/${filename}`;
+            const src: string = filenameByPlatform(post.image, isMobile);
 
             if (index < 2) {
                 const image: HTMLImageElement = new (window as any).Image();
