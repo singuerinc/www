@@ -15,9 +15,9 @@ export interface IPost {
  * @private
  * @returns {void}
  */
-const showTitle = (title, rm): AnimeInstance =>
+const showPageTitle = (title, rm): AnimeInstance =>
   animejs.anime({
-    begin: ({ animatables }) => rm(title),
+    begin: () => rm(title),
     duration: 1500,
     easing: 'easeInOutExpo',
     opacity: [0, 1],
@@ -40,13 +40,16 @@ const filenameByPlatform = (name, mobile) => {
   return `./img/home/${name}${mobile ? '-md' : ''}.jpg`;
 };
 
-const qSelect = (where: Document | Element) => (what: string): HTMLElement =>
+const qSelect = (where: Document | Element) => (what: string) =>
   where.querySelector(what) as HTMLElement;
 const qSelectDoc = what => qSelect(document)(what);
-const qSelectAll = (where, what): NodeListOf<Element> =>
-  where.querySelectorAll(what);
+const qSelectAll = (where, what): NodeListOf<Element> => where.querySelectorAll(what);
 const removeClass = target => which => target.classList.remove(which);
 const removeHideClass = target => target.classList.remove('hide');
+
+const setStyle = el => (what, value) => (el.style[what] = value);
+const setBGColor = (el, color) => setStyle(el)('backgroundColor', color);
+const setBGImage = (el, path) => setStyle(el)('backgroundImage', `url(${path})`);
 
 const html = qSelectDoc('html');
 const cssPropVal = (el, prop) => el.getPropertyValue(prop);
@@ -96,7 +99,7 @@ export default class Portfolio {
   }
 
   /**
-   * _onLoad acts every time an image is loaded.
+   * onLoad acts every time an image is loaded.
    * It display the image and check if all the images
    * are loaded, in that case calls _onIndexReady that
    * execute an animation.
@@ -107,9 +110,7 @@ export default class Portfolio {
    * @returns {void}
    */
   public onLoad(postId: string, totalImages: number, src: string): void {
-    const tag = qSelectDoc(`.post-image.${postId}`);
-
-    tag.style.backgroundImage = `url(${src})`;
+    setBGImage(qSelectDoc(`.post-image.${postId}`), src);
 
     this.totalImagesLoaded += 1;
     NProgress.set(this.totalImagesLoaded / totalImages);
@@ -152,16 +153,14 @@ export default class Portfolio {
    * @returns {void}
    */
   public loadAbout(): void {
-    this.whenClickExit(
-      'h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a'
-    );
+    this.whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a');
 
     NProgress.inc();
     const image: HTMLImageElement = new (window as any).Image();
 
     image.onload = () => {
       NProgress.done(true);
-      showTitle(qSelectDoc('.page .title'), removeHideClass);
+      showPageTitle(qSelectDoc('.page .title'), removeHideClass);
 
       animejs.anime({
         delay: (element: Element, index: number) => 50 * index * Math.random(),
@@ -200,10 +199,8 @@ export default class Portfolio {
    * @returns {void}
    */
   public loadSiteMap(): void {
-    this.whenClickExit(
-      'h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a'
-    );
-    showTitle(qSelectDoc('.page .title'), removeHideClass);
+    this.whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a');
+    showPageTitle(qSelectDoc('.page .title'), removeHideClass);
 
     setTimeout(() => {
       const list = qSelectAll(document, '.site-map li');
@@ -236,10 +233,8 @@ export default class Portfolio {
    * @returns {void}
    */
   public load404(): void {
-    this.whenClickExit(
-      'h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a'
-    );
-    showTitle(qSelectDoc('.page .title'), removeHideClass);
+    this.whenClickExit('h1 a, .sidebar nav > ul > li > a, .sidebar-mobile ul li a, .site-map a');
+    showPageTitle(qSelectDoc('.page .title'), removeHideClass);
 
     animejs.anime({
       duration: 1500,
@@ -269,7 +264,7 @@ export default class Portfolio {
 
     image.onload = () => {
       NProgress.done(true);
-      showTitle(qSelectDoc('.page .title'), removeHideClass);
+      showPageTitle(qSelectDoc('.page .title'), removeHideClass);
 
       const targets: string[] = [
         '.project-page .project-title',
@@ -321,35 +316,31 @@ export default class Portfolio {
    * @returns {void}
    */
   public onIndexReady(): void {
+    const pre = qSelectDoc('.pre.hide');
+
     animejs.anime({
-      begin: ({ animatables }) => removeHideClass(animatables[0].target),
+      begin: () => removeHideClass(pre),
       duration: 1500,
       opacity: [0, 1],
-      targets: '.pre.hide'
+      targets: pre
     });
 
-    qSelectAll(document, 'ul.posts li').forEach(
-      (element: HTMLElement, index: number) => {
-        removeHideClass(element);
-        if (index < 4) {
-          element.style.opacity = '0';
-        }
-
-        const link = qSelect(element)('.w-link');
-
-        link.style.backgroundColor = 'black';
+    qSelectAll(document, 'ul.posts li').forEach((element: HTMLElement, index: number) => {
+      removeHideClass(element);
+      if (index < 4) {
+        element.style.opacity = '0';
       }
-    );
 
+      setBGColor(qSelect(element)('.w-link'), 'black');
+    });
+
+    const postLi = qSelectAll(document, '.posts li:nth-child(-n+4)');
     animejs.anime({
-      begin: ({ animatables }) => {
-        removeHideClass(animatables[0].target);
-      },
       delay: (element: Element, index: number) => 250 * index,
       duration: 1500,
       easing: 'easeInOutQuad',
       opacity: [0, 1],
-      targets: '.posts li:nth-child(-n+4)',
+      targets: postLi,
       translateY: [400, 0]
     });
   }
