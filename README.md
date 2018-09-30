@@ -1,96 +1,106 @@
-Nahuel Scotti - Portfolio
-===
+<p align="center">
+  <a href="https://next.gatsbyjs.org">
+    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby's default starter
+</h1>
 
-Here is what I have been working on.
+Kick off your project with this default boilerplate. This barebones starter ships with the main Gatsby configuration files you might need. 
 
-[![Build Status](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/build.svg)](https://gitlab.com/singuerinc-works/com.singuerinc.www/commits/master)
-[![Coverage Report](https://gitlab.com/singuerinc-works/com.singuerinc.www/badges/master/coverage.svg)](https://gitlab.com/singuerinc-works/com.singuerinc.www/commits/master)
+_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://next.gatsbyjs.org/docs/gatsby-starters/)._
 
-This is my portfolio, a place that displays some work and experiments I have
-been working in the last few years.
+## 🚀 Quick start
 
-![](screenshot.png)
+1.  **Install the Gatsby CLI.**
 
-## Installation
+    The Gatsby CLI helps you create new sites using Gatsby starters (like this one!)
 
-Althougth it is possible to install all dependencies on a local environment
-(Node, Ruby, yarn, etc), the setup is highly optimized to work with Docker.
+    ```sh
+    # install the Gatsby CLI globally
+    npm install -g gatsby-cli
+    ```
 
-1. Install [Docker](https://www.docker.com/products/docker)
-2. Clone the project
-	
-	```sh
-	git clone git@gitlab.com:singuerinc-works/com.singuerinc.www.git
-	cd www
-	```
-3. Start the Docker container
+2.  **Create a Gatsby site.**
 
-	```sh
-	docker-compose up jekyll
-	```
+    Use the Gatsby CLI to create a new site, specifying the default starter.
 
-4. Open a browser and navigate to `http://localhost:4000`
+    ```sh
+    # create a new Gatsby site using the default starter
+    gatsby new my-default-starter
+    ```
 
-## Usage example
+3.  **Start developing.**
 
-All versions are available as Docker images.
-If your idea is serve the website, start it by executing these commands:
+    Navigate into your new site’s directory and start it up.
 
-```sh
-docker login registry.gitlab.com
-docker run -p 8080:80 registry.gitlab.com/singuerinc-works/com.singuerinc.www
-open 'http://localhost:8080'
-```
+    ```sh
+    cd my-default-starter/
+    gatsby develop
+    ```
 
-## Development setup
+4.  **Open the source code and start editing!**
 
-The project is generated with [Jekyll](https://jekyllrb.com/)
+    Your site is now running at `http://localhost:8000`!
+    
+    *Note: You'll also see a second link: `http://localhost:8000___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://next.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
+    
+    Open the the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    
+## 🧐 What's inside?
 
-The Jekyll Docker container is in charge of compile the project every
-time a change is made.
+A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-A compiled version could be found in the `public` folder.
+    .
+    ├── node_modules
+    ├── src
+    ├── .gitignore
+    ├── .prettierrc
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    ├── README.md
+    └── yarn.lock
 
-The Jekyll container also relay on another container called `webpack` that
-compiles the Javascript code every time a change is done to a js file.
+  1.  **`/node_modules`**: The directory where all of the modules of code that your project depends on (npm packages) are automatically installed.  
+  
+  2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser), like your site header, or a page template. “Src” is a convention for “source code”.
+  
+  3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+  
+  4.  **`.prettierrc`**: This is a configuration file for a tool called [Prettier](https://prettier.io/), which is a tool to help keep the formatting of your code consistent.
+  
+  5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://next.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+  
+  6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://next.gatsbyjs.org/docs/gatsby-config/) for more detail).
+  
+  7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby node APIs](https://next.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+  
+  8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://next.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+  
+  9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+  
+  10.  **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. (You won’t change this file directly).
+  
+  11.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+  
+  12.  **`README.md`**: A text file containing useful reference information about your project.
+  
+  13.  **`yarn.lock`**: [Yarn](https://yarnpkg.com/) is a package manager alternative to npm. You can use either yarn or npm, though all of the Gatsby docs reference npm.  This file serves essentially the same purpose as `package-lock.json`, just for a different package management system.
 
-### Tests
+## 🎓 Learning Gatsby
 
-#### Unit test - AVA/Javascript
-Test all the Javascript code.
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://next.gatsbyjs.org/). Here are some places to start:
 
-```sh
-docker-compose run webpack yarn run test
-```
+-   **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://next.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 
-#### Links tests
-Checks if all the links (internal and extenal) are working.
+-   **To dive straight into code samples head [to our documentation](https://next.gatsbyjs.org/docs/).** In particular, check out the “Guides”, API reference, and “Advanced Tutorials” sections in the sidebar.
 
-```sh
-docker-compose run tests-links
-```
+## 💫 Deploy
 
-## Make a change
-
-Usually, to make a change follow the next workflow:
-
-1. Create an Issue on GitLab
-2. Create a new branch for that Issue
-3. Check out the branch
-4. Make your changes
-5. Commit and push the changes
-6. The CI build, tests, and release the feature branch to [http://test.www.singuerinc.com.surge.sh/](http://test.www.singuerinc.com.surge.sh/)
-7. If the status is green, merge into `master` from GitLab.
-8. The CI build, tests, and release the master branch to [http://staging.www.singuerinc.com.surge.sh/](http://staging.www.singuerinc.com.surge.sh/)
-9. If the status is green, tag the `master` in GitLab.
-10. The CI build, tests, and release the tag to [https://www.singuerinc.com/](https://www.singuerinc.com/)
-
-## Release History
-
-See [https://gitlab.com/singuerinc-works/com.singuerinc.www/blob/master/CHANGELOG](https://gitlab.com/singuerinc-works/com.singuerinc.www/blob/master/CHANGELOG)
-
-## Meta
-
-Nahuel Scotti – [@singuerinc](https://twitter.com/singuerinc) – nahuel.scotti@gmail.com
-
-[https://github.com/singuerinc/](https://github.com/singuerinc/)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)

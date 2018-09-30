@@ -1,14 +1,8 @@
-.idea
-_src/**/*.js
-__tests__/**/*.js
-/public
-/assets/bundle.js*
+# Project dependencies
+.cache
 node_modules
-coverage
-coverage.lcov
-.nyc_output
-tags
-.sonar-cache
-.sonar
-.tmp/tscache
-.eslintcache
+yarn-error.log
+
+# Build directory
+/public
+.DS_Store
