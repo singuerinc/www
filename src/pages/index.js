@@ -1,36 +1,29 @@
-import React from 'react'
-import { Link } from 'gatsby'
-
-import Layout from '../components/layout'
+import { graphql, Link } from 'gatsby';
+import React from 'react';
+import Layout from '../components/layout';
 
 export default ({ data }) => {
   return (
   <Layout>
-    <ul>
     {data.allMarkdownRemark.edges.map(edge => {
       const { id, frontmatter } = edge.node;
       const { title, tags, tech, image_home} = frontmatter;
       return (
-        <li key={id}>
-          <h1>{title}</h1>
-          <p>
-            <h2>Tags</h2>
-            <ul>{
-              tags.map(tag => <li key={`${id}-${tag}`}>{tag}</li>)
+        <div key={id} className="relative">
+          <div className="absolute ma4">
+            <h1 className="ma0 pa0">{title}</h1>
+            <ul className="flex flex-wrap list ma0 pa0">{
+              tags.map(tag => <li key={`${id}-${tag}`} className="ma2">{tag}</li>)
             }</ul>
-          </p>
-          <p>
-            <h2>Tech</h2>
-            <ul>{
-              tech.map(t => <li key={`${id}-${t}`}>{t}</li>)
+            <ul className="flex flex-wrap list ma0 pa0">{
+              tech.map(t => <li key={`${id}-${t}`} className="ma2">{t}</li>)
             }</ul>
-          </p>
-          <img alt={title} src={`/static/images/home/${image_home}.jpg`} />
-          <Link to="/page-2/">Go to page 2</Link>
-        </li>
+            <Link className="db" to="/page-2/">Go to page 2</Link>
+          </div>
+          <img className="w-100 ma0 pa0" alt={title} src={`/static/images/home/${image_home}.jpg`} />
+        </div>
       )
     })}
-    </ul>
   </Layout>
   )
 }
