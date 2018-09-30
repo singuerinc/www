@@ -9,8 +9,8 @@ export default ({ data }) => {
       const { id, frontmatter } = edge.node;
       const { title, tags, tech, image_home} = frontmatter;
       return (
-        <div key={id} className="relative">
-          <div className="absolute ma4">
+        <div key={id} className="relative bg-black">
+          <div className="absolute z-1 ma4">
             <h1 className="ma0 pa0">{title}</h1>
             <ul className="flex flex-wrap list ma0 pa0">{
               tags.map(tag => <li key={`${id}-${tag}`} className="ma2">{tag}</li>)

@@ -29,7 +29,7 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div className="index sans-serif w-100 flex flex-column">
+        <div className="index sans-serif white w-100 flex flex-column">
           {children}
         </div>
       </>
