@@ -11,6 +11,11 @@ module.exports = {
       options: {
         name: `content`,
         path: `${__dirname}/src/content`,
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+        gfm: true,
+        plugins: [],
       },
     },
     `gatsby-plugin-react-helmet`,
