@@ -3,6 +3,15 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+const dashify = x =>
+  `${x.client} ${x.title}`
+    .split(" ")
+    .join("-")
+    .toLowerCase()
+
+const normalizeTitle = x =>
+  x.title === x.client ? x.title : `${x.client} · ${x.title}`
+
 const IndexPage = ({
   data: {
     allMarkdownRemark: { edges },
@@ -14,47 +23,58 @@ const IndexPage = ({
       <h2 className="preamble noselect pre hide">
         HERE'S WHAT I'VE BEEN WORKING ON
       </h2>
-      <ul className="posts">
-        {edges.reverse().map(({ node: { frontmatter } }, key) => {
-          const id = `${frontmatter.client} ${frontmatter.title}`
-            .split(" ")
-            .join("-")
-            .toLowerCase()
-          const title =
-            frontmatter.title === frontmatter.client
-              ? frontmatter.title
-              : `${frontmatter.client} · ${frontmatter.title}`
-          return (
-            <li
-              key={key}
-              id={id}
-              className={`post w ${frontmatter.priority}`}
-              itemScope
-              itemType="http://schema.org/WebSite"
-            >
-              <meta itemProp="name" content={title} />
-              <meta itemProp="contributor" content="Nahuel Scotti" />
-              <meta itemProp="keywords" content={frontmatter.tech.join(",")} />
-              {frontmatter.awards &&
-                frontmatter.awards.map(a => (
-                  <meta itemProp="award" content={a} />
-                ))}
-              <meta itemProp="image" content={frontmatter.link} />
-              <meta itemProp="url" content={frontmatter.www} />
-              <a
-                href={frontmatter.path}
-                target="_self"
-                className="w-link animated"
-              >
-                <div
-                  className={`post-image ${frontmatter.priority} animated ${id}`}
-                ></div>
-                <h3 className="w-title">{title}</h3>
-                <div className="w-tags">{frontmatter.tech.join(" · ")}</div>
-              </a>
-            </li>
-          )
+
+      <style>
+        {edges.map(({ node: { frontmatter: post } }) => {
+          const className = `#${dashify(post)}.post.${post.priority}`
+          return `
+${className} {
+  background: url(images/home/${post.image}.jpg) no-repeat;
+  background-size: 100% auto;
+
+}
+@media (max-width: 768px) {
+      ${className} {
+      background: url(images/home/${post.image}-md.jpg) no-repeat;
+      background-size: 100% auto;
+    }
+    }
+        `
         })}
+      </style>
+
+      <ul className="posts">
+        {edges
+          .slice()
+          .reverse()
+          .map(({ node: { frontmatter: post } }, key) => {
+            const id = dashify(post)
+            const title = normalizeTitle(post)
+            return (
+              <li
+                key={key}
+                id={id}
+                className={`post w ${post.priority}`}
+                itemScope
+                itemType="http://schema.org/WebSite"
+              >
+                <meta itemProp="name" content={title} />
+                <meta itemProp="contributor" content="Nahuel Scotti" />
+                <meta itemProp="keywords" content={post.tech.join(",")} />
+                {post.awards &&
+                  post.awards.map(a => <meta itemProp="award" content={a} />)}
+                <meta itemProp="image" content={post.link} />
+                <meta itemProp="url" content={post.www} />
+                <a href={post.path} target="_self" className="w-link animated">
+                  <div
+                    className={`post-image ${post.priority} animated ${id}`}
+                  ></div>
+                  <h3 className="w-title">{title}</h3>
+                  <div className="w-tags">{post.tech.join(" · ")}</div>
+                </a>
+              </li>
+            )
+          })}
       </ul>
     </Layout>
   )
@@ -76,6 +96,8 @@ export const pageQuery = graphql`
             category
             awards
             agency
+            image_home
+            image
             www
           }
         }

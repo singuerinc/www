@@ -509,8 +509,8 @@ ul.posts .w-tags {
   top: 0;
   left: -1px;
   z-index: 1;
-  background: url("../images/awards/awwwards_site_of_the_day-left.png") 0 0
-    no-repeat;
+  background: url("../../static/images/awards/awwwards_site_of_the_day-left.png")
+    0 0 no-repeat;
   background-size: 100%;
 }
 
@@ -522,7 +522,7 @@ ul.posts .w-tags {
   top: 0;
   right: 0;
   z-index: 1;
-  background: url("../images/awards/fwa.png") 0 0 no-repeat;
+  background: url("../../static/images/awards/fwa.png") 0 0 no-repeat;
   background-size: 100%;
 }
 
@@ -535,12 +535,12 @@ ul.posts .w-tags {
   top: 10px;
   left: 10px;
   z-index: 1;
-  background: url("../images/awards/sol_plata.png") 0 0 no-repeat;
+  background: url("../../static/images/awards/sol_plata.png") 0 0 no-repeat;
   background-size: 100%;
 }
 
 .post.award-sol_bronce:before {
-  background: url("../images/awards/sol_bronce.png") 0 0 no-repeat;
+  background: url("../../static/images/awards/sol_bronce.png") 0 0 no-repeat;
 }
 
 @media (min-width: 48rem) {
@@ -1042,7 +1042,7 @@ ul.screen-shots li {
   ul.posts li > .w-link {
     -webkit-transition: background-color 0.1s;
     transition: background-color 0.1s;
-    background-color: white;
+    /* background-color: white; */
   }
   ul.posts li > .w-link:hover {
     background-color: rgba(0, 0, 0, 0.9);
