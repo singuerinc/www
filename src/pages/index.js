@@ -12,6 +12,21 @@ const dashify = x =>
 const normalizeTitle = x =>
   x.title === x.client ? x.title : `${x.client} · ${x.title}`
 
+const postStyle = (className, image) => `
+  ${className} {
+    background: url(images/home/${image}.jpg) no-repeat;
+    background-size: 100% auto;
+
+  }
+
+  @media (max-width: 768px) {
+    ${className} {
+    background: url(images/home/${image}-md.jpg) no-repeat;
+    background-size: 100% auto;
+  }
+}
+`
+
 const IndexPage = ({
   data: {
     allMarkdownRemark: { edges },
@@ -27,19 +42,7 @@ const IndexPage = ({
       <style>
         {edges.map(({ node: { frontmatter: post } }) => {
           const className = `#${dashify(post)}.post.${post.priority}`
-          return `
-${className} {
-  background: url(images/home/${post.image}.jpg) no-repeat;
-  background-size: 100% auto;
-
-}
-@media (max-width: 768px) {
-      ${className} {
-      background: url(images/home/${post.image}-md.jpg) no-repeat;
-      background-size: 100% auto;
-    }
-    }
-        `
+          return postStyle(className, post.image)
         })}
       </style>
 
