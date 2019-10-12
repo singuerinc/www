@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Helmet from "react-helmet"
 
 export default function Template({ data }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
@@ -9,6 +10,11 @@ export default function Template({ data }) {
   return (
     <Layout>
       <SEO title="Home" />
+      <Helmet
+        bodyAttributes={{
+          class: "page project-page",
+        }}
+      />
 
       <div itemscope="" itemtype="http://schema.org/WebSite">
         <ul class="prev-next-project">
@@ -29,7 +35,7 @@ export default function Template({ data }) {
         />
         <img
           class="image"
-          src="../img/projects/singuerinc--blog.jpg"
+          src="/images/projects/singuerinc--blog.jpg"
           alt="Blog"
           title="Blog"
         />
@@ -63,7 +69,7 @@ export default function Template({ data }) {
                 <a
                   href="https://blog.singuerinc.com/"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   https://blog.singuerinc.com/
                 </a>
@@ -76,7 +82,7 @@ export default function Template({ data }) {
                 <a
                   href="https://www.gatsbyjs.org/blog/2017-11-08-migrate-from-jekyll-to-gatsby/"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   https://www.gatsbyjs.org/blog/2017-11-08-migrate-from-jekyll-to-gatsby/
                 </a>
