@@ -6,16 +6,39 @@ import Helmet from "react-helmet"
 
 export default function Template({ data }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const {
+    frontmatter: {
+      agency,
+      awards,
+      category,
+      client,
+      css,
+      date,
+      image,
+      more,
+      path,
+      role,
+      tech,
+      title,
+      url,
+      www,
+    },
+    html,
+  } = markdownRemark
+
+  const projectTitle = client === title ? title : [client, "·", title].join(" ")
+  const projectTitleEscaped = encodeURIComponent(projectTitle)
+  const pageUrl = `https://www.singuerinc.com${path}`
+  const pageUrlEscaped = encodeURIComponent(pageUrl)
+
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title={projectTitle} />
       <Helmet
         bodyAttributes={{
           class: "page project-page",
         }}
       />
-
       <div itemscope="" itemtype="http://schema.org/WebSite">
         <ul class="prev-next-project">
           <li class="next">
@@ -23,105 +46,85 @@ export default function Template({ data }) {
           </li>
         </ul>
 
-        <h1 class="project-title title">singuerinc · Blog</h1>
+        <h1 class="project-title title">{projectTitle}</h1>
 
-        <meta itemprop="name" content="singuerinc · Blog" />
+        <meta itemprop="name" content={projectTitle} />
         <meta itemprop="contributor" content="Nahuel Scotti" />
 
-        <meta itemprop="keywords" content="node, react, gatsby, graphql" />
+        <meta itemprop="keywords" content={tech.join(",")} />
         <meta
           itemprop="image"
-          content="https://www.singuerinc.com/img/projects/singuerinc--blog.jpg"
+          content={`https://www.singuerinc.com/images/projects/${image}.jpg`}
         />
         <img
           class="image"
-          src="/images/projects/singuerinc--blog.jpg"
+          src={`/images/projects/${image}.jpg`}
           alt="Blog"
           title="Blog"
         />
-        <meta
-          itemprop="url"
-          content="https://www.singuerinc.com/singuerinc/singuerinc-blog.html"
-        />
+        <meta itemprop="url" content={pageUrl} />
 
         <table class="info">
           <tbody>
             <tr>
               <td class="info-role">My role</td>
-              <td>Developer</td>
+              <td>{role}</td>
             </tr>
             <tr>
               <td class="info-title">Date release</td>
-              <td>08 Nov 2017</td>
+              <td>{date}</td>
             </tr>
             <tr>
               <td class="info-title">Client</td>
-              <td>singuerinc</td>
+              <td>{client}</td>
             </tr>
             <tr>
               <td class="info-title">Agency</td>
-              <td>singuerinc</td>
+              <td>{agency}</td>
             </tr>
 
             <tr>
               <td class="info-title">Website</td>
               <td>
-                <a
-                  href="https://blog.singuerinc.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://blog.singuerinc.com/
+                <a href={www} target="_blank" rel="noopener noreferrer">
+                  {www}
                 </a>
               </td>
             </tr>
 
-            <tr>
-              <td class="info-title">More info</td>
-              <td>
-                <a
-                  href="https://www.gatsbyjs.org/blog/2017-11-08-migrate-from-jekyll-to-gatsby/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://www.gatsbyjs.org/blog/2017-11-08-migrate-from-jekyll-to-gatsby/
-                </a>
-              </td>
-            </tr>
+            {more && (
+              <tr>
+                <td class="info-title">More info</td>
+                <td>
+                  <a href={more} target="_blank" rel="noopener noreferrer">
+                    {more}
+                  </a>
+                </td>
+              </tr>
+            )}
 
             <tr>
               <td class="info-title">Tech</td>
-              <td>node · react · gatsby · graphql</td>
+              <td>{tech.join(" · ")}</td>
             </tr>
           </tbody>
+
+          {awards && (
+            <tr>
+              <td class="info-awards">Awards</td>
+              <td>
+                {awards.map(award => (
+                  <div className={`award ${award}`} />
+                ))}
+              </td>
+            </tr>
+          )}
         </table>
 
-        <div class="project-content ">
-          <p>
-            After some years using Ruby/Jekyll to build my blog I decided to
-            migrate it to Node/React/Gatsby.
-          </p>
-
-          <p>
-            I{" "}
-            <a href="https://blog.singuerinc.com/jekyll/gatsby/graphql/2017/11/01/migrate-from-jekyll-to-gatsby/">
-              wrote a blog
-            </a>{" "}
-            post describing how I migrated it.
-          </p>
-
-          <p>
-            <a href="https://github.com/KyleAMathews">Kyle Mathews</a>{" "}
-            (Creator/Founder @ GatsbyJS) liked so much my post that he asked me
-            to re-post it in the official Gatsby blog:
-          </p>
-
-          <p>
-            <a href="https://www.gatsbyjs.org/blog/2017-11-08-migrate-from-jekyll-to-gatsby/">
-              https://www.gatsbyjs.org/blog/2017-11-08-migrate-from-jekyll-to-gatsby/
-            </a>
-          </p>
-        </div>
+        <div
+          class="project-content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </div>
       <hr />
       <h2 class="share-title">Share</h2>
@@ -129,7 +132,7 @@ export default function Template({ data }) {
         <li>
           <a
             class="twitter"
-            href="https://twitter.com/intent/tweet?text=Check+out+singuerinc%20%C2%B7%20Blog+%23portfolio&amp;url=https://www.singuerinc.com/singuerinc/singuerinc-blog.html"
+            href={`https://twitter.com/intent/tweet?text=Check+out+${projectTitleEscaped}+%23portfolio&url=${pageUrlEscaped}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -139,21 +142,11 @@ export default function Template({ data }) {
         <li>
           <a
             class="facebook"
-            href="https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com/singuerinc/singuerinc-blog.html"
+            href={`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             Facebook
-          </a>
-        </li>
-        <li>
-          <a
-            class="google"
-            href="https://plus.google.com/share?url=https://www.singuerinc.com/singuerinc/singuerinc-blog.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Google+
           </a>
         </li>
       </ul>
@@ -212,17 +205,6 @@ export default function Template({ data }) {
   )
 }
 
-{
-  /* <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </div> */
-}
-
 export const pageQuery = graphql`
   query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
@@ -230,7 +212,16 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
+        agency
+        awards
+        category
+        client
+        image
+        more
+        role
+        tech
         title
+        www
       }
     }
   }
