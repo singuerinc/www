@@ -26,16 +26,16 @@ const Layout = ({ children }) => {
         <div class="container sidebar-sticky">
           <header>
             <h1 class="singuerinc">
-              <a href="{{base}}/">{data.site.siteMetadata.title}</a>
+              <a href="/">{data.site.siteMetadata.title}</a>
             </h1>
           </header>
           <nav>
             <ul>
               <li>
-                <a href="{{base}}/">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="{{base}}/about.html">About</a>
+                <a href="/about.html">About</a>
               </li>
               <li>
                 <a
