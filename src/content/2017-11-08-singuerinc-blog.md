@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2017-11-08
 path: /singuerinc/singuerinc-blog
 title: "Blog"
 category: "singuerinc"

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2011-04-01
 path: /doubleyou/fcb-somos-uno
 title: Som un
 category: "doubleyou"
@@ -19,8 +19,7 @@ tags:
 image: "fcb--somos-uno"
 image_home: "fcb--somos-uno"
 priority: "priority-0"
-www: "https://singuerinc-doubleyou.gitlab.io/com.nike.somun/"
-more: ""
+www: null
 awards: ["award-sol_bronce"]
 ---
 

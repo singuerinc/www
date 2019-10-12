@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2009-12-03
 path: /doubleyou/evax-estudio-risa
 title: Estudio Risa
 category: "doubleyou"
@@ -17,8 +17,7 @@ tags:
   - as3
 image: "evax--estudio-risa"
 image_home: "evax--estudio-risa"
-www: "https://singuerinc-doubleyou.gitlab.io/es.evax.estudios/"
-more: ""
+www: null
 priority: "priority-0"
 sitemap: false
 ---

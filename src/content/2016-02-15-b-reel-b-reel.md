@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2016-02-15
 path: /b-reel/b-reel-b-reel
 title: "B-REEL"
 category: "b-reel"
@@ -19,7 +19,6 @@ tags:
 image: "b-reel--b-reel"
 image_home: "b-reel--b-reel"
 www: "https://www.b-reel.com/"
-more: ""
 priority: "priority-2"
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2010-01-01
 path: /doubleyou/audi-driving-experience
 title: Driving Experience
 category: "doubleyou"
@@ -17,8 +17,7 @@ tags:
   - as3
 image: "audi--driving-experience"
 image_home: "audi--driving-experience"
-www: "https://singuerinc-doubleyou.gitlab.io/es.audi.drivingexperience/"
-more: ""
+www: null
 priority: "priority-0"
 sitemap: false
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2017-07-15
 path: /singuerinc/singuerinc-subway
 title: "Subway"
 category: "singuerinc"
@@ -19,7 +19,7 @@ tags:
   - "typescript"
 image: "singuerinc--subway-viz"
 image_home: "singuerinc--subway-viz"
-www: "https://singuerinc-labs.gitlab.io/subway/"
+www: "https://subway-singuerinc.netlify.com/"
 more: "https://github.com/singuerinc/subway"
 priority: "priority-2"
 ---
@@ -51,4 +51,4 @@ A few statements about this simulation:
 
 There is a lot more that can be added. I'm planning to add more and more features in the coming weeks. Stay tuned!
 
-[https://singuerinc-labs.gitlab.io/subway/](https://singuerinc-labs.gitlab.io/subway/)
+[https://subway-singuerinc.netlify.com/](https://subway-singuerinc.netlify.com/)

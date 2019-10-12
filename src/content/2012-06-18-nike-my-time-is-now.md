@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2012-06-18
 path: /doubleyou/nike-my-time-is-now
 title: My time is now
 category: "doubleyou"
@@ -18,8 +18,7 @@ tags:
   - facebook-api
 image: "nike--my-time-is-now"
 image_home: "nike--my-time-is-now"
-www: ""
-more: ""
+www: null
 priority: "priority-0"
 awards:
   [

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2011-06-01
 path: /doubleyou/audi-a1-me-gusta
 title: A1 Me gusta
 category: "doubleyou"
@@ -19,8 +19,7 @@ tags:
   - facebook-api
 image: "audi--a1-me-gusta"
 image_home: "audi--a1-me-gusta"
-www: "https://audia1megusta-p1singuerinc.rhcloud.com/"
-more: ""
+www: null
 priority: "priority-0"
 sitemap: false
 ---

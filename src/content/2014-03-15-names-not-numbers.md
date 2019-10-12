@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2014-03-15
 path: /b-reel/names-not-numbers
 title: Names not numbers
 category: "b-reel"
@@ -21,7 +21,6 @@ tags:
 image: "medecins-du-monde--names-not-numbers"
 image_home: "medecins-du-monde--names-not-numbers"
 www: "https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/"
-more: "http://www.b-reelfilms.com/projects/digital/case/577/medecins-du-monde/"
 awards: ["award-awwwards_site_of_the_day", "thefwa_site_of_the_day"]
 priority: "priority-2"
 ---

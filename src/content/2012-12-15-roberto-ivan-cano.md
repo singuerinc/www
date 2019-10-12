@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2012-12-15
 path: /singuerinc/roberto-ivan-cano
 title: Portfolio
 category: "singuerinc"
@@ -20,7 +20,6 @@ tags:
 image: "roberto-ivan-cano"
 image_home: "roberto-ivan-cano"
 www: "http://www.robertoivancano.com/"
-more: ""
 priority: "priority-2"
 ---
 

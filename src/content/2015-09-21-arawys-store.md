@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2015-09-21
 path: /singuerinc/arawys-store
 title: Store
 category: "singuerinc"
@@ -22,7 +22,6 @@ tags:
 image: "arawys--store"
 image_home: "arawys--store"
 www: "https://www.arawys.com"
-more: ""
 priority: "priority-2"
 ---
 

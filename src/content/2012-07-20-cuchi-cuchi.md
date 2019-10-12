@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2012-07-20
 path: /singuerinc/cuchi-cuchi
 title: "Guardería"
 category: "singuerinc"
@@ -24,8 +24,7 @@ tags:
   - sinatra
 image: "cuchi-cuchi"
 image_home: "cuchi-cuchi_50"
-www: "http://www.cuchicuchi-guarderia.es/"
-more: ""
+www: "https://cuchi-cuchi.netlify.com"
 priority: "priority-1"
 ---
 

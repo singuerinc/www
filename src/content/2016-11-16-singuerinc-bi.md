@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2016-11-16
 path: /singuerinc/singuerinc-bi
 title: "Bi"
 category: "singuerinc"

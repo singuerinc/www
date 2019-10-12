@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2015-02-20
 path: /singuerinc/singuerinc-overlay-app
 title: "Overlay"
 category: "singuerinc"
@@ -19,8 +19,7 @@ tags:
 
 image: "singuerinc--overlay-app"
 image_home: "singuerinc--overlay-app"
-www: "https://github.com/singuerinc/OverlayApp"
-more: ""
+www: "https://github.com/singuerinc/overlay"
 priority: "priority-2"
 ---
 
@@ -33,4 +32,4 @@ The main purpose of Overlay is to help the user with a guide, making simpler to 
 I have written it in ActionScript, but I'm thinking about porting into Javascript.
 
 Would you like to contribute? Take a look at the GitHub repository:
-<a href="https://github.com/singuerinc/OverlayApp" target="_blank" rel="noopener">https://github.com/singuerinc/OverlayApp</a>
+<a href="https://github.com/singuerinc/overlay" target="_blank" rel="noopener">https://github.com/singuerinc/overlay</a>

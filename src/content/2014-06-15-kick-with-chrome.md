@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2014-06-15
 path: /b-reel/kick-with-chrome
 title: Kick with Chrome
 category: "b-reel"
@@ -22,7 +22,6 @@ tags:
 image: "google--kick-with-chrome"
 image_home: "google--kick-with-chrome"
 www: "https://www.chromeexperiments.com/experiment/kick-with-chrome"
-more: "http://www.b-reelfilms.com/projects/digital/case/641/kick-with-chrome/"
 priority: "priority-2"
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2015-07-16
 path: /b-reel/facebook-moments
 title: "Moments"
 category: "b-reel"
@@ -19,8 +19,7 @@ tags:
 
 image: "facebook--moments"
 image_home: "facebook--moments"
-www: "http://www.momentsapp.com"
-more: "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/"
+www: "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/"
 priority: "priority-2"
 ---
 

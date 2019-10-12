@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2011-04-01
 path: /doubleyou/atrapalo-revivelo
 title: "Revívelo"
 category: "doubleyou"
@@ -20,8 +20,7 @@ tags:
 image: "atrapalo--revivelo"
 image_home: "atrapalo--revivelo"
 priority: "priority-0"
-www: ""
-more: ""
+www: null
 awards: ["award-sol_plata", "award-laus", "award-efi"]
 ---
 

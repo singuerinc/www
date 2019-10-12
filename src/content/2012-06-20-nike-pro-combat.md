@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2012-06-20
 path: /doubleyou/nike-pro-combat
 title: Pro Combat
 category: "doubleyou"
@@ -18,8 +18,7 @@ tags:
   - facebook-api
 image: "nike--pro-combat"
 image_home: "nike--pro-combat"
-www: ""
-more: ""
+www: null
 priority: "priority-0"
 ---
 

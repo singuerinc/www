@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2012-06-20
 path: /doubleyou/pepe-jeans
 title: Store
 category: "doubleyou"
@@ -19,8 +19,7 @@ tags:
   - javascript
 image: "pepe-jeans"
 image_home: "pepe-jeans_50"
-www: ""
-more: ""
+www: null
 priority: "priority-1"
 ---
 

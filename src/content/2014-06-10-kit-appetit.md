@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2014-06-10
 path: /singuerinc/kit-appetit
 title: Store
 category: "singuerinc"
@@ -16,8 +16,7 @@ tags:
 
 image: "kitappetit--kitappetit"
 image_home: "kitappetit--kitappetit"
-www: "http://www.kitappetit.com/"
-more: ""
+www: "https://kitappetit.netlify.com/"
 priority: "priority-2"
 ---
 

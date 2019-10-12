@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2014-09-23
 path: /b-reel/skoda-byggd-for-at-tta-skit
 title: "Byggd för att ta skit"
 category: "b-reel"
@@ -20,7 +20,6 @@ tags:
 image: "skoda--byggd-for-att-ta-skit"
 image_home: "skoda--byggd-for-att-ta-skit"
 www: "https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/"
-more: "http://www.b-reelfilms.com/projects/commercials/director/patrik-gyllstrom/case/686/skoda/"
 priority: "priority-2"
 ---
 

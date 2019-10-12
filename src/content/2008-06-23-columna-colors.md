@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2008-06-23
 path: /doubleyou/columna-colors
 title: Colors
 category: "doubleyou"
@@ -17,8 +17,7 @@ tags:
   - as3
 image: "columna--colors"
 image_home: "columna--colors"
-www: "https://singuerinc-doubleyou.gitlab.io/com.columnacolors.www/"
-more: ""
+www: null
 priority: "priority-0"
 sitemap: false
 ---

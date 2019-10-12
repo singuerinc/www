@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-01
+date: 2016-05-04
 path: /b-reel/zalando-ivy-park
 title: "Ivy Park"
 category: "b-reel"
@@ -19,7 +19,6 @@ tags:
 image: "zalando--ivy-park"
 image_home: "zalando--ivy-park"
 www: "https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/"
-more: "https://www.b-reel.com/projects/ivy-park"
 priority: "priority-2"
 ---
 
