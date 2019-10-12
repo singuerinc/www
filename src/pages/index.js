@@ -35,7 +35,7 @@ const IndexPage = ({
   return (
     <Layout>
       <SEO title="Home" />
-      <h2 className="preamble noselect pre hide">
+      <h2 className="preamble noselect pre">
         HERE'S WHAT I'VE BEEN WORKING ON
       </h2>
 
