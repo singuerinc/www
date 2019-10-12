@@ -19,7 +19,7 @@ export default function Template({ data }) {
       <div itemscope="" itemtype="http://schema.org/WebSite">
         <ul class="prev-next-project">
           <li class="next">
-            <a href="/singuerinc/singuerinc-subway.html">singuerinc · Subway</a>
+            <a href="/singuerinc/singuerinc-subway">singuerinc · Subway</a>
           </li>
         </ul>
 
@@ -123,6 +123,91 @@ export default function Template({ data }) {
           </p>
         </div>
       </div>
+      <hr />
+      <h2 class="share-title">Share</h2>
+      <ul class="share-post">
+        <li>
+          <a
+            class="twitter"
+            href="https://twitter.com/intent/tweet?text=Check+out+singuerinc%20%C2%B7%20Blog+%23portfolio&amp;url=https://www.singuerinc.com/singuerinc/singuerinc-blog.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter
+          </a>
+        </li>
+        <li>
+          <a
+            class="facebook"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://www.singuerinc.com/singuerinc/singuerinc-blog.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+        </li>
+        <li>
+          <a
+            class="google"
+            href="https://plus.google.com/share?url=https://www.singuerinc.com/singuerinc/singuerinc-blog.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google+
+          </a>
+        </li>
+      </ul>
+      <hr />
+      <h2 class="related-title">Related</h2>
+      <ul class="related-post" data-category="singuerinc">
+        <li>
+          <a href="../singuerinc/arawys-store.html" target="_self">
+            Arawys · Store
+          </a>
+        </li>
+
+        <li>
+          <a href="../singuerinc/cuchi-cuchi.html" target="_self">
+            Cuchi-Cuchi · Guardería
+          </a>
+        </li>
+
+        <li>
+          <a href="../singuerinc/kit-appetit.html" target="_self">
+            Kit Appétit · Store
+          </a>
+        </li>
+
+        <li>
+          <a href="../singuerinc/roberto-ivan-cano.html" target="_self">
+            Roberto Iván Cano · Portfolio
+          </a>
+        </li>
+
+        <li>
+          <a href="../singuerinc/singuerinc-overlay-app.html" target="_self">
+            singuerinc · Overlay
+          </a>
+        </li>
+
+        <li>
+          <a href="../singuerinc/singuerinc-subway.html" target="_self">
+            singuerinc · Subway
+          </a>
+        </li>
+
+        <li>
+          <a href="../singuerinc/singuerinc-tomeito-app.html" target="_self">
+            singuerinc · Tomeito-app
+          </a>
+        </li>
+
+        <li>
+          <a href="../singuerinc/singuerinc-bi.html" target="_self">
+            singuerinc · Bi
+          </a>
+        </li>
+      </ul>
     </Layout>
   )
 }
