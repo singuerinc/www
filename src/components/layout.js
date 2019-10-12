@@ -5,11 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
+import React from "react"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -43,7 +41,7 @@ const Layout = ({ children }) => {
                 <a
                   href="https://github.com/singuerinc"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   GitHub
                 </a>
@@ -52,7 +50,7 @@ const Layout = ({ children }) => {
                 <a
                   href="https://twitter.com/singuerinc"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   Twitter
                 </a>
@@ -61,7 +59,7 @@ const Layout = ({ children }) => {
                 <a
                   href="https://blog.singuerinc.com"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   Blog
                 </a>
@@ -70,7 +68,7 @@ const Layout = ({ children }) => {
                 <a
                   href="https://medium.com/@singuerinc"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   Medium
                 </a>
@@ -83,7 +81,7 @@ const Layout = ({ children }) => {
                   <li data-turbolinks="false">
                     <a
                       target="_blank"
-                      rel="noopener"
+                      rel="noopener noreferrer"
                       href="https://twitter.com/intent/tweet?text=Check+out+%40singuerinc+%23portfolio&url={{site.url|uri_escape}}"
                       class="social-icon twitter"
                     >
