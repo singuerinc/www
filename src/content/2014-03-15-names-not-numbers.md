@@ -34,10 +34,10 @@ The name that you see on the card is one of the four hundred png images that sho
 Every time the video starts we pick one of those 400 images. Then we put it on top of the video and we sync in order to create the illusion that we have a unique video for each name.
 
 I have used a technique which I explain more in depth in <a href="https://blog.singuerinc.com/javascript/video/html5/sync/2014/01/22/code-day-022-perfect-html5-video-sync/" target="_blank" rel="noopener">my blog</a>.
-TL;DR Basically you have to encode the frame number in binary code in your video using black and white pixels. Using the `requestAnimationFrame()` function and drawing the video on a canvas you can extract those pixels and transform them in numbers.
 
-Below is the video that we use as base.
-Check it on the <a href="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/" target="_blank" rel="noopener">website</a> to see the final result.
+TL;DR Basically you have to encode the frame number in binary code in the video using black and white pixels. Using the `requestAnimationFrame()` function and drawing the video on a canvas you can extract those pixels and transform them into numbers.
+
+Below is the video that we used as base:
 
 <div class="video-wrapper">
 
@@ -47,3 +47,5 @@ Check it on the <a href="https://singuerinc-b-reel.gitlab.io/org.names-not-numbe
     <source src="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/files/video/MDM_INTRO_ASSEMBLE_EDIT_BLACK_720p_4.ogv" type="video/ogg; codecs=&quot;theora, vorbis&quot;"></video>
 
 </div>
+
+Check it on the <a href="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/" target="_blank" rel="noopener">website</a> to see the final result.

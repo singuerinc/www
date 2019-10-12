@@ -34,4 +34,4 @@ Bi. Your Instagram™ feed, but bigger!
 
 Bi is a personal experiment. Is a website that displays images from your Instagram feed but with higher resolution and size.
 
-The idea behind it is to test technologies like Vue.js, webpack, Docker, PostCSS and yarn among others.
+The idea behind it was to test technologies like Vue.js, webpack, Docker, PostCSS and yarn among others.

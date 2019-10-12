@@ -27,8 +27,9 @@ I was working at B-REEL when Facebook asked us to create a landing page for thei
 
 I had a great time creating this fully responsive single-page site.
 
-If you click on the "Watch the video" button you will see a cool video transition animation made with a mix of CSS and Javascript. And when you scroll, the page displays a fancy parallax effect.
+The page is quite simple, if you click on the "Watch the video" button you will see a cool video transition animation made with a mix of CSS and Javascript. By scrolling the page displays a fancy parallax effect.
 
 About the video transition:
+
 It was a great challenge to me to make the transition works across all kind of devices.
 In fact, some time after the release, I was surprised when Codrops creates <a href="http://tympanus.net/codrops/2015/09/17/how-to-create-a-fullscreen-video-opening-animation/" target="_blank" rel="noopener">a tutorial based on such effect</a>.

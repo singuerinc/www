@@ -23,13 +23,13 @@ www: "https://github.com/singuerinc/overlay"
 priority: "priority-2"
 ---
 
-Overlay is an open source application I have developed. In the beginning it was just for fun, but rapidly it became a main tool in my daily work.
+Overlay is an open source application I have developed. In the beginning it was just for fun, but rapidly it became a main tool in my daily workflow.
 
-It functionality is quiet basic but powerful. Like an onion paper, Overlay displays an image over another application.
+It functionality is quiet basic but powerful. Like an onion paper, Overlay displays an image over any application.
 
-The main purpose of Overlay is to help the user with a guide, making simpler to achieve a pixel perfect design.
+The main purpose of Overlay is to help the user with a guide, making simple to achieve a pixel perfect design.
 
-I have written it in ActionScript, but I'm thinking about porting into Javascript.
+Initially I develop it in ActionScript, but I have ported it to Electron (Javascript+React).
 
 Would you like to contribute? Take a look at the GitHub repository:
 <a href="https://github.com/singuerinc/overlay" target="_blank" rel="noopener">https://github.com/singuerinc/overlay</a>
