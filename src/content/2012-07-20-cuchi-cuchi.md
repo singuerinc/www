@@ -32,5 +32,5 @@ In collaboration with my friends Antonio and Ilaria we developed this webpage fo
 
 Colored design and photography, smooth transitions and animations. This single-page website is all about give an overview of a fresh environment for the little ones.
 
-Since the client give us total freedom we tried a bunch of different technologies on it.
-We end up using CoffeeScript as, at that time, was the most fancy way of writing Javascript.
+Since the client gave us total freedom we tried a bunch of different technologies on it.
+We end up using CoffeeScript, that in 2012 was the most fancy way of writing Javascript.

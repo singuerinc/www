@@ -23,13 +23,13 @@ www: null
 awards: ["award-sol_bronce"]
 ---
 
-I am a big fan of Boca Juniors, but since I was living in Barcelona for almost 8 years I could say that I feel something when I see a FC Barcelona match.
+I am a big fan of Boca Juniors, but since I was living in Barcelona for almost 10 years I could say that I feel something when I see a FC Barcelona match.
 
-Together with Nike we built this small application where the fans of FCB could manifest that their are one.
+Together with Nike we built this small application where the fans of FCB could manifest the statement: "we are one".
 
-The result was a success: 172.000 t-shirts were created and shared in a few hours, 280.000 in a couple of days.
+The result was a complete success: 172.000 t-shirts were created and shared in few hours, about 280.000 in a couple of days.
 
-The application was built in Flash, and Papervision was used to create the t-shirt in 3D.
+The application was built in Flash and Papervision was used to create the t-shirt in 3D.
 
 <div class="video-wrapper">
 <iframe src="//www.youtube.com/embed/nKFNOtTUxUk?rel=0&amp;showinfo=0&amp;vq=hd1080" frameborder="0" allowfullscreen></iframe>

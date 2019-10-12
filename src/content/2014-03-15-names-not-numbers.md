@@ -29,9 +29,9 @@ This website/experience has one thing: a video.
 
 A video that must be in synchronization on each single frame.
 
-The name that you see on the card is one of the four hundred png images that should be overlaid in the video.
+The name that you see on the card is one of the four hundred png images that should be placed in top of the video.
 
-Every time the video starts we pick one of those images. Then we put it on top of the video and we sync in order to create the illusion that we have a unique video for each name.
+Every time the video starts we pick one of those 400 images. Then we put it on top of the video and we sync in order to create the illusion that we have a unique video for each name.
 
 I have used a technique which I explain more in depth in <a href="https://blog.singuerinc.com/javascript/video/html5/sync/2014/01/22/code-day-022-perfect-html5-video-sync/" target="_blank" rel="noopener">my blog</a>.
 TL;DR Basically you have to encode the frame number in binary code in your video using black and white pixels. Using the `requestAnimationFrame()` function and drawing the video on a canvas you can extract those pixels and transform them in numbers.

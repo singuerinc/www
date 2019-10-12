@@ -30,6 +30,6 @@ awards:
 
 During Euro2012, we developed a Flash application that was processing real time data from Twitter, and was displaying which was the top player of the match.
 
-We had also used the Facebook API to get message from the users that were talking about those players.
+We were also using the Facebook API to get message from the users that were talking about those players.
 
 Together with the team we developed an ActionScript 3 application using the Robotlegs framework.
