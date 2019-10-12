@@ -41,7 +41,7 @@ export default function Template({ data, pageContext }) {
 
   return (
     <Layout>
-      <SEO title={projectTitle} />
+      <SEO title={projectTitle} path={path} />
       <Helmet
         bodyAttributes={{
           class: "page project-page",

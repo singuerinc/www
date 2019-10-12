@@ -41,11 +41,10 @@ const IndexPage = ({
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Home" path="/" />
       <h2 className="preamble noselect pre">
         HERE'S WHAT I'VE BEEN WORKING ON
       </h2>
-
       <style>
         {edges.map(({ node: { frontmatter: post } }) => {
           const className = `#${dashify(post)}.post.${post.priority}`
