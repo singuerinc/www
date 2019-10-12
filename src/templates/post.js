@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import {
   getProjectTitle,
   getProjectTitleEscaped,
+  getProjectImage,
   getProjectUrl,
   getProjectUrlEscaped,
 } from "../utils/project"
@@ -66,17 +67,14 @@ export default function Template({ data, pageContext }) {
         <meta itemProp="contributor" content="Nahuel Scotti" />
 
         <meta itemProp="keywords" content={tech.join(",")} />
-        <meta
-          itemProp="image"
-          content={`https://www.singuerinc.com/images/projects/${image}.jpg`}
-        />
+        <meta itemProp="image" content={getProjectImage(image)} />
+        <meta itemProp="url" content={getProjectUrl(path)} />
         <img
           className="image"
           src={`/images/projects/${image}.jpg`}
           alt="Blog"
           title="Blog"
         />
-        <meta itemProp="url" content={pageUrl} />
         <table className="info">
           <tbody>
             <tr>

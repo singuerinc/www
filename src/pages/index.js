@@ -2,6 +2,7 @@ import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { getProjectImage, getProjectUrl } from "../utils/project"
 
 const dashify = x =>
   `${x.client} ${x.title}`
@@ -78,8 +79,8 @@ const IndexPage = ({
                   post.awards.map((a, idx) => (
                     <meta key={idx} itemProp="award" content={a} />
                   ))}
-                <meta itemProp="image" content={post.link} />
-                <meta itemProp="url" content={post.www} />
+                <meta itemProp="image" content={getProjectImage(post.image)} />
+                <meta itemProp="url" content={getProjectUrl(post.path)} />
                 <a href={post.path} target="_self" className="w-link animated">
                   <div
                     className={`post-image ${post.priority} animated ${id}`}
@@ -107,7 +108,6 @@ export const pageQuery = graphql`
             tech
             priority
             path
-            image_home
             client
             category
             awards
