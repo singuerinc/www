@@ -21,10 +21,10 @@ const postStyle = (className, image) => `
 
   @media (max-width: 768px) {
     ${className} {
-    background: url(images/home/${image}-md.jpg) no-repeat;
-    background-size: 100% auto;
+      background: url(images/home/${image}-md.jpg) no-repeat;
+      background-size: 100% auto;
+    }
   }
-}
 `
 
 const IndexPage = ({
