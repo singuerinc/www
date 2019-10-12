@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
                 <a href="/">Home</a>
               </li>
               <li>
-                <a href="/about.html">About</a>
+                <a href="/about">About</a>
               </li>
               <li>
                 <a
@@ -74,7 +74,7 @@ const Layout = ({ children }) => {
                 </a>
               </li>
               <li>
-                <a href="/sitemap.html">Map</a>
+                <a href="/sitemap">Map</a>
               </li>
               <li>
                 <ul className="social">
