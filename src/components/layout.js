@@ -22,10 +22,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <div class="sidebar">
-        <div class="container sidebar-sticky">
+      <div className="sidebar">
+        <div className="container sidebar-sticky">
           <header>
-            <h1 class="singuerinc">
+            <h1 className="singuerinc">
               <a href="/">{data.site.siteMetadata.title}</a>
             </h1>
           </header>
@@ -77,13 +77,13 @@ const Layout = ({ children }) => {
                 <a href="/sitemap.html">Map</a>
               </li>
               <li>
-                <ul class="social">
+                <ul className="social">
                   <li data-turbolinks="false">
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
                       href="https://twitter.com/intent/tweet?text=Check+out+%40singuerinc+%23portfolio&url={{site.url|uri_escape}}"
-                      class="social-icon twitter"
+                      className="social-icon twitter"
                     >
                       <svg
                         width="25"
@@ -105,7 +105,7 @@ const Layout = ({ children }) => {
         </div>
       </div>
 
-      <div class="content container">{children}</div>
+      <div className="content container">{children}</div>
     </>
   )
 }

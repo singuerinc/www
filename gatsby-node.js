@@ -15,6 +15,9 @@ exports.createPages = async ({ actions, graphql }) => {
           node {
             frontmatter {
               path
+              category
+              client
+              title
             }
           }
         }
@@ -26,11 +29,21 @@ exports.createPages = async ({ actions, graphql }) => {
     throw new Error("Things broke, see console output above")
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const posts = result.data.allMarkdownRemark.edges
+
+  result.data.allMarkdownRemark.edges.forEach(({ node }, index) => {
     createPage({
       path: node.frontmatter.path,
       component: blogPostTemplate,
-      context: {}, // additional data can be passed via context
+      context: {
+        prev: index === 0 ? null : posts[index - 1].node.frontmatter,
+        next: posts[index + 1] ? posts[index + 1].node.frontmatter : null,
+        related: posts
+          .filter(
+            p => p.node.frontmatter.category === node.frontmatter.category
+          )
+          .map(p => p.node.frontmatter),
+      }, // additional data can be passed via context
     })
   })
 }

@@ -1,18 +1,22 @@
-import React from "react"
 import { graphql } from "gatsby"
+import React from "react"
+import Helmet from "react-helmet"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Helmet from "react-helmet"
+import {
+  getProjectTitle,
+  getProjectTitleEscaped,
+  getProjectUrl,
+  getProjectUrlEscaped,
+} from "../utils/project"
 
-export default function Template({ data }) {
+export default function Template({ data, pageContext }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const {
     frontmatter: {
       agency,
       awards,
-      category,
       client,
-      css,
       date,
       image,
       more,
@@ -20,16 +24,19 @@ export default function Template({ data }) {
       role,
       tech,
       title,
-      url,
       www,
     },
     html,
   } = markdownRemark
 
-  const projectTitle = client === title ? title : [client, "·", title].join(" ")
-  const projectTitleEscaped = encodeURIComponent(projectTitle)
-  const pageUrl = `https://www.singuerinc.com${path}`
-  const pageUrlEscaped = encodeURIComponent(pageUrl)
+  const projectTitle = getProjectTitle(client, title)
+  const projectTitleEscaped = getProjectTitleEscaped(title)
+  const pageUrl = getProjectUrl(path)
+  const pageUrlEscaped = getProjectUrlEscaped(pageUrl)
+
+  const { prev, next, related } = pageContext
+  const prevTitle = prev ? getProjectTitle(prev.client, prev.title) : null
+  const nextTitle = next ? getProjectTitle(next.client, next.title) : null
 
   return (
     <Layout>
@@ -39,62 +46,70 @@ export default function Template({ data }) {
           class: "page project-page",
         }}
       />
-      <div itemscope="" itemtype="http://schema.org/WebSite">
-        <ul class="prev-next-project">
-          <li class="next">
-            <a href="/singuerinc/singuerinc-subway">singuerinc · Subway</a>
-          </li>
+      <div itemScope="" itemType="http://schema.org/WebSite">
+        <ul className="prev-next-project">
+          {next && (
+            <li className="prev">
+              <a href={next.path}>{nextTitle}</a>
+            </li>
+          )}
+          {prev && (
+            <li className="next">
+              <a href={prev.path}>{prevTitle}</a>
+            </li>
+          )}
         </ul>
 
-        <h1 class="project-title title">{projectTitle}</h1>
+        <h1 className="project-title title">{projectTitle}</h1>
 
-        <meta itemprop="name" content={projectTitle} />
-        <meta itemprop="contributor" content="Nahuel Scotti" />
+        <meta itemProp="name" content={projectTitle} />
+        <meta itemProp="contributor" content="Nahuel Scotti" />
 
-        <meta itemprop="keywords" content={tech.join(",")} />
+        <meta itemProp="keywords" content={tech.join(",")} />
         <meta
-          itemprop="image"
+          itemProp="image"
           content={`https://www.singuerinc.com/images/projects/${image}.jpg`}
         />
         <img
-          class="image"
+          className="image"
           src={`/images/projects/${image}.jpg`}
           alt="Blog"
           title="Blog"
         />
-        <meta itemprop="url" content={pageUrl} />
-
-        <table class="info">
+        <meta itemProp="url" content={pageUrl} />
+        <table className="info">
           <tbody>
             <tr>
-              <td class="info-role">My role</td>
+              <td className="info-role">My role</td>
               <td>{role}</td>
             </tr>
             <tr>
-              <td class="info-title">Date release</td>
+              <td className="info-title">Date release</td>
               <td>{date}</td>
             </tr>
             <tr>
-              <td class="info-title">Client</td>
+              <td className="info-title">Client</td>
               <td>{client}</td>
             </tr>
             <tr>
-              <td class="info-title">Agency</td>
+              <td className="info-title">Agency</td>
               <td>{agency}</td>
             </tr>
-
             <tr>
-              <td class="info-title">Website</td>
+              <td className="info-title">Website</td>
               <td>
-                <a href={www} target="_blank" rel="noopener noreferrer">
-                  {www}
-                </a>
+                {www ? (
+                  <a href={www} target="_blank" rel="noopener noreferrer">
+                    {www}
+                  </a>
+                ) : (
+                  <del>Unavailable</del>
+                )}
               </td>
             </tr>
-
             {more && (
               <tr>
-                <td class="info-title">More info</td>
+                <td className="info-title">More info</td>
                 <td>
                   <a href={more} target="_blank" rel="noopener noreferrer">
                     {more}
@@ -102,36 +117,33 @@ export default function Template({ data }) {
                 </td>
               </tr>
             )}
-
             <tr>
-              <td class="info-title">Tech</td>
+              <td className="info-title">Tech</td>
               <td>{tech.join(" · ")}</td>
             </tr>
+            {awards && (
+              <tr>
+                <td className="info-awards">Awards</td>
+                <td>
+                  {awards.map((award, idx) => (
+                    <div key={idx} className={`award ${award}`} />
+                  ))}
+                </td>
+              </tr>
+            )}
           </tbody>
-
-          {awards && (
-            <tr>
-              <td class="info-awards">Awards</td>
-              <td>
-                {awards.map(award => (
-                  <div className={`award ${award}`} />
-                ))}
-              </td>
-            </tr>
-          )}
         </table>
-
         <div
-          class="project-content"
+          className="project-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
       <hr />
-      <h2 class="share-title">Share</h2>
-      <ul class="share-post">
+      <h2 className="share-title">Share</h2>
+      <ul className="share-post">
         <li>
           <a
-            class="twitter"
+            className="twitter"
             href={`https://twitter.com/intent/tweet?text=Check+out+${projectTitleEscaped}+%23portfolio&url=${pageUrlEscaped}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -141,7 +153,7 @@ export default function Template({ data }) {
         </li>
         <li>
           <a
-            class="facebook"
+            className="facebook"
             href={`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -151,55 +163,22 @@ export default function Template({ data }) {
         </li>
       </ul>
       <hr />
-      <h2 class="related-title">Related</h2>
-      <ul class="related-post" data-category="singuerinc">
-        <li>
-          <a href="../singuerinc/arawys-store.html" target="_self">
-            Arawys · Store
-          </a>
-        </li>
-
-        <li>
-          <a href="../singuerinc/cuchi-cuchi.html" target="_self">
-            Cuchi-Cuchi · Guardería
-          </a>
-        </li>
-
-        <li>
-          <a href="../singuerinc/kit-appetit.html" target="_self">
-            Kit Appétit · Store
-          </a>
-        </li>
-
-        <li>
-          <a href="../singuerinc/roberto-ivan-cano.html" target="_self">
-            Roberto Iván Cano · Portfolio
-          </a>
-        </li>
-
-        <li>
-          <a href="../singuerinc/singuerinc-overlay-app.html" target="_self">
-            singuerinc · Overlay
-          </a>
-        </li>
-
-        <li>
-          <a href="../singuerinc/singuerinc-subway.html" target="_self">
-            singuerinc · Subway
-          </a>
-        </li>
-
-        <li>
-          <a href="../singuerinc/singuerinc-tomeito-app.html" target="_self">
-            singuerinc · Tomeito-app
-          </a>
-        </li>
-
-        <li>
-          <a href="../singuerinc/singuerinc-bi.html" target="_self">
-            singuerinc · Bi
-          </a>
-        </li>
+      <h2 className="related-title">Related</h2>
+      <ul className="related-post" data-category="singuerinc">
+        {related
+          .sort((a, b) => {
+            return getProjectTitle(a.client, a.title)[0] <
+              getProjectTitle(b.client, b.title)[0]
+              ? -1
+              : 1
+          })
+          .map((post, idx) => (
+            <li key={idx}>
+              <a href={post.path} target="_self">
+                {getProjectTitle(post.client, post.title)}
+              </a>
+            </li>
+          ))}
       </ul>
     </Layout>
   )
@@ -214,7 +193,6 @@ export const pageQuery = graphql`
         path
         agency
         awards
-        category
         client
         image
         more
