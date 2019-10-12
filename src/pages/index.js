@@ -32,6 +32,12 @@ const IndexPage = ({
     allMarkdownRemark: { edges },
   },
 }) => {
+  const parse = str => {
+    const rx = /([0-9]{4})-([0-9]{2})-([0-9]{2})/gi
+    const [, year, month, day] = rx.exec(str).map(x => parseInt(x))
+    return new Date(year, month - 1, day, 0, 0, 0, 0).getTime()
+  }
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -48,8 +54,12 @@ const IndexPage = ({
 
       <ul className="posts">
         {edges
-          .slice()
-          .reverse()
+          .sort((a, b) => {
+            return parse(a.node.frontmatter.date) <
+              parse(b.node.frontmatter.date)
+              ? 1
+              : -1
+          })
           .map(({ node: { frontmatter: post } }, key) => {
             const id = dashify(post)
             const title = normalizeTitle(post)
@@ -65,7 +75,9 @@ const IndexPage = ({
                 <meta itemProp="contributor" content="Nahuel Scotti" />
                 <meta itemProp="keywords" content={post.tech.join(",")} />
                 {post.awards &&
-                  post.awards.map(a => <meta itemProp="award" content={a} />)}
+                  post.awards.map((a, idx) => (
+                    <meta key={idx} itemProp="award" content={a} />
+                  ))}
                 <meta itemProp="image" content={post.link} />
                 <meta itemProp="url" content={post.www} />
                 <a href={post.path} target="_self" className="w-link animated">
@@ -89,6 +101,7 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
+            date
             title
             tags
             tech
