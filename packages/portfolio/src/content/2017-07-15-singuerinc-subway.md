@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2017-07-15
-path: /singuerinc/singuerinc-subway
+path: /singuerinc/singuerinc-subway/
 title: "Subway"
 category: "singuerinc"
 role: "Developer"

@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2014-03-15
-path: /b-reel/names-not-numbers
+path: /b-reel/names-not-numbers/
 title: Names not numbers
 category: "b-reel"
 role: "Lead Developer"

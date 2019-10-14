@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2016-11-16
-path: /singuerinc/singuerinc-bi
+path: /singuerinc/singuerinc-bi/
 title: "Bi"
 category: "singuerinc"
 role: "Developer"

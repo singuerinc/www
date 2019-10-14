@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2012-06-20
-path: /doubleyou/pepe-jeans
+path: /doubleyou/pepe-jeans/
 title: Store
 category: "doubleyou"
 role: "Client Developer"

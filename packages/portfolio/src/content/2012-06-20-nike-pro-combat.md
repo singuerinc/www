@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2012-06-20
-path: /doubleyou/nike-pro-combat
+path: /doubleyou/nike-pro-combat/
 title: Pro Combat
 category: "doubleyou"
 role: "Flash Developer"

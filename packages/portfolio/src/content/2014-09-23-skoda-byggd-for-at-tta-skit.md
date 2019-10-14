@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2014-09-23
-path: /b-reel/skoda-byggd-for-at-tta-skit
+path: /b-reel/skoda-byggd-for-at-tta-skit/
 title: "Byggd för att ta skit"
 category: "b-reel"
 role: "Client/Backend Developer"

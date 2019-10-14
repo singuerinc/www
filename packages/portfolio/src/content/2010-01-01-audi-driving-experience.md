@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2010-01-01
-path: /doubleyou/audi-driving-experience
+path: /doubleyou/audi-driving-experience/
 title: Driving Experience
 category: "doubleyou"
 role: "Flash Developer"

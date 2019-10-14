@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2011-04-01
-path: /doubleyou/atrapalo-revivelo
+path: /doubleyou/atrapalo-revivelo/
 title: "Revívelo"
 category: "doubleyou"
 role: "Flash Developer"

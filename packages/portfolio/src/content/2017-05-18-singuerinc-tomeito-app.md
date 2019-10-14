@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2017-05-18
-path: /singuerinc/singuerinc-tomeito-app
+path: /singuerinc/singuerinc-tomeito-app/
 title: "Tomeito-app"
 category: "singuerinc"
 role: "Developer"

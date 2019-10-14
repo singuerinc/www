@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2015-07-16
-path: /b-reel/facebook-moments
+path: /b-reel/facebook-moments/
 title: "Moments"
 category: "b-reel"
 role: "Lead Developer"

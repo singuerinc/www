@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2012-07-20
-path: /singuerinc/cuchi-cuchi
+path: /singuerinc/cuchi-cuchi/
 title: "Guardería"
 category: "singuerinc"
 role: "Client Developer"

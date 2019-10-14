@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2016-02-15
-path: /b-reel/b-reel-b-reel
+path: /b-reel/b-reel-b-reel/
 title: "B-REEL"
 category: "b-reel"
 role: "Client/Backend Developer"
