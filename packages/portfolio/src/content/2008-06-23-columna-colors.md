@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2008-06-23
-path: /doubleyou/columna-colors
+path: /doubleyou/columna-colors/
 title: Colors
 category: "doubleyou"
 role: "Flash Developer"

@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2015-02-20
-path: /singuerinc/singuerinc-overlay-app
+path: /singuerinc/singuerinc-overlay-app/
 title: "Overlay"
 category: "singuerinc"
 role: "Developer"

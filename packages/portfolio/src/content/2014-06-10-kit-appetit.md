@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2014-06-10
-path: /singuerinc/kit-appetit
+path: /singuerinc/kit-appetit/
 title: Store
 category: "singuerinc"
 role: "Tech Lead Developer"

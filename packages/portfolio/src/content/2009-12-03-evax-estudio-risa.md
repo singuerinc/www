@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2009-12-03
-path: /doubleyou/evax-estudio-risa
+path: /doubleyou/evax-estudio-risa/
 title: Estudio Risa
 category: "doubleyou"
 role: "Flash Developer"

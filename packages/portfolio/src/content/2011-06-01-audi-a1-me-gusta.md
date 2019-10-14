@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2011-06-01
-path: /doubleyou/audi-a1-me-gusta
+path: /doubleyou/audi-a1-me-gusta/
 title: A1 Me gusta
 category: "doubleyou"
 role: "Flash Developer"

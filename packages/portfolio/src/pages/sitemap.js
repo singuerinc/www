@@ -30,34 +30,32 @@ const SitemapPage = ({
               {projects
                 .filter(({ category }) => category === c)
                 .sort((a, b) => (a.client > b.client ? 1 : -1))
-                .map(
-                  ({ title, client, awards, path, www, image, tech }, key) => (
-                    <li
-                      key={key}
-                      id="b-reel_b-reel"
-                      itemScope
-                      itemType="http://schema.org/WebSite"
-                    >
-                      <meta
-                        itemProp="name"
-                        content={getProjectTitle(client, title)}
-                      />
-                      <meta itemProp="contributor" content="Nahuel Scotti" />
+                .map(({ title, client, awards, path, image, tech }, key) => (
+                  <li
+                    key={key}
+                    id="b-reel_b-reel"
+                    itemScope
+                    itemType="http://schema.org/WebSite"
+                  >
+                    <meta
+                      itemProp="name"
+                      content={getProjectTitle(client, title)}
+                    />
+                    <meta itemProp="contributor" content="Nahuel Scotti" />
 
-                      <meta itemProp="keywords" content={tech.join(",")} />
-                      {awards &&
-                        awards.map((a, idx) => (
-                          <meta key={idx} itemProp="award" content={a} />
-                        ))}
-                      <meta itemProp="image" content={getProjectImage(image)} />
-                      <meta itemProp="url" content={getProjectUrl(path)} />
+                    <meta itemProp="keywords" content={tech.join(",")} />
+                    {awards &&
+                      awards.map((a, idx) => (
+                        <meta key={idx} itemProp="award" content={a} />
+                      ))}
+                    <meta itemProp="image" content={getProjectImage(image)} />
+                    <meta itemProp="url" content={getProjectUrl(path)} />
 
-                      <a href={path} target="_self">
-                        {getProjectTitle(client, title)}
-                      </a>
-                    </li>
-                  )
-                )}
+                    <a href={path} target="_self">
+                      {getProjectTitle(client, title)}
+                    </a>
+                  </li>
+                ))}
             </ul>
           </li>
         ))}

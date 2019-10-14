@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2016-05-04
-path: /b-reel/zalando-ivy-park
+path: /b-reel/zalando-ivy-park/
 title: "Ivy Park"
 category: "b-reel"
 role: "Client/Backend Developer"

@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2015-09-21
-path: /singuerinc/arawys-store
+path: /singuerinc/arawys-store/
 title: Store
 category: "singuerinc"
 role: "Lead Developer"

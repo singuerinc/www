@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2011-04-01
-path: /doubleyou/fcb-somos-uno
+path: /doubleyou/fcb-somos-uno/
 title: Som un
 category: "doubleyou"
 role: "Flash Developer"

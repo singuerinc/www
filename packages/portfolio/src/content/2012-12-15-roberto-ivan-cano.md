@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2012-12-15
-path: /singuerinc/roberto-ivan-cano
+path: /singuerinc/roberto-ivan-cano/
 title: Portfolio
 category: "singuerinc"
 role: "Tech Lead Developer / Graphic Designer"

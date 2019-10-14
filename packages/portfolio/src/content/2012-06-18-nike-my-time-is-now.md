@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2012-06-18
-path: /doubleyou/nike-my-time-is-now
+path: /doubleyou/nike-my-time-is-now/
 title: My time is now
 category: "doubleyou"
 role: "Flash Developer"

@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2014-06-15
-path: /b-reel/kick-with-chrome
+path: /b-reel/kick-with-chrome/
 title: Kick with Chrome
 category: "b-reel"
 role: "Client/Backend Developer"
