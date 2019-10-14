@@ -1,0 +1,4 @@
+[build]
+  base    = "packages/portfolio/"
+  publish = "packages/portfolio/public/"
+  command = "yarn build"
