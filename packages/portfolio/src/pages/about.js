@@ -7,7 +7,7 @@ const AboutPage = () => {
       <h2 className="title">I am Nahuel Scotti. This is my portfolio.</h2>
 
       <p>
-        <img src="./images/yo.png" alt="singuerinc" width="150" height="150" />
+        <img src="/images/yo.png" alt="singuerinc" width="150" height="150" />
       </p>
 
       <p className="text">
