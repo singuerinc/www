@@ -1,17 +1,9 @@
-import { graphql } from "gatsby"
-import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { getProjectImage, getProjectUrl } from "../utils/project"
+import { graphql } from "gatsby";
+import React from "react";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-const dashify = x =>
-  `${x.client} ${x.title}`
-    .split(" ")
-    .join("-")
-    .toLowerCase()
-
-const normalizeTitle = x =>
-  x.title === x.client ? x.title : `${x.client} · ${x.title}`
+const dashify = x => `${x.client} ${x.title}`.split(" ").join("-").toLowerCase();
 
 const postStyle = (className, image) => `
   ${className} {
@@ -26,78 +18,58 @@ const postStyle = (className, image) => `
       background-size: 100% auto;
     }
   }
-`
+`;
 
 const IndexPage = ({
   data: {
-    allMarkdownRemark: { edges },
-  },
-}) => {
-  const parse = str => {
-    const rx = /([0-9]{4})-([0-9]{2})-([0-9]{2})/gi
-    const [, year, month, day] = rx.exec(str).map(x => parseInt(x))
-    return new Date(year, month - 1, day, 0, 0, 0, 0).getTime()
+    allMarkdownRemark: { edges }
   }
-
+}) => {
   return (
     <Layout>
       <SEO title="Home" path="/" />
-      <h2 className="preamble noselect pre">
-        HERE'S WHAT I'VE BEEN WORKING ON
-      </h2>
+      <h2 className="preamble noselect pre">HERE'S WHAT I'VE BEEN WORKING ON</h2>
       <style>
         {edges.map(({ node: { frontmatter: post } }) => {
-          const className = `#${dashify(post)}.post.${post.priority}`
-          return postStyle(className, post.image)
+          const className = `#${dashify(post)}.post.${post.priority}`;
+          return postStyle(className, post.image);
         })}
       </style>
 
       <ul className="posts">
-        {edges
-          .sort((a, b) => {
-            return parse(a.node.frontmatter.date) <
-              parse(b.node.frontmatter.date)
-              ? 1
-              : -1
-          })
-          .map(({ node: { frontmatter: post } }, key) => {
-            const id = dashify(post)
-            const title = normalizeTitle(post)
-            return (
-              <li
-                key={key}
-                id={id}
-                className={`post w ${post.priority}`}
-                itemScope
-                itemType="http://schema.org/WebSite"
-              >
-                <meta itemProp="name" content={title} />
-                <meta itemProp="contributor" content="Nahuel Scotti" />
-                <meta itemProp="keywords" content={post.tech.join(",")} />
-                {post.awards &&
-                  post.awards.map((a, idx) => (
-                    <meta key={idx} itemProp="award" content={a} />
-                  ))}
-                <meta itemProp="image" content={getProjectImage(post.image)} />
-                <meta itemProp="url" content={getProjectUrl(post.path)} />
-                <a href={post.path} target="_self" className="w-link animated">
-                  <div
-                    className={`post-image ${post.priority} animated ${id}`}
-                  ></div>
-                  <h3 className="w-title">{title}</h3>
-                  <div className="w-tags">{post.tech.join(" · ")}</div>
-                </a>
-              </li>
-            )
-          })}
+        {edges.map(({ node: { frontmatter: post, fields } }, key) => {
+          const id = dashify(post);
+          return (
+            <li
+              key={key}
+              id={id}
+              className={`post w ${post.priority}`}
+              itemScope
+              itemType="http://schema.org/WebSite"
+            >
+              <meta itemProp="name" content={fields.normalizedTitle} />
+              <meta itemProp="contributor" content="Nahuel Scotti" />
+              <meta itemProp="keywords" content={post.tech.join(",")} />
+              {post.awards &&
+                post.awards.map((a, idx) => <meta key={idx} itemProp="award" content={a} />)}
+              <meta itemProp="image" content={fields.projectImage} />
+              <meta itemProp="url" content={fields.projectUrl} />
+              <a href={post.path} target="_self" className="w-link animated">
+                <div className={`post-image ${post.priority} animated ${id}`}></div>
+                <h3 className="w-title">{fields.normalizedTitle}</h3>
+                <div className="w-tags">{post.tech.join(" · ")}</div>
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </Layout>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           frontmatter {
@@ -115,10 +87,15 @@ export const pageQuery = graphql`
             image
             www
           }
+          fields {
+            normalizedTitle
+            projectImage
+            projectUrl
+          }
         }
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

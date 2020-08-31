@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `@singuerinc`,
     description: `portfolio`,
-    author: `@gatsbyjs`,
+    author: `@gatsbyjs`
   },
   plugins: [
     {
@@ -14,8 +14,8 @@ module.exports = {
         respectDNT: true,
         exclude: [],
         pageTransitionDelay: 0,
-        cookieDomain: "auto",
-      },
+        cookieDomain: "auto"
+      }
     },
     `gatsby-transformer-remark`,
     {
@@ -27,8 +27,8 @@ module.exports = {
         footnotes: true,
         pedantic: true,
         gfm: true,
-        plugins: [],
-      },
+        plugins: []
+      }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
@@ -42,11 +42,18 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `static/images/yo.png`, // This path is relative to the root of the site.
-      },
+        icon: `static/images/yo.png` // This path is relative to the root of the site.
+      }
     },
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        allExtensions: true // defaults to false
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ],
-}
+  ]
+};

@@ -20,12 +20,7 @@ image: "nike--my-time-is-now"
 image_home: "nike--my-time-is-now"
 www: null
 priority: "priority-0"
-awards:
-  [
-    "award-premio-el-ojo-iberoamerica",
-    "award-inspirational-festival",
-    "award-premios-genio",
-  ]
+awards: ["award-premio-el-ojo-iberoamerica", "award-inspirational-festival", "award-premios-genio"]
 ---
 
 During Euro2012, we developed a Flash application that was processing real time data from Twitter, and was displaying which was the top player of the match.

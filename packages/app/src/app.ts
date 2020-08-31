@@ -1,18 +1,18 @@
-import Portfolio, { IPost } from "./Portfolio"
+import Portfolio, { IPost } from "./Portfolio";
 
 export interface IPage {
-  page: string
+  page: string;
 }
 
-export const getPage = (): string => {
-  const a: HTMLAnchorElement = document.createElement("a")
-  const meta: HTMLMetaElement = document.querySelector(
+export const getPage = (doc: Document): string => {
+  const a: HTMLAnchorElement = doc.createElement("a");
+  const meta: HTMLMetaElement = doc.querySelector(
     'meta[name="page:url"]'
-  ) as HTMLMetaElement
+  ) as HTMLMetaElement;
 
-  a.href = meta.getAttribute("content") as string
-  return a.pathname
-}
+  a.href = meta.getAttribute("content") as string;
+  return a.pathname;
+};
 
 export const navigate = (
   page: string,
@@ -20,19 +20,19 @@ export const navigate = (
   posts: IPost[]
 ): void => {
   if (page === "" || page === "/" || page === "/index.html") {
-    portfolio.loadIndex(posts)
+    portfolio.loadIndex(posts);
   } else if (page === "/about.html") {
-    portfolio.loadAbout()
+    portfolio.loadAbout();
   } else if (page === "/sitemap.html") {
-    portfolio.loadSiteMap()
+    portfolio.loadSiteMap();
   } else if (page === "/404.html") {
-    portfolio.load404()
+    portfolio.load404();
   } else if (/(\/.+){2}.html/.test(page)) {
-    portfolio.loadProject()
+    portfolio.loadProject();
   } else {
-    throw new Error(`Page '${page}' can not be handled.`)
+    throw new Error(`Page '${page}' can not be handled.`);
   }
-}
+};
 
 export const init = (
   document: HTMLDocument,
@@ -41,13 +41,13 @@ export const init = (
 ): Promise<IPage> => {
   return new Promise(resolve => {
     document.addEventListener("turbolinks:load", () => {
-      const page: string = getPage()
+      const page: string = getPage(document);
 
-      navigate(page, portfolio, posts)
+      navigate(page, portfolio, posts);
 
       resolve({
-        page,
-      })
-    })
-  })
-}
+        page
+      });
+    });
+  });
+};

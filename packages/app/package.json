@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
+  "scripts": {
+    "develop": "tsc --watch",
+    "start": "tsc"
+  },
   "dependencies": {
     "animejs": "^3.2.0",
     "nprogress": "^0.2.0"
   },
-  "scripts": {
-    "start": "npx tsc"
+  "devDependencies": {
+    "@types/animejs": "^3.1.2",
+    "@types/nprogress": "^0.2.0",
+    "typescript": "^4.0.2"
   }
 }
