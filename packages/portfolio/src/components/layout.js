@@ -5,9 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import { graphql, useStaticQuery } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { graphql, useStaticQuery } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <>
@@ -38,38 +38,22 @@ const Layout = ({ children }) => {
                 <a href="/about">About</a>
               </li>
               <li>
-                <a
-                  href="https://github.com/singuerinc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://github.com/singuerinc" target="_blank" rel="noopener noreferrer">
                   GitHub
                 </a>
               </li>
               <li>
-                <a
-                  href="https://twitter.com/singuerinc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://twitter.com/singuerinc" target="_blank" rel="noopener noreferrer">
                   Twitter
                 </a>
               </li>
               <li>
-                <a
-                  href="https://blog.singuerinc.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://blog.singuerinc.com" target="_blank" rel="noopener noreferrer">
                   Blog
                 </a>
               </li>
               <li>
-                <a
-                  href="https://medium.com/@singuerinc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://medium.com/@singuerinc" target="_blank" rel="noopener noreferrer">
                   Medium
                 </a>
               </li>
@@ -107,11 +91,11 @@ const Layout = ({ children }) => {
 
       <div className="content container">{children}</div>
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+  children: PropTypes.node.isRequired
+};
 
-export default Layout
+export default Layout;

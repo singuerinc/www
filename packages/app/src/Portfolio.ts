@@ -1,7 +1,7 @@
 /*global location */
 /*eslint no-restricted-globals: ["error"]*/
 import NProgress from "nprogress";
-import * as animejs from "./anime";
+import animejs from "animejs";
 
 export interface IPost {
   id: string;

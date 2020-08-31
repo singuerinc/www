@@ -1,50 +1,27 @@
-import { graphql } from "gatsby"
-import React from "react"
-import Helmet from "react-helmet"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import {
-  getProjectTitle,
-  getProjectTitleEscaped,
-  getProjectImage,
-  getProjectUrl,
-  getProjectUrlEscaped,
-} from "../utils/project"
+import { graphql } from "gatsby";
+import React from "react";
+import Helmet from "react-helmet";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 export default function Template({ data, pageContext }) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { markdownRemark } = data;
   const {
-    frontmatter: {
-      agency,
-      awards,
-      client,
-      date,
-      image,
-      more,
-      path,
-      role,
-      tech,
-      title,
-      www,
-    },
-    html,
-  } = markdownRemark
+    frontmatter: { agency, awards, client, date, image, more, path, role, tech, title, www },
+    fields: { projectUrl, projectImage, escapedProjectUrl, escapedProjectTitle },
+    html
+  } = markdownRemark;
 
-  const projectTitle = getProjectTitle(client, title)
-  const projectTitleEscaped = getProjectTitleEscaped(title)
-  const pageUrl = getProjectUrl(path)
-  const pageUrlEscaped = getProjectUrlEscaped(pageUrl)
-
-  const { prev, next, related } = pageContext
-  const prevTitle = prev ? getProjectTitle(prev.client, prev.title) : null
-  const nextTitle = next ? getProjectTitle(next.client, next.title) : null
+  const { prev, next, related } = pageContext;
+  const prevTitle = prev ? getProjectTitle(prev.client, prev.title) : null;
+  const nextTitle = next ? getProjectTitle(next.client, next.title) : null;
 
   return (
     <Layout>
       <SEO title={projectTitle} path={path} />
       <Helmet
         bodyAttributes={{
-          class: "page project-page",
+          class: "page project-page"
         }}
       />
       <div itemScope="" itemType="http://schema.org/WebSite">
@@ -67,14 +44,9 @@ export default function Template({ data, pageContext }) {
         <meta itemProp="contributor" content="Nahuel Scotti" />
 
         <meta itemProp="keywords" content={tech.join(",")} />
-        <meta itemProp="image" content={getProjectImage(image)} />
-        <meta itemProp="url" content={getProjectUrl(path)} />
-        <img
-          className="image"
-          src={`/images/projects/${image}.jpg`}
-          alt="Blog"
-          title="Blog"
-        />
+        <meta itemProp="image" content={projectImage} />
+        <meta itemProp="url" content={projectUrl} />
+        <img className="image" src={`/images/projects/${image}.jpg`} alt="Blog" title="Blog" />
         <table className="info">
           <tbody>
             <tr>
@@ -131,10 +103,7 @@ export default function Template({ data, pageContext }) {
             )}
           </tbody>
         </table>
-        <div
-          className="project-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <div className="project-content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
       <hr />
       <h2 className="share-title">Share</h2>
@@ -142,7 +111,7 @@ export default function Template({ data, pageContext }) {
         <li>
           <a
             className="twitter"
-            href={`https://twitter.com/intent/tweet?text=Check+out+${projectTitleEscaped}+%23portfolio&url=${pageUrlEscaped}`}
+            href={`https://twitter.com/intent/tweet?text=Check+out+${escapedProjectTitle}+%23portfolio&url=${escapedProjectUrl}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -152,7 +121,7 @@ export default function Template({ data, pageContext }) {
         <li>
           <a
             className="facebook"
-            href={`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`}
+            href={`https://www.facebook.com/sharer/sharer.php?u=${projectUrl}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -165,10 +134,9 @@ export default function Template({ data, pageContext }) {
       <ul className="related-post" data-category="singuerinc">
         {related
           .sort((a, b) => {
-            return getProjectTitle(a.client, a.title)[0] <
-              getProjectTitle(b.client, b.title)[0]
+            return getProjectTitle(a.client, a.title)[0] < getProjectTitle(b.client, b.title)[0]
               ? -1
-              : 1
+              : 1;
           })
           .map((post, idx) => (
             <li key={idx}>
@@ -179,7 +147,7 @@ export default function Template({ data, pageContext }) {
           ))}
       </ul>
     </Layout>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -199,6 +167,10 @@ export const pageQuery = graphql`
         title
         www
       }
+      fields {
+        projectUrl
+        projectImage
+      }
     }
   }
-`
+`;
