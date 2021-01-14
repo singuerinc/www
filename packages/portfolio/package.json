@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Nahuel Scotti <nahuel.scotti@gmail.com>",
   "dependencies": {
+    "@sentry/gatsby": "^5.30.0",
     "app": "^1.0.0",
     "gatsby": "^2.15.36",
     "gatsby-image": "^2.2.27",

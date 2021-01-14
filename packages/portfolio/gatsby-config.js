@@ -6,6 +6,15 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "@sentry/gatsby",
+      options: {
+        dsn:
+          "https://2ce279c031764f50a7170c61b093381a@o330055.ingest.sentry.io/1848361",
+        autoSessionTracking: true,
+        sampleRate: 0.7,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-881783-8",
