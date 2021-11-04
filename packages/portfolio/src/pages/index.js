@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { getProjectImage, getProjectUrl } from "../utils/project"
 
 const dashify = x =>
@@ -41,7 +41,7 @@ const IndexPage = ({
 
   return (
     <Layout>
-      <SEO title="Home" path="/" />
+      <Seo title="Home" path="/" />
       <h2 className="preamble noselect pre">
         HERE'S WHAT I'VE BEEN WORKING ON
       </h2>

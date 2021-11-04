@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import React from "react"
 import Helmet from "react-helmet"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import {
   getProjectTitle,
   getProjectTitleEscaped,
@@ -41,7 +41,7 @@ export default function Template({ data, pageContext }) {
 
   return (
     <Layout>
-      <SEO title={projectTitle} path={path} />
+      <Seo title={projectTitle} path={path} />
       <Helmet
         bodyAttributes={{
           class: "page project-page",
