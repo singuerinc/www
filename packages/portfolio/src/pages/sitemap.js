@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 import {
   getProjectImage,
   getProjectTitle,
@@ -21,7 +22,7 @@ const SitemapPage = ({
     .sort((a, b) => (a > b ? 1 : -1))
   return (
     <Layout>
-      <h2 className="title">Site map</h2>
+      <Seo title="Map" path="/sitemap/" />
       <ul className="site-map">
         {uniqCategories.map((c, idx) => (
           <li key={idx}>

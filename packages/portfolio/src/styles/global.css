@@ -1,5 +1,10 @@
 @charset "UTF-8";
-@import "https://fonts.googleapis.com/css?family=Roboto:200,300,400";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap");
+
+.mt-0 {
+  margin-top: 0;
+}
+
 .hide {
   visibility: hidden;
 }
@@ -123,7 +128,7 @@ body {
 /* No `:visited` state is required by default (browsers will use `a`) */
 
 a {
-  color: #adb5bd;
+  color: #000;
   text-decoration: none;
   -webkit-transition: color 500ms;
   -moz-transition: color 500ms;
@@ -190,6 +195,10 @@ img {
   font-size: 14px;
 }
 
+.page p.text {
+  font-size: 1.7rem;
+}
+
 @media (min-width: 48rem) {
   html {
     font-size: 16px;
@@ -208,7 +217,7 @@ html {
 
 body {
   color: #495057;
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -246,7 +255,7 @@ body {
 
 .sidebar ul li a,
 .sidebar-mobile ul li a {
-  font-weight: 400;
+  font-weight: 600;
 }
 
 @media (min-width: 48rem) {
@@ -296,7 +305,7 @@ img {
 h1,
 h2,
 h3 {
-  font-weight: 300;
+  font-weight: 200;
   margin: 0;
   padding: 0;
 }
@@ -330,7 +339,7 @@ h3 {
 
 .sidebar a:hover,
 .sidebar-mobile a:hover {
-  color: #adb5bd;
+  color: #000;
 }
 
 .sidebar ul a,
@@ -385,7 +394,7 @@ h3 {
 header div a {
   display: inline;
   color: #212529;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 header .singuerinc {
@@ -452,7 +461,7 @@ ul.posts li > .w-link .w-title {
   opacity: 1;
   font-size: 14px;
   padding: 6px;
-  font-weight: 300;
+  font-weight: 200;
   line-height: inherit;
   display: inline-block;
   -webkit-background-clip: text;
@@ -486,7 +495,7 @@ ul.posts .w-tags {
   opacity: 0;
   color: rgba(255, 255, 255, 0.5);
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 200;
   padding: 15px 20px 0 20px;
 }
 
@@ -723,11 +732,11 @@ Copyright (c) 2014 Daniel Eden
 
 .page .title {
   -webkit-background-clip: text;
-  background-image: -webkit-linear-gradient(left, #ced4da, #797979);
-  background-image: linear-gradient(to right, #ced4da, #797979);
+  background-image: -webkit-linear-gradient(left, #000, #fcfcfc);
+  background-image: linear-gradient(to right, #000, #fcfcfc);
   -webkit-text-fill-color: transparent;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
   text-align: center;
   font-size: 2rem;
 }
@@ -738,7 +747,7 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .project-page p {
-  font-weight: 200;
+  font-weight: 400;
   margin: 0 0 1rem;
   padding: 0;
   color: grey;
@@ -748,7 +757,7 @@ Copyright (c) 2014 Daniel Eden
 }
 
 .project-page p strong {
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .project-page p em {
@@ -760,10 +769,10 @@ Copyright (c) 2014 Daniel Eden
   border-left: 4px solid lightgray;
   padding: 0 0 0 20px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
 }
 
-.project-page .project-content p a {
+.project-page .project-content p a:hover {
   text-decoration: underline;
 }
 
@@ -804,7 +813,7 @@ Copyright (c) 2014 Daniel Eden
   padding: 3px 0;
 }
 
-.project-page .info a {
+.project-page .info a:hover {
   text-decoration: underline;
 }
 
@@ -818,7 +827,7 @@ Copyright (c) 2014 Daniel Eden
 .project-page .share-title {
   font-size: 1.5rem;
   margin: 20px 0 5px;
-  color: #adb5bd;
+  color: #000;
   float: none;
   min-width: 100%;
   text-align: center;
@@ -840,13 +849,13 @@ Copyright (c) 2014 Daniel Eden
 
 .project-page .prev-next-project li.prev:before {
   content: "\021E4";
-  color: #adb5bd;
+  color: #000;
   margin-right: 7px;
 }
 
 .project-page .prev-next-project li.next:after {
   content: "\021E5";
-  color: #adb5bd;
+  color: #000;
   margin-left: 7px;
 }
 

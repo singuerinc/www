@@ -35,9 +35,7 @@ A few statements about this simulation:
 
 1.  There is no API connected to the app.
 
-        I was considering the idea to use an API to get the data but
-
-    the problem is that if you use it this simulation becomes a visualization.
+    I was considering the idea to use an API to get the data but the problem is that if you use it this simulation becomes a visualization.
 
 2.  It includes a simple AI:
 

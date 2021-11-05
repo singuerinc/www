@@ -65,15 +65,6 @@ const Layout = ({ children }) => {
                 </a>
               </li>
               <li>
-                <a
-                  href="https://medium.com/@singuerinc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Medium
-                </a>
-              </li>
-              <li>
                 <a href="/sitemap">Map</a>
               </li>
               <li>
