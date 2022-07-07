@@ -52,7 +52,7 @@ const AboutPage = () => {
         to Tech Lead within the Player Tech department.
       </p>
       <p className="text">
-        Currently, I work as Frontend Lead and Engineering Manager at{" "}
+        Currently, I work as Head of Frontend and Engineering Manager at{" "}
         <a
           href="https://www.dietdoctor.com/"
           target="_blank"
