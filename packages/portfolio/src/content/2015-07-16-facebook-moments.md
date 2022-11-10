@@ -19,7 +19,7 @@ tags:
 
 image: "facebook--moments"
 image_home: "facebook--moments"
-www: "https://singuerinc-b-reel.gitlab.io/com.facebook.moments/"
+www: "https://facebook-moments.singuerinc.com"
 priority: "priority-2"
 ---
 
