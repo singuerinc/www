@@ -17,7 +17,7 @@ tags:
   - as3
 image: "columna--colors"
 image_home: "columna--colors"
-www: "https://not-random-colors.netlify.com/"
+www: "https://not-random-colors.singuerinc.com/"
 priority: "priority-0"
 sitemap: false
 ---

@@ -20,7 +20,7 @@ tags:
   - video
 image: "medecins-du-monde--names-not-numbers"
 image_home: "medecins-du-monde--names-not-numbers"
-www: "https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/"
+www: null
 awards: ["award-awwwards_site_of_the_day", "thefwa_site_of_the_day"]
 priority: "priority-2"
 ---

@@ -18,7 +18,7 @@ tags:
   - "websockets"
 image: "zalando--ivy-park"
 image_home: "zalando--ivy-park"
-www: "https://singuerinc-b-reel.gitlab.io/com.zalando.ivypark/en_gb/"
+www: null
 priority: "priority-2"
 ---
 
