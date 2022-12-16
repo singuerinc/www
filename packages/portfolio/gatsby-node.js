@@ -7,10 +7,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const result = await graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
         edges {
           node {
             frontmatter {
@@ -40,9 +37,9 @@ exports.createPages = async ({ actions, graphql }) => {
         next: posts[index + 1] ? posts[index + 1].node.frontmatter : null,
         related: posts
           .filter(
-            p => p.node.frontmatter.category === node.frontmatter.category
+            (p) => p.node.frontmatter.category === node.frontmatter.category
           )
-          .map(p => p.node.frontmatter),
+          .map((p) => p.node.frontmatter),
       }, // additional data can be passed via context
     })
   })
