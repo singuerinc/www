@@ -19,7 +19,7 @@ export function CurrentStack() {
 
   return (
     <div
-      className={`aspect-[16/8] md:aspect-auto p-12 bg-blue-700 text-blue-200 xl:col-span-2 ${
+      className={`aspect-[16/8] md:aspect-auto p-12 bg-blue-700 text-blue-200 xl:col-span-2 shadow-inner ${
         bool && "bg-opacity-[0.98]"
       }`}
     >
