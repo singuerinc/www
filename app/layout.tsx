@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 const ibmPlex = IBM_Plex_Mono({
-  weight: ["400"],
+  weight: ["400", "600"],
   subsets: ["latin"],
   variable: "--font-ibm-plex",
   display: "block",
