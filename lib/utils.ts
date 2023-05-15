@@ -11,9 +11,15 @@ export const getProjectTitleEscaped = (title: IPost["title"]) =>
 export const getProjectUrl = (slug: IPost["slug"]) =>
   `https://www.singuerinc.com${slug}`;
 
+export const getAbsoluteProjectUrl = (slug: IPost["slug"]) =>
+  `https://www.singuerinc.com${slug}`;
+
 export const getProjectUrlEscaped = (url: string) => encodeURIComponent(url);
 
 export const getProjectImage = (image: IPost["image"]) =>
+  `./images/projects/${image}.jpg`;
+
+export const getAbsoluteProjectImage = (image: IPost["image"]) =>
   `https://www.singuerinc.com/images/projects/${image}.jpg`;
 
 export const dashify = (x: IPost) =>
