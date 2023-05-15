@@ -1,30 +1,47 @@
 "use client";
-import { useIntermittent } from "@/hooks/useIntermittent";
-import { IconBrandFacebook, IconBrandTypescript } from "@tabler/icons-react";
-import { useRouter } from "next/navigation";
-import { KeyboardEvent } from "react";
+import { useParkinson } from "@/hooks/useParkinson";
+import { useEffect, useState } from "react";
+
+const prompt = "stack";
 
 export function CurrentStack() {
-  const [bool] = useIntermittent(500);
-  const router = useRouter();
+  const [bool] = useParkinson(50);
+  const [i, setIdx] = useState(1);
+  const [text, setText] = useState("");
 
-  const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      router.push("/about");
-    }
-  };
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIdx((i) => ++i % 48);
+      setText(i < 6 ? prompt.substring(0, i) : "");
+    }, 250);
+    return () => clearInterval(id);
+  }, [i]);
 
   return (
     <div
-      className={`font-mono flex flex-col aspect-[16/8] md:aspect-auto p-12 bg-blue-700 text-blue-200 xl:col-span-3`}
+      className={`aspect-[16/8] md:aspect-auto p-12 bg-blue-700 text-blue-200 xl:col-span-2 ${
+        bool && "bg-opacity-[0.98]"
+      }`}
     >
-      <h3 className="text-xl">c:\&gt; dir</h3>
-      <ul className="grid grid-flow-row grid-cols-3 gap-2">
-        <li>Typescript</li>
-        <li>React</li>
-        <li>Next.js 13</li>
-        <li>GraphQL</li>
-      </ul>
+      <div className={`font-mono flex flex-col`}>
+        <ul
+          className={`grid grid-flow-row grid-cols-3 ${
+            i <= prompt.length + 1 && "hidden"
+          }`}
+        >
+          <li className="font-semibold">typescript</li>
+          <li className="font-semibold">react</li>
+          <li className="font-semibold">next.js</li>
+          <li className="font-semibold">javascript</li>
+          <li>node.js</li>
+          <li>zod</li>
+          <li>xstate</li>
+          <li>graphql</li>
+          <li>stripe-js</li>
+          <li></li>
+        </ul>
+        <h3 className="mt-2 font-semibold h-7">c:\&gt; {text}</h3>
+      </div>
     </div>
   );
 }
