@@ -68,8 +68,8 @@ export default async function Page({
   const pageUrlEscaped = getProjectUrlEscaped(pageUrl);
 
   const { prev, next, related } = { prev: null, next: null, related: [] };
-  const prevTitle = prev ? getProjectTitle(prev.client, prev.title) : null;
-  const nextTitle = next ? getProjectTitle(next.client, next.title) : null;
+  // const prevTitle = prev ? getProjectTitle(prev.client, prev.title) : null;
+  // const nextTitle = next ? getProjectTitle(next.client, next.title) : null;
 
   return (
     <article className="mb-32">
@@ -80,7 +80,7 @@ export default async function Page({
         }}
       /> */}
       <div itemScope itemType="http://schema.org/WebSite">
-        <ul className="prev-next-project">
+        {/* <ul className="prev-next-project">
           {next && (
             <li className="prev">
               <a href={next.path}>{nextTitle}</a>
@@ -91,7 +91,7 @@ export default async function Page({
               <a href={prev.path}>{prevTitle}</a>
             </li>
           )}
-        </ul>
+        </ul> */}
 
         <h1 className="project-title title">{projectTitle}</h1>
 
@@ -99,8 +99,8 @@ export default async function Page({
         <meta itemProp="contributor" content="Nahuel Scotti" />
 
         <meta itemProp="keywords" content={post.tech.join(",")} />
-        <meta itemProp="image" content={getProjectImage(image)} />
-        <meta itemProp="url" content={getProjectUrl(path)} />
+        <meta itemProp="image" content={getProjectImage(post.image)} />
+        <meta itemProp="url" content={getProjectUrl(post.slug)} />
         <img
           className="image"
           src={`/images/projects/${image}.jpg`}
@@ -194,7 +194,7 @@ export default async function Page({
       </ul>
       <hr />
       <h2 className="related-title">Related</h2>
-      <ul className="related-post" data-category="singuerinc">
+      {/* <ul className="related-post" data-category="singuerinc">
         {related
           .sort((a, b) => {
             return getProjectTitle(a.client, a.title)[0] <
@@ -209,7 +209,7 @@ export default async function Page({
               </a>
             </li>
           ))}
-      </ul>
+      </ul> */}
     </article>
   );
 }
