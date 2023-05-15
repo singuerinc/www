@@ -1,19 +1,14 @@
-import { useRouter } from "next/navigation";
-import ErrorPage from "next/error";
-import { getOnePostBySlug, getAllPosts, IPost } from "@/lib/post";
-import Head from "next/head";
 import markdownToHtml from "@/lib/markdownToHtml";
+import { IPost, getOnePostBySlug } from "@/lib/post";
 import {
+  getAbsoluteProjectImage,
+  getAbsoluteProjectUrl,
+  getProjectImage,
   getProjectTitle,
   getProjectTitleEscaped,
   getProjectUrl,
   getProjectUrlEscaped,
-  getProjectImage,
 } from "@/lib/utils";
-import image from "next/image";
-import path from "path";
-import { title } from "process";
-import { date } from "zod";
 
 // type PostType = {
 //   slug: string;
@@ -99,11 +94,11 @@ export default async function Page({
         <meta itemProp="contributor" content="Nahuel Scotti" />
 
         <meta itemProp="keywords" content={post.tech.join(",")} />
-        <meta itemProp="image" content={getProjectImage(post.image)} />
-        <meta itemProp="url" content={getProjectUrl(post.slug)} />
+        <meta itemProp="image" content={getAbsoluteProjectImage(post.image)} />
+        <meta itemProp="url" content={getAbsoluteProjectUrl(post.slug)} />
         <img
           className="image"
-          src={`/images/projects/${image}.jpg`}
+          src={getProjectImage(post.image)}
           alt="Blog"
           title="Blog"
         />

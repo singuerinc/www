@@ -8,11 +8,10 @@ export const getProjectTitle = (
 export const getProjectTitleEscaped = (title: IPost["title"]) =>
   encodeURIComponent(title);
 
-export const getProjectUrl = (slug: IPost["slug"]) =>
-  `https://www.singuerinc.com${slug}`;
+export const getProjectUrl = (slug: IPost["slug"]) => `/project/${slug}`;
 
 export const getAbsoluteProjectUrl = (slug: IPost["slug"]) =>
-  `https://www.singuerinc.com${slug}`;
+  `https://www.singuerinc.com/project/${slug}`;
 
 export const getProjectUrlEscaped = (url: string) => encodeURIComponent(url);
 
