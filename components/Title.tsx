@@ -2,7 +2,6 @@
 
 import { useIntermittent } from "@/hooks/useIntermittent";
 import { useParkinson } from "@/hooks/useParkinson";
-import { IconAnchor } from "@tabler/icons-react";
 import Link from "next/link";
 
 export function Title() {
@@ -10,7 +9,7 @@ export function Title() {
   const [bool2] = useIntermittent(1000);
 
   return (
-    <div className="relative flex flex-col justify-center col-span-2 p-12">
+    <li className="relative flex flex-col justify-center p-12 md:col-span-2">
       <Link href="/about" className="hover:underline">
         <span>nahuel scotti</span>
       </Link>
@@ -32,6 +31,6 @@ export function Title() {
           <span>dev</span>
         </h2>
       </div>
-    </div>
+    </li>
   );
 }
