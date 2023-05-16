@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-inter)", ...fontFamily.sans],
         mono: ["var(--font-ibm-plex)", ...fontFamily.mono],
+        barcode: ["var(--font-barcode)"],
       },
       screens: {
         "3xl": "1600px",

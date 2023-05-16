@@ -1,30 +1,30 @@
-import { IPost } from "./post";
+import { IProject } from "./post";
 
 export const getProjectTitle = (
-  client: IPost["client"],
-  title: IPost["title"]
+  client: IProject["client"],
+  title: IProject["title"]
 ) => (client === title ? title : [client, "·", title].join(" "));
 
-export const getProjectTitleEscaped = (title: IPost["title"]) =>
+export const getProjectTitleEscaped = (title: IProject["title"]) =>
   encodeURIComponent(title);
 
-export const getProjectUrl = (slug: IPost["slug"]) => `/project/${slug}`;
+export const getProjectUrl = (slug: IProject["slug"]) => `/project/${slug}`;
 
-export const getAbsoluteProjectUrl = (slug: IPost["slug"]) =>
+export const getAbsoluteProjectUrl = (slug: IProject["slug"]) =>
   `https://www.singuerinc.com/project/${slug}`;
 
 export const getProjectUrlEscaped = (url: string) => encodeURIComponent(url);
 
-export const getProjectImage = (image: IPost["image"]) =>
-  `./images/projects/${image}.jpg`;
+export const getProjectImage = (image: IProject["image"]) =>
+  `/images/projects/${image}.jpg`;
 
-export const getAbsoluteProjectImage = (image: IPost["image"]) =>
+export const getAbsoluteProjectImage = (image: IProject["image"]) =>
   `https://www.singuerinc.com/images/projects/${image}.jpg`;
 
-export const dashify = (x: IPost) =>
+export const dashify = (x: IProject) =>
   `${x.client} ${x.title}`.split(" ").join("-").toLowerCase();
 
-export const normalizeTitle = (x: IPost) =>
+export const normalizeTitle = (x: IProject) =>
   x.title === x.client ? x.title : `${x.client} · ${x.title}`;
 
 export const parse = (str: string) => {
