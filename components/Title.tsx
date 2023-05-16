@@ -9,10 +9,8 @@ export function Title() {
   const [bool2] = useIntermittent(1000);
 
   return (
-    <li className="relative flex flex-col justify-center p-12 bg-white md:col-span-2">
-      <Link href="/about" className="hover:underline">
-        <span>nahuel scotti</span>
-      </Link>
+    <li className="relative flex flex-col justify-center p-12 bg-white shrink-0 w-[40rem] text-black rounded">
+      <span>nahuel scotti</span>
       <div className="relative h-12">
         <h1
           className={`absolute top-0 z-10 text-4xl font-normal select-none ${
@@ -30,6 +28,17 @@ export function Title() {
           <span className={`px-2 ${bool2 && "opacity-0"}`}>|</span>
           <span>dev</span>
         </h2>
+      </div>
+      <div className="flex flex-col gap-x-2">
+        <Link href="/about" className="hover:underline">
+          <span>about me</span>
+        </Link>
+        <Link href="/blog" className="hover:underline">
+          <span>blog</span>
+        </Link>
+        <Link href="/blog" className="hover:underline">
+          <span>github</span>
+        </Link>
       </div>
     </li>
   );

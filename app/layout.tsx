@@ -54,14 +54,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${ibmPlex.variable} ${barcode.variable} ${lora.variable} w-full p-0 m-0`}
+      className={`${inter.variable} ${ibmPlex.variable} ${barcode.variable} ${lora.variable} min-h-screen min-w-full p-0 m-0`}
     >
-      <body className="flex flex-col w-full p-0 m-0">
+      <body className="flex flex-col justify-center min-w-full min-h-screen p-0 m-0">
         <main>
           {modal}
           {children}
         </main>
-        <footer>footer</footer>
       </body>
     </html>
   );

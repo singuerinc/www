@@ -13,7 +13,7 @@ tech:
 tags:
   - "open-source"
 
-image: "singuerinc--overlay-app"
+image: "" #"singuerinc--overlay-app"
 image_home: "singuerinc--overlay-app"
 www: "https://github.com/singuerinc/overlay"
 priority: "priority-2"

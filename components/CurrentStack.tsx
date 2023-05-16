@@ -19,7 +19,7 @@ export function CurrentStack() {
 
   return (
     <div
-      className={`aspect-[16/8] md:aspect-auto p-12 bg-blue-700 text-blue-200 xl:col-span-2 shadow-inner ${
+      className={`p-12 rounded-2xl shrink-0 w-[60rem] bg-blue-700 text-blue-200 shadow-inner ${
         bool && "bg-opacity-[0.98]"
       }`}
     >
@@ -37,7 +37,7 @@ export function CurrentStack() {
           <li>zod</li>
           <li>xstate</li>
           <li>graphql</li>
-          <li>stripe-js</li>
+          <li>tailwind.css</li>
           <li></li>
         </ul>
         <h3 className="mt-2 font-semibold h-7">c:\&gt; {text}</h3>

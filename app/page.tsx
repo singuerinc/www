@@ -1,6 +1,7 @@
-import { About } from "@/components/About";
 import { CurrentStack } from "@/components/CurrentStack";
-import { ProjectLink } from "@/components/ProjectLink";
+import { RandomColor } from "@/components/RandomColor";
+import { Terminal } from "@/components/Terminal";
+import { TicTacToe } from "@/components/TicTacToe";
 import { Title } from "@/components/Title";
 import { getAll } from "@/lib/project";
 import {
@@ -10,12 +11,13 @@ import {
   getProjectImage,
   normalizeTitle,
 } from "@/lib/utils";
+import getYear from "date-fns/fp/getYear";
 
 export default async function Page() {
   const projects = getAll();
 
   return (
-    <ul className="grid grid-cols-1 mx-auto md:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-4">
+    <ul className="flex gap-12 mx-auto">
       <Title />
       {projects.map((p, idx) => {
         const id = dashify(p);
@@ -25,10 +27,9 @@ export default async function Page() {
             <li
               key={p.slug}
               id={id}
-              className="relative w-full aspect-[16/8] bg-center bg-no-repeat bg-cover"
               itemScope
               itemType="http://schema.org/WebSite"
-              style={{ backgroundImage: `url(${getProjectImage(p.image)})` }}
+              className=""
             >
               <meta itemProp="name" content={title} />
               <meta itemProp="contributor" content="Nahuel Scotti" />
@@ -41,9 +42,27 @@ export default async function Page() {
                 content={getAbsoluteProjectImage(p.image)}
               />
               <meta itemProp="url" content={getAbsoluteProjectUrl(p.slug)} />
-              <ProjectLink project={p} />
+              <time className="block my-2 font-mono text-gray-200">
+                {getYear(p.date)}
+              </time>
+              <div
+                className="w-[40rem] aspect-[16/8] bg-center bg-no-repeat bg-cover rounded bg-gray-800"
+                style={{ backgroundImage: `url(${getProjectImage(p.image)})` }}
+              >
+                {/* <ProjectLink project={p} /> */}
+              </div>
+              {/* <h2 className="my-2 text-4xl font-semibold text-white">
+                {p.title}
+              </h2> */}
+              <h2 className="flex mt-2 font-semibold gap-x-2">
+                {p.client} • {p.title}
+              </h2>
+              <h3 className="text-sm">{p.role}</h3>
+              {/* <p className="font-mono text-xs lowercase">{p.tech.join(", ")}</p> */}
             </li>
-            {idx === 7 && <About />}
+            {idx === 2 && <RandomColor />}
+            {idx === 3 && <TicTacToe />}
+            {idx === 7 && <Terminal />}
             {idx === 11 && <CurrentStack />}
           </>
         );
