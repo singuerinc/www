@@ -8,6 +8,7 @@ import {
   getProjectUrl,
   getProjectUrlEscaped,
 } from "@/lib/utils";
+import Image from "next/image";
 
 export function ProjectDetail({ project }: { project: IProject }) {
   //   const content = await markdownToHtml(project.content || "");
@@ -38,7 +39,7 @@ export function ProjectDetail({ project }: { project: IProject }) {
   // const nextTitle = next ? getProjectTitle(next.client, next.title) : null;
 
   return (
-    <article className="mb-32">
+    <article className="px-12 bg-gray-100">
       {/* <Seo title={projectTitle} path={path} /> */}
       {/* <Helmet
         bodyAttributes={{
@@ -59,8 +60,6 @@ export function ProjectDetail({ project }: { project: IProject }) {
           )}
         </ul> */}
 
-        <h1 className="project-title title">{title}</h1>
-
         <meta itemProp="name" content={title} />
         <meta itemProp="contributor" content="Nahuel Scotti" />
 
@@ -70,12 +69,17 @@ export function ProjectDetail({ project }: { project: IProject }) {
           content={getAbsoluteProjectImage(project.image)}
         />
         <meta itemProp="url" content={getAbsoluteProjectUrl(project.slug)} />
-        <img
-          className="image"
-          src={getProjectImage(project.image)}
-          alt={title}
-          title={title}
-        />
+        <div className="relative -mx-12 bg-black">
+          <Image
+            className="w-full m-auto image"
+            width={1632}
+            height={772}
+            src={getProjectImage(project.image)}
+            alt={title}
+            title={title}
+          />
+        </div>
+        <h1 className="font-semibold font-lora text-7xl">{title}</h1>
         <table className="info">
           <tbody>
             <tr>

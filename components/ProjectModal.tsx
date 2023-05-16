@@ -24,7 +24,7 @@ export function ProjectModal({
   useEffect(() => {
     animate(0, 100, {
       delay: 1,
-      duration: 0.6,
+      duration: 1.6,
       onUpdate: (latest) => {
         if (latest === 100) {
           setFont("");
