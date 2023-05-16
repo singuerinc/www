@@ -3,7 +3,7 @@ import { useIntermittent } from "@/hooks/useIntermittent";
 import { useRouter } from "next/navigation";
 import { KeyboardEvent } from "react";
 
-export function About() {
+export function Terminal() {
   const [bool] = useIntermittent(500);
   const router = useRouter();
 
@@ -14,9 +14,9 @@ export function About() {
   };
 
   return (
-    <div className="bg-black aspect-[16/8] md:aspect-auto xl:col-span-2">
+    <div className="bg-black aspect-square w-[40rem]">
       <div
-        className={`flex h-full items-center text-green-400 font-mono text-2xl px-12 py-4 bg-green-900/30`}
+        className={`flex h-full items-center text-green-400 font-mono text-2xl px-12 py-4 bg-green-900/30 rounded-3xl`}
       >
         <span>$</span>
         <input
