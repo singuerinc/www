@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 
 // These styles apply to every route in the application
 import "./globals.css";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import {
+  IBM_Plex_Mono,
+  Inter,
+  Libre_Barcode_39,
+  Libre_Barcode_39_Extended,
+} from "next/font/google";
 
 const inter = Inter({
   weight: ["200", "400", "600"],
@@ -15,6 +20,13 @@ const ibmPlex = IBM_Plex_Mono({
   weight: ["400", "600"],
   subsets: ["latin"],
   variable: "--font-ibm-plex",
+  display: "block",
+});
+
+const barcode = Libre_Barcode_39({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-barcode",
   display: "block",
 });
 
@@ -33,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${ibmPlex.variable} w-full p-0 m-0`}
+      className={`${inter.variable} ${ibmPlex.variable} ${barcode.variable} w-full p-0 m-0`}
     >
       <body className="flex flex-col w-full p-0 m-0">
         <main>

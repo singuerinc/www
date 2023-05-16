@@ -1,11 +1,11 @@
 import fs from "fs";
-import { join } from "path";
 import matter from "gray-matter";
+import { join } from "path";
 import { z } from "zod";
 
-const postsDirectory = join(process.cwd(), "_posts");
+const projectsDirectory = join(process.cwd(), "_projects");
 
-const PostSchema = z.object({
+const ProjectSchema = z.object({
   slug: z.string(),
   date: z.date(),
   title: z.string(),
@@ -25,24 +25,24 @@ const PostSchema = z.object({
   sitemap: z.boolean().nullish(),
 });
 
-export type IPost = z.infer<typeof PostSchema>;
+export type IProject = z.infer<typeof ProjectSchema>;
 
-export function getOnePostBySlug(slug: string): IPost {
+export function getOneBySlug(slug: string): IProject {
   const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const fullPath = join(projectsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
   const merged = { ...data, path: `${realSlug}.md`, slug: realSlug, content };
 
-  return PostSchema.parse(merged);
+  return ProjectSchema.parse(merged);
 }
 
-export function getAllPosts(): IPost[] {
-  const slugs = fs.readdirSync(postsDirectory);
-  const posts = slugs
-    .map<IPost>((slug) => getOnePostBySlug(slug))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-  return posts;
+export function getAll(): IProject[] {
+  const slugs = fs.readdirSync(projectsDirectory);
+  const projects = slugs
+    .map<IProject>((slug) => getOneBySlug(slug))
+    // sort by date in descending order
+    .sort((p1, p2) => (p1.date > p2.date ? -1 : 1));
+  return projects;
 }

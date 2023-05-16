@@ -6,7 +6,7 @@
 
 @layer base {
   html {
-    @apply antialiased text-gray-800;
+    @apply antialiased text-gray-800 bg-black;
   }
 }
 

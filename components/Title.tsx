@@ -9,7 +9,7 @@ export function Title() {
   const [bool2] = useIntermittent(1000);
 
   return (
-    <li className="relative flex flex-col justify-center p-12 md:col-span-2">
+    <li className="relative flex flex-col justify-center p-12 bg-white md:col-span-2">
       <Link href="/about" className="hover:underline">
         <span>nahuel scotti</span>
       </Link>
