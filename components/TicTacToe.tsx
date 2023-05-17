@@ -1,6 +1,7 @@
 "use client";
-import { IconCircle, IconRepeat, IconX } from "@tabler/icons-react";
-import { useCallback, useEffect, useState } from "react";
+import { IconCircle, IconX } from "@tabler/icons-react";
+import { motion } from "framer-motion";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const shuffle = (o: any[]) => {
   const arr = [...o];
@@ -12,14 +13,18 @@ const shuffle = (o: any[]) => {
   return arr;
 };
 
+type PlayerX = "x";
+type PlayerO = "o";
+type BoardValue = null | PlayerX | PlayerO;
+
 // prettier-ignore
-const initBoard = [
-    0, 0, 0,
-    0, 0, 0,
-    0, 0, 0,
+const initBoard:BoardValue[] = [
+    null, null, null,
+    null, null, null,
+    null, null, null,
   ]
 
-function isWinner(board: number[]) {
+function isWinner(board: BoardValue[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -40,54 +45,75 @@ function isWinner(board: number[]) {
 }
 
 export function TicTacToe() {
-  const [winner, setWinner] = useState(false);
-  const [player, setPlayer] = useState(1);
+  const [wins, setWins] = useState<{ x: number; o: number }>({ x: 0, o: 0 });
+  const [player, setPlayer] = useState<PlayerX | PlayerO>("x");
   const [board, setBoard] = useState(initBoard);
 
-  const reset = useCallback(() => {
-    setPlayer(1);
-    setWinner(false);
+  const emptySquares = useMemo(
+    () =>
+      board.reduce(
+        (acc, c, idx) => (c === null ? [...acc, idx] : acc),
+        [] as number[]
+      ),
+    [board]
+  );
+
+  const reset = useCallback((winner: BoardValue) => {
+    console.log("reset");
+    if (winner !== null) {
+      setWins((w) => {
+        const ww = { ...w };
+        ww[winner]++;
+        return ww;
+      });
+    }
     setBoard(initBoard);
+    setPlayer("x");
   }, []);
 
   const updateBoard = useCallback(
-    (idx: number) => (player: number) => {
-      const canPlay = board[idx] === 0 && !winner;
-      if (canPlay) {
-        setBoard((b) => b.map((v, i) => (idx === i ? player : v)));
-        setPlayer((p) => (p === 1 ? 2 : 1));
-      }
-    },
-    [board, winner]
+    (idx: number) =>
+      (p: "x" | "o", wins: { x: number; o: number }, board: BoardValue[]) => {
+        const canPlay = board[idx] === null;
+        if (canPlay) {
+          setPlayer(p === "o" ? "x" : "o");
+          setBoard(board.map((v, i) => (idx === i ? p : v)));
+        }
+      },
+    []
   );
 
-  const cpuPlay = useCallback(() => {
-    // warning: smart AI here
-    const emptySquares = board.reduce(
-      (acc, c, idx) => (c === 0 ? [...acc, idx] : acc),
-      [] as number[]
-    );
+  useEffect(() => {
+    const winner = isWinner(board);
+    console.log({ winner });
 
-    if (emptySquares.length > 0) {
-      updateBoard(shuffle(emptySquares)[0])(1);
+    if (winner !== null) {
+      console.log("here1");
+      setTimeout(() => reset(winner), 1000);
     }
-  }, [board, updateBoard]);
+    // } else if (emptySquares.length === 0) {
+    //   console.log("here2");
+    //   setTimeout(() => reset(null), 1000);
+    // }
+  }, [board, emptySquares.length, reset]);
 
   useEffect(() => {
-    if (player === 1) {
-      cpuPlay();
+    if (player === "x") {
+      // warning: smart ai here
+      if (emptySquares.length > 0) {
+        updateBoard(shuffle(emptySquares)[0])("x", wins, board);
+      }
     }
-  }, [cpuPlay, player]);
-
-  useEffect(() => {
-    if (isWinner(board)) {
-      setWinner(true);
-      setTimeout(() => reset(), 1000);
-    }
-  }, [board, player, reset]);
+  }, [board, emptySquares, player, updateBoard, wins]);
 
   return (
-    <div className="flex flex-col items-center justify-center shrink-0">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
+      className="flex flex-col items-center justify-center mx-48 shrink-0"
+    >
+      <h2 className="mb-4">Wanna play?</h2>
+
       <div className="relative grid grid-cols-3 grid-rows-3 gap-2">
         <div className="absolute top-0 w-px h-full bg-gray-500 left-1/3" />
         <div className="absolute top-0 w-px h-full bg-gray-500 left-2/3" />
@@ -96,17 +122,23 @@ export function TicTacToe() {
         {board.map((v, i) => (
           <div
             key={i}
-            onClick={() => updateBoard(i)(2)}
-            className="flex items-center justify-center w-24 aspect-square"
+            onClick={() => updateBoard(i)("o", wins, board)}
+            className={`flex items-center justify-center w-24 aspect-square cursor-pointer ${
+              board[i] !== null ? "pointer-events-none" : "pointer-events-auto"
+            }`}
           >
-            {v === 1 ? (
+            {v === "x" ? (
               <IconX size={64} />
-            ) : v === 2 ? (
-              <IconCircle size={64} />
+            ) : v === "o" ? (
+              <IconCircle size={64} color="red" />
             ) : null}
           </div>
         ))}
       </div>
-    </div>
+      <p className="m-0 mt-2">
+        <span className="font-semibold">You</span> {wins["o"]} vs.{" "}
+        <span className="font-semibold">AI</span> {wins["x"]}
+      </p>
+    </motion.div>
   );
 }

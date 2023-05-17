@@ -1,5 +1,6 @@
 "use client";
 import { useIntermittent } from "@/hooks/useIntermittent";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { KeyboardEvent } from "react";
 
@@ -14,9 +15,13 @@ export function Terminal() {
   };
 
   return (
-    <div className="bg-black aspect-square w-[40rem]">
+    <motion.li
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
+      className="bg-black aspect-[4/3] w-[40rem]"
+    >
       <div
-        className={`flex h-full items-center text-green-400 font-mono text-2xl px-12 py-4 bg-green-900/30 rounded-3xl`}
+        className={`flex h-full items-center text-green-400 font-mono text-xl px-12 py-4 bg-green-900/30 rounded-3xl`}
       >
         <span>$</span>
         <input
@@ -26,6 +31,6 @@ export function Terminal() {
           onKeyDown={onKeyDown}
         />
       </div>
-    </div>
+    </motion.li>
   );
 }

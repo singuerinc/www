@@ -1,5 +1,6 @@
 "use client";
 import { useParkinson } from "@/hooks/useParkinson";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const prompt = "stack";
@@ -18,8 +19,10 @@ export function CurrentStack() {
   }, [i]);
 
   return (
-    <div
-      className={`p-12 rounded-2xl shrink-0 w-[60rem] bg-blue-700 text-blue-200 shadow-inner ${
+    <motion.li
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
+      className={`p-12 rounded-2xl shrink-0 w-[40rem] aspect-[4/3] bg-blue-700 text-blue-200 shadow-inner ${
         bool && "bg-opacity-[0.98]"
       }`}
     >
@@ -42,6 +45,6 @@ export function CurrentStack() {
         </ul>
         <h3 className="mt-2 font-semibold h-7">c:\&gt; {text}</h3>
       </div>
-    </div>
+    </motion.li>
   );
 }

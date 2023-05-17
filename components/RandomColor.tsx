@@ -2,6 +2,7 @@
 
 import { useParkinson } from "@/hooks/useParkinson";
 import Color from "colorjs.io";
+import { motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 
 const getColor = () =>
@@ -20,19 +21,25 @@ export function RandomColor() {
   useEffect(() => {
     const oc = getColor();
     const tc = new Color(oc);
-    tc.lch.l = 80;
+    tc.lch.l = 50;
+    tc.lch.c = 50;
     setTextColor(tc.toString({ format: "hex" }));
     setColor(oc);
   }, [x, bool]);
 
   return (
-    <li
+    <motion.li
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
       onMouseMove={onMouseMove}
-      className="flex flex-col justify-center p-12 shrink-0 w-[40rem] rounded transition-colors"
+      className="flex flex-col justify-between aspect-video mx-48 p-12 shrink-0 w-[40rem] rounded transition-colors"
       style={{
         backgroundColor: color,
       }}
     >
+      <h2 className="text-white" style={{ color: textColor }}>
+        One of 16.777.215 colors you can see in this screen.
+      </h2>
       <span
         className="text-6xl leading-4 font-barcode"
         style={{ color: textColor }}
@@ -45,6 +52,6 @@ export function RandomColor() {
       >
         {color}
       </span>
-    </li>
+    </motion.li>
   );
 }
