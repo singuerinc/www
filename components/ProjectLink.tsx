@@ -13,7 +13,7 @@ export function ProjectLink({ project }: { project: IProject }) {
       initial={{ opacity: 0 }}
       animate={"rest"}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="w-[40rem] aspect-[16/8] bg-center bg-no-repeat bg-cover rounded bg-gray-800"
+      className="w-[40rem] aspect-[16/8] bg-center bg-no-repeat bg-cover rounded bg-gray-800 border border-gray-800"
       style={{ backgroundImage: `url(${getProjectImage(project.image)})` }}
     >
       <div
