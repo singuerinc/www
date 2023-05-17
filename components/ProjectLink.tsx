@@ -16,30 +16,36 @@ export function ProjectLink({ project }: { project: IProject }) {
       className="w-[40rem] aspect-[16/8] bg-center bg-no-repeat bg-cover rounded bg-gray-800"
       style={{ backgroundImage: `url(${getProjectImage(project.image)})` }}
     >
-      <Link
-        href={getProjectUrl(project.slug)}
+      <div
+        // href={getProjectUrl(project.slug)}
         className="w-[40rem] aspect-[16/8] relative flex flex-col h-full md:items-start md:hover:shadow-2xl transition-shadow"
       >
-        <motion.time
+        <motion.div
           variants={{
             rest: { top: "-1rem", opacity: 0 },
             hover: { top: "-2rem", opacity: 1 },
           }}
-          className="absolute block font-mono font-semibold text-gray-200"
+          className="absolute flex items-baseline gap-x-2"
         >
-          {getYear(project.date)}
-        </motion.time>
+          <time className="font-mono font-semibold">
+            {getYear(project.date)}
+          </time>
+          <div className="text-xs text-gray-500">
+            {project.tech?.map((v) => `#${v}`).join(" ")}
+          </div>
+        </motion.div>
         <motion.div
           variants={{
             rest: { bottom: "-3rem", opacity: 0 },
-            hover: { bottom: "-4rem", opacity: 1 },
+            hover: { top: "calc(100% + 0.5rem)", opacity: 1 },
           }}
           className="absolute flex flex-col"
         >
-          <h2 className="font-semibold ">{title}</h2>
+          <h2 className="text-lg">{title}</h2>
           <h3 className="text-sm font-semibold">{project.role}</h3>
+          {/* <p dangerouslySetInnerHTML={{ __html: project.content ?? "" }} /> */}
         </motion.div>
-      </Link>
+      </div>
     </motion.div>
   );
 }

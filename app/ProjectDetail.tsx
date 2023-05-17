@@ -63,7 +63,7 @@ export function ProjectDetail({ project }: { project: IProject }) {
         <meta itemProp="name" content={title} />
         <meta itemProp="contributor" content="Nahuel Scotti" />
 
-        <meta itemProp="keywords" content={project.tech.join(",")} />
+        <meta itemProp="keywords" content={project.tech?.join(",")} />
         <meta
           itemProp="image"
           content={getAbsoluteProjectImage(project.image)}
@@ -130,7 +130,7 @@ export function ProjectDetail({ project }: { project: IProject }) {
             )}
             <tr>
               <td className="info-title">Tech</td>
-              <td>{project.tech.join(" · ")}</td>
+              <td>{project.tech?.join(" · ")}</td>
             </tr>
             {project.awards && (
               <tr>
@@ -146,7 +146,7 @@ export function ProjectDetail({ project }: { project: IProject }) {
         </table>
         <div
           className="project-content"
-          dangerouslySetInnerHTML={{ __html: project.content }}
+          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
         />
       </div>
       <hr />

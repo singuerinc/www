@@ -9,6 +9,9 @@ module.exports = {
   presets: [require("open-color/open-color.js")],
   theme: {
     extend: {
+      colors: {
+        transparent: "transparent",
+      },
       fontFamily: {
         sans: ["var(--font-inter)", ...fontFamily.sans],
         mono: ["var(--font-ibm-plex)", ...fontFamily.mono],

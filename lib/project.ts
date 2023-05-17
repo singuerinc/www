@@ -13,6 +13,7 @@ const ProjectSchema = z.object({
     "random-colors",
     "tic-tac-toe",
     "terminal",
+    "about-me",
     "current-stack",
   ]),
   slug: z.string(),

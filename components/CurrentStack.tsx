@@ -22,11 +22,11 @@ export function CurrentStack() {
     <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className={`p-12 rounded-2xl shrink-0 w-[40rem] aspect-[4/3] bg-blue-700 text-blue-200 shadow-inner ${
+      className={`p-12 rounded-lg shrink-0 w-[40rem] aspect-[4/3] bg-blue-700 text-blue-200 shadow-inner ${
         bool && "bg-opacity-[0.98]"
       }`}
     >
-      <div className={`font-mono flex flex-col`}>
+      <div className={`font-mono text-xl flex flex-col`}>
         <ul
           className={`grid grid-flow-row grid-cols-3 ${
             i <= prompt.length + 1 && "hidden"

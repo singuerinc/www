@@ -1,15 +1,9 @@
+import { Navigation } from "@/components/Navigation";
 import type { Metadata } from "next";
 
 // These styles apply to every route in the application
+import { IBM_Plex_Mono, Inter, Libre_Barcode_39, Lora } from "next/font/google";
 import "./globals.css";
-import {
-  IBM_Plex_Mono,
-  Inter,
-  Josefin_Sans,
-  Libre_Barcode_39,
-  Libre_Barcode_39_Extended,
-  Lora,
-} from "next/font/google";
 
 const inter = Inter({
   weight: ["200", "400", "600"],
@@ -57,6 +51,7 @@ export default function RootLayout({
       className={`${inter.variable} ${ibmPlex.variable} ${barcode.variable} ${lora.variable} min-h-screen min-w-full p-0 m-0`}
     >
       <body className="flex flex-col justify-center min-w-full min-h-screen p-0 m-0">
+        <Navigation />
         <main>
           {modal}
           {children}
