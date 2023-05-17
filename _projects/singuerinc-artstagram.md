@@ -3,26 +3,19 @@ type: website
 date: 2020-02-20
 title: "Arstagram"
 category: "singuerinc"
-role: "Full-stack Developer"
+role: "Full-Stack Developer"
 client: "singuerinc"
 agency:
   - "singuerinc"
 tech:
+  - "react"
   - "typescript"
 tags:
-  - "library"
+  - "experiment"
   - "open-source"
-image: "better-dni"
-image_home: "better-dni"
-www: null
-priority: "priority-2"
+image: "artstagram"
+image_home: "artstagram"
+www: https://artstagram.singuerinc.com/
 ---
 
-In this website I was focused mainly on the backend.
-
-On the frontend, the section "My Park" takes the data from several statics json files.
-
-I developed a Node.js application that communicates frequently with an external API.
-
-This API collects data from different social media sources, such as Instagram and Facebook.
-Once the data is fetched, the program updates the json files with the new data and serves the latest documents to the client.
+Built using TypeScript and React, this ArtStation-inspired client features a meticulously designed Instagram-style feed, where users can immerse themselves in a curated collection of breathtaking artwork.

@@ -40,11 +40,11 @@ Below is the video that we used as base:
 
 <div class="video-wrapper">
 
-<video style="position: absolute; top: 0; left: 0; width: 100%;height: 100%;" controls>
+<!-- <video style="position: absolute; top: 0; left: 0; width: 100%;height: 100%;" controls>
     <source src="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/files/video/MDM_INTRO_ASSEMBLE_EDIT_BLACK_720p_4.mp4" type="video/mp4">
     <source src="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/files/video/MDM_INTRO_ASSEMBLE_EDIT_BLACK_720p_4.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
     <source src="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/files/video/MDM_INTRO_ASSEMBLE_EDIT_BLACK_720p_4.ogv" type="video/ogg; codecs=&quot;theora, vorbis&quot;"></video>
 
-</div>
+</div> -->
 
-Check it on the <a href="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/" target="_blank" rel="noopener">website</a> to see the final result.
+<!-- Check it on the <a href="https://singuerinc-b-reel.gitlab.io/org.names-not-numbers.www/en_int/" target="_blank" rel="noopener">website</a> to see the final result. -->

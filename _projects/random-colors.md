@@ -1,5 +1,5 @@
 ---
 type: random-colors
-date: 2022-05-01
+date: 2008-10-10
 title: "Random Colors"
 ---

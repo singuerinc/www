@@ -18,11 +18,9 @@ export function Terminal() {
     <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="bg-black aspect-[4/3] w-[40rem]"
+      className="bg-black aspect-[4/3] w-[40rem] rounded-lg"
     >
-      <div
-        className={`flex h-full items-center text-green-400 font-mono text-xl px-12 py-4 bg-green-900/30 rounded-3xl`}
-      >
+      <div className="flex items-center h-full px-12 py-4 font-mono text-xl text-teal-400 bg-teal-900/10">
         <span>$</span>
         <input
           type={"text"}

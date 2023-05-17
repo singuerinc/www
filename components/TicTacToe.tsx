@@ -1,5 +1,5 @@
 "use client";
-import { IconCircle, IconX } from "@tabler/icons-react";
+import { IconCircle, IconDeviceGamepad, IconX } from "@tabler/icons-react";
 import { useMachine, useSelector } from "@xstate/react";
 import { motion } from "framer-motion";
 import { useCallback, useMemo } from "react";
@@ -160,10 +160,9 @@ export function TicTacToe() {
     <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="flex flex-col justify-center mx-48 text-orange-800 gap-y-2 shrink-0"
+      className="flex flex-col justify-center text-orange-800 gap-y-2 shrink-0"
     >
-      <h2>Wanna play?</h2>
-      <div className="flex flex-col items-center justify-center p-6 border-2 border-orange-600 rounded-xl">
+      <div className="flex flex-col items-center justify-center p-6 border-2 border-orange-600 rounded-lg">
         <div className="relative grid grid-cols-3 grid-rows-3 gap-2">
           <div className="absolute top-0 w-0.5 h-full bg-orange-800 left-1/3" />
           <div className="absolute top-0 w-0.5 h-full bg-orange-800 left-2/3" />
@@ -180,7 +179,7 @@ export function TicTacToe() {
               }`}
             >
               <IconX
-                className="hidden group-hover:block opacity-10"
+                className="hidden opacity-50 group-hover:block"
                 size={64}
               />
               {v === "x" ? (

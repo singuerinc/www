@@ -12,7 +12,7 @@ export function Repo({ repo }: { repo: IProject }) {
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
     >
       <Link
-        className="flex flex-col justify-between p-6 text-black bg-gray-200 transition-colors hover:bg-white drop-shadow-xl aspect-video w-[20rem] shrink-0 rounded-xl"
+        className="flex flex-col justify-between p-6 text-black bg-gray-200 transition-colors hover:bg-white drop-shadow-xl aspect-video w-[20rem] shrink-0 rounded-lg"
         href={repo.www!}
       >
         <IconBrandGithubFilled />

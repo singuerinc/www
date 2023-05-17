@@ -13,9 +13,8 @@ export function Title() {
     <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="relative flex flex-col justify-center p-12 bg-white shrink-0 w-[40rem] text-[#212529] rounded"
+      className="relative flex flex-col justify-center shrink-0 w-[24rem] rounded"
     >
-      <span>nahuel scotti</span>
       <div className="relative h-12">
         <h1
           className={`absolute top-0 z-10 text-4xl font-normal select-none ${
@@ -35,9 +34,6 @@ export function Title() {
         </h2>
       </div>
       <div className="flex flex-col gap-x-2">
-        <Link href="/about" className="hover:underline">
-          <span>about me</span>
-        </Link>
         <Link href="/blog" className="hover:underline">
           <span>blog</span>
         </Link>
