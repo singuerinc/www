@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2014-03-15
 title: Names not numbers
 category: "b-reel"

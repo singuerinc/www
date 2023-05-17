@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2012-06-18
 title: My time is now
 category: "doubleyou"

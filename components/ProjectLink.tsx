@@ -18,7 +18,7 @@ export function ProjectLink({ project }: { project: IProject }) {
     >
       <Link
         href={getProjectUrl(project.slug)}
-        className="w-[40rem] aspect-[16/8] relative flex flex-col h-full md:items-start md:hover:shadow-2xl"
+        className="w-[40rem] aspect-[16/8] relative flex flex-col h-full md:items-start md:hover:shadow-2xl transition-shadow"
       >
         <motion.time
           variants={{
@@ -36,9 +36,7 @@ export function ProjectLink({ project }: { project: IProject }) {
           }}
           className="absolute flex flex-col"
         >
-          <h2 className="font-semibold ">
-            {project.client} • {project.title}
-          </h2>
+          <h2 className="font-semibold ">{title}</h2>
           <h3 className="text-sm font-semibold">{project.role}</h3>
         </motion.div>
       </Link>

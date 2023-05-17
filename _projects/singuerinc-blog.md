@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2017-11-08
 title: "Blog"
 category: "singuerinc"

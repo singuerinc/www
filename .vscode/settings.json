@@ -1,5 +1,13 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "cSpell.words": ["Arstagram", "josefin", "nums", "scotti", "singuerinc"]
+  "cSpell.words": [
+    "Arstagram",
+    "colorjs",
+    "josefin",
+    "nums",
+    "scotti",
+    "singuerinc",
+    "toolset"
+  ]
 }

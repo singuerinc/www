@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2008-06-23
 title: Colors
 category: "doubleyou"

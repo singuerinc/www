@@ -13,7 +13,7 @@ export function Title() {
     <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="relative flex flex-col justify-center p-12 bg-white shrink-0 w-[40rem] text-black rounded"
+      className="relative flex flex-col justify-center p-12 bg-white shrink-0 w-[40rem] text-[#212529] rounded"
     >
       <span>nahuel scotti</span>
       <div className="relative h-12">

@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2011-06-01
 title: A1 Me gusta
 category: "doubleyou"

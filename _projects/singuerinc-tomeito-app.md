@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2017-05-18
 title: "Tomeito-app"
 category: "singuerinc"

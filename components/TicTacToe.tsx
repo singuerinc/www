@@ -2,7 +2,7 @@
 import { IconCircle, IconX } from "@tabler/icons-react";
 import { useMachine, useSelector } from "@xstate/react";
 import { motion } from "framer-motion";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo } from "react";
 import { assign, createMachine } from "xstate";
 
 type PlayerX = "x";
@@ -143,67 +143,6 @@ const machine = createMachine<{
 );
 
 export function TicTacToe() {
-  // const [wins, setWins] = useState<{ x: number; o: number }>({ x: 0, o: 0 });
-  // const [player, setPlayer] = useState<PlayerX | PlayerO>("x");
-  // const [board, setBoard] = useState(initBoard);
-
-  // const emptySquares = useMemo(
-  //   () =>
-  //     board.reduce(
-  //       (acc, c, idx) => (c === null ? [...acc, idx] : acc),
-  //       [] as number[]
-  //     ),
-  //   [board]
-  // );
-
-  // const reset = useCallback((winner: BoardValue) => {
-  //   console.log("reset");
-  //   if (winner !== null) {
-  //     setWins((w) => {
-  //       const ww = { ...w };
-  //       ww[winner]++;
-  //       return ww;
-  //     });
-  //   }
-  //   setBoard(initBoard);
-  //   setPlayer("x");
-  // }, []);
-
-  // const updateBoard = useCallback(
-  //   (idx: number) =>
-  //     (p: "x" | "o", wins: { x: number; o: number }, board: BoardValue[]) => {
-  //       const canPlay = board[idx] === null;
-  //       if (canPlay) {
-  //         setPlayer(p === "o" ? "x" : "o");
-  //         setBoard(board.map((v, i) => (idx === i ? p : v)));
-  //       }
-  //     },
-  //   []
-  // );
-
-  // useEffect(() => {
-  //   const winner = isWinner(board);
-  //   console.log({ winner });
-
-  //   if (winner !== null) {
-  //     console.log("here1");
-  //     setTimeout(() => reset(winner), 1000);
-  //   }
-  //   // } else if (emptySquares.length === 0) {
-  //   //   console.log("here2");
-  //   //   setTimeout(() => reset(null), 1000);
-  //   // }
-  // }, [board, emptySquares.length, reset]);
-
-  // useEffect(() => {
-  //   if (player === "x") {
-  //     // warning: smart ai here
-  //     if (emptySquares.length > 0) {
-  //       updateBoard(shuffle(emptySquares)[0])("x", wins, board);
-  //     }
-  //   }
-  // }, [board, emptySquares, player, updateBoard, wins]);
-
   const m = useMemo(() => machine, []);
   const [state, send, actor] = useMachine(m);
   const enabled = state.matches("playerXTurn");
@@ -213,51 +152,51 @@ export function TicTacToe() {
   const updateBoard = useCallback(
     (idx: number) => () => {
       send({ type: "UPDATE_BOARD", idx });
-      // const canPlay = board[idx] === null;
-      // if (canPlay) {
-      //   setPlayer(p === "o" ? "x" : "o");
-      //   setBoard(board.map((v, i) => (idx === i ? p : v)));
-      // }
     },
     [send]
   );
 
   return (
-    <motion.div
+    <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="flex flex-col items-center justify-center mx-48 shrink-0"
+      className="flex flex-col justify-center mx-48 text-orange-800 gap-y-2 shrink-0"
     >
-      <h2 className="mb-4">Wanna play?</h2>
-      <div className="relative grid grid-cols-3 grid-rows-3 gap-2">
-        <div className="absolute top-0 w-px h-full bg-gray-500 left-1/3" />
-        <div className="absolute top-0 w-px h-full bg-gray-500 left-2/3" />
-        <div className="absolute left-0 w-full h-px bg-gray-500 top-1/3" />
-        <div className="absolute left-0 w-full h-px bg-gray-500 top-2/3" />
-        {board.map((v, i) => (
-          <div
-            key={i}
-            onClick={updateBoard(i)}
-            className={`flex group items-center justify-center w-24 aspect-square ${
-              !enabled || board[i] !== null
-                ? "pointer-events-none"
-                : "pointer-events-auto cursor-pointer"
-            }`}
-          >
-            <IconX className="hidden group-hover:block opacity-10" size={64} />
-            {v === "x" ? (
-              <IconX size={64} />
-            ) : v === "o" ? (
-              <IconCircle size={64} color="red" />
-            ) : null}
-          </div>
-        ))}
+      <h2>Wanna play?</h2>
+      <div className="flex flex-col items-center justify-center p-6 border-2 border-orange-600 rounded-xl">
+        <div className="relative grid grid-cols-3 grid-rows-3 gap-2">
+          <div className="absolute top-0 w-0.5 h-full bg-orange-800 left-1/3" />
+          <div className="absolute top-0 w-0.5 h-full bg-orange-800 left-2/3" />
+          <div className="absolute left-0 w-full h-0.5 bg-orange-800 top-1/3" />
+          <div className="absolute left-0 w-full h-0.5 bg-orange-800 top-2/3" />
+          {board.map((v, i) => (
+            <div
+              key={i}
+              onClick={updateBoard(i)}
+              className={`flex group items-center justify-center w-24 aspect-square ${
+                !enabled || board[i] !== null
+                  ? "pointer-events-none"
+                  : "pointer-events-auto cursor-pointer"
+              }`}
+            >
+              <IconX
+                className="hidden group-hover:block opacity-10"
+                size={64}
+              />
+              {v === "x" ? (
+                <IconX size={64} />
+              ) : v === "o" ? (
+                <IconCircle size={64} />
+              ) : null}
+            </div>
+          ))}
+        </div>
       </div>
-      <p className="flex m-0 mt-2 gap-x-2">
+      <p className="flex m-0 gap-x-2">
         <span className="font-semibold">You</span> <span>{winsX}</span>
         <span>vs.</span>
         <span className="font-semibold">AI</span> <span>{winsO}</span>
       </p>
-    </motion.div>
+    </motion.li>
   );
 }

@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2015-07-16
 title: "Moments"
 category: "b-reel"

@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2009-12-03
 title: Estudio Risa
 category: "doubleyou"

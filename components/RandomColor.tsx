@@ -37,9 +37,6 @@ export function RandomColor() {
         backgroundColor: color,
       }}
     >
-      <h2 className="text-white" style={{ color: textColor }}>
-        One of 16.777.215 colors you can see in this screen.
-      </h2>
       <span
         className="text-6xl leading-4 font-barcode"
         style={{ color: textColor }}

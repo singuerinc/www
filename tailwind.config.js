@@ -6,6 +6,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  presets: [require("open-color/open-color.js")],
   theme: {
     extend: {
       fontFamily: {

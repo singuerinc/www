@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2016-05-04
 title: "Ivy Park"
 category: "b-reel"

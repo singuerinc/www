@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2014-09-23
 title: "Byggd för att ta skit"
 category: "b-reel"
