@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2015-09-01
 title: "Vive"
 category: "b-reel"

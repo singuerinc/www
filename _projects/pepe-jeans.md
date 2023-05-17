@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2012-06-20
 title: Store
 category: "doubleyou"

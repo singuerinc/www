@@ -1,4 +1,4 @@
-import { IProject } from "./post";
+import { IProject } from "./project";
 
 export const getProjectTitle = (
   client: IProject["client"],

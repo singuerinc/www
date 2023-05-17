@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2017-07-15
 title: "Subway"
 category: "singuerinc"

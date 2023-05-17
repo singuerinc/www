@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2010-01-01
 title: Driving Experience
 category: "doubleyou"

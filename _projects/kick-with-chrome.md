@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2014-06-15
 title: Kick with Chrome
 category: "b-reel"

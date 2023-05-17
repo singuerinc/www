@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2011-04-01
 title: "Revívelo"
 category: "doubleyou"

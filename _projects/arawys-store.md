@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2015-09-21
 title: Store
 category: "singuerinc"

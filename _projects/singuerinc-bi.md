@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2016-11-16
 title: "Bi"
 category: "singuerinc"

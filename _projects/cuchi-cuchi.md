@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2012-07-20
 title: "Guardería"
 category: "singuerinc"

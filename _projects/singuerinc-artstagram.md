@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2020-02-20
 title: "Arstagram"
 category: "singuerinc"

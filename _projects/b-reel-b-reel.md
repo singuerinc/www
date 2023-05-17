@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2016-02-15
 title: "B-REEL"
 category: "b-reel"

@@ -1,5 +1,5 @@
 ---
-layout: post
+type: website
 date: 2015-02-20
 title: "Overlay"
 category: "singuerinc"
