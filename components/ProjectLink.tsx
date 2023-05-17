@@ -1,20 +1,47 @@
+"use client";
 import { IProject } from "@/lib/project";
-import { getProjectUrl, normalizeTitle } from "@/lib/utils";
+import { getProjectImage, getProjectUrl, normalizeTitle } from "@/lib/utils";
+import { getYear } from "date-fns/fp";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export function ProjectLink({ project }: { project: IProject }) {
   const title = normalizeTitle(project);
   return (
-    <Link
-      href={getProjectUrl(project.slug)}
-      className="w-[40rem] aspect-[16/8] flex flex-col items-end h-full transition-all w-link md:p-12 group md:justify-end md:items-start md:hover:shadow-2xl md:hover:z-50 md:bg-gradient-to-t md:hover:from-black md:hover:to-black/70"
+    <motion.div
+      whileHover="hover"
+      initial={{ opacity: 0 }}
+      animate={"rest"}
+      whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
+      className="w-[40rem] aspect-[16/8] bg-center bg-no-repeat bg-cover rounded bg-gray-800"
+      style={{ backgroundImage: `url(${getProjectImage(project.image)})` }}
     >
-      <h3 className="hidden w-full pb-2 mb-2 text-lg font-normal text-white transition-all pointer-events-none md:opacity-0 md:flex md:group-hover:opacity-100 md:border-b border-b-white/20">
-        {title}
-      </h3>
-      <div className="hidden w-full pt-2 font-mono text-xs font-medium text-white transition-all pointer-events-none md:opacity-0 md:flex md:group-hover:opacity-100 text-white/70">
-        {project.tech.join(" · ")}
-      </div>
-    </Link>
+      <Link
+        href={getProjectUrl(project.slug)}
+        className="w-[40rem] aspect-[16/8] relative flex flex-col h-full md:items-start md:hover:shadow-2xl"
+      >
+        <motion.time
+          variants={{
+            rest: { top: "-1rem", opacity: 0 },
+            hover: { top: "-2rem", opacity: 1 },
+          }}
+          className="absolute block font-mono font-semibold text-gray-200"
+        >
+          {getYear(project.date)}
+        </motion.time>
+        <motion.div
+          variants={{
+            rest: { bottom: "-3rem", opacity: 0 },
+            hover: { bottom: "-4rem", opacity: 1 },
+          }}
+          className="absolute flex flex-col"
+        >
+          <h2 className="font-semibold ">
+            {project.client} • {project.title}
+          </h2>
+          <h3 className="text-sm font-semibold">{project.role}</h3>
+        </motion.div>
+      </Link>
+    </motion.div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useIntermittent } from "@/hooks/useIntermittent";
 import { useParkinson } from "@/hooks/useParkinson";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export function Title() {
@@ -9,7 +10,11 @@ export function Title() {
   const [bool2] = useIntermittent(1000);
 
   return (
-    <li className="relative flex flex-col justify-center p-12 bg-white shrink-0 w-[40rem] text-black rounded">
+    <motion.li
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
+      className="relative flex flex-col justify-center p-12 bg-white shrink-0 w-[40rem] text-black rounded"
+    >
       <span>nahuel scotti</span>
       <div className="relative h-12">
         <h1
@@ -40,6 +45,6 @@ export function Title() {
           <span>github</span>
         </Link>
       </div>
-    </li>
+    </motion.li>
   );
 }
