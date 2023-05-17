@@ -18,13 +18,13 @@ export function Terminal() {
     <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="bg-black aspect-[4/3] w-[40rem] rounded-lg"
+      className="bg-black border-4 border-gray-800 aspect-[4/3] w-[40rem] rounded-lg"
     >
-      <div className="flex items-center h-full px-12 py-4 font-mono text-xl text-teal-400 bg-teal-900/10">
+      <div className="flex items-start h-full p-12 font-mono text-xl text-teal-400 bg-teal-900/10">
         <span>$</span>
         <input
           type={"text"}
-          className="h-full px-4 bg-transparent outline-none shrink"
+          className="px-4 bg-transparent outline-none shrink"
           defaultValue={"open 'about me'"}
           onKeyDown={onKeyDown}
         />
