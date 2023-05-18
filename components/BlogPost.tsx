@@ -13,7 +13,7 @@ export function BlogPost({ post }: { post: IProject }) {
       className="flex flex-col p-6 gap-y-2 shrink-0"
     >
       <h3 className="text-cyan-300">blog post</h3>
-      <div className="flex flex-col justify-center items-center gap-y-2 p-4 w-[30rem] bg-cyan-300 text-gray-900 aspect-video shadow-xl rounded-lg">
+      <div className="flex flex-col justify-center items-center gap-y-2 p-4 w-[20rem] aspect-square lg:w-[30rem] bg-cyan-300 text-gray-900 lg:aspect-video shadow-xl rounded-lg">
         {/* <div
           className="w-full h-4"
           style={{
@@ -22,7 +22,7 @@ export function BlogPost({ post }: { post: IProject }) {
           }}
         /> */}
         <Link href={post.www!} target="_blank">
-          <h2 className="my-12 text-4xl text-center hover:underline">
+          <h2 className="my-12 text-3xl text-center font-lora hover:underline">
             {post.title}
           </h2>
         </Link>
