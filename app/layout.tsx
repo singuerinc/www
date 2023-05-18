@@ -34,11 +34,11 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Nahuel Scotti. Frontend developer. Portfolio.",
-  description: "My work as frontend developer and engineering manager.",
+  title: "Nahuel Scotti. Frontend Developer. Portfolio.",
+  description: "My work as Frontend Developer and Engineering Manager.",
   openGraph: {
-    title: "Nahuel Scotti. Frontend developer. Portfolio.",
-    description: "My work as frontend developer and engineering manager.",
+    title: "Nahuel Scotti. Frontend Developer. Portfolio.",
+    description: "My work as Frontend Developer and Engineering Manager.",
     url: "https://singuerinc.com/",
   },
 };
