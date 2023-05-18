@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     description: "My work as Frontend Developer and Engineering Manager.",
     url: "https://singuerinc.com/",
   },
+  twitter: {
+    title: "Nahuel Scotti. Frontend Developer. Portfolio.",
+    description: "My work as Frontend Developer and Engineering Manager.",
+  },
 };
 
 export default function RootLayout({
