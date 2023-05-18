@@ -10,10 +10,10 @@ export function BlogPost({ post }: { post: IProject }) {
     <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="flex flex-col p-6 gap-y-2 shrink-0"
+      className="flex flex-col gap-y-2 shrink-0"
     >
       <h3 className="text-cyan-300">blog post</h3>
-      <div className="flex flex-col justify-center items-center gap-y-2 p-4 w-[20rem] aspect-square lg:w-[30rem] bg-cyan-300 text-gray-900 lg:aspect-video shadow-xl rounded-lg">
+      <div className="flex flex-col justify-center items-center gap-y-2 p-4 w-full aspect-square lg:w-[30rem] bg-cyan-300 text-gray-900 lg:aspect-video shadow-xl rounded-lg">
         {/* <div
           className="w-full h-4"
           style={{
@@ -34,7 +34,7 @@ export function BlogPost({ post }: { post: IProject }) {
           }}
         /> */}
       </div>
-      <h3 className="text-cyan-300">
+      <h3 className="text-sm text-cyan-300">
         {formatDistance(post.date, new Date(), { addSuffix: true })}
       </h3>
     </motion.li>

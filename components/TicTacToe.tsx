@@ -160,10 +160,10 @@ export function TicTacToe() {
     <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="flex flex-col justify-center text-orange-800 gap-y-2 shrink-0"
+      className="flex flex-col justify-center text-orange-800 gap-y-2 shrink-0 w-full lg:w-[20rem]"
     >
       <div className="flex flex-col items-center justify-center p-6 border-2 border-orange-600 rounded-lg">
-        <div className="relative grid grid-cols-3 grid-rows-3 gap-2">
+        <div className="relative grid w-full grid-cols-3 grid-rows-3 gap-2">
           <div className="absolute top-0 w-0.5 h-full bg-orange-800 left-1/3" />
           <div className="absolute top-0 w-0.5 h-full bg-orange-800 left-2/3" />
           <div className="absolute left-0 w-full h-0.5 bg-orange-800 top-1/3" />
@@ -172,7 +172,7 @@ export function TicTacToe() {
             <div
               key={i}
               onClick={updateBoard(i)}
-              className={`flex group items-center justify-center w-24 aspect-square ${
+              className={`flex group items-center justify-center aspect-square ${
                 !enabled || board[i] !== null
                   ? "pointer-events-none"
                   : "pointer-events-auto cursor-pointer"

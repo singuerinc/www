@@ -16,6 +16,7 @@ export function Website({ project }: { project: IProject }) {
       id={id}
       itemScope
       itemType="http://schema.org/WebSite"
+      className="w-full lg:w-[40rem]"
     >
       <meta itemProp="name" content={title} />
       <meta itemProp="contributor" content="Nahuel Scotti" />

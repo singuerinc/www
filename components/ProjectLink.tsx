@@ -13,12 +13,12 @@ export function ProjectLink({ project }: { project: IProject }) {
       initial={{ opacity: 0 }}
       animate={"rest"}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="w-[20rem] aspect-square lg:w-[40rem] lg:aspect-[16/8] bg-center bg-no-repeat bg-cover rounded-lg bg-gray-800 border border-gray-800"
+      className="w-full aspect-square lg:w-[40rem] lg:aspect-[16/8] bg-center bg-no-repeat bg-cover rounded-lg bg-gray-800 border border-gray-800"
       style={{ backgroundImage: `url(${getProjectImage(project.image)})` }}
     >
       <div
         // href={getProjectUrl(project.slug)}
-        className="w-[20rem] aspect-square lg:w-[40rem] lg:aspect-[16/8] relative flex flex-col h-full"
+        className="w-full aspect-square lg:w-[40rem] lg:aspect-[16/8] relative flex flex-col h-full"
       >
         <motion.div
           variants={{

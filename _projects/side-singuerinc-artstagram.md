@@ -13,7 +13,7 @@ tech:
 tags:
   - "experiment"
   - "open-source"
-image: "artstagram"
+image: "singuerinc--artstagram"
 image_home: "artstagram"
 www: https://artstagram.singuerinc.com/
 excerpt: "Unofficial/Unsolicited ArtStation client with an Instagram inspired feed."

@@ -79,27 +79,7 @@ export function ProjectDetail({ project }: { project: IProject }) {
             title={title}
           />
         </div>
-        <h1 className="text-5xl">{project.title}</h1>
-        <div
-          className="my-12"
-          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
-        />
-        <div
-          className="my-12"
-          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
-        />
-        <div
-          className="my-12"
-          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
-        />
-        <div
-          className="my-12"
-          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
-        />
-        <div
-          className="my-12"
-          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
-        />
+        <h1 className="my-12 text-5xl">{project.title}</h1>
         <div
           className="my-12"
           dangerouslySetInnerHTML={{ __html: project.content ?? "" }}

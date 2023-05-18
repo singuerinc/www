@@ -48,9 +48,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${ibmPlex.variable} ${barcode.variable} ${lora.variable} min-h-screen min-w-full p-0 m-0`}
+      className={`${inter.variable} ${ibmPlex.variable} ${barcode.variable} ${lora.variable} lg:overflow-hidden lg:h-screen min-w-full p-0 m-0`}
     >
-      <body className="flex flex-col justify-center min-w-full min-h-screen p-0 m-0">
+      <body className="flex flex-col justify-center min-w-full p-0 m-0 lg:h-screen lg:overflow-x-scroll lg:overflow-y-hidden">
         <Navigation />
         <main>
           {modal}

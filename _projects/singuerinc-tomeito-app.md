@@ -24,7 +24,7 @@ image: "singuerinc--tomeito-app"
 image_home: "singuerinc--tomeito-app"
 www: "https://tomeito-app.singuerinc.com/"
 more: "https://blog.singuerinc.com/app/macos/vuejs/electron/2017/05/09/introducing-tomeito/"
-priority: "priority-2"
+excerpt: "Tomeito is a minimalist app for macOS and web, applying the Pomodoro Technique. Powered by Electron, node, Vue.js, and Vuex, it offers a sleek interface for efficient time management and heightened productivity."
 ---
 
 Tomeito: Simple, elegant, tasty.
