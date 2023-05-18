@@ -26,17 +26,18 @@ export function RandomColor() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
       // onMouseMove={onMouseMove}
-      className="flex flex-col gap-y-4 justify-between shrink-0 w-full lg:w-[40rem]"
+      className="flex flex-col gap-y-4 justify-between shrink-0 w-[10rem]"
     >
       <div
-        className="transition-colors rounded aspect-video"
+        className="flex items-center justify-center transition-colors rounded-full aspect-square"
         style={{
           backgroundColor: color,
         }}
-      />
-      <span className="font-mono text-xl tabular-nums" style={{ color }}>
-        {color}
-      </span>
+      >
+        <span className="font-mono text-xl text-center text-white tabular-nums">
+          {color}
+        </span>
+      </div>
     </motion.li>
   );
 }

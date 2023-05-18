@@ -25,8 +25,10 @@ export function Timeline({ projects }: { projects: IProject[] }) {
 
           let size;
 
-          if (project.type === "website" || project.type === "random-colors") {
+          if (project.type === "website") {
             size = "w-[40rem]";
+          } else if (project.type === "random-colors") {
+            size = "w-[10rem]";
           } else if (project.type === "blog-post" || project.type === "story") {
             size = "w-[30rem]";
           } else if (project.type === "terminal") {
