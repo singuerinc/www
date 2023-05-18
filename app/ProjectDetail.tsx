@@ -39,7 +39,7 @@ export function ProjectDetail({ project }: { project: IProject }) {
   // const nextTitle = next ? getProjectTitle(next.client, next.title) : null;
 
   return (
-    <article className="px-12 bg-gray-100">
+    <article className="px-12 text-gray-900">
       {/* <Seo title={projectTitle} path={path} /> */}
       {/* <Helmet
         bodyAttributes={{
@@ -79,27 +79,51 @@ export function ProjectDetail({ project }: { project: IProject }) {
             title={title}
           />
         </div>
-        <h1 className="font-semibold font-lora text-7xl">{title}</h1>
-        <table className="info">
+        <h1 className="text-5xl">{project.title}</h1>
+        <div
+          className="my-12"
+          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
+        />
+        <div
+          className="my-12"
+          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
+        />
+        <div
+          className="my-12"
+          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
+        />
+        <div
+          className="my-12"
+          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
+        />
+        <div
+          className="my-12"
+          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
+        />
+        <div
+          className="my-12"
+          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
+        />
+        <table>
           <tbody>
             <tr>
-              <td className="info-role">My role</td>
+              <td>My role</td>
               <td>{project.role}</td>
             </tr>
             <tr>
-              <td className="info-title">Date release</td>
+              <td>Date release</td>
               <td>{project.date.toString()}</td>
             </tr>
             <tr>
-              <td className="info-title">Client</td>
+              <td>Client</td>
               <td>{project.client}</td>
             </tr>
             <tr>
-              <td className="info-title">Agency</td>
+              <td>Agency</td>
               <td>{project.agency}</td>
             </tr>
             <tr>
-              <td className="info-title">Website</td>
+              <td>Website</td>
               <td>
                 {project.www ? (
                   <a
@@ -116,7 +140,7 @@ export function ProjectDetail({ project }: { project: IProject }) {
             </tr>
             {project.more && (
               <tr>
-                <td className="info-title">More info</td>
+                <td>More info</td>
                 <td>
                   <a
                     href={project.more}
@@ -129,12 +153,12 @@ export function ProjectDetail({ project }: { project: IProject }) {
               </tr>
             )}
             <tr>
-              <td className="info-title">Tech</td>
+              <td>Tech</td>
               <td>{project.tech?.join(" · ")}</td>
             </tr>
             {project.awards && (
               <tr>
-                <td className="info-awards">Awards</td>
+                <td>Awards</td>
                 <td>
                   {project.awards.map((award, idx) => (
                     <div key={idx} className={`award ${award}`} />
@@ -144,14 +168,10 @@ export function ProjectDetail({ project }: { project: IProject }) {
             )}
           </tbody>
         </table>
-        <div
-          className="project-content"
-          dangerouslySetInnerHTML={{ __html: project.content ?? "" }}
-        />
       </div>
       <hr />
-      <h2 className="share-title">Share</h2>
-      <ul className="share-post">
+      <h2>Share</h2>
+      <ul>
         <li>
           <a
             className="twitter"
@@ -174,7 +194,7 @@ export function ProjectDetail({ project }: { project: IProject }) {
         </li>
       </ul>
       <hr />
-      <h2 className="related-title">Related</h2>
+      <h2>Related</h2>
       {/* <ul className="related-post" data-category="singuerinc">
         {related
           .sort((a, b) => {

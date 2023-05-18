@@ -179,7 +179,7 @@ export function TicTacToe() {
               }`}
             >
               <IconX
-                className="hidden opacity-50 group-hover:block"
+                className="hidden opacity-50 lg:group-hover:block"
                 size={64}
               />
               {v === "x" ? (

@@ -19,6 +19,7 @@ const ProjectSchema = z.object({
   slug: z.string(),
   date: z.date(),
   title: z.string(),
+  excerpt: z.string().nullish(),
   category: z.string().nullish(),
   role: z.string().nullish(),
   client: z.string().nullish(),
