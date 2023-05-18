@@ -24,7 +24,9 @@ export function Title() {
             }`}
           >
             <span>singuerinc</span>
-            <span className={`px-2 ${bool2 && "opacity-0"}`}>|</span>
+            <span className={`text-cyan-300 px-2 ${bool2 && "opacity-0"}`}>
+              |
+            </span>
             <span>dev</span>
           </h1>
           <h2
@@ -49,7 +51,7 @@ export function Title() {
         </div>
       </div>
       <IconArrowRight
-        className="mx-12 text-gray-600 transition-colors cursor-pointer hover:text-white"
+        className="hidden mx-12 text-gray-600 transition-colors cursor-pointer lg:block hover:text-white"
         size={"4rem"}
         stroke={1}
         onClick={() =>

@@ -20,6 +20,7 @@ image: "pepe-jeans"
 image_home: "pepe-jeans_50"
 www: null
 priority: "priority-1"
+excerpt: At DoubleYou, we were tasked with redesigning and developing the frontend of Pepe Jeans' e-commerce platform. Using Java and Magnolia, we created a dynamic frontend with customizable layouts through the Magnolia UI. Embracing HTML5, CSS3, and JavaScript/Backbone, we crafted a fully responsive and mobile-first website. The design followed a 12-grid-based layout using Bootstrap, ensuring a modern and reactive user experience.
 ---
 
 Working at Doubleyou, Pepe Jeans asked us to redesign and develop their ~~new~~ old e-commerce frontend.

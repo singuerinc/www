@@ -1,3 +1,4 @@
+import isAfter from "date-fns/isAfter";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
@@ -7,6 +8,7 @@ const projectsDirectory = join(process.cwd(), "_projects");
 
 const ProjectSchema = z.object({
   type: z.enum([
+    "story",
     "website",
     "blog-post",
     "repo",
@@ -16,7 +18,9 @@ const ProjectSchema = z.object({
     "about-me",
     "current-stack",
   ]),
+  status: z.enum(["published", "draft"]).default("published"),
   slug: z.string(),
+  bg_color: z.string().nullish(),
   date: z.date(),
   title: z.string(),
   excerpt: z.string().nullish(),
@@ -53,7 +57,8 @@ export function getAll(): IProject[] {
   const slugs = fs.readdirSync(projectsDirectory);
   const projects = slugs
     .map<IProject>((slug) => getOneBySlug(slug))
-    // sort by date in descending order
-    .sort((p1, p2) => (p1.date > p2.date ? -1 : 1));
+    .filter((p) => p.type !== "story")
+    .filter((p) => p.status === "published")
+    .sort((p1, p2) => (isAfter(p1.date, p2.date) ? -1 : 1));
   return projects;
 }

@@ -25,6 +25,7 @@ awards:
     "award-inspirational-festival",
     "award-premios-genio",
   ]
+excerpt: During Euro2012, we created a real-time Flash application that processed Twitter data to determine the top player of each match. We also integrated the Facebook API to capture user messages about the players. The application was developed in ActionScript 3 using the Robotlegs framework, allowing for efficient development and management of the application's components.
 ---
 
 During Euro2012, we developed a Flash application that was processing real time data from Twitter, and was displaying which was the top player of the match.

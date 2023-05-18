@@ -22,7 +22,7 @@ image: "arawys--store"
 image_home: "arawys--store"
 www: "https://www.arawys.com"
 priority: "priority-2"
-excerpt: "I seamlessly integrated PrestaShop for Arawys, an e-commerce platform in Peru, merging European fashion trends with the energetic essence of South America, delivering a unique online shopping experience for women"
+excerpt: I seamlessly integrated PrestaShop for Arawys, an e-commerce platform in Peru, merging European fashion trends with the energetic essence of South America, delivering a unique online shopping experience for women.
 ---
 
 Arawys was the perfect excuse to explore the world of e-commerce.

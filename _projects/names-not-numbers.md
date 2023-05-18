@@ -22,6 +22,7 @@ image_home: "medecins-du-monde--names-not-numbers"
 www: null
 awards: ["award-awwwards_site_of_the_day", "thefwa_site_of_the_day"]
 priority: "priority-2"
+excerpt: This website/experience showcases a synchronized video where a specific image, out of the 400 available names/images, is inserted at a predetermined time. By precisely timing the insertion of the chosen image, the illusion of a unique video customized with the selected name is created. The process involves carefully coordinating the timing and placement of the images within the video to achieve the desired effect.
 ---
 
 This website/experience has one thing: a video.

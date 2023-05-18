@@ -162,6 +162,7 @@ export function TicTacToe() {
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
       className="flex flex-col justify-center text-orange-800 gap-y-2 shrink-0 w-full lg:w-[20rem]"
     >
+      <h3 className="font-semibold">Take a break</h3>
       <div className="flex flex-col items-center justify-center p-6 border-2 border-orange-600 rounded-lg">
         <div className="relative grid w-full grid-cols-3 grid-rows-3 gap-2">
           <div className="absolute top-0 w-0.5 h-full bg-orange-800 left-1/3" />

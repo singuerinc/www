@@ -21,9 +21,10 @@ image_home: "atrapalo--revivelo"
 priority: "priority-0"
 www: null
 awards: ["award-sol_plata", "award-laus", "award-efi"]
+excerpt: During the early 2010s, web experiences resembled engaging games, captivating users for 10 to 15 minutes. However, in the current landscape, user attention spans have significantly decreased, requiring instant communication. This project, developed in 2011, showcased the complexity of retrieving content from Facebook's API, and my enjoyment stemmed from creating Flash experiences with intricate animations and mechanics.
 ---
 
-There was a time when we used to build web experience that were like small games. They were inmersive and the user could spend from 10 or 15 minutes engaging.
+There was a time when we used to build web experience that were like small games. They were immersive and the user could spend from 10 or 15 minutes engaging.
 That is not possible anymore, you can not retain a user for more than few seconds. You have to say what you have to say in an instant.
 
 This project was made in 2011, at that time getting content from Facebook through the API was quite a complex task, and I enjoyed a lot making Flash experiences with bunch of animations and complex mechanics.

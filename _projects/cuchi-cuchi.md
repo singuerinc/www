@@ -25,6 +25,7 @@ image: "cuchi-cuchi"
 image_home: "cuchi-cuchi_50"
 www: "https://cuchi-cuchi.netlify.com"
 priority: "priority-1"
+excerpt: In collaboration with Antonio and Ilaria, we developed a colorful and engaging single-page website for a local kindergarten. Featuring smooth transitions, captivating photography, and animations, it provides a fresh environment overview for young children. With creative freedom, we explored different technologies and settled on using CoffeeScript, a stylish choice for writing JavaScript in 2012. The result is a visually appealing platform that highlights the kindergarten's inviting atmosphere.
 ---
 
 In collaboration with my friends Antonio and Ilaria we developed this webpage for a local kindergarten.

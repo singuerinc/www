@@ -4,7 +4,7 @@ date: 2017-07-15
 title: "Subway"
 category: "singuerinc"
 role: "Developer"
-client: "singuerinc"
+client: side project
 agency:
   - "singuerinc"
 tech:
@@ -21,6 +21,7 @@ image_home: "singuerinc--subway-viz"
 www: "https://subway-singuerinc.netlify.com/"
 more: "https://github.com/singuerinc/subway"
 priority: "priority-2"
+excerpt: Barcelona Subway Simulation is a personal experiment inspired by my fascination with transportation systems and games like OpenTTD. The simulation aims to replicate the synchronization of a subway system without relying on external APIs for data. It features a simple AI where trains load and unload cargo, make decisions based on their status and predefined routes, and encounter failures that can cause congestion.
 ---
 
 Barcelona Subway Simulation.

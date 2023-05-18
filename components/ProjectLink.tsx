@@ -1,12 +1,11 @@
 "use client";
 import { IProject } from "@/lib/project";
-import { getProjectImage, getProjectUrl, normalizeTitle } from "@/lib/utils";
-import { getYear } from "date-fns/fp";
+import { getProjectImage, getProjectUrl } from "@/lib/utils";
+import formatRelative from "date-fns/formatRelative";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 export function ProjectLink({ project }: { project: IProject }) {
-  const title = normalizeTitle(project);
   return (
     <motion.div
       whileHover="hover"
@@ -14,7 +13,12 @@ export function ProjectLink({ project }: { project: IProject }) {
       animate={"rest"}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
       className="w-full aspect-square lg:w-[40rem] lg:aspect-[16/8] bg-center bg-no-repeat bg-cover rounded-lg bg-gray-800 border border-gray-800"
-      style={{ backgroundImage: `url(${getProjectImage(project.image)})` }}
+      style={{
+        backgroundImage: project.image
+          ? `url(${getProjectImage(project.image)})`
+          : "none",
+        backgroundColor: project.bg_color ?? "initial",
+      }}
     >
       <div
         // href={getProjectUrl(project.slug)}
@@ -27,17 +31,18 @@ export function ProjectLink({ project }: { project: IProject }) {
           }}
           className="absolute flex items-baseline gap-x-2"
         >
-          <time className="font-mono font-semibold">
-            {getYear(project.date)}
-          </time>
+          <h4 className="font-semibold">{project.client}</h4>
         </motion.div>
         <motion.div
           variants={{
             rest: { scale: 0.95, opacity: 0 },
             hover: { scale: 1, opacity: 1 },
           }}
-          className="absolute flex flex-col justify-between w-full h-full p-12 text-gray-900 bg-white rounded-lg gap-y-2"
+          className="absolute flex flex-col justify-between w-full h-full p-12 overflow-y-scroll text-gray-900 bg-white rounded-lg gap-y-2"
         >
+          <time className="text-sm text-gray-700">
+            {formatRelative(project.date, new Date())}
+          </time>
           <p className="m-0">{project.excerpt}</p>
           {/* <table className="text-sm">
             <tbody>
@@ -99,9 +104,21 @@ export function ProjectLink({ project }: { project: IProject }) {
               )}
             </tbody>
           </table> */}
-          <Link className="hover:underline" href={getProjectUrl(project.slug)}>
+          {/* <Link className="hover:underline" href={getProjectUrl(project.slug)}>
             Read more
-          </Link>
+          </Link> */}
+          {project.www && (
+            <Link
+              className="text-gray-700 hover:underline"
+              href={project.www}
+              target="_blank"
+            >
+              Launch
+            </Link>
+          )}
+          {!project.www && (
+            <span className="text-gray-700">Currently offline</span>
+          )}
         </motion.div>
         <motion.div
           variants={{
@@ -110,7 +127,7 @@ export function ProjectLink({ project }: { project: IProject }) {
           }}
           className="absolute flex flex-col"
         >
-          <h2 className="text-lg">{title}</h2>
+          <h2 className="text-lg">{project.title}</h2>
           <h3 className="text-sm font-semibold">{project.role}</h3>
           {/* <p dangerouslySetInnerHTML={{ __html: project.content ?? "" }} /> */}
         </motion.div>

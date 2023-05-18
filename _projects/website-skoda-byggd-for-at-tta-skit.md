@@ -18,8 +18,8 @@ tags:
   - "b-reel"
 image: "skoda--byggd-for-att-ta-skit"
 image_home: "skoda--byggd-for-att-ta-skit"
-www: "https://singuerinc-b-reel.gitlab.io/se.byggdforatttaskit.www/"
 priority: "priority-2"
+excerpt: I worked on a project where visitors could throw mud at a Skoda car in real-time. We built a frontend app for streaming the car's video and a backend dashboard using AngularJS, Websockets, Node.js, and MongoDB. Messages left by users were converted into "amount of mud" thrown. Managers controlled timers and project stages.
 ---
 
 As a full-stack developer this project was one of those that you would like to do over and over again.
