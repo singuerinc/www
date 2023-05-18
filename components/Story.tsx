@@ -14,7 +14,7 @@ export function Story({ post }: { post: IProject }) {
       <h3 className="text-sm text-center text-teal-800">
         {format(post.date, "yyyy/MM/dd")}
       </h3>
-      <h2 className="text-3xl text-center text-teal-600 font-lora">
+      <h2 className="text-3xl font-semibold text-center text-teal-600 font-lora">
         {post.title}
       </h2>
       <p className="m-0 text-center">{post.content}</p>

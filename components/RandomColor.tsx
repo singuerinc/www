@@ -28,9 +28,6 @@ export function RandomColor() {
       // onMouseMove={onMouseMove}
       className="flex flex-col gap-y-4 justify-between shrink-0 w-full lg:w-[40rem]"
     >
-      <span className="text-6xl font-barcode" style={{ color }}>
-        {color.substring(1)}
-      </span>
       <div
         className="transition-colors rounded aspect-video"
         style={{
