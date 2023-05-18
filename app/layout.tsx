@@ -36,6 +36,11 @@ const lora = Lora({
 export const metadata: Metadata = {
   title: "Nahuel Scotti. Frontend developer. Portfolio.",
   description: "My work as frontend developer and engineering manager.",
+  openGraph: {
+    title: "Nahuel Scotti. Frontend developer. Portfolio.",
+    description: "My work as frontend developer and engineering manager.",
+    url: "https://singuerinc.com/",
+  },
 };
 
 export default function RootLayout({
