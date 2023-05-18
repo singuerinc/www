@@ -10,6 +10,18 @@
   }
 }
 
+.title-gradient {
+  -webkit-background-clip: text;
+  background-image: -webkit-linear-gradient(left, #9775fa, #97759a);
+  background-image: linear-gradient(to right, #9775fa, #97759a);
+  -webkit-text-fill-color: transparent;
+}
+
+.with-border:after {
+  content: "";
+  @apply absolute pointer-events-none top-2 bottom-2 right-2 left-2 border-gray-900/30 rounded-lg border-2;
+}
+
 ul,
 ol,
 dl {

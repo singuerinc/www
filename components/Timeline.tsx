@@ -23,35 +23,32 @@ export function Timeline({ projects }: { projects: IProject[] }) {
           const showYear = projectYear !== lastYear;
           lastYear = projectYear;
 
+          let size;
+
           if (project.type === "website" || project.type === "random-colors") {
-            return (
-              <div key={idx} className="shrink-0 w-[40rem]">
-                {showYear && projectYear}
-              </div>
-            );
+            size = "w-[40rem]";
           } else if (project.type === "blog-post" || project.type === "story") {
-            return (
-              <div key={idx} className="shrink-0 w-[30rem]">
-                {showYear && projectYear}
-              </div>
-            );
+            size = "w-[30rem]";
           } else if (project.type === "terminal") {
-            return (
-              <div key={idx} className="shrink-0 w-[24rem]">
-                {showYear && projectYear}
-              </div>
-            );
+            size = "w-[24rem]";
           } else if (
             project.type === "current-stack" ||
             project.type === "tic-tac-toe" ||
             project.type === "repo"
           ) {
-            return (
-              <div key={idx} className="shrink-0 w-[20rem]">
-                {showYear && projectYear}
-              </div>
-            );
+            size = "w-[20rem]";
           }
+
+          return (
+            <div
+              key={idx}
+              className={`shrink-0 pl-4 ${size} ${
+                showYear && "border-l border-white"
+              }`}
+            >
+              {showYear && projectYear}
+            </div>
+          );
         })}
       </div>
     </div>

@@ -20,7 +20,7 @@ image_home: "fcb--somos-uno"
 priority: "priority-0"
 www: null
 awards: ["award-sol_bronce"]
-excerpt: In collaboration with Nike, we developed a compelling application for FC Barcelona fans to unite under the statement "we are one." Using Flash technology, we leveraged Papervision to create interactive 3D t-shirts. The response was remarkable, with over 172,000 t-shirts generated and shared within a few hours, and an impressive total of around 280,000 within a couple of days. This project successfully engaged fans and fostered a sense of unity among FC Barcelona supporters worldwide.
+excerpt: In collaboration with Nike, we developed a compelling app for FC Barcelona fans to unite under "we are one." Using Flash and Papervision, we created interactive 3D t-shirts. Over 172,000 t-shirts were generated and shared in hours, reaching around 280,000 in days. This project engaged fans and fostered unity among FC Barcelona supporters globally.
 ---
 
 I am a big fan of Boca Juniors, but since I was living in Barcelona for almost 10 years I could say that I feel something when I see a FC Barcelona match.

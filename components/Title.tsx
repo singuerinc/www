@@ -5,10 +5,21 @@ import { useParkinson } from "@/hooks/useParkinson";
 import { IconArrowRight } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useCallback, useState } from "react";
 
 export function Title() {
+  const [hasClicked, setClicked] = useState(false);
   const [bool1] = useParkinson(25);
   const [bool2] = useIntermittent(1000);
+
+  const onClickOnArrow = useCallback(() => {
+    document.querySelector("#about")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "center",
+    });
+    setClicked(true);
+  }, []);
 
   return (
     <motion.li
@@ -17,7 +28,7 @@ export function Title() {
       className="relative flex items-center justify-center w-full shrink-0"
     >
       <div className="relative flex flex-col flex-1">
-        <div className="relative w-full h-12">
+        <div className={`relative w-full h-12`}>
           <h1
             className={`absolute top-0 z-10 text-4xl font-normal select-none ${
               !bool1 && "opacity-70 skew-x-6"
@@ -51,16 +62,12 @@ export function Title() {
         </div>
       </div>
       <IconArrowRight
-        className="hidden mx-12 text-gray-600 transition-colors cursor-pointer lg:block hover:text-white"
+        className={`hidden mx-12 text-gray-600 transition-colors cursor-pointer ${
+          !hasClicked && "lg:block"
+        } hover:text-white`}
         size={"4rem"}
         stroke={1}
-        onClick={() =>
-          document.querySelector("#about")?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "center",
-          })
-        }
+        onClick={onClickOnArrow}
       />
     </motion.li>
   );

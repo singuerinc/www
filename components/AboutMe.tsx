@@ -8,7 +8,7 @@ export function AboutMe() {
       id="about"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="relative lg:mx-48 text-xl text-violet-400 flex items-center justify-center shrink-0 w-full aspect-square lg:w-[40rem] lg:aspect-video"
+      className="relative lg:mx-48 text-xl flex items-center justify-center shrink-0 w-full aspect-square lg:w-[40rem] lg:aspect-video"
     >
       {/* <Image
         alt="Nahuel"
@@ -16,7 +16,7 @@ export function AboutMe() {
         height={300}
         src="/images/Nahuel_1x1.jpg"
       /> */}
-      <div className="flex flex-col gap-y-2">
+      <div className="flex flex-col gap-y-2 title-gradient">
         <p className="m-0">
           Hi. I&apos;m Nahuel Scotti, a versatile professional with a strong
           focus on web development. With a background in graphic design,
