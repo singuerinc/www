@@ -31,14 +31,14 @@ export function ProjectLink({ project }: { project: IProject }) {
           }}
           className="absolute flex items-baseline gap-x-2"
         >
-          <h4 className="font-semibold">{project.client}</h4>
+          <h4 className="text-sm font-semibold">{project.client}</h4>
         </motion.div>
         <motion.div
           variants={{
             rest: { scale: 0.95, opacity: 0 },
             hover: { scale: 1, opacity: 1 },
           }}
-          className="absolute flex flex-col justify-between w-full h-full p-12 overflow-y-scroll text-gray-900 bg-white rounded-lg gap-y-2"
+          className="absolute flex flex-col justify-between w-full h-full px-12 py-8 overflow-y-scroll text-gray-900 bg-white rounded-lg gap-y-2"
         >
           <time className="text-sm text-gray-700">
             {formatRelative(project.date, new Date())}
@@ -109,7 +109,7 @@ export function ProjectLink({ project }: { project: IProject }) {
           </Link> */}
           {project.www && (
             <Link
-              className="text-gray-700 hover:underline"
+              className="text-sm text-gray-700 hover:underline"
               href={project.www}
               target="_blank"
             >
@@ -117,7 +117,7 @@ export function ProjectLink({ project }: { project: IProject }) {
             </Link>
           )}
           {!project.www && (
-            <span className="text-gray-700">Currently offline</span>
+            <span className="text-sm text-gray-700">Currently offline</span>
           )}
         </motion.div>
         <motion.div

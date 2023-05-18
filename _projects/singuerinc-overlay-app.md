@@ -16,8 +16,8 @@ tags:
   - "as3"
   - "air"
 
-image: "singuerinc--overlay-app"
-image_home: "singuerinc--overlay-app"
+image: "singuerinc--overlay-app-2"
+image_home: "singuerinc--overlay-app-2"
 www: "https://github.com/singuerinc/overlay"
 priority: "priority-2"
 excerpt: Overlay is an open source application that started as a fun project but soon became an essential tool in my daily workflow. It provides a simple yet powerful feature of overlaying images on any application, serving as a guide for achieving pixel-perfect designs. Originally developed in ActionScript, I later ported it to Electron, utilizing JavaScript and React.
