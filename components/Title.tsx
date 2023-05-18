@@ -2,6 +2,7 @@
 
 import { useIntermittent } from "@/hooks/useIntermittent";
 import { useParkinson } from "@/hooks/useParkinson";
+import { IconArrowRight } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -13,34 +14,52 @@ export function Title() {
     <motion.li
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="relative flex flex-col justify-center shrink-0 w-[24rem] rounded"
+      className="relative flex items-center justify-center w-full shrink-0"
     >
-      <div className="relative h-12">
-        <h1
-          className={`absolute top-0 z-10 text-4xl font-normal select-none ${
-            !bool1 && "opacity-70 skew-x-6"
-          }`}
-        >
-          <span>singuerinc</span>
-          <span className={`px-2 ${bool2 && "opacity-0"}`}>|</span>
-          <span>dev</span>
-        </h1>
-        <h2
-          className={`absolute top-0 select-none bottom-24 text-4xl text-red-600`}
-        >
-          <span>singuerinc</span>
-          <span className={`px-2 ${bool2 && "opacity-0"}`}>|</span>
-          <span>dev</span>
-        </h2>
+      <div className="relative flex flex-col flex-1">
+        <div className="relative w-full h-12">
+          <h1
+            className={`absolute top-0 z-10 text-4xl font-normal select-none ${
+              !bool1 && "opacity-70 skew-x-6"
+            }`}
+          >
+            <span>singuerinc</span>
+            <span className={`px-2 ${bool2 && "opacity-0"}`}>|</span>
+            <span>dev</span>
+          </h1>
+          <h2
+            className={`absolute top-0 select-none bottom-24 text-4xl text-red-600`}
+          >
+            <span>singuerinc</span>
+            <span className={`px-2 ${bool2 && "opacity-0"}`}>|</span>
+            <span>dev</span>
+          </h2>
+        </div>
+        <div className="flex flex-col">
+          <div>
+            <Link href="/blog" className="hover:underline">
+              blog
+            </Link>
+          </div>
+          <div>
+            <Link href="/blog" className="hover:underline">
+              github
+            </Link>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col gap-x-2">
-        <Link href="/blog" className="hover:underline">
-          <span>blog</span>
-        </Link>
-        <Link href="/blog" className="hover:underline">
-          <span>github</span>
-        </Link>
-      </div>
+      <IconArrowRight
+        className="mx-12 text-gray-600 transition-colors cursor-pointer hover:text-white"
+        size={"4rem"}
+        stroke={1}
+        onClick={() =>
+          document.querySelector("#about")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "center",
+          })
+        }
+      />
     </motion.li>
   );
 }

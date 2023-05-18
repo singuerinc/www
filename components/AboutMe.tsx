@@ -1,14 +1,14 @@
 "use client";
 
-import { IProject } from "@/lib/project";
 import { motion } from "framer-motion";
 
-export function AboutMe({ about }: { about: IProject }) {
+export function AboutMe() {
   return (
     <motion.li
+      id="about"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="relative gap-6 text-lg text-cyan-300 flex items-center justify-center shrink-0 w-[40rem]"
+      className="relative lg:mx-48 gap-6 text-xl text-violet-400 flex items-center justify-center shrink-0 w-full aspect-square lg:w-[40rem] lg:aspect-video"
     >
       {/* <Image
         alt="Nahuel"
@@ -20,7 +20,7 @@ export function AboutMe({ about }: { about: IProject }) {
         <p className="m-0">
           Hi. I&apos;m Nahuel Scotti, a versatile professional with a strong
           focus on web development. With a background in graphic design,
-          I&apos;ve worked with top companies like <b>DoubleYou</b> and{" "}
+          I&apos;ve worked with top companies like{" "}
           <a
             className="hover:underline"
             href="https://www.b-reel.com/"
@@ -36,7 +36,7 @@ export function AboutMe({ about }: { about: IProject }) {
           Typescript, and Node.js among others.
         </p>
         <p className="m-0">
-          Scroll (horizontally) and see some of my work and experiments.
+          Keep scrolling and see some of my work and experiments.
         </p>
       </div>
     </motion.li>

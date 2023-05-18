@@ -26,7 +26,7 @@ export function RandomColor() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
       onMouseMove={onMouseMove}
-      className="flex flex-col gap-y-4 justify-between shrink-0 w-[40rem]"
+      className="flex flex-col gap-y-4 justify-between shrink-0 w-full lg:w-[40rem]"
     >
       <span className="text-6xl leading-4 font-barcode" style={{ color }}>
         {color.substring(1)}

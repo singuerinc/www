@@ -13,19 +13,23 @@ export default async function Page() {
   const projects = getAll();
 
   return (
-    <ul className="flex items-center mx-12 gap-x-24">
+    <ul className="flex flex-col items-center mx-6 my-12 lg:mx-12 gap-y-24 lg:gap-y-0 lg:gap-x-24 lg:flex-row">
       <Title />
-      {projects.map((project) => {
+      {projects.map((project, idx) => {
         return (
           <>
-            {project.type === "website" && <Website project={project} />}
-            {project.type === "about-me" && <AboutMe about={project} />}
-            {project.type === "blog-post" && <BlogPost post={project} />}
-            {project.type === "repo" && <Repo repo={project} />}
-            {project.type === "random-colors" && <RandomColor />}
-            {project.type === "tic-tac-toe" && <TicTacToe />}
-            {project.type === "terminal" && <Terminal />}
-            {project.type === "current-stack" && <CurrentStack />}
+            {project.type === "website" && (
+              <Website key={idx} project={project} />
+            )}
+            {project.type === "about-me" && <AboutMe key={idx} />}
+            {project.type === "blog-post" && (
+              <BlogPost key={idx} post={project} />
+            )}
+            {project.type === "repo" && <Repo key={idx} repo={project} />}
+            {project.type === "random-colors" && <RandomColor key={idx} />}
+            {project.type === "tic-tac-toe" && <TicTacToe key={idx} />}
+            {project.type === "terminal" && <Terminal key={idx} />}
+            {project.type === "current-stack" && <CurrentStack key={idx} />}
           </>
         );
       })}

@@ -24,7 +24,7 @@ image: "singuerinc--bi"
 image_home: "singuerinc--bi"
 www: "https://bi.singuerinc.com/"
 more: "https://github.com/singuerinc/bi"
-priority: "priority-2"
+excerpt: "Bi is a personal experiment, aiming to enhance the Instagram™ feed experience. By utilizing Vue.js, webpack, Docker, PostCSS, and yarn, Bi displays images from your Instagram feed in higher resolution and size. It serves as a technological testbed, exploring cutting-edge technologies for web development."
 ---
 
 Bi. Your Instagram™ feed, but bigger!

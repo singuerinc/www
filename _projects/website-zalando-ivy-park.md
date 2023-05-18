@@ -17,8 +17,7 @@ tags:
   - "websockets"
 image: "zalando--ivy-park"
 image_home: "zalando--ivy-park"
-www: null
-priority: "priority-2"
+excerpt: 'In collaboration with Beyonce, Zalando presents a website where my primary focus was backend development. The frontend features the "My Park" section, which retrieves data from static JSON files. Utilizing Node.js, I created an application that communicates with an external API. This API gathers data from various social media platforms like Instagram and Facebook. Upon fetching the data, the program updates the JSON files with the latest information, serving them dynamically to the client.'
 ---
 
 In this website I was focused mainly on the backend.
