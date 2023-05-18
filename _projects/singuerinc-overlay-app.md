@@ -4,7 +4,7 @@ date: 2015-02-20
 title: "Overlay"
 category: "singuerinc"
 role: "Developer"
-client: singuerinc
+client: side project
 agency:
   - singuerinc
 tech:
@@ -20,6 +20,7 @@ image: "singuerinc--overlay-app"
 image_home: "singuerinc--overlay-app"
 www: "https://github.com/singuerinc/overlay"
 priority: "priority-2"
+excerpt: Overlay is an open source application that started as a fun project but soon became an essential tool in my daily workflow. It provides a simple yet powerful feature of overlaying images on any application, serving as a guide for achieving pixel-perfect designs. Originally developed in ActionScript, I later ported it to Electron, utilizing JavaScript and React.
 ---
 
 Overlay is an open source application I have developed. In the beginning it was just for fun, but rapidly it became a main tool in my daily workflow.

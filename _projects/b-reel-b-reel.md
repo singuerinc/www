@@ -19,6 +19,7 @@ image: "b-reel--b-reel"
 image_home: "b-reel--b-reel"
 www: "https://www.b-reel.com/"
 priority: "priority-2"
+excerpt: At B-REEL, we overhauled the company's website, ensuring full responsiveness and a fresh design. Our team handled frontend and backend development, making architectural decisions and technology selections. The frontend incorporated a responsive bootstrap 12-grid layout and a custom Marionette/Backbone application for seamless page transitions and interactions. Additionally, I played a key role as a core contributor to the B-REEL Javascript Framework, an innersource project utilized by b-reel.com.
 ---
 
 Working at B-REEL, the company decided to update the whole website, making it fully responsive and with a new design.

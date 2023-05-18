@@ -16,6 +16,7 @@ export function Repo({ repo }: { repo: IProject }) {
       <Link
         className="flex flex-col justify-between p-6 text-black bg-gray-200 transition-colors hover:bg-white drop-shadow-xl aspect-video lg:w-[20rem] w-full shrink-0 rounded-lg"
         href={repo.www!}
+        target="_blank"
       >
         <IconBrandGithubFilled />
         <h2>

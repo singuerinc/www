@@ -20,6 +20,7 @@ image: "roberto-ivan-cano"
 image_home: "roberto-ivan-cano"
 www: "http://www.robertoivancano.com/"
 priority: "priority-2"
+excerpt: Using Ruby on Rails as the foundation, this website showcases a custom-built CMS. It was a fulfilling project for me as each page was meticulously designed with unique details. For example, the "Travels" page features a customized Google Maps theme that displays locations where Roberto has worked. Users can click on a location to view the photos he took there. I took on the design responsibilities as well.
 ---
 
 Built on top of Ruby on Rails, this website features a CMS made from scratch.

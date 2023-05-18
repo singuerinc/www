@@ -8,7 +8,7 @@ export function AboutMe() {
       id="about"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="relative lg:mx-48 gap-6 text-xl text-violet-400 flex items-center justify-center shrink-0 w-full aspect-square lg:w-[40rem] lg:aspect-video"
+      className="relative lg:mx-48 text-xl text-violet-400 flex items-center justify-center shrink-0 w-full aspect-square lg:w-[40rem] lg:aspect-video"
     >
       {/* <Image
         alt="Nahuel"
@@ -27,16 +27,17 @@ export function AboutMe() {
             target="_blank"
           >
             <b>B-REEL</b>
-          </a>
-          , contributing to projects for esteemed clients like Nike, Google,
-          Facebook, and Spotify.
+          </a>{" "}
+          and <span className="font-semibold">DoubleYou</span>, contributing to
+          projects for esteemed clients like Nike, Google, Facebook, and
+          Spotify.
         </p>
         <p className="m-0">
           I specialize in leveraging cutting-edge technologies such as React,
           Typescript, and Node.js among others.
         </p>
         <p className="m-0">
-          Keep scrolling and see some of my work and experiments.
+          Keep scrolling and explore some of my writing, work and experiments.
         </p>
       </div>
     </motion.li>

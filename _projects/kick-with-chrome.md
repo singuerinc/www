@@ -22,6 +22,7 @@ image: "google--kick-with-chrome"
 image_home: "google--kick-with-chrome"
 www: "https://www.chromeexperiments.com/experiment/kick-with-chrome"
 priority: "priority-2"
+excerpt: I had the opportunity to work on a Chrome Experiment called "Kick with Chrome," where users can control games using their phones. The project was a collaboration with the Google team, who provided code reviews and feedback for secure and high-quality code. Technologies like WebSockets, WebRTC, Google Closure Library, Google App Engine, and Compute Engine were utilized to create a global gaming experience. The frontend was built with HTML5, JavaScript, and CSS3, while the backend consisted of a cluster of Node.js applications.
 ---
 
 Do a **Chrome Experiment** is one of those things that every developer want to do.

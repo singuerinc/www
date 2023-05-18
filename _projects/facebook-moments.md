@@ -20,6 +20,7 @@ image: "facebook--moments"
 image_home: "facebook--moments"
 www: "https://facebook-moments.singuerinc.com"
 priority: "priority-2"
+excerpt: While at B-REEL, I had the pleasure of developing a fully responsive landing page for Facebook's mobile application, "Moments." This single-page site featured an engaging video transition animation created using a combination of CSS and JavaScript. Additionally, scrolling the page revealed a captivating parallax effect. I thoroughly enjoyed working on this project, crafting a visually appealing and interactive experience to introduce users to the innovative features of "Moments."
 ---
 
 I was working at B-REEL when Facebook asked us to create a landing page for their new mobile application called "Moments".

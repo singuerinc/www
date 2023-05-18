@@ -19,6 +19,7 @@ image: "nike--pro-combat"
 image_home: "nike--pro-combat"
 www: null
 priority: "priority-0"
+excerpt: We developed a digital battle featuring Nike Pro Combat, a cold-weather protective t-shirt. Users could choose to attack or defend websites affiliated with the ad campaign, with the teams led by Andres Iniesta and Cristiano Ronaldo. When an opponent successfully defended a website, Iniesta or Ronaldo would appear wearing the t-shirt. The battle was facilitated by a Flash application embedded in an interstitial banner, providing an engaging and interactive experience for users.
 ---
 
 Nike Pro Combat is a t-shirt that protects you against the cold.
@@ -29,5 +30,5 @@ The application offered a serie of websites to attack and defend.
 
 As a user I could select a website and attack. But... if the opponent was protecting it then Iniesta or Cristiano appeared dressing the t-shirt.
 
-Those websites were basically affiliates to an ad campaing.
-To show those players we used a Flash application embeded in a interstitial banner.
+Those websites were basically affiliates to an ad campaign.
+To show those players we used a Flash application embedded in a interstitial banner.

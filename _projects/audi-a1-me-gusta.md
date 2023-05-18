@@ -21,6 +21,7 @@ image_home: "audi--a1-me-gusta"
 www: null
 priority: "priority-0"
 sitemap: false
+excerpt: We developed a web experience for Audi to showcase the customizable options of the A1 model. Users could visualize 850 car variants in a shared space, with the ability to share their favorites on social media. Due to limited computing power at the time, we used a simple algorithm to generate combinations instead of loading individual car images. The experience was built using Flash and FIVe3D since WebGL was not yet available until 2013.
 ---
 
 What if someone told you that he would like to visualize 850 variants of a car in a shared space?
