@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { ScrollObserver } from "@/components/ScrollObserver";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 // These styles apply to every route in the application
 import { IBM_Plex_Mono, Inter, Libre_Barcode_39, Lora } from "next/font/google";
@@ -59,6 +60,7 @@ export default function RootLayout({
         <main>
           {modal}
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
