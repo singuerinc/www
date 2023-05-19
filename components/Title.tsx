@@ -51,6 +51,7 @@ export function Title() {
         <div className="flex flex-col">
           <div>
             <Link
+              target="_blank"
               href="https://blog.singuerinc.com/"
               className="hover:underline"
             >
@@ -59,6 +60,7 @@ export function Title() {
           </div>
           <div>
             <Link
+              target="_blank"
               href="https://github.com/singuerinc"
               className="hover:underline"
             >
