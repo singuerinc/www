@@ -8,6 +8,7 @@ const projectsDirectory = join(process.cwd(), "_projects");
 
 const ProjectSchema = z.object({
   type: z.enum([
+    "timer",
     "story",
     "website",
     "blog-post",
