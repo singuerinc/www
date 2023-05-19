@@ -9,6 +9,7 @@ const isTypeAllowed = ({ type }: { type: IProject["type"] }) =>
   type === "repo" ||
   type === "terminal" ||
   type === "tic-tac-toe" ||
+  type === "timer" ||
   type === "website";
 
 export function Timeline({ projects }: { projects: IProject[] }) {
