@@ -18,7 +18,7 @@ export function Timeline({ projects }: { projects: IProject[] }) {
     <div className="hidden mx-12 gap-x-24 lg:flex">
       <div className="w-full h-2 shrink-0"></div>
       <div className="h-2 mx-48 w-[40rem] shrink-0"></div>
-      <div className="flex items-center pb-4 text-xl text-gray-700 border-b border-gray-900 gap-x-24">
+      <div className="flex items-center text-xl border-b border-gray-700 gap-x-24">
         {projects.filter(isTypeAllowed).map((project, idx) => {
           const projectYear = getYear(project.date).toString();
           const showYear = projectYear !== lastYear;
@@ -46,8 +46,8 @@ export function Timeline({ projects }: { projects: IProject[] }) {
           return (
             <div
               key={idx}
-              className={`shrink-0 pl-4 ${size} ${
-                showYear && "border-l border-white"
+              className={`shrink-0 text-gray-700 pb-4 top-2 relative pl-4 ${size} ${
+                showYear && "border-l border-gray-700"
               }`}
             >
               {showYear && projectYear}
