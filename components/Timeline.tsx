@@ -36,6 +36,7 @@ export function Timeline({ projects }: { projects: IProject[] }) {
           } else if (
             project.type === "current-stack" ||
             project.type === "tic-tac-toe" ||
+            project.type === "timer" ||
             project.type === "repo"
           ) {
             size = "w-[20rem]";

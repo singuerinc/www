@@ -7,6 +7,7 @@ import { Story } from "@/components/Story";
 import { Terminal } from "@/components/Terminal";
 import { TicTacToe } from "@/components/TicTacToe";
 import { Timeline } from "@/components/Timeline";
+import { Timer } from "@/components/Timer";
 import { Title } from "@/components/Title";
 import { Website } from "@/components/Website";
 import { getAll } from "@/lib/project";
@@ -33,6 +34,9 @@ export default async function Page() {
               {project.type === "repo" && <Repo key={idx} repo={project} />}
               {project.type === "random-colors" && <RandomColor key={idx} />}
               {project.type === "tic-tac-toe" && <TicTacToe key={idx} />}
+              {project.type === "timer" && (
+                <Timer key={idx} project={project} />
+              )}
               {project.type === "terminal" && <Terminal key={idx} />}
               {project.type === "current-stack" && <CurrentStack key={idx} />}
             </>
