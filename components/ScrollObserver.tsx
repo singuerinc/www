@@ -4,7 +4,7 @@ import { useMotionValueEvent, useSpring } from "framer-motion";
 import { useCallback, useEffect } from "react";
 
 export function ScrollObserver() {
-  const x = useSpring(0, { stiffness: 250 });
+  const x = useSpring(0, { stiffness: 100 });
 
   const onScroll = useCallback(
     (e: WheelEvent) => {
