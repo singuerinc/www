@@ -1,6 +1,7 @@
 import { AboutMe } from "@/components/AboutMe";
 import { BlogPost } from "@/components/BlogPost";
 import { CurrentStack } from "@/components/CurrentStack";
+import { Pairs } from "@/components/Pairs";
 import { RandomColor } from "@/components/RandomColor";
 import { Repo } from "@/components/Repo";
 import { Story } from "@/components/Story";
@@ -34,6 +35,7 @@ export default async function Page() {
               {project.type === "repo" && <Repo key={idx} repo={project} />}
               {project.type === "random-colors" && <RandomColor key={idx} />}
               {project.type === "tic-tac-toe" && <TicTacToe key={idx} />}
+              {project.type === "pairs" && <Pairs key={idx} />}
               {project.type === "timer" && (
                 <Timer key={idx} project={project} />
               )}
