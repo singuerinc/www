@@ -6,6 +6,7 @@ const isTypeAllowed = ({ type }: { type: IProject["type"] }) =>
   type === "story" ||
   type === "current-stack" ||
   type === "random-colors" ||
+  type === "pairs" ||
   type === "repo" ||
   type === "terminal" ||
   type === "tic-tac-toe" ||
@@ -38,6 +39,7 @@ export function Timeline({ projects }: { projects: IProject[] }) {
             project.type === "current-stack" ||
             project.type === "tic-tac-toe" ||
             project.type === "timer" ||
+            project.type === "pairs" ||
             project.type === "repo"
           ) {
             size = "w-[20rem]";
