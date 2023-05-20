@@ -1,6 +1,6 @@
 ---
 type: pairs
-date: 2022-04-06
-title: "Pairs"
-excerpt: Pairs
+date: 2017-04-06
+title: "Memoryji"
+excerpt: Memoryji
 ---
