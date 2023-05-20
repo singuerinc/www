@@ -3,107 +3,35 @@ import { IProject } from "@/lib/project";
 import { getProjectImage, getProjectUrl } from "@/lib/utils";
 import formatRelative from "date-fns/formatRelative";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 export function ProjectLink({ project }: { project: IProject }) {
   return (
     <motion.div
-      whileHover="hover"
       initial={{ opacity: 0 }}
-      animate={"rest"}
       whileInView={{ opacity: 1, transition: { delay: 0.3 } }}
-      className="w-full aspect-square lg:w-[40rem] lg:aspect-[16/8] bg-center bg-no-repeat bg-cover rounded-lg bg-gray-800 border border-gray-800"
-      style={{
-        backgroundImage: project.image
-          ? `url(${getProjectImage(project.image)})`
-          : "none",
-        backgroundColor: project.bg_color ?? "initial",
-      }}
+      className="w-full group relative lg:w-[40rem] lg:aspect-[2.11] bg-center rounded-lg bg-gray-800 lg:border lg:border-gray-800"
     >
+      <Image
+        alt={project.title}
+        src={getProjectImage(project.image)}
+        width={1632}
+        height={772}
+        className="lg:absolute lg:z-10 lg:top-0 lg:left-0 lg:rounded-lg"
+      />
       <div
         // href={getProjectUrl(project.slug)}
-        className="w-full aspect-square lg:w-[40rem] lg:aspect-[16/8] relative flex flex-col h-full"
+        className="w-full lg:w-[40rem] lg:aspect-[2.11] relative flex flex-col h-full"
       >
-        <motion.div
-          variants={{
-            rest: { top: "-1rem", opacity: 0 },
-            hover: { top: "-2rem", opacity: 1 },
-          }}
-          className="absolute flex items-baseline gap-x-2"
-        >
+        <div className="absolute flex items-baseline transition-all gap-x-2 lg:-top-4 lg:opacity-0 group-hover:-top-8 group-hover:opacity-100">
           <h4 className="text-sm font-semibold">{project.client}</h4>
-        </motion.div>
-        <motion.div
-          variants={{
-            rest: { scale: 0.95, opacity: 0 },
-            hover: { scale: 1, opacity: 1 },
-          }}
-          className="absolute flex flex-col justify-between w-full h-full px-12 py-8 overflow-y-scroll text-gray-900 bg-white rounded-lg gap-y-2"
-        >
+        </div>
+        <div className="z-20 flex flex-col justify-between w-full px-8 py-8 text-gray-900 transition-all bg-white border border-white rounded-b-lg lg:scale-95 lg:opacity-0 group-hover:scale-100 group-hover:opacity-100 lg:absolute lg:top-0 lg:left-0 lg:px-12 lg:h-full lg:overflow-y-scroll lg:rounded-lg gap-y-2">
           <time className="text-sm text-gray-700">
             {formatRelative(project.date, new Date())}
           </time>
           <p className="m-0">{project.excerpt}</p>
-          {/* <table className="text-sm">
-            <tbody>
-              <tr>
-                <td>Client</td>
-                <td className="font-semibold">{project.client}</td>
-              </tr>
-              <tr>
-                <td>Agency</td>
-                <td className="font-semibold">{project.agency}</td>
-              </tr>
-              <tr>
-                <td>Website</td>
-                <td className="font-semibold">
-                  {project.www ? (
-                    <Link
-                      className="hover:underline"
-                      href={project.www}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {project.www}
-                    </Link>
-                  ) : (
-                    <del>Unavailable</del>
-                  )}
-                </td>
-              </tr>
-              {project.more && (
-                <tr>
-                  <td className="info-title">More info</td>
-                  <td className="font-semibold">
-                    <Link
-                      className="hover:underline"
-                      href={project.more}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {project.more}
-                    </Link>
-                  </td>
-                </tr>
-              )}
-              <tr>
-                <td>Tech</td>
-                <td className="font-semibold">
-                  {project.tech?.map((v) => `#${v}`).join(" ")}
-                </td>
-              </tr>
-              {project.awards && (
-                <tr>
-                  <td>Awards</td>
-                  <td className="font-semibold">
-                    {project.awards.map((award, idx) => (
-                      <div key={idx} className={`award ${award}`} />
-                    ))}
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table> */}
           {/* <Link className="hover:underline" href={getProjectUrl(project.slug)}>
             Read more
           </Link> */}
@@ -119,18 +47,11 @@ export function ProjectLink({ project }: { project: IProject }) {
           {!project.www && (
             <span className="text-sm text-gray-700">Currently offline</span>
           )}
-        </motion.div>
-        <motion.div
-          variants={{
-            rest: { bottom: "-1rem", opacity: 0 },
-            hover: { top: "calc(100% + 0.5rem)", opacity: 1 },
-          }}
-          className="absolute flex flex-col"
-        >
+        </div>
+        <div className="absolute flex flex-col group-hover:top-[100%] mt-4 group-hover:opacity-100 lg:opacity-0 lg:top-[90%] transition-all">
           <h2 className="text-lg">{project.title}</h2>
           <h3 className="text-sm font-semibold">{project.role}</h3>
-          {/* <p dangerouslySetInnerHTML={{ __html: project.content ?? "" }} /> */}
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );

@@ -39,6 +39,7 @@ type Events =
 
 export const timerMachine = createMachine<Context, Events>(
   {
+    predictableActionArguments: true,
     initial: "idle",
     context: {
       totalTime: MIN_0,
