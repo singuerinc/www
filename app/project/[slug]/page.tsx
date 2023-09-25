@@ -37,6 +37,7 @@ export async function generateMetadata({
   const project = getOneBySlug(slug);
   const title = normalizeTitle(project);
   return {
+    metadataBase: new URL("https://singuerinc.com/"),
     title: `${title} | singuerinc`,
   };
 }
