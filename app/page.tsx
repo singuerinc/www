@@ -12,6 +12,7 @@ import { Timer } from "@/components/Timer";
 import { Title } from "@/components/Title";
 import { Website } from "@/components/Website";
 import { getAll } from "@/lib/project";
+import React from "react";
 
 export default async function Page() {
   const projects = getAll();
@@ -23,25 +24,19 @@ export default async function Page() {
         <Title />
         {projects.map((project, idx) => {
           return (
-            <>
-              {project.type === "website" && (
-                <Website key={idx} project={project} />
-              )}
-              {project.type === "about-me" && <AboutMe key={idx} />}
-              {project.type === "blog-post" && (
-                <BlogPost key={idx} post={project} />
-              )}
-              {project.type === "story" && <Story key={idx} post={project} />}
-              {project.type === "repo" && <Repo key={idx} repo={project} />}
-              {project.type === "random-colors" && <RandomColor key={idx} />}
-              {project.type === "tic-tac-toe" && <TicTacToe key={idx} />}
-              {project.type === "pairs" && <Pairs key={idx} />}
-              {project.type === "timer" && (
-                <Timer key={idx} project={project} />
-              )}
-              {project.type === "terminal" && <Terminal key={idx} />}
-              {project.type === "current-stack" && <CurrentStack key={idx} />}
-            </>
+            <React.Fragment key={idx}>
+              {project.type === "website" && <Website project={project} />}
+              {project.type === "about-me" && <AboutMe />}
+              {project.type === "blog-post" && <BlogPost post={project} />}
+              {project.type === "story" && <Story post={project} />}
+              {project.type === "repo" && <Repo repo={project} />}
+              {project.type === "random-colors" && <RandomColor />}
+              {project.type === "tic-tac-toe" && <TicTacToe />}
+              {project.type === "pairs" && <Pairs />}
+              {project.type === "timer" && <Timer project={project} />}
+              {project.type === "terminal" && <Terminal />}
+              {project.type === "current-stack" && <CurrentStack />}
+            </React.Fragment>
           );
         })}
       </ul>
