@@ -45,6 +45,7 @@ export function Timer({ project }: { project: IProject }) {
         <br />
         Find the standalone version{" "}
         <Link
+          target="_blank"
           href="https://timer.singuerinc.com/"
           className="hover:underline text-cyan-300"
         >

@@ -29,6 +29,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://singuerinc.com/"),
   title: "Nahuel Scotti. Frontend Developer. Portfolio.",
   description: "My work as Frontend Developer and Engineering Manager.",
   openGraph: {
