@@ -59,7 +59,6 @@ export function getAll(): IProject[] {
   const slugs = fs.readdirSync(projectsDirectory);
   const projects = slugs
     .map<IProject>((slug) => getOneBySlug(slug))
-    .filter((p) => p.type !== "story")
     .filter((p) => p.status === "published")
     .sort((p1, p2) => (isAfter(p1.date, p2.date) ? -1 : 1));
   return projects;
