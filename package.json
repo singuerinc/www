@@ -14,29 +14,33 @@
     "@next/mdx": "13.1.5",
     "@tabler/icons-react": "2.18.0",
     "@types/node": "18.11.18",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "@vercel/analytics": "1.0.1",
-    "@xstate/react": "3.2.2",
-    "colorjs.io": "0.4.3",
-    "date-fns": "2.30.0",
-    "eslint": "8.32.0",
-    "eslint-config-next": "14.1.4",
-    "framer-motion": "10.12.11",
-    "gray-matter": "4.0.3",
-    "next": "14.1.4",
-    "open-color": "1.9.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.23",
+    "@vercel/analytics": "^1.2.2",
+    "@xstate/react": "^3.2.2",
+    "colorjs.io": "^0.5.0",
+    "date-fns": "^3.6.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.4",
+    "framer-motion": "^10.12.11",
+    "gray-matter": "^4.0.3",
+    "next": "^14.1.4",
+    "open-color": "^1.9.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
-    "typescript": "5.1.6",
-    "xstate": "4.37.2",
-    "zod": "3.21.4"
+    "typescript": "^5.4.3",
+    "xstate": "^4.37.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "autoprefixer": "10.4.13",
-    "postcss": "8.4.31",
-    "tailwindcss": "3.2.4"
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }

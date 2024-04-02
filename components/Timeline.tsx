@@ -1,5 +1,5 @@
 import { IProject } from "@/lib/project";
-import getYear from "date-fns/getYear";
+import { getYear } from "date-fns";
 
 const isTypeAllowed = ({ type }: { type: IProject["type"] }) =>
   type === "blog-post" ||
