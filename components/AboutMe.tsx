@@ -23,10 +23,10 @@ export function AboutMe() {
           I&apos;ve worked with top companies like{" "}
           <a
             className="hover:underline"
-            href="https://www.b-reel.com/"
+            href="https://www.feelslike.studio/"
             target="_blank"
           >
-            <b>B-REEL</b>
+            <b>Feels Like Studio (aka B-REEL)</b>
           </a>{" "}
           and <span className="font-semibold">DoubleYou</span>, contributing to
           projects for esteemed clients like Nike, Google, Facebook, and
