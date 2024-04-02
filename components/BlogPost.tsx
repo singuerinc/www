@@ -1,7 +1,7 @@
 "use client";
 
 import { IProject } from "@/lib/project";
-import formatDistance from "date-fns/formatDistance";
+import { formatDistance } from "date-fns";
 import { motion } from "framer-motion";
 import Link from "next/link";
 

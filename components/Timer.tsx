@@ -1,7 +1,7 @@
 "use client";
 import { useTimer } from "@/hooks/useTimer";
 import { IProject } from "@/lib/project";
-import format from "date-fns/format";
+import { format } from "date-fns";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect } from "react";

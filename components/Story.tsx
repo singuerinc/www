@@ -2,7 +2,7 @@
 
 import { IProject } from "@/lib/project";
 import { getProjectImage } from "@/lib/utils";
-import format from "date-fns/format";
+import { format } from "date-fns";
 import { motion } from "framer-motion";
 import Image from "next/image";
 

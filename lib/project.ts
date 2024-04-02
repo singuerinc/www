@@ -1,4 +1,4 @@
-import isAfter from "date-fns/isAfter";
+import { isAfter } from "date-fns";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
