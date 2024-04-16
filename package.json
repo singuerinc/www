@@ -14,7 +14,7 @@
     "@next/mdx": "13.5.6",
     "@tabler/icons-react": "2.47.0",
     "@types/node": "20.12.5",
-    "@types/react": "18.2.74",
+    "@types/react": "18.2.75",
     "@types/react-dom": "18.2.24",
     "@vercel/analytics": "1.2.2",
     "@xstate/react": "3.2.2",
