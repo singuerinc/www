@@ -20,7 +20,7 @@
     "@xstate/react": "3.2.2",
     "colorjs.io": "0.5.2",
     "date-fns": "3.6.0",
-    "eslint": "8.57.0",
+    "eslint": "9.6.0",
     "eslint-config-next": "14.2.5",
     "framer-motion": "11.3.21",
     "gray-matter": "4.0.3",
