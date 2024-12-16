@@ -15,7 +15,7 @@
     "@tabler/icons-react": "3.23.0",
     "@types/node": "20.17.9",
     "@types/react": "18.3.14",
-    "@types/react-dom": "18.3.2",
+    "@types/react-dom": "18.3.3",
     "@vercel/analytics": "1.4.1",
     "@xstate/react": "3.2.2",
     "colorjs.io": "0.5.2",
