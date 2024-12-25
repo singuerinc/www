@@ -32,7 +32,7 @@
     "remark-html": "15.0.2",
     "typescript": "5.7.2",
     "xstate": "4.38.3",
-    "zod": "3.23.8"
+    "zod": "3.24.0"
   },
   "devDependencies": {
     "autoprefixer": "10.4.20",
