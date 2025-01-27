@@ -22,7 +22,7 @@
     "date-fns": "3.6.0",
     "eslint": "8.57.1",
     "eslint-config-next": "14.2.23",
-    "framer-motion": "11.17.0",
+    "framer-motion": "11.17.1",
     "gray-matter": "4.0.3",
     "next": "14.2.23",
     "open-color": "1.9.1",
